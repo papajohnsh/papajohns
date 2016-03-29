@@ -8,7 +8,7 @@
 </head>
 <body>
 PapaJohns 프로젝트에 오신걸 환영합니다.!
-
+Test 입니다.
 <form name="test" action="test.do">
 <input type="text" name="name">
 <input type="text" name="num1">
