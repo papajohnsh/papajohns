@@ -4,5 +4,5 @@
 window.alert('${msg}');
 location.href='index.do';
 //
-//Test Commit2
+//Test Commit23
 </script>
