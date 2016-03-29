@@ -3,6 +3,4 @@
 <script>
 window.alert('${msg}');
 location.href='index.do';
-//1
-//Test Commit2345
 </script>
