@@ -3,4 +3,5 @@
 <script>
 window.alert('${msg}');
 location.href='index.do';
+//TestMSG
 </script>
