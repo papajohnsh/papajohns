@@ -95,7 +95,7 @@
               <img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
             </div>
             <div class="pull-left info">
-              <p>로그인 해주세요..</p>
+              <p>로그인 해주세요...</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
