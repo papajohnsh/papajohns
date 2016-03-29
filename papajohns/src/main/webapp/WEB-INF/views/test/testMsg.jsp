@@ -3,5 +3,6 @@
 <script>
 window.alert('${msg}');
 location.href='index.do';
-//TestMSG
+//
+//Test Commit2
 </script>
