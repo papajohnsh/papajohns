@@ -270,6 +270,8 @@
                  </div><!-- /.box --> 
             
  		</section>
+ 		<iframe src="http://192.168.50.81?student=이준규&classRoom=자바">
+ 		</iframe>
  	<%@ include file="footer.jsp" %>
     <%@ include file="controllSide.jsp" %>
 
