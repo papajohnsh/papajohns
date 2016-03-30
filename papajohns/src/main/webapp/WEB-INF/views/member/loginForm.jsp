@@ -72,12 +72,13 @@
         <div class="modal-body">
            <form role="form">
 		   <div class="form-group">
-		     <label for="name">이름:</label>
-		     <input type="text" class="form-control" id="name" placeholder="Enter name">
+		     <label for="name">회원아이디:</label>
+		     <input type="button" value="중복확인" onclick="">
+		     <input type="text" class="form-control" id="id" placeholder="Enter id">
 		   </div>
 		   <div class="form-group">
-		     <label for="id">아이디:</label>
-		     <input type="id" class="form-control" id="id" placeholder="Enter id">
+		     <label for="id">비밀번호:</label>
+		     <input type="password" class="form-control" id="pwd" placeholder="Enter password">
 		   </div>
 		   <div class="form-group">
 		     <label for="pwd">비밀번호:</label>
@@ -85,6 +86,7 @@
 		   </div>
 		   <div class="form-group">
 		     <label for="addr">주소:</label>
+		     <input type="button" value="우편번호검색" onclick="">
 		     <input type="text" class="form-control" id="addr" placeholder="Enter addr">
 		   </div>
 		   <div class="form-group">
