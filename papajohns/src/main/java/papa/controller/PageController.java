@@ -1,12 +1,29 @@
 package papa.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import papa.member.model.MemberDAO;
+import papa.member.model.MemberDTO;
+
 @Controller
 public class PageController {
+	@Autowired
+	private MemberDAO memberDao;
+	
+	
+	public MemberDAO getMemberDao() {
+		return memberDao;
+	}
+
+	public void setMemberDao(MemberDAO memberDao) {
+		this.memberDao = memberDao;
+	}
+
 	@RequestMapping("/loginForm.do")//loginForm으로 이동
 	public String loginForm(){
 		return "member/loginForm";
@@ -18,6 +35,19 @@ public class PageController {
 		mav.setViewName("member/login");
 		return mav;
 	}
+	
+	@RequestMapping("/memberAddOk.do")//회원가입
+	public ModelAndView memberAddOk(MemberDTO dto){
+		System.out.println(dto.getName()+""+dto.getId()+""+dto.getPwd());
+		int result=memberDao.memberAdd(dto);
+		String msg=result>0?"회원가입성공":"회원가입실패";
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("msg", msg);
+		mav.setViewName("member/memberMsg");
+		return mav;
+	}
+	
 	
 	@RequestMapping("/classRoomForm.do")//내강의실Form 이동
 	public String classRoomForm(){

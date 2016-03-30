@@ -69,40 +69,48 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">회원가입</h4>
         </div>
+         <form name="f" action="memberAddOk.do" role="form">
         <div class="modal-body">
-           <form role="form">
 		   <div class="form-group">
-		     <label for="name">회원아이디:</label>
-		     <input type="button" value="중복확인" onclick="">
-		     <input type="text" class="form-control" id="id" placeholder="Enter id">
-		   </div>
-		   <div class="form-group">
-		     <label for="id">비밀번호:</label>
-		     <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+		     <label for="id">회원아이디:</label>
+		     <input type="button" value="중복확인" onclick="show()">
+		     <input type="text" class="form-control" id="id">
 		   </div>
 		   <div class="form-group">
 		     <label for="pwd">비밀번호:</label>
 		     <input type="password" class="form-control" id="pwd" placeholder="Enter password">
 		   </div>
 		   <div class="form-group">
-		     <label for="addr">주소:</label>
-		     <input type="button" value="우편번호검색" onclick="">
-		     <input type="text" class="form-control" id="addr" placeholder="Enter addr">
+		     <label for="name">이름:</label>
+		     <input type="text" class="form-control" id="name" placeholder="Enter name">
+		   </div>
+		   <div class="form-group">
+		     <label for="birthday">생년월일:</label>
+		     <input type="text" class="form-control" id="birthday" placeholder="Enter birthday">
+		   </div>
+		   <div class="form-group">
+		     <label for="gender">성별:</label>
+		     <input type="radio" name="gender" value="0">남자
+		     <input type="radio" name="gender" value="1">여자
+		     <input type="radio" name="gender" value="2">트랜스
 		   </div>
 		   <div class="form-group">
 		     <label for="email">email:</label>
 		     <input type="text" class="form-control" id="email" placeholder="Enter email">
 		   </div>
 		   <div class="form-group">
-		     <label for="phone">핸드폰 번호:</label><br>
-		     <input type="text" id="phone" placeholder="010"maxlength="3">-<input type="text" maxlength="4">-<input type="text" maxlength="4">
+		     <label for="phonenumber">핸드폰 번호:</label><br>
+		     <input type="text" id="phonenumber" placeholder="010"maxlength="3">-<input type="text" maxlength="4">-<input type="text" maxlength="4">
 		   </div>
-  		</form>
+  	
         </div>
         <div class="modal-footer">
-        <input type="button" class="btn btn-default" value="login" onclick="location.href='memberAddOk.do';">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!-- <input type="submit" class="btn btn-default" value="login">-->
+        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          
         </div>
+        </form>
       </div>
     </div>
   </div> 
