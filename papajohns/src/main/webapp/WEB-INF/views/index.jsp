@@ -268,10 +268,10 @@
                     </div><!-- container -->
                   </div><!-- /.table-responsive -->
                  </div><!-- /.box --> 
-            
- 		</section>
- 		<iframe src="http://192.168.50.81:8081?student=이준규&classRoom=자바">
+             		<iframe src="http://192.168.50.81:8081?student=이준규&classRoom=자바" width="550" height="550">
  		</iframe>
+ 		</section>
+
  	<%@ include file="footer.jsp" %>
     <%@ include file="controllSide.jsp" %>
 
