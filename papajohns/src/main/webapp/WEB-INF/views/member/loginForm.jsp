@@ -81,13 +81,13 @@
 		     <input type="password" class="form-control" id="pwd" placeholder="Enter password">
 		   </div>
 		   <div class="form-group">
-		     <label for="pwd">비밀번호:</label>
-		     <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+		     <label for="pwd">이름:</label>
+		     <input type="password" class="form-control" id="name" placeholder="Enter password">
 		   </div>
 		   <div class="form-group">
-		     <label for="addr">주소:</label>
-		     <input type="button" value="우편번호검색" onclick="">
-		     <input type="text" class="form-control" id="addr" placeholder="Enter addr">
+		     <label for="gender">성별:</label>
+		     <input type="radio" class="form-control" name="se" value="여자">
+		     <input type="radio" class="form-control" name="se" value="남자">
 		   </div>
 		   <div class="form-group">
 		     <label for="email">email:</label>
