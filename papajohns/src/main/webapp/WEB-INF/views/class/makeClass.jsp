@@ -92,7 +92,7 @@
                   <h3 class="box-title">새 강의</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <table class="table table-bordered">
+                  <table class="table table-bordered" style="width=50%;">
                     <tr>
                       <th>수업기간명</th>
                       <td>Papa교육원</td>

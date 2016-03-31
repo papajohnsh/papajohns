@@ -33,6 +33,26 @@
     <link rel="stylesheet" href="css/plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+<script type="text/javascript" src="js/httpRequest.js"></script>
+<script>
+function show(){//id중복체크
+	
+	var userid=document.memberAdd.id.value;//userid 값을 가져옴
+	var params='userid='+userid;//파라미터 구축
+	sendRequest('idCheckOk.do', params, showResult, 'GET');
+
+}
+
+function showResult(){//응답함수
+	if(XHR.readyState==4){
+		if(XHR.status==200){
+			var msg=XHR.responseText;
+			var spanTag=document.getElementById('idmsg');
+			spanTag.innerHTML=msg;
+		}
+	}
+}
+</script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
  <%@include file="../header.jsp" %>
@@ -40,26 +60,28 @@
 <div class="container" style="width: 500px">
 
   <h2>ClassRoom</h2>
-  <form role="form">
+  <form role="form" name="login" action="loginOk.do">
     <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
+      <label for="id">ID:</label>
+      <input type="text" class="form-control" name="id" id="id" placeholder="Enter id">
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+      <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter password">
     </div>
     <div class="checkbox">
       <label><input type="checkbox"> Remember me</label>
     </div>
-
-     <input type="button" class="btn btn-default" value="login" onclick="location.href='loginOk.do';">
+     <input type="submit" class="btn btn-default" value="login">
     <button type="button" class="btn btn-info btn-default" data-toggle="modal" data-target="#myModal">회원가입</button>
   </form>
+ 
 </div>
+
 
 <div class="container">
   <!-- Modal -->
+ <form role="form" name="memberAdd" action="memberAdd.do">
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -69,44 +91,53 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">회원가입</h4>
         </div>
+        
         <div class="modal-body">
-           <form role="form">
 		   <div class="form-group">
-		     <label for="name">회원아이디:</label>
-		     <input type="button" value="중복확인" onclick="">
-		     <input type="text" class="form-control" id="id" placeholder="Enter id">
+		     <label for="id">회원아이디:</label>
+		     <input type="button" class="btn btn-info" value="중복확인" onclick="show()">
+		     <span id="idmsg"></span>
+		     <input type="text" class="form-control" name="id" id="id">
 		   </div>
 		   <div class="form-group">
-		     <label for="id">비밀번호:</label>
-		     <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+		     <label for="pwd">비밀번호:</label>
+		     <input type="password" class="form-control" name="pwd" id="pwd" maxlength="15" placeholder="Enter password">
 		   </div>
 		   <div class="form-group">
-		     <label for="pwd">이름:</label>
-		     <input type="password" class="form-control" id="name" placeholder="Enter password">
+		     <label for="name">이름:</label>
+		     <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
 		   </div>
 		   <div class="form-group">
 		     <label for="gender">성별:</label>
-		     <input type="radio" class="form-control" name="se" value="여자">
-		     <input type="radio" class="form-control" name="se" value="남자">
+		     <input type="radio"  name="gender" value="0" checked="true">남자
+		     <input type="radio"  name="gender" value="1">여자
+		     <input type="radio"  name="gender" value="2">기타
 		   </div>
 		   <div class="form-group">
 		     <label for="email">email:</label>
-		     <input type="text" class="form-control" id="email" placeholder="Enter email">
+		     <input type="text" name="email"  id="email" placeholder="Enter email">
+		     <select style="width: 30%" name="email">
+		     	<option value="직접입력">직접입력</option>
+		     	<option value="@naver.com">@naver.com</option>
+		     	<option value="@daum.net">@daum.net</option>
+		     	<option value="@gmail.com">@gmail.com</option>
+		     </select>		     
 		   </div>
 		   <div class="form-group">
 		     <label for="phone">핸드폰 번호:</label><br>
-		     <input type="text" id="phone" placeholder="010"maxlength="3">-<input type="text" maxlength="4">-<input type="text" maxlength="4">
+		     <input type="text" name="phonenumber" id="phonenumber" placeholder="010"maxlength="3">-<input type="text" name="phonenumber" maxlength="4">-<input type="text" name="phonenumber" maxlength="4">
 		   </div>
-  		</form>
         </div>
         <div class="modal-footer">
-        <input type="button" class="btn btn-default" value="login" onclick="location.href='memberAddOk.do';">
+        <input type="submit" class="btn btn-default" value="가입">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
+       
       </div>
     </div>
+  </div>
+  </form> 
   </div> 
-</div>
 
 <%@ include file="../controllSide.jsp" %>
  <!-- jQuery 2.1.4 -->
