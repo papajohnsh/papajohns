@@ -13,5 +13,6 @@ public interface MemberDAO {
 	public boolean idCheck(String userid);
 	public int loginOk(Map<String, String> map);
 	public String getUserInfo(String id);
+
 	
 }

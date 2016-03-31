@@ -1,20 +1,22 @@
 package papa.controller;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.omg.CORBA.MARSHAL;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import papa.member.model.MemberDAO;
 import papa.member.model.MemberDTO;
-
 
 @Controller
 public class PageController {
@@ -109,6 +111,7 @@ public class PageController {
 		return mav;
 		
 	}
+
 	
 	@RequestMapping("/classRoomForm.do")//내강의실Form 이동
 	public String classRoomForm(){

@@ -91,13 +91,15 @@ function showResult(){//응답함수
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">회원가입</h4>
         </div>
-        
+
         <div class="modal-body">
 		   <div class="form-group">
 		     <label for="id">회원아이디:</label>
+
 		     <input type="button" class="btn btn-info" value="중복확인" onclick="show()">
 		     <span id="idmsg"></span>
 		     <input type="text" class="form-control" name="id" id="id">
+
 		   </div>
 		   <div class="form-group">
 		     <label for="pwd">비밀번호:</label>
@@ -105,6 +107,7 @@ function showResult(){//응답함수
 		   </div>
 		   <div class="form-group">
 		     <label for="name">이름:</label>
+
 		     <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
 		   </div>
 		   <div class="form-group">
@@ -112,6 +115,7 @@ function showResult(){//응답함수
 		     <input type="radio"  name="gender" value="0" checked="true">남자
 		     <input type="radio"  name="gender" value="1">여자
 		     <input type="radio"  name="gender" value="2">기타
+
 		   </div>
 		   <div class="form-group">
 		     <label for="email">email:</label>
@@ -124,15 +128,35 @@ function showResult(){//응답함수
 		     </select>		     
 		   </div>
 		   <div class="form-group">
+<<<<<<< HEAD
 		     <label for="phone">핸드폰 번호:</label><br>
 		     <input type="text" name="phonenumber" id="phonenumber" placeholder="010"maxlength="3">-<input type="text" name="phonenumber" maxlength="4">-<input type="text" name="phonenumber" maxlength="4">
+=======
+		     <label for="phonenumber">핸드폰 번호:</label><br>
+		     <input type="text" id="phonenumber" placeholder="010"maxlength="3">-<input type="text" maxlength="4">-<input type="text" maxlength="4">
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
 		   </div>
+<<<<<<< HEAD
+=======
+  	
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
         </div>
         <div class="modal-footer">
+<<<<<<< HEAD
         <input type="submit" class="btn btn-default" value="가입">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+=======
+        <!-- <input type="submit" class="btn btn-default" value="login">-->
+        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
         </div>
+<<<<<<< HEAD
        
+=======
+        </form>
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
       </div>
     </div>
   </div>

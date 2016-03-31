@@ -17,3 +17,4 @@
   		select name from papa_member where id=#{id}
   	</select>
   </mapper>
+

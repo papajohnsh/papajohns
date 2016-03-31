@@ -1,6 +1,5 @@
 package papa.member.model;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -40,4 +39,5 @@ public class MemberDAOImple implements MemberDAO {
 		String name=sqlMap.selectOne("getUser", id);
 		return name;
 	}
+
 }
