@@ -3,18 +3,24 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="sqlMapper.mb">
-  	<insert id="writeAdd" parameterType="papa.member.model.MemberDTO">
+  	<insert id="memberAdd" parameterType="papa.member.model.MemberDTO">
   		insert into papa_member(id,pwd,name,birthday,gender,phonenumber,email,joindate)
-  		values(#{id},#{pwd},#{name},now(),#{gender},#{phonenumber},#{email},now())
+  		values(#{id},#{pwd},#{name},#{birthday},#{gender},#{phonenumber},#{email},now())
   	</insert>
-  	<select id="idCheck" parameterType="string" resultOrdered="true">
+  	<select id="idCheck" parameterType="String" resultType="String">
   		select id from papa_member where id=#{id}
   	</select>
-  	<select id="loginCheck" parameterType="Map" resultType="int">
-  		select count(*) from papa_member where id=#{id} and pwd=#{pwd}
+  	
+  	<select id="loginCheck" parameterType="String" resultType="int">
+  		select count(id) from papa_member where id=#{id}
   	</select>
-  	<select id="getUser" parameterType="String" resultType="papa.member.model.MemberDTO">
+  	<select id="loginCheckPw" parameterType="String" resultType="int">
+  		select count(pwd) from papa_member where pwd=#{pwd}
+  	</select>
+  	
+  	<select id="getUser" parameterType="String" resultType="String">
   		select name from papa_member where id=#{id}
   	</select>
   </mapper>
+
 

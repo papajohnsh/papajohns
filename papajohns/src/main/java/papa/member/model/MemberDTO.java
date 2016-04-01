@@ -9,7 +9,7 @@ public class MemberDTO {
 	private String id;
 	private String pwd;
 	private String name;
-	private Date birthday;
+	private String birthday;
 	private int gender;
 	private String phonenumber;
 	private String email;
@@ -19,8 +19,8 @@ public class MemberDTO {
 		super();
 	}
 
-	public MemberDTO(int member_idx, String interlocking, String id, String pwd, String name, Date birthday, int gender,
-			String phonenumber, String email, Date joindate) {
+	public MemberDTO(int member_idx, String interlocking, String id, String pwd, String name, String birthday,
+			int gender, String phonenumber, String email, Date joindate) {
 		super();
 		this.member_idx = member_idx;
 		this.interlocking = interlocking;
@@ -74,11 +74,11 @@ public class MemberDTO {
 		this.name = name;
 	}
 
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 
@@ -113,6 +113,5 @@ public class MemberDTO {
 	public void setJoindate(Date joindate) {
 		this.joindate = joindate;
 	}
-	
-	
+
 }

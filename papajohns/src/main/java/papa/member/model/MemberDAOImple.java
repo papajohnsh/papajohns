@@ -1,5 +1,6 @@
 package papa.member.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -16,28 +17,28 @@ public class MemberDAOImple implements MemberDAO {
 
 
 	public int memberAdd(MemberDTO dto) {//회원가입
-		int result = sqlMap.insert("writeAdd", dto);
+		int result = sqlMap.insert("memberAdd", dto);
 		return result;
 	}
 
-	public boolean idCheck(String userid) {//아이디 중복체크
-		MemberDTO id=sqlMap.selectOne("idCheck");
-		return false;
+	public String idCheck(String id) {//아이디 중복체크
+		String result=sqlMap.selectOne("idCheck", id);
+		return result;
 	}
 	
-	public int loginOk(Map<String, String> map) {//로그인
-		
-		System.out.println(map.get("id"));
-				
-		int result=sqlMap.selectOne("loginCheck", map);
-		System.out.println(result);
+	public int loginOk(String id) {//로그인
+		int result=sqlMap.selectOne("loginCheck", id);
+		return result;
+	}
+	
+	public int loginOkPw(String pwd){
+		int result=sqlMap.selectOne("loginCheckPw", pwd);
 		return result;
 	}
 	
 	public String getUserInfo(String id) {//개인정보가져오기
 		
-		String name=sqlMap.selectOne("getUser", id);
-		return name;
+		String dto=sqlMap.selectOne("getUser", id);
+		return dto;
 	}
-
 }

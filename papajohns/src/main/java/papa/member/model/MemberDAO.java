@@ -10,9 +10,8 @@ public interface MemberDAO {
 	public static final int ERROR=-1;
 	
 	public int memberAdd(MemberDTO dto);
-	public boolean idCheck(String userid);
-	public int loginOk(Map<String, String> map);
+	public String idCheck(String id);
+	public int loginOk(String id);
+	public int loginOkPw(String pwd);
 	public String getUserInfo(String id);
-
-	
 }
