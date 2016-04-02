@@ -4,12 +4,15 @@ package papa.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.omg.CORBA.MARSHAL;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,56 +36,70 @@ public class PageController {
 	}
 
 	@RequestMapping("/loginForm.do")//loginForm으로 이동
-	public String loginForm(){
-		return "member/loginForm";
+	public ModelAndView loginForm(@CookieValue(value="saveid",required=false,defaultValue="NoId")String saveid){
+		
+		System.out.println("saveid쿠키정보:"+saveid);
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("member/loginForm");
+		return mav;
 	}
 	
 	@RequestMapping("/loginOk.do")//login 처리 페이지
 	public ModelAndView loginOk(@RequestParam("id") String id,@RequestParam("pwd") String pwd,
-			HttpSession session){
+			HttpSession session,HttpServletResponse resp,@RequestParam(value="saveid",defaultValue="")String saveid){
 		
+		//saveid
+		if(saveid==null||saveid.equals("")){
+			Cookie ck=new Cookie("saveid", id);
+			ck.setMaxAge(0);
+			resp.addCookie(ck);
+		}else{
+			Cookie ck=new Cookie("saveid", id);
+			ck.setMaxAge(60*60*24*30);
+			resp.addCookie(ck);
+		}
+		
+		//login 판별
 		String msg="";
 		String url="";
 		
 		ModelAndView mav=new ModelAndView();
-		
-		Map<String, String> map=new HashMap<String, String>();
+	
+		Map map=new HashMap();
 		map.put("id", id);
-		System.out.println("1");
-		System.out.println(id);
 		map.put("pwd", pwd);
-		System.out.println("2");
-		System.out.println(pwd);
+
+		String result=memberDao.loginOk(map);
+
 		
-		
-		int result=memberDao.loginOk(map);
-		System.out.println(result);
-		System.out.println("3");
-		System.out.println(result);System.out.println("4");
-		
-		if(result==memberDao.NOT_ID){//아이디오류
-			
+		System.out.println("id="+id+"pwd="+pwd);
+		System.out.println("result="+result);
+
+		if(!result.equals(id)){
+
 			msg="등록되어있는 아이디가 아닙니다.";
 			url="loginForm.do";
 			mav.addObject("msg", msg);
 			mav.addObject("url", url);
 			mav.setViewName("member/memberMsg");
 		
-		}else if(result==memberDao.NOT_PWD){//비밀번호 오류
-			System.out.println("5");
+		}else if(!result.equals(pwd)){
+			System.out.println("2");
 			msg="잘못된 비밀번호입니다.";
 			url="loginForm.do";
 			mav.addObject("msg", msg);
 			mav.addObject("url", url);
 			mav.setViewName("member/memberMsg");
-		
-		}else if(result==memberDao.LOGIN_OK){//로그인 성공
+
+			
+		}else if(result.equals(id)&&result.equals(pwd)){
+			
 			String name=memberDao.getUserInfo(id);
+			System.out.println("name="+name);
 			mav.addObject("name", name);//이름정보
 			mav.setViewName("member/loginOk");
 			session.setAttribute("sid", id);
 			session.setAttribute("sname", name);
-			
 		}
 		
 		return mav;
@@ -101,11 +118,18 @@ public class PageController {
 	}
 	
 
-	@RequestMapping("/idCheckOk.do")//아이디 중복체크 판별
-	public ModelAndView idCheck(@RequestParam(value="userid",required=false) String userid){
-		boolean result=memberDao.idCheck(userid);//조건판단
+	@RequestMapping(value="/idCheckOk.do",method=RequestMethod.POST)//아이디 중복체크 판별
+	public ModelAndView idCheck(@RequestParam(value="userid") String userid){
+		String msg="";
+		String result=memberDao.idCheck(userid);//조건판단
+		
+		if(userid.equals(result)){
+			msg="중복된 아이디 입니다.";
+		}else{
+			msg="사용 가능한 아이디 입니다.";
+		}
+		
 		ModelAndView mav=new ModelAndView();
-		String msg=result?"이미등록되어있는 아이디입니다.":"사용가능한 아이디입니다.";
 		mav.addObject("msg", msg);
 		mav.setViewName("member/idCheckOk");
 		return mav;

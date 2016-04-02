@@ -39,7 +39,7 @@ function show(){//id중복체크
 	
 	var userid=document.memberAdd.id.value;//userid 값을 가져옴
 	var params='userid='+userid;//파라미터 구축
-	sendRequest('idCheckOk.do', params, showResult, 'GET');
+	sendRequest('idCheckOk.do', params, showResult, 'POST');
 
 }
 
@@ -52,6 +52,12 @@ function showResult(){//응답함수
 		}
 	}
 }
+</script>
+<script type="text/javascript">
+var now=new Date();
+var year = now.getFullYear();
+var month=now.getMonth()+1;
+var date = now.getDate();
 </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -70,7 +76,7 @@ function showResult(){//응답함수
       <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter password">
     </div>
     <div class="checkbox">
-      <label><input type="checkbox"> Remember me</label>
+      <label><input type="checkbox" value="saveid"> Remember me</label>
     </div>
      <input type="submit" class="btn btn-default" value="login">
     <button type="button" class="btn btn-info btn-default" data-toggle="modal" data-target="#myModal">회원가입</button>
@@ -95,10 +101,9 @@ function showResult(){//응답함수
         <div class="modal-body">
 		   <div class="form-group">
 		     <label for="id">회원아이디:</label>
-
 		     <input type="button" class="btn btn-info" value="중복확인" onclick="show()">
 		     <span id="idmsg"></span>
-		     <input type="text" class="form-control" name="id" id="id">
+		     <input type="text" class="form-control" name="id" id="id" placeholder="Enter id">
 
 		   </div>
 		   <div class="form-group">
@@ -115,7 +120,46 @@ function showResult(){//응답함수
 		     <input type="radio"  name="gender" value="0" checked="true">남자
 		     <input type="radio"  name="gender" value="1">여자
 		     <input type="radio"  name="gender" value="2">기타
-
+		   </div>
+		   <div class="form-group">
+		   	<label for="birthday">생년월일:</label><br>
+		   	 
+		   	 <script type="text/javascript">
+		   	 document.write('<select name=year>');
+		   	 for(var i=1950;i<=2020;i++){
+		   		 if(i==year){
+		   			 document.write('<option selected="selected">'+year+'</option>');
+		   		 
+		   		 }else{
+		   		 	document.write('<option value='+i+'>'+i+'</option>');
+		   	 	}
+		   	 }
+		   		document.write('</select>');
+		   	 </script>년
+		   	 <select name="month">
+		   	 	<script>
+		   	 		for(var i=1;i<=12;i++){
+		   	 			if(i==month){
+		   	 			document.write('<option value='+i+'>'+i+'</option>');	
+		   	 			
+		   	 			}else{
+		   	 				document.write('<option value='+i+'>'+i+'</option>');
+		   	 			}
+		   	 		}
+		   	 		
+		   	 	</script>
+		   	 </select>월
+		   	 <select name="day">
+		   	 	<script>
+		   	 		for(var i=1;i<=31;i++){
+		   	 			if(i==date){
+		   	 				document.write('<option selected="selected">'+date+'</option>');
+		   	 			}else{
+		   	 				document.write('<option value='+i+'>'+i+'</option>');
+		   	 			}
+		   	 		}
+		   	 	</script>
+		   	 </select>일
 		   </div>
 		   <div class="form-group">
 		     <label for="email">email:</label>
@@ -128,40 +172,23 @@ function showResult(){//응답함수
 		     </select>		     
 		   </div>
 		   <div class="form-group">
-<<<<<<< HEAD
-		     <label for="phone">핸드폰 번호:</label><br>
+		<label for="phone">핸드폰 번호:</label><br>
 		     <input type="text" name="phonenumber" id="phonenumber" placeholder="010"maxlength="3">-<input type="text" name="phonenumber" maxlength="4">-<input type="text" name="phonenumber" maxlength="4">
-=======
-		     <label for="phonenumber">핸드폰 번호:</label><br>
-		     <input type="text" id="phonenumber" placeholder="010"maxlength="3">-<input type="text" maxlength="4">-<input type="text" maxlength="4">
->>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
+		     
 		   </div>
-<<<<<<< HEAD
-=======
-  	
->>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
         </div>
         <div class="modal-footer">
-<<<<<<< HEAD
-        <input type="submit" class="btn btn-default" value="가입">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-=======
+
         <!-- <input type="submit" class="btn btn-default" value="login">-->
         <button type="submit" class="btn btn-default">Submit</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          
->>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
+
         </div>
-<<<<<<< HEAD
-       
-=======
+	</div>
+	</div>
+</div>
         </form>
->>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
-      </div>
-    </div>
-  </div>
-  </form> 
-  </div> 
+</div>
 
 <%@ include file="../controllSide.jsp" %>
  <!-- jQuery 2.1.4 -->
