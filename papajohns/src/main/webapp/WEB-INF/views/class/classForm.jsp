@@ -59,15 +59,15 @@
             <li class="header">Menu</li>
             <li>
               <a href="classRoomForm.do">
-                <i class="fa fa-home"></i> <span>내강의실</span>
+                <i class="fa fa-home"></i><span>내강의실</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
-            <li>
+ 			<li>
               <a href="classForm.do">
                 <i class="fa fa-files-o"></i><span>내수업</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-               </a>
+              </a>
             </li>
             <li>
               <a href="makeClass.do">
@@ -206,7 +206,7 @@
 		<%@ include file="../footer.jsp" %>
         <%@ include file="../controllSide.jsp" %>
         
-         <!-- jQuery 2.1.4 -->
+     <!-- jQuery 2.1.4 -->
     <script src="css/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>

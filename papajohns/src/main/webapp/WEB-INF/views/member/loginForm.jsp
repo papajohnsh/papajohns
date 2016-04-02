@@ -36,11 +36,17 @@
 <script type="text/javascript" src="js/httpRequest.js"></script>
 <script>
 function show(){//id중복체크
+<<<<<<< HEAD
 	
 	var userid=document.memberAdd.id.value;//userid 값을 가져옴
 	var params='userid='+userid;//파라미터 구축
 	sendRequest('idCheckOk.do', params, showResult, 'POST');
+=======
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
 
+	   var params='id='+document.loginForm.id.value;
+	sendRequest('idCheckOk.do', params, showResult, 'POST');
+	
 }
 
 function showResult(){//응답함수
@@ -87,7 +93,7 @@ var date = now.getDate();
 
 <div class="container">
   <!-- Modal -->
- <form role="form" name="memberAdd" action="memberAdd.do">
+ <form role="form" name="loginForm" action="memberAdd.do" method="POST">
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -101,10 +107,16 @@ var date = now.getDate();
         <div class="modal-body">
 		   <div class="form-group">
 		     <label for="id">회원아이디:</label>
+<<<<<<< HEAD
 		     <input type="button" class="btn btn-info" value="중복확인" onclick="show()">
 		     <span id="idmsg"></span>
 		     <input type="text" class="form-control" name="id" id="id" placeholder="Enter id">
 
+=======
+		   
+		     <input type="text" class="form-control" name="id" id="id" placeholder="Enter id" onkeyup="show();" style="width:30%;">
+				 <span id="idmsg" style="display:;color:blue;"></span>
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
 		   </div>
 		   <div class="form-group">
 		     <label for="pwd">비밀번호:</label>
@@ -125,6 +137,7 @@ var date = now.getDate();
 		   	<label for="birthday">생년월일:</label><br>
 		   	 
 		   	 <script type="text/javascript">
+<<<<<<< HEAD
 		   	 document.write('<select name=year>');
 		   	 for(var i=1950;i<=2020;i++){
 		   		 if(i==year){
@@ -150,6 +163,33 @@ var date = now.getDate();
 		   	 	</script>
 		   	 </select>월
 		   	 <select name="day">
+=======
+		   	 document.write('<select name=birthday>');
+		   	 for(var i=1950;i<=2020;i++){
+		   		 if(i==year){
+		   			 document.write('<option selected="selected">'+year+'</option>');
+		   		 
+		   		 }else{
+		   		 	document.write('<option value='+i+'>'+i+'</option>');
+		   	 	}
+		   	 }
+		   		document.write('</select>');
+		   	 </script>년
+		   	 <select name="birthday">
+		   	 	<script>
+		   	 		for(var i=1;i<=12;i++){
+		   	 			if(i==month){
+		   	 			document.write('<option value='+i+'>'+i+'</option>');	
+		   	 			
+		   	 			}else{
+		   	 				document.write('<option value='+i+'>'+i+'</option>');
+		   	 			}
+		   	 		}
+		   	 		
+		   	 	</script>
+		   	 </select>월
+		   	 <select name="birthday">
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
 		   	 	<script>
 		   	 		for(var i=1;i<=31;i++){
 		   	 			if(i==date){

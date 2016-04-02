@@ -5,16 +5,31 @@
   <mapper namespace="sqlMapper.mb">
   	<insert id="memberAdd" parameterType="papa.member.model.MemberDTO">
   		insert into papa_member(id,pwd,name,birthday,gender,phonenumber,email,joindate)
-  		values(#{id},#{pwd},#{name},now(),#{gender},#{phonenumber},#{email},now())
+  		values(#{id},#{pwd},#{name},#{birthday},#{gender},#{phonenumber},#{email},now())
   	</insert>
+<<<<<<< HEAD
   	<select id="idCheck" parameterType="String">
+=======
+  	<select id="idCheck" parameterType="String" resultType="String">
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
   		select id from papa_member where id=#{id}
   	</select>
+<<<<<<< HEAD
   	<select id="loginCheck" parameterType="Map" resultType="String">
   		select id,pwd from papa_member where id=#{id} and pwd=#{pwd}
+=======
+  	
+  	<select id="loginCheck" parameterType="String" resultType="int">
+  		select count(id) from papa_member where id=#{id}
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
   	</select>
-  	<select id="getUser" parameterType="String" resultType="papa.member.model.MemberDTO">
+  	<select id="loginCheckPw" parameterType="String" resultType="int">
+  		select count(pwd) from papa_member where pwd=#{pwd}
+  	</select>
+  	
+  	<select id="getUser" parameterType="String" resultType="String">
   		select name from papa_member where id=#{id}
   	</select>
   </mapper>
+
 

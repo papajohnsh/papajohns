@@ -47,7 +47,22 @@ public class PageController {
 	@RequestMapping("/loginOk.do")//login 처리 페이지
 	public ModelAndView loginOk(@RequestParam("id") String id,@RequestParam("pwd") String pwd,
 			HttpSession session,HttpServletResponse resp,@RequestParam(value="saveid",defaultValue="")String saveid){
+<<<<<<< HEAD
+=======
+
+		//saveid
+		if(saveid==null||saveid.equals("")){
+			Cookie ck=new Cookie("saveid", id);
+			ck.setMaxAge(0);
+			resp.addCookie(ck);
+		}else{
+			Cookie ck=new Cookie("saveid", id);
+			ck.setMaxAge(60*60*24*30);
+			resp.addCookie(ck);
+		}
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
 		
+<<<<<<< HEAD
 		//saveid
 		if(saveid==null||saveid.equals("")){
 			Cookie ck=new Cookie("saveid", id);
@@ -59,11 +74,14 @@ public class PageController {
 			resp.addCookie(ck);
 		}
 		
+=======
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
 		//login 판별
 		String msg="";
 		String url="";
 		
 		ModelAndView mav=new ModelAndView();
+<<<<<<< HEAD
 	
 		Map map=new HashMap();
 		map.put("id", id);
@@ -71,14 +89,36 @@ public class PageController {
 
 		String result=memberDao.loginOk(map);
 
+=======
 		
+		int result=memberDao.loginOk(id);
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
+		
+<<<<<<< HEAD
 		System.out.println("id="+id+"pwd="+pwd);
 		System.out.println("result="+result);
 
 		if(!result.equals(id)){
 
 			msg="등록되어있는 아이디가 아닙니다.";
+=======
+		if(result>0){
+			int getPw=memberDao.loginOkPw(pwd);
+			if(getPw>0){
+				msg="로그인 OK";
+				url="index.do";
+				String name=memberDao.getUserInfo(id);
+				session.setAttribute("sid", id);
+				session.setAttribute("sname", name);
+			}else{
+				msg="비밀번호를 확인하시오.";
+				url="loginForm.do";
+			}
+		}else{
+			msg="아이디를 확인하시오.";
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
 			url="loginForm.do";
+<<<<<<< HEAD
 			mav.addObject("msg", msg);
 			mav.addObject("url", url);
 			mav.setViewName("member/memberMsg");
@@ -100,8 +140,12 @@ public class PageController {
 			mav.setViewName("member/loginOk");
 			session.setAttribute("sid", id);
 			session.setAttribute("sname", name);
+=======
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
 		}
-		
+		mav.addObject("msg", msg);
+		mav.addObject("url", url);
+		mav.setViewName("member/memberMsg");
 		return mav;
 	}
 	
@@ -119,11 +163,19 @@ public class PageController {
 	
 
 	@RequestMapping(value="/idCheckOk.do",method=RequestMethod.POST)//아이디 중복체크 판별
+<<<<<<< HEAD
 	public ModelAndView idCheck(@RequestParam(value="userid") String userid){
 		String msg="";
 		String result=memberDao.idCheck(userid);//조건판단
 		
 		if(userid.equals(result)){
+=======
+	public ModelAndView idCheck(@RequestParam(value="id") String id){
+		String msg="";
+		String result=memberDao.idCheck(id);//조건판단
+		
+		if(id.equals(result)){
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
 			msg="중복된 아이디 입니다.";
 		}else{
 			msg="사용 가능한 아이디 입니다.";
@@ -136,10 +188,54 @@ public class PageController {
 		
 	}
 
-	
 	@RequestMapping("/classRoomForm.do")//내강의실Form 이동
 	public String classRoomForm(){
 		return "class/classRoomForm";
+	}
+	
+	@RequestMapping("classShow.do")//내강의 보기 폼 이동
+	public String classShow(){
+		return "class/classShow";
+	}
+	
+	@RequestMapping("/studentList.do")//학생리스트 폼 이동
+	public String studentList(){
+		return "class/studentList";
+	}
+	
+	@RequestMapping("/classPlan.do")//강의스케줄 폼 이동
+	public String classPlan(){
+		return "class/classPlan";
+	}
+	
+	@RequestMapping("/classQuiz.do")//쪽지시험출제 폼 이동
+	public String classQuiz(){
+		return "class/classQuiz";
+	}
+	
+	@RequestMapping("/resultQuiz.do")//쪽지시험결과 폼 이동
+	public String resultQuiz(){
+		return "class/resultQuiz";
+	}
+	
+	@RequestMapping("/pastQurey.do")//지난질문 보기 폼 이동
+	public String pastQurey(){
+		return "class/pastQurey";
+	}
+	
+	@RequestMapping("/showMessage.do")//메세지 보기 폼 이동
+	public String showMessage(){
+		return "class/showMessage";
+	}
+	
+	@RequestMapping("/classBbs.do")//수업게시판 폼 이동
+	public String classBbs(){
+		return "class/classBbs";
+	}
+	
+	@RequestMapping("/saveClass.do")//수업내용 저장 폼 이동
+	public String saveClass(){
+		return "class/saveClass";
 	}
 	
 	@RequestMapping("/makeClass.do")
