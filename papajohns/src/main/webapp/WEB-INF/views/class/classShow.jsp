@@ -33,6 +33,14 @@
     <link rel="stylesheet" href="css/plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    
+<script type="text/javascript" src="js/httpRequest.js"></script>
+<script>
+function show(){
+	var divTag=document.getElementById("myModal");
+	
+}
+</script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
@@ -48,7 +56,7 @@
               <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>강동원</p>
+              <p>${sname}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
@@ -62,12 +70,12 @@
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
-              <li class="treeview">
+              <li class="active treeview">
               <a href="#">
                 <i class="fa fa-files-o"></i> <span>내수업</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> 학생리스트</a></li>
+                <li><a href="#" onclick="show();"><i class="fa fa-circle-o"></i> 학생리스트</a></li>
                 <li><a href="classPlan.do"><i class="fa fa-circle-o"></i> 강의스케줄</a></li>
                 <li><a href="classQuiz.do"><i class="fa fa-circle-o"></i> 쪽지시험 출제</a></li>
                 <li><a href="resultQuiz.do"><i class="fa fa-circle-o"></i> 쪽지시험 결과</a></li>

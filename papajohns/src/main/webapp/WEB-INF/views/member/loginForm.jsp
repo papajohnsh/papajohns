@@ -36,17 +36,9 @@
 <script type="text/javascript" src="js/httpRequest.js"></script>
 <script>
 function show(){//id중복체크
-<<<<<<< HEAD
-	
-	var userid=document.memberAdd.id.value;//userid 값을 가져옴
-	var params='userid='+userid;//파라미터 구축
-	sendRequest('idCheckOk.do', params, showResult, 'POST');
-=======
->>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
 
 	   var params='id='+document.loginForm.id.value;
-	sendRequest('idCheckOk.do', params, showResult, 'POST');
-	
+	sendRequest('idCheckOk.do', params, showResult, 'POST');	
 }
 
 function showResult(){//응답함수
@@ -58,6 +50,32 @@ function showResult(){//응답함수
 		}
 	}
 }
+
+function pwdCheck(){//비밀번호 확인
+
+	var pwd=document.loginForm.pwd.value;
+	var repwd=document.loginForm.repwd.value;
+	
+	if(pwd && repwd){
+
+	if(pwd==repwd){
+		var msg="<font color='blue'>비밀번호가 일치합니다.</font>"
+		var spanTag=document.getElementById('pwdmsg');
+		spanTag.innerHTML=msg;
+		
+	}else{
+		var msg="<font color='red'>비밀번호가 일치하지 않습니다.</font>"
+			var spanTag=document.getElementById('pwdmsg');
+			spanTag.innerHTML=msg;
+	}
+	
+	}else{
+		
+		var msg="<font color='black'>비밀번호를 입력해주세요.</font>"
+			var spanTag=document.getElementById('pwdmsg');
+			spanTag.innerHTML=msg;
+	}
+}	
 </script>
 <script type="text/javascript">
 var now=new Date();
@@ -68,28 +86,30 @@ var date = now.getDate();
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
  <%@include file="../header.jsp" %>
- 
+
 <div class="container" style="width: 500px">
 
   <h2>ClassRoom</h2>
   <form role="form" name="login" action="loginOk.do">
     <div class="form-group">
       <label for="id">ID:</label>
-      <input type="text" class="form-control" name="id" id="id" placeholder="Enter id">
+      <input type="text" class="form-control" name="id" id="id" value="${cookie.saveid.value==null?'':cookie.saveid.value}" placeholder="Enter id">
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter password">
     </div>
     <div class="checkbox">
-      <label><input type="checkbox" value="saveid"> Remember me</label>
+      <label><input type="checkbox" name="saveid" value="on" ${cookie.saveid.value==null?"":"checked"}> Remember me</label>
     </div>
      <input type="submit" class="btn btn-default" value="login">
     <button type="button" class="btn btn-info btn-default" data-toggle="modal" data-target="#myModal">회원가입</button>
   </form>
- 
 </div>
-
+<br>
+<div align="center">
+<%@ include file="naverLogin.jsp" %>
+</div>
 
 <div class="container">
   <!-- Modal -->
@@ -107,20 +127,17 @@ var date = now.getDate();
         <div class="modal-body">
 		   <div class="form-group">
 		     <label for="id">회원아이디:</label>
-<<<<<<< HEAD
-		     <input type="button" class="btn btn-info" value="중복확인" onclick="show()">
-		     <span id="idmsg"></span>
-		     <input type="text" class="form-control" name="id" id="id" placeholder="Enter id">
-
-=======
-		   
-		     <input type="text" class="form-control" name="id" id="id" placeholder="Enter id" onkeyup="show();" style="width:30%;">
+		     <input type="text" class="form-control" name="id" id="id" placeholder="Enter id" onkeyup="show();">
 				 <span id="idmsg" style="display:;color:blue;"></span>
->>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
 		   </div>
 		   <div class="form-group">
 		     <label for="pwd">비밀번호:</label>
 		     <input type="password" class="form-control" name="pwd" id="pwd" maxlength="15" placeholder="Enter password">
+		   </div>
+		   <div>
+		   	<label for="repwd">비밀번호 확인:</label>
+		   	<input type="password" class="form-control" name="repwd" id="repwd" maxlength="15" onkeyup="pwdCheck();" placeholder="Enter password">
+		   	<span id="pwdmsg"></span>
 		   </div>
 		   <div class="form-group">
 		     <label for="name">이름:</label>
@@ -137,33 +154,6 @@ var date = now.getDate();
 		   	<label for="birthday">생년월일:</label><br>
 		   	 
 		   	 <script type="text/javascript">
-<<<<<<< HEAD
-		   	 document.write('<select name=year>');
-		   	 for(var i=1950;i<=2020;i++){
-		   		 if(i==year){
-		   			 document.write('<option selected="selected">'+year+'</option>');
-		   		 
-		   		 }else{
-		   		 	document.write('<option value='+i+'>'+i+'</option>');
-		   	 	}
-		   	 }
-		   		document.write('</select>');
-		   	 </script>년
-		   	 <select name="month">
-		   	 	<script>
-		   	 		for(var i=1;i<=12;i++){
-		   	 			if(i==month){
-		   	 			document.write('<option value='+i+'>'+i+'</option>');	
-		   	 			
-		   	 			}else{
-		   	 				document.write('<option value='+i+'>'+i+'</option>');
-		   	 			}
-		   	 		}
-		   	 		
-		   	 	</script>
-		   	 </select>월
-		   	 <select name="day">
-=======
 		   	 document.write('<select name=birthday>');
 		   	 for(var i=1950;i<=2020;i++){
 		   		 if(i==year){
@@ -189,7 +179,6 @@ var date = now.getDate();
 		   	 	</script>
 		   	 </select>월
 		   	 <select name="birthday">
->>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
 		   	 	<script>
 		   	 		for(var i=1;i<=31;i++){
 		   	 			if(i==date){
