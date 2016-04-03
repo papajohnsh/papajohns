@@ -1,9 +1,5 @@
 package papa.controller;
 
-
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import papa.bbs.model.BbsDAO;
+import papa.bbs.model.BbsDTO;
 import papa.member.model.MemberDAO;
 import papa.member.model.MemberDTO;
 
@@ -33,6 +31,17 @@ public class PageController {
 
 	public void setMemberDao(MemberDAO memberDao) {
 		this.memberDao = memberDao;
+	}
+	@Autowired
+	private BbsDAO bbsDao;
+	
+
+	public BbsDAO getBbsDao() {
+		return bbsDao;
+	}
+
+	public void setBbsDao(BbsDAO bbsDao) {
+		this.bbsDao = bbsDao;
 	}
 
 	@RequestMapping("/loginForm.do")//loginForm으로 이동
@@ -66,27 +75,34 @@ public class PageController {
 		ModelAndView mav=new ModelAndView();
 		
 		int result=memberDao.loginOk(id);
-		
+
 		if(result>0){
 			int getPw=memberDao.loginOkPw(pwd);
 			if(getPw>0){
-				msg="로그인 OK";
+				msg="로그인 성공!";
 				url="index.do";
 				String name=memberDao.getUserInfo(id);
 				session.setAttribute("sid", id);
 				session.setAttribute("sname", name);
 			}else{
-				msg="비밀번호를 확인하시오.";
+				msg="비밀번호를 확인해주세요.";
 				url="loginForm.do";
 			}
 		}else{
-			msg="아이디를 확인하시오.";
+			msg="아이디를 확인해주세요.";
 			url="loginForm.do";
 		}
+
 		mav.addObject("msg", msg);
 		mav.addObject("url", url);
 		mav.setViewName("member/memberMsg");
 		return mav;
+	}
+
+	@RequestMapping("/logout.do")//로그아웃
+	public String logout(HttpSession session){
+		session.invalidate();
+		return "redirect:/index.do";//바로 인덱스 페이지로 전환됨
 	}
 	
 	@RequestMapping("/memberAdd.do")//회원가입
@@ -103,11 +119,12 @@ public class PageController {
 	
 
 	@RequestMapping(value="/idCheckOk.do",method=RequestMethod.POST)//아이디 중복체크 판별
+
 	public ModelAndView idCheck(@RequestParam(value="id") String id){
 		String msg="";
-		String result=memberDao.idCheck(id);//조건판단
+		String result=memberDao.idCheck(id);
 		
-		if(id.equals(result)){
+		if(id.equals(result)){//조건판단
 			msg="중복된 아이디 입니다.";
 		}else{
 			msg="사용 가능한 아이디 입니다.";
@@ -129,47 +146,7 @@ public class PageController {
 	public String classShow(){
 		return "class/classShow";
 	}
-	
-	@RequestMapping("/studentList.do")//학생리스트 폼 이동
-	public String studentList(){
-		return "class/studentList";
-	}
-	
-	@RequestMapping("/classPlan.do")//강의스케줄 폼 이동
-	public String classPlan(){
-		return "class/classPlan";
-	}
-	
-	@RequestMapping("/classQuiz.do")//쪽지시험출제 폼 이동
-	public String classQuiz(){
-		return "class/classQuiz";
-	}
-	
-	@RequestMapping("/resultQuiz.do")//쪽지시험결과 폼 이동
-	public String resultQuiz(){
-		return "class/resultQuiz";
-	}
-	
-	@RequestMapping("/pastQurey.do")//지난질문 보기 폼 이동
-	public String pastQurey(){
-		return "class/pastQurey";
-	}
-	
-	@RequestMapping("/showMessage.do")//메세지 보기 폼 이동
-	public String showMessage(){
-		return "class/showMessage";
-	}
-	
-	@RequestMapping("/classBbs.do")//수업게시판 폼 이동
-	public String classBbs(){
-		return "class/classBbs";
-	}
-	
-	@RequestMapping("/saveClass.do")//수업내용 저장 폼 이동
-	public String saveClass(){
-		return "class/saveClass";
-	}
-	
+
 	@RequestMapping("/makeClass.do")
 	public String makeClass(){
 		return "class/makeClass";
@@ -197,6 +174,19 @@ public class PageController {
 	@RequestMapping("/bbsWriteAdd.do")//게시판 글쓰기 폼
 	public String bbsWriteAdd(){
 		return "bbs/bbsWriteAdd";
+	}
+	
+	@RequestMapping("/bbsWriteAddOk.do")//게시판 글쓰기 등록
+	public ModelAndView bbsWriteAddOk(BbsDTO dto){
+		
+		int result=bbsDao.bbsWriteAdd(dto);
+		String msg=result>0?"글쓰기 성공":"글쓰기 실패";
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("msg", msg);
+		mav.setViewName("bbs/bbsMsg");
+		return mav;
+		
 	}
 	
 	@RequestMapping("/bbsContent.do")//게시판 본문내용보기

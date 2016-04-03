@@ -47,7 +47,7 @@
               <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>강동원</p>
+              <p>${sname}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>

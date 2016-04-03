@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +61,12 @@
               
               <!-- login-menu -->
               <li class="login-menu">
-                <a href="loginForm.do"><span>login</span></a>
+              <c:if test="${empty sid }">
+               <a href="loginForm.do"><span>login</span></a>
+               </c:if>
+               <c:if test="${!empty sid}">
+               <a href="logout.do">logout</a>
+               </c:if> 
               </li>
               
               <!-- Find-menu -->
@@ -91,12 +97,25 @@
         <section class="sidebar">
           <!-- Sidebar user panel -->
           <div class="user-panel">
+          <c:if test="${empty sid}">
+          <div class="pull-left image">
+          	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+          </div>
+          </c:if>
+          <c:if test="${!empty sid}">
             <div class="pull-left image">
-              <img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+              <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
             </div>
+           </c:if>
             <div class="pull-left info">
+              <c:if test="${empty sid}">
               <p>로그인 해주세요...</p>
+              <a href="#"><i class="fa fa-circle text-danger"></i> Offline</a>
+              </c:if>
+              <c:if test="${!empty sid}">
+              <p>${sname}님 환영합니다!</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+              </c:if>
             </div>
           </div>
         </section>
