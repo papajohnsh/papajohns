@@ -62,12 +62,12 @@
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
-              <li class="treeview">
+              <li class="active treeview">
               <a href="#">
                 <i class="fa fa-files-o"></i> <span>내수업</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> 학생리스트</a></li>
+                <li><a href="studentList.do"><i class="fa fa-circle-o"></i> 학생리스트</a></li>
                 <li><a href="classPlan.do"><i class="fa fa-circle-o"></i> 강의스케줄</a></li>
                 <li><a href="classQuiz.do"><i class="fa fa-circle-o"></i> 쪽지시험 출제</a></li>
                 <li><a href="resultQuiz.do"><i class="fa fa-circle-o"></i> 쪽지시험 결과</a></li>
