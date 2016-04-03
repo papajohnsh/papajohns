@@ -62,7 +62,7 @@
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
-              <li class="treeview">
+              <li class="active treeview">
               <a href="#">
                 <i class="fa fa-files-o"></i> <span>내수업</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
