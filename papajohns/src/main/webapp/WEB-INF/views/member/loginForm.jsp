@@ -105,6 +105,9 @@ var date = now.getDate();
      <input type="submit" class="btn btn-default" value="login">
     <button type="button" class="btn btn-info btn-default" data-toggle="modal" data-target="#myModal">회원가입</button>
   </form>
+  <div align="center">
+  <%@ include file="naverLogin.jsp" %>
+  </div>
 </div>
 <br>
 

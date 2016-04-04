@@ -4,28 +4,28 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="sqlMapper.mb">
   	<insert id="memberAdd" parameterType="papa.member.model.MemberDTO">
-  		insert into papa_member(id,pwd,name,birthday,gender,phonenumber,email,joindate)
+  		insert into member(id,pwd,name,birthday,gender,phonenumber,email,joindate)
   		values(#{id},#{pwd},#{name},#{birthday},#{gender},#{phonenumber},#{email},now())
   	</insert>
 
   	<select id="idCheck" parameterType="String" resultType="String">
-  		select id from papa_member where id=#{id}
+  		select id from member where id=#{id}
   	</select>
   	
   	<select id="loginCheck" parameterType="String" resultType="int">
-  		select count(id) from papa_member where id=#{id}
+  		select count(id) from member where id=#{id}
   	</select>
   	
   	<select id="loginCheckPw" parameterType="String" resultType="int">
-  		select count(pwd) from papa_member where pwd=#{pwd}
+  		select count(pwd) from member where pwd=#{pwd}
   	</select>
   	
   	<select id="getUser" parameterType="String" resultType="String">
-  		select name from papa_member where id=#{id}
+  		select name from member where id=#{id}
   	</select>
 	
 	<select id="info" resultType="papa.member.model.MemberDTO">
-		select * from papa_member
+		select * from member
 	</select>
   </mapper>
 
