@@ -6,5 +6,6 @@
 	<mappers>
 		<mapper resource="sql/testSQL.xml"/>
 		<mapper resource="sql/memberSQL.xml"/>
+		<mapper resource="sql/freebbsSQL.xml"/>
 	</mappers>
 </configuration>

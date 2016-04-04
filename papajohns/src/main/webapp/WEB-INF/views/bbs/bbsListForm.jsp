@@ -72,13 +72,13 @@
             <li class="header">Menu</li>
             <li>
               <a href="bbsListForm.do">
-                <i class="fa fa-circle-o text-red"></i> <span>Q & A</span>
+                <i class="fa fa-circle-o text-red"></i> <span>FAQ</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
             <li>
               <a href="supportForm.do">
-                <i class="fa fa-circle-o text-aqua"></i><span>FAQ</span>
+                <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
@@ -115,48 +115,22 @@
                         </tr>
                       </thead>
                       <tbody>
+                      	<c:set var="freebbsList" value="${list}"></c:set>
+                      	<c:if test="${empty freebbsList}">
+                      		<tr>
+                      			<td colspan="4" align="center">
+                      			 	등록된 게시글이 없습니다.
+                      			</td>
+                      		</tr>
+                      	</c:if>
+                      	<c:forEach var="dto" items="${freebbsList}">
                         <tr>
-                          <td>1.</td>
-                          <td><a href="bbsContent.do">테이블 배치방법 좀 알려주세요</a></td>
-                          <td>강동원</td>
-                          <td><span class="badge bg-red">50</span></td>
+                          <td>${dto.idx}</td>
+                          <td><a href="bbsContent.do?idx=${dto.idx}">${dto.subject}</a></td>
+                          <td>${dto.writer}</td>
+                          <td><span class="badge bg-red">${dto.readnum}</span></td>
                         </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td><a href="#">학생 관리 어떻게 하세요?</a></td>
-                          <td>신민아</td>
-                          <td><span class="badge bg-yellow">80</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td><a href="#">계정을 도용당했어요!</a></td>
-                          <td>정준하</td>
-                          <td><span class="badge bg-blue">20</span></td>
-                        </tr>
-                        <tr>
-                          <td>4.</td>
-                          <td><a href="#">수학 스터디 같이 할 사람 찾습니다</a></td>
-                          <td>김지원</td>
-                          <td><span class="badge bg-green">10</span></td>
-                        </tr>
-                        <tr>
-                          <td>5.</td>
-                          <td><a href="#">방과 후 함께 축구해요</a></td>
-                          <td>안정환</td>
-                          <td><span class="badge bg-red">60</span></td>
-                        </tr>
-                        <tr>
-                          <td>6.</td>
-                          <td><a href="#">영어 스터디 같이 할 사람 찾아요</a></td>
-                          <td>헨리</td>
-                          <td><span class="badge bg-yellow">60</span></td>
-                        </tr>
-                        <tr>
-                          <td>7.</td>
-                          <td><a href="#">방생성이 잘 안 되네요</a></td>
-                          <td>김숙</td>
-                          <td><span class="badge bg-green">10</span></td>
-                        </tr>
+                        </c:forEach>
                       </tbody>
                     </table>
                   </div><!-- /.table-responsive -->

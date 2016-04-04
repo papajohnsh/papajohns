@@ -58,6 +58,11 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
+	<bean id="freebbsDao" class="papa.freebbs.model.FreeBbsDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
 	<!-- controller -->
 	
 	<!-- 
