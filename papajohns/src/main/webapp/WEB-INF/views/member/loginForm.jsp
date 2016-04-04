@@ -90,7 +90,7 @@ var date = now.getDate();
 <div class="container" style="width: 500px">
 
   <h2>ClassRoom</h2>
-  <form role="form" name="login" action="loginOk.do">
+  <form role="form" name="login" action="login.do">
     <div class="form-group">
       <label for="id">ID:</label>
       <input type="text" class="form-control" name="id" id="id" value="${cookie.saveid.value==null?'':cookie.saveid.value}" placeholder="Enter id">
@@ -127,12 +127,12 @@ var date = now.getDate();
         <div class="modal-body">
 		   <div class="form-group">
 		     <label for="id">회원아이디:</label>
-		     <input type="text" class="form-control" name="id" id="id" placeholder="Enter id" onkeyup="show();">
+		     <input type="text" required="required" class="form-control" name="id" id="id" placeholder="Enter id" onkeyup="show();">
 				 <span id="idmsg" style="display:;color:blue;"></span>
 		   </div>
 		   <div class="form-group">
 		     <label for="pwd">비밀번호:</label>
-		     <input type="password" class="form-control" name="pwd" id="pwd" maxlength="15" placeholder="Enter password">
+		     <input type="password" required="required" class="form-control" name="pwd" id="pwd" maxlength="15" placeholder="Enter password">
 		   </div>
 		   <div>
 		   	<label for="repwd">비밀번호 확인:</label>
@@ -141,8 +141,7 @@ var date = now.getDate();
 		   </div>
 		   <div class="form-group">
 		     <label for="name">이름:</label>
-
-		     <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
+		     <input type="text" required="required" class="form-control" name="name" id="name" placeholder="Enter name">
 		   </div>
 		   <div class="form-group">
 		     <label for="gender">성별:</label>
@@ -202,7 +201,7 @@ var date = now.getDate();
 		   </div>
 		   <div class="form-group">
 		<label for="phone">핸드폰 번호:</label><br>
-		     <input type="text" name="phonenumber" id="phonenumber" placeholder="010"maxlength="3">-<input type="text" name="phonenumber" maxlength="4">-<input type="text" name="phonenumber" maxlength="4">
+		     <input type="text" required="required" name="phonenumber" id="phonenumber" placeholder="010"maxlength="3">-<input type="text" name="phonenumber" maxlength="4">-<input type="text" name="phonenumber" maxlength="4">
 		     
 		   </div>
         </div>

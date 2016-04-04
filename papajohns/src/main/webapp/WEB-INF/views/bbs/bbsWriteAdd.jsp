@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,13 +57,13 @@
             <li class="header">Menu</li>
             <li>
               <a href="supportForm.do">
-                <i class="fa fa-circle-o text-red"></i> <span>Q & A</span>
+                <i class="fa fa-circle-o text-red"></i> <span>FAQ</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
             <li>
               <a href="faqForm.do">
-                <i class="fa fa-circle-o text-aqua"></i><span>FAQ</span></a>
+                <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span></a>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
             </li>
           </ul>
@@ -89,40 +90,38 @@
         <!-- Main content -->
        
   <div class="box box-info">
+                 <form name="bbsWrite" action="bbsWrite.do">
                  <table class="table table-bordered">
                  
                   <tr>
-                  	<th>글번호</th>
-                  	<td>1</td>
 					<th>작성자</th>
-        			<td><input type="text"  placeholder="writer"></td>
+        			<td><input type="text" name="writer" placeholder="writer"></td>
         			<th>조회수</th>
-        			<td><span class="badge bg-red">50</span></td>
+        			<td><span class="badge bg-red">0</span></td>
                   </tr>
         			<tr>
         				<th>제목</th>
-        				<td><input type="text" placeholder="subject"></td>
-        				<th>작성일</th>
-        				<td>2016.03.25</td>
+        				<td><input type="text" name="subject" placeholder="subject"></td>
         				<th>추천하기</th>
         				<td><a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up"></span>Like</a></td>
         			</tr>
  				</table>
                 <div class="box-body pad">
-                  <form>
-                    <textarea id="editor1" name="editor1" rows="10" cols="80">
+                  
+                    <textarea id="content" name="content" rows="10" cols="80">
                                             This is my textarea to be replaced with TextEditor.
                     </textarea>
-                  </form><br>
+                  <br>
                   <!-- writeAdd button -->
                   <div>
-                	<input type="submit" class="btn btn-primary pull-right" value="글올리기" onclick="location.href='bbsWriteOk.do';">
+                	<input type="submit" class="btn btn-primary pull-right" value="글올리기">
 				  </div>
 				  <!-- file -->
                 	<div class="form-group" align="center">
           				<span><input type="file" id="exampleInputFile"></span>
       				</div>
              	</div>
+             	</form>
            </div>
 
       <!-- TABLE: LATEST ORDERS -->
@@ -139,30 +138,22 @@
                         </tr>
                       </thead>
                       <tbody>
+                      <c:set var="dto" value="${list}"></c:set>
+				      	<c:if test="${empty dto}">
+				      		<tr>
+				      			<td colspan="5" align="center">
+				      				등록된 게시글이 없습니다.
+				      			</td>
+				      		</tr>
+				      	</c:if>
+                      <c:forEach var="dto" items="${list}">
                         <tr>
-                          <td>1.</td>
-                          <td><a href="bbsContent.do">테이블 배치방법 좀 알려주세요</a></td>
-                          <td>강동원</td>
-                          <td><span class="badge bg-red">50</span></td>
+                          <td>${dto.idx}</td>
+                          <td>${dto.subject}</td>
+                          <td>${dto.writer}</td>
+                          <td><span class="badge bg-red">${dto.readnum}</span></td>
                         </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td><a href="#">학생 관리 어떻게 하세요?</a></td>
-                          <td>신민아</td>
-                          <td><span class="badge bg-yellow">80</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td><a href="#">계정을 도용당했어요!</a></td>
-                          <td>정준하</td>
-                          <td><span class="badge bg-blue">20</span></td>
-                        </tr>
-                        <tr>
-                          <td>4.</td>
-                          <td><a href="#">수학 스터디 같이 할 사람 찾습니다</a></td>
-                          <td>김지원</td>
-                          <td><span class="badge bg-green">10</span></td>
-                        </tr>
+                      </c:forEach>
                       </tbody>
                     </table>
                   </div><!-- /.table-responsive -->
