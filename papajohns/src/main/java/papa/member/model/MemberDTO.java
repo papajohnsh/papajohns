@@ -8,6 +8,7 @@ public class MemberDTO {
 	private String interlocking;
 	private String id;
 	private String pwd;
+	private String repwd;
 	private String name;
 	private String birthday;
 	private int gender;
@@ -19,13 +20,14 @@ public class MemberDTO {
 		super();
 	}
 
-	public MemberDTO(int member_idx, String interlocking, String id, String pwd, String name, String birthday,
-			int gender, String phonenumber, String email, Date joindate) {
+	public MemberDTO(int member_idx, String interlocking, String id, String pwd, String repwd, String name,
+			String birthday, int gender, String phonenumber, String email, Date joindate) {
 		super();
 		this.member_idx = member_idx;
 		this.interlocking = interlocking;
 		this.id = id;
 		this.pwd = pwd;
+		this.repwd = repwd;
 		this.name = name;
 		this.birthday = birthday;
 		this.gender = gender;
@@ -64,6 +66,14 @@ public class MemberDTO {
 
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
+	}
+
+	public String getRepwd() {
+		return repwd;
+	}
+
+	public void setRepwd(String repwd) {
+		this.repwd = repwd;
 	}
 
 	public String getName() {

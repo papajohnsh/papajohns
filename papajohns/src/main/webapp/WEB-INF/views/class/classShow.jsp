@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,11 +34,23 @@
     <link rel="stylesheet" href="css/plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    
+<script type="text/javascript" src="js/httpRequest.js"></script>
+<script>
+$(function(){
+    $("#studentList").on('click', function(){
+        $('#myModal').modal({
+                      remote : 'studentList.do'
+                });
+    })
+   
+})
+</script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
 <%@ include file="../header.jsp" %>
- 
+
 <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
@@ -48,7 +61,7 @@
               <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>강동원</p>
+              <p>${sname}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
@@ -67,7 +80,7 @@
                 <i class="fa fa-files-o"></i> <span>내수업</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="studentList.do"><i class="fa fa-circle-o"></i> 학생리스트</a></li>
+                <li><a href="#" id="studentList"><i class="fa fa-circle-o" ></i> 학생리스트</a></li>
                 <li><a href="classPlan.do"><i class="fa fa-circle-o"></i> 강의스케줄</a></li>
                 <li><a href="classQuiz.do"><i class="fa fa-circle-o"></i> 쪽지시험 출제</a></li>
                 <li><a href="resultQuiz.do"><i class="fa fa-circle-o"></i> 쪽지시험 결과</a></li>
@@ -96,26 +109,10 @@
       </aside>
         
 
-    <div class="container">
- 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <!-- remote ajax call이 되는영역 -->
     </div>
   </div>
 </div>

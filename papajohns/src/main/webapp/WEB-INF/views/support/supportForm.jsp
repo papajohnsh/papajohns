@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,13 +44,28 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- Sidebar user panel -->
-          <div class="user-panel">
+         <div class="user-panel">
+          <c:if test="${empty sid}">
+          <div class="pull-left image">
+          	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+          </div>
+          </c:if>
+          <c:if test="${!empty sid}">
             <div class="pull-left image">
               <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
             </div>
+           </c:if>
             <div class="pull-left info">
-              <p>강동원</p>
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+               <c:if test="${empty sid}">
+              	<script type="text/javascript">
+              		window.alert('로그인 후 이용 가능한 서비스입니다.');
+              		location.href="index.do";
+              	</script>
+              	</c:if>
+              <c:if test="${!empty sid}">
+              	<p>${sname}</p>
+              	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+              	</c:if>
             </div>
           </div>
           
