@@ -55,7 +55,7 @@
 	
 	//로그인 popup 형태로 설정
 
-	naver_id_login.setPopup();
+	//naver_id_login.setPopup();
 
 	naver_id_login.init_naver_id_login();
 
@@ -73,12 +73,10 @@
 		
 	    var name=naver_id_login.getProfileData('nickname');
 	    alert(name);
-
-	    alert(naver_id_login.getProfileData('age'));
-	    
+	    var id=naver_id_login.getProfileData('id');
 	    window.location.href="memberAdd.do?email="+email+
-	    		"&id=1&pwd=1&name="+name+"&birthday=1&gender=1&phonenumber=1&joindate=1"; 
-	    alert(naver_id_login.getProfileData('age'));
+	    		"&id="+id+"&pwd=1&name="+name+"&birthday=1&gender=1&phonenumber=1"; 
+
 	}
 
 	naver_id_login.get_naver_userprofile("testcallback()");

@@ -12,12 +12,12 @@
   		select id from member where id=#{id}
   	</select>
   	
-  	<select id="loginCheck" parameterType="String" resultType="int">
-  		select count(id) from member where id=#{id}
+  	<select id="loginCheck" parameterType="String" resultType="String">
+  		select id from member where id=#{id}
   	</select>
   	
-  	<select id="loginCheckPw" parameterType="String" resultType="int">
-  		select count(pwd) from member where pwd=#{pwd}
+  	<select id="loginCheckPw" parameterType="String" resultType="String">
+  		select pwd from member where id=#{id}
   	</select>
   	
   	<select id="getUser" parameterType="String" resultType="String">
@@ -27,6 +27,10 @@
 	<select id="info" resultType="papa.member.model.MemberDTO">
 		select * from member
 	</select>
+	<select id="idFind" parameterType="Map" resultType="String">
+		select id from member where name=#{name} and email=#{email}
+	</select>
+
   </mapper>
 
 

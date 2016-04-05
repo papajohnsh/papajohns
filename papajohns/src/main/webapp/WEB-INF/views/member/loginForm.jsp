@@ -86,7 +86,7 @@ var date = now.getDate();
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
  <%@include file="../header.jsp" %>
-
+ 
 <div class="container" style="width: 500px">
 
   <h2>ClassRoom</h2>
@@ -105,10 +105,15 @@ var date = now.getDate();
      <input type="submit" class="btn btn-default" value="login">
     <button type="button" class="btn btn-info btn-default" data-toggle="modal" data-target="#myModal">회원가입</button>
   </form>
-  <div align="center">
+  <br>
+ <div align="right">
+ 	<span><a href="idFindForm.do">아이디 찾기</a></span> |
+ 	<span><a href="pwdFindForm.do">비밀번호 찾기</a></span>
+ </div>
+</div>
+<div align="center">
   <%@ include file="naverLogin.jsp" %>
   </div>
-</div>
 <br>
 
 <div class="container">

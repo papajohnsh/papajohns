@@ -6,8 +6,10 @@ public interface MemberDAO {
 	
 	public int memberAdd(MemberDTO dto);
 	public String idCheck(String id);
-	public int loginOk(String id);
-	public int loginOkPw(String pwd);
+	public String loginOk(String id);
+	public String loginOkPw(String pwd);
 	public String getUserInfo(String id);
 	public List<MemberDTO> studentList();
+	/*public String idFind(Map<String, String> map);*/
+
 }

@@ -1,5 +1,8 @@
 package papa.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -60,21 +63,30 @@ public class MemberController {
 		
 		ModelAndView mav=new ModelAndView();
 		
-		int result=memberDao.loginOk(id);
+		String getId=memberDao.loginOk(id);
+		System.out.println("getId:"+getId);
+		System.out.println("id:"+id);
+		
+		if(id==null && id.equals("")){
+			msg="아이디를 입력해주세요";
+			url="loginForm.do";
+		}
 
-		if(result>0){
-			int getPw=memberDao.loginOkPw(pwd);
-			if(getPw>0){
+		if(getId.equals(id)){//아이디가 맞으면
+			String getPw=memberDao.loginOkPw(id);
+			System.out.println("getPw:"+getPw);
+			System.out.println("pwd:"+pwd);
+			if(getPw.equals(pwd)){//비밀번호가 맞으면
 				msg="로그인 성공!";
 				url="index.do";
 				String name=memberDao.getUserInfo(id);
 				session.setAttribute("sid", id);
 				session.setAttribute("sname", name);
-			}else{
+			}else{//비밀번호가 틀리면
 				msg="비밀번호를 확인해주세요.";
 				url="loginForm.do";
 			}
-		}else{
+		}else{//아이디가 틀리면
 			msg="아이디를 확인해주세요.";
 			url="loginForm.do";
 		}
@@ -94,12 +106,12 @@ public class MemberController {
 	@RequestMapping("/memberAdd.do")//회원가입
 	public ModelAndView memberAdd(MemberDTO dto){
 		int result=memberDao.memberAdd(dto);
-		
 		String msg=result>0?"회원가입성공":"회원가입실패";
-		
+
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("msg", msg);
 		mav.addObject("url", "index.do");//index페이지 재활용
+
 		mav.setViewName("member/memberMsg");
 		return mav;
 	}
@@ -128,4 +140,42 @@ public class MemberController {
 		
 	}
 	
+	@RequestMapping("/idFindForm.do")//아이디 찾기 폼
+	public String idFindForm(){
+		return "member/idFindForm";
+	}
+	
+	/*@RequestMapping("/idFind.do")//아이디 찾는 로직
+	public ModelAndView idFind(@RequestParam("name") String name, @RequestParam("email") String email){
+		
+		Map map=new HashMap();
+		map.put("name", name);
+		map.put("email", email);
+		
+		String getName=memberDao.idFind(map);
+		
+		System.out.println("name:"+name);
+		System.out.println("eamil:"+email);
+		
+		ModelAndView mav=new ModelAndView();
+		
+		String msg="";
+		String url="";
+		
+		if(name.equals(name) && email.equals(email)){//이름과 이메일 일치
+			msg="당신의 아이디는 ~입니다.";
+			url="idFind.do";
+		}else{//둘 중 하나라도 없다면
+			msg="가입된 회원이 아닙니다.";
+			url="idFind.do";
+		}
+		
+		mav.addObject("msg", msg);
+		mav.addObject("url", url);
+		mav.setViewName("member/idFindMsg");
+		
+		return mav;
+	}*/
+	
+
 }
