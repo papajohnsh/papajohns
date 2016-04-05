@@ -23,13 +23,15 @@
 	</bean>
 		<!-- Mybatis -->
 	<!-- 1. dataSource -->
-<bean id="dataSource"
+	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
-		<property name="driverClass" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/papa?useUnicode=true&amp;characterEncoding=utf8 " />
+		<property name="driverClass" value="net.sf.log4jdbc.DriverSpy" />
+		<property name="url"
+			value="jdbc:log4jdbc:mysql://localhost:3306/papa?useUnicode=true&amp;characterEncoding=utf8 " />
 		<property name="username" value="root" />
 		<property name="password" value="" />
 	</bean>
+
 	
 	
 	<!-- 2. transaction Manager -->
@@ -64,22 +66,6 @@
 		</constructor-arg>
 	</bean>
 	<!-- controller -->
-	
-	<!-- 
-	<bean id="helloController" class="yong.controller.HelloController" />
-	<bean id="memoController" class="yong.controller.MemoController" />
-	<bean id="gameController" class="yong.controller.GameController" />
-	<bean id="paramTestController" class="yong.controller.ParamTestController" />
-	<bean id="cookieController" class="yong.controller.CookieController" />
-	<bean id="viewTestController" class="yong.controller.ViewTestController" />
-	<bean id="modelTestController" class="yong.controller.ModelTestController" />
-	<bean id="foodController" class="yong.controller.FoodController" />
-	<bean id="indexController" class="yong.controller.IndexController" />
-	<bean id="memberController" class="yong.controller.MemberController" />
-	<bean id="fileController" class="yong.controller.FileController" />
-	<bean id="empController" class="yong.controller.EmpController" />
-	<bean id="bbsController" class="yong.controller.BbsController" /> 
-	 -->
 	
 	<!-- view -->
 	<bean id="download" class="papa.view.DownloadView" />
