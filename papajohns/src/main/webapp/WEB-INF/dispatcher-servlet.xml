@@ -14,13 +14,6 @@
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/websocket
 		http://www.springframework.org/schema/websocket/spring-websocket.xsd ">	
-	<!--  websocket -->
-	<websocket:handlers> 	
-		<websocket:mapping handler="echoHandler" path="/echo-ws"/>
-	</websocket:handlers>
-
-	<mvc:resources mapping="/resources/**" location="/resources/" />
-	<mvc:annotation-driven />
 	<!-- configration -->
 	<context:component-scan base-package="papa" annotation-config="false">
 	<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
@@ -82,7 +75,6 @@
 	
 	<!-- view -->
 		
-	<bean id="echoHandler" class="papa.websocket.EchoHandler"/>
 	<bean id="download" class="papa.view.DownloadView" />
 	<!--   -->
 	<bean id="jsonMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
