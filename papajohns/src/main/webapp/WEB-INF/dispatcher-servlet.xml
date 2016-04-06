@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-	http://www.springframework.org/schema/beans/spring-beans.xsd 
-	http://www.springframework.org/schema/context 
-	http://www.springframework.org/schema/context/spring-context-3.0.xsd
-	">
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/websocket
+		http://www.springframework.org/schema/websocket/spring-websocket.xsd ">	
+	<!--  websocket -->
+	<websocket:handlers> 	
+		<websocket:mapping handler="echoHandler" path="/echo-ws"/>
+	</websocket:handlers>
 
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:annotation-driven />
 	<!-- configration -->
 	<context:component-scan base-package="papa" annotation-config="false">
 	<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
@@ -68,8 +81,14 @@
 	<!-- controller -->
 	
 	<!-- view -->
+		
+	<bean id="echoHandler" class="papa.websocket.EchoHandler"/>
 	<bean id="download" class="papa.view.DownloadView" />
-	<bean id="papaJson" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+	<!--   -->
+	<bean id="jsonMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
+	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+	<property name="objectMapper" ref="jsonMapper" />
+	</bean>
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<property name="order" value="0" />
 	</bean>

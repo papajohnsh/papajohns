@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -33,31 +34,114 @@
     <link rel="stylesheet" href="css/plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
-<script type="text/javascript" src="js/httpRequest.js"></script>
-<script>
-	
-</script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+    
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="index.do" class="logo"><!-- index로 이동 -->
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>C</b>RM</span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b>Class</b>Room</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              
+              <!-- Myclass-menu -->
+              <li class="myclass-menu">
+                <a href="classRoomForm.do"><span>MyClass</span></a>
+              </li>
+              
+              <!-- login-menu -->
+              <li class="login-menu">
+              <c:if test="${empty sid }">
+               <a href="loginForm.do"><span>login</span></a>
+               </c:if>
+               <c:if test="${!empty sid}">
+               <a href="logout.do">logout</a>
+               </c:if> 
+              </li>
+              
+              <!-- Find-menu -->
+              <li class="Find-menu">
+                <a href="findListForm.do"><span>Search</span></a>
+              </li>
+             
+              <!-- bbs-menu -->
+              <li class="bbs-menu">
+                <a href="bbsListForm.do"><span>Bbs</span></a>
+              </li>
+              <!-- support-menu -->
+              <li class="support-menu">
+                <a href="supportForm.do"><span>Support</span></a>
+              </li>
+              <!-- Control Sidebar Toggle Button -->
+		          <li>
+		            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+		          </li>
+            </ul>
+          </div>
+        </nav>
+     </header>
+	
+	 <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+          <c:if test="${empty sid}">
+          <div class="pull-left image">
+          	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+          </div>
+          </c:if>
+          <c:if test="${!empty sid}">
+            <div class="pull-left image">
+              <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
+            </div>
+           </c:if>
+            <div class="pull-left info">
+              <c:if test="${empty sid}">
+              <p>로그인 해주세요...</p>
+              <a href="#"><i class="fa fa-circle text-danger"></i> Offline</a>
+              </c:if>
+              <c:if test="${!empty sid}">
+              <p>${sname}님 환영합니다!</p>
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+              </c:if>
+            </div>
+          </div>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
 
-<%@ include file="../header.jsp" %>
-<h3>아이디 찾기</h3>
-  <form role="form" name="idFindForm" action="idFind.do">
-    <div class="form-group" align="center">
-      <label for="id">이름</label>
-      <input type="text" class="form-control" name="name" style="width: 50%" placeholder="Enter id">
-    </div>
-    <div class="form-group" align="center">
-      <label for="email">이름</label>
-      <input type="text" class="form-control" name="email" style="width: 50%" placeholder="Enter email">
-    </div>
-     <input type="submit" class="btn btn-default" value="id찾기">
-  </form>
-  
-  
- <%@ include file="../controllSide.jsp" %>
- <!-- jQuery 2.1.4 -->
+	<section>
+	<article>
+	<table style="margin:0px auto" width="200" border="1" cellspacing="0" cellpadding="0">
+	<tr>
+	<td style="color:black">테스트입니다.</td>
+	</tr>
+	<tr>
+	<td><input type="button" value="버튼"></td>
+	</tr>
+	</table>
+	
+	</article>
+	</section>
+
+	
+
+ 	<%@ include file="../footer.jsp" %>
+    <%@ include file="../controllSide.jsp" %>
+
+    <!-- jQuery 2.1.4 -->
     <script src="css/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -94,5 +178,5 @@
     <script src="css/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="css/dist/js/demo.js"></script>
-</body>
+  </body>
 </html>
