@@ -8,5 +8,5 @@ public interface ClassBbsDAO {
 	public List<ClassBbsDTO> classList();
 	public ClassBbsDTO classContent(int idx);
 	public int reWriteAdd(ClassBbsDTO dto);
-	public int readNum(int idx);
+	public int classNum(int idx);
 }

@@ -35,8 +35,8 @@ public class ClassBbsDAOImple implements ClassBbsDAO {
 		return count;
 	}
 	
-	public int readNum(int idx) {//조회수
-		int count=sqlMap.update("readNum", idx);
+	public int classNum(int idx) {//조회수
+		int count=sqlMap.update("classNum", idx);
 		return count;
 	}
 

@@ -17,7 +17,7 @@
  		insert into class_bbs(writer,subject,content,write_date,readnum,ref,lev,sunbun)
  		values(#{writer},#{subject},#{content},now(),0,0,0,0)
  	</insert>
- 	<update id="readNum" parameterType="int">
+ 	<update id="classNum" parameterType="int">
  		update class_bbs set readnum=readnum+1 where idx=#{idx}
  	</update>
  </mapper>

@@ -56,10 +56,12 @@ public class ClassBbsController {
 	@RequestMapping("/classBbsContent.do")//본문내용 보기
 	public ModelAndView classContent(@RequestParam("idx") int idx){
 		
+		int count=classbbsDao.classNum(idx);
 		ClassBbsDTO list=classbbsDao.classContent(idx);
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list", list);
+		mav.addObject("count", count);
 		mav.setViewName("classBbs/classBbsContent");
 		return mav;
 	}

@@ -81,6 +81,7 @@
               </div><!-- /.box -->
               </c:otherwise>
            </c:choose>
+           	<%@ include file="../footer.jsp" %>
              <%@ include file="../controllSide.jsp" %>
              
      <!-- jQuery 2.1.4 -->
