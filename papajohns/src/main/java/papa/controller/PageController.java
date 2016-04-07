@@ -59,10 +59,5 @@ public class PageController {
 		mav.setViewName("find/findListForm");
 		return mav;
 	}
-	
-	@RequestMapping("/myInfo.do")//내정보 Form 이동
-	public String myInfo(){
-		return "myinfo/myInfo";
-	}
-	
+
 }

@@ -20,16 +20,34 @@
   		select pwd from member where id=#{id}
   	</select>
   	
-  	<select id="getUser" parameterType="String" resultType="String">
-  		select name from member where id=#{id}
+  	<select id="getUser" parameterType="String" resultType="papa.member.model.MemberDTO">
+  		select * from member where id=#{id}
   	</select>
 	
 	<select id="info" resultType="papa.member.model.MemberDTO">
 		select * from member
 	</select>
-	<select id="idFind" parameterType="Map" resultType="String">
-		select id from member where name=#{name} and email=#{email}
+	<select id="idFind" parameterType="Map" resultType="int">
+		select count(id) from member where name=#{name} and email=#{email}
 	</select>
+	<select id="emailFind" parameterType="String" resultType="String">
+		select id from member where email=#{email}
+	</select>
+	
+	<select id="pwdFind" parameterType="Map" resultType="int">
+		select count(pwd) from member where id=#{id} and email=#{email}
+	</select>
+	<select id="emailFind2" parameterType="String" resultType="String">
+		select pwd from member where email=#{email}
+	</select>
+	
+	<update id="infoMod" parameterType="papa.member.model.MemberDTO">
+		update member set pwd=#{pwd},email=#{email},phonenumber=#{phonenumber} where name=#{name}
+	</update>
+	
+	<delete id="memberOut" parameterType="papa.member.model.MemberDTO">
+		delete from member where name=#{name}
+	</delete>
 
   </mapper>
 
