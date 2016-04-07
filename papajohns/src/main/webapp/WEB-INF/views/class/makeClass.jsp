@@ -5,6 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script>
+	function aaa(){
+		f.submit();
+	}
+</script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <%@ include file="../header.jsp" %>
@@ -58,7 +63,7 @@
       </aside>
       
       <!-- Main content -->
-             <form action="makeClassAdd.do">
+            
               <div class="container">
               
                 <div class="box-header with-border" align="center">
@@ -67,40 +72,46 @@
                 </div><!-- /.box-header -->
                 
                 <div class="box-body">
-                  <table class="table table-bordered" style="width=50%;">
+                 <form name="f" role="form" action="makeClassAdd.do">
+                  <table>
                     <tr>
                       <th>수업기간명</th>
-                      <td><input type="text" name="institut"></td>
+                      <td><input type="text" name="institut" class="form-control"></td>
                       <th>강사명</th>
-                      <td><input type="text" name="name"></td>
+                      <td><input type="text" name="name" class="form-control"></td>
                     </tr>
                     <tr>
                       <th>강의명</th>
-                      <td><input type="text" name="subject"></td>
+                      <td><input type="text" name="subject" class="form-control"></td>
                       <th>강의시간</th>
-                      <td><input type="text" name="class_time"></td>
+                      <td><input type="text" name="class_time" class="form-control"></td>
                     </tr>
                     <tr>
                       <th>강의스케줄</th>
-                      <td><input type="text" name="class_date"></td>
+                      <td><input type="text" name="class_date" class="form-control"></td>
                       <th>위치</th>
-                      <td><input type="text" name="location"></td>
+                      <td><input type="text" name="location" class="form-control"></td>
                     </tr>
                     <tr>
                       <td colspan="4">
-                      <textarea rows="20" cols="180" id="content" name="explanation"></textarea>
+                      <textarea rows="20" cols="180" id="content" name="explanation" class="form-control"></textarea>
                       </td>
                     </tr>
                   </table>
-                  <div align="center">
-                  <span><input type="submit" class="btn btn-sm btn-success btn-flat pull-center" value="등록하기"></span>
+                  <div align="center">	
+                  <span><input type="submit" class="btn btn-default" value="등록하기"></span>
                   <span><a href="classForm.do" class="btn btn-sm btn-info btn-flat pull-center">목록으로</a></span>
+                   </div>
+                  </form>
                   
-                  </div>
+                   
+                
+                 
+                 
                   
                 </div>
                 </div><!-- /.box -->
-                </form>
+                
              <%@ include file="../footer.jsp" %>
     		<%@ include file="../controllSide.jsp" %>          
  

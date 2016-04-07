@@ -7,16 +7,16 @@ public class classDTO {
 	private int idx;
 	private String name;
 	private String subject;
-	private Date class_time;
+	private String class_time;
 	private String institut;
-	private Date class_date;
+	private String class_date;
 	private Date write_date;
 	private String explanation;
-	private String location;
+	private	String location;
 	public classDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	public classDTO(int idx, String name, String subject, Date class_time, String institut, Date class_date,
+	public classDTO(int idx, String name, String subject, String class_time, String institut, String class_date,
 			Date write_date, String explanation, String location) {
 		super();
 		this.idx = idx;
@@ -47,10 +47,10 @@ public class classDTO {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public Date getClass_time() {
+	public String getClass_time() {
 		return class_time;
 	}
-	public void setClass_time(Date class_time) {
+	public void setClass_time(String class_time) {
 		this.class_time = class_time;
 	}
 	public String getInstitut() {
@@ -59,10 +59,10 @@ public class classDTO {
 	public void setInstitut(String institut) {
 		this.institut = institut;
 	}
-	public Date getClass_date() {
+	public String getClass_date() {
 		return class_date;
 	}
-	public void setClass_date(Date class_date) {
+	public void setClass_date(String class_date) {
 		this.class_date = class_date;
 	}
 	public Date getWrite_date() {
@@ -83,6 +83,7 @@ public class classDTO {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+	
 	
 	
 
