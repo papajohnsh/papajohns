@@ -86,43 +86,49 @@
       </aside>
       
       <!-- Main content -->
-              
+             <form action="makeClassAdd.do">
               <div class="container">
+              
                 <div class="box-header with-border" align="center">
                   <h3 class="box-title">새 강의</h3>
+                   
                 </div><!-- /.box-header -->
+                
                 <div class="box-body">
                   <table class="table table-bordered" style="width=50%;">
                     <tr>
                       <th>수업기간명</th>
-                      <td>Papa교육원</td>
+                      <td><input type="text" name="institut"></td>
                       <th>강사명</th>
-                      <td>유아인</td>
+                      <td><input type="text" name="name"></td>
                     </tr>
                     <tr>
                       <th>강의명</th>
-                      <td>데이터베이스</td>
+                      <td><input type="text" name="subject"></td>
                       <th>강의시간</th>
-                      <td>9:00AM</td>
+                      <td><input type="text" name="class_time"></td>
                     </tr>
                     <tr>
                       <th>강의스케줄</th>
-                      <td>2016.05.10</td>
+                      <td><input type="text" name="class_date"></td>
                       <th>위치</th>
-                      <td>서울시 서초구</td>
+                      <td><input type="text" name="location"></td>
                     </tr>
                     <tr>
                       <td colspan="4">
-                      <textarea rows="20" cols="180" id="content"></textarea>
+                      <textarea rows="20" cols="180" id="content" name="explanation"></textarea>
                       </td>
                     </tr>
                   </table>
                   <div align="center">
-                  <span><a href="makeClassAdd.do" class="btn btn-sm btn-success btn-flat pull-center">등록하기</a></span>
+                  <span><input type="submit" class="btn btn-sm btn-success btn-flat pull-center" value="등록하기"></span>
                   <span><a href="classForm.do" class="btn btn-sm btn-info btn-flat pull-center">목록으로</a></span>
+                  
                   </div>
+                  
                 </div>
-              </div><!-- /.box -->
+                </div><!-- /.box -->
+                </form>
              <%@ include file="../footer.jsp" %>
     		<%@ include file="../controllSide.jsp" %>          
   	
