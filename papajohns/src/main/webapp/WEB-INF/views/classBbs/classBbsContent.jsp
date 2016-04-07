@@ -10,6 +10,57 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <%@ include file="../header.jsp" %>
+
+<!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+          <c:if test="${empty sid}">
+          <div class="pull-left image">
+          	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+          </div>
+          </c:if>
+          <c:if test="${!empty sid}">
+            <div class="pull-left image">
+              <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
+            </div>
+           </c:if>
+            <div class="pull-left info">
+               <c:if test="${empty sid}">
+              	<script type="text/javascript">
+              		window.alert('로그인 후 이용 가능한 서비스입니다.');
+              		location.href="index.do";
+              	</script>
+              	</c:if>
+              <c:if test="${!empty sid}">
+              	<p>${sname}</p>
+              	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+              	</c:if>
+            </div>
+          </div>
+          
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header">Menu</li>
+            <li>
+              <a href="faqList.do">
+                <i class="fa fa-circle-o text-red"></i> <span>FAQ</span>
+                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+              </a>
+            </li>
+            <li>
+              <a href="qnaList.do">
+                <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span>
+                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+              </a>
+            </li>
+          </ul>
+           <ul class="sidebar-menu"></ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
 <!-- Main content --> 
 
 			<c:set var="dto" value="${list}"></c:set>

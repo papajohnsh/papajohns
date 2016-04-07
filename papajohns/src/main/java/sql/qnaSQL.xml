@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sqlMapper.qna">
+<insert id="QnAbbsAdd" parameterType="papa.qnabbs.model.QnaDTO">
+	insert into qna_bbs(writer,subject,content,write_date,readnum,ref,lev,sunbun)
+	values(#{writer},#{subject},#{content},now(),0,0,0,0)
+</insert>
+<select id="QnAList" resultType="papa.qnabbs.model.QnaDTO">
+	select * from qna_bbs
+</select>
+<select id="QnAJoin" resultType="papa.qnabbs.model.QnaDTO">
+	select * from qna_bbs where idx=#{idx}
+</select>
+<select id="getRef" resultType="int">
+	select max(ref)from qna_bbs
+</select>
+<select id="getIdx" resultType="int">
+	select idx from qna_bbs where idx=#{idx}
+</select>
+<insert id="QnArebbsAdd" parameterType="papa.qnare.model.QnaReDTO">
+	insert into qna_rebbs(writer,subject,content,write_date,ref)
+	values(#{writer},#{subject},#{content},now(),#{ref})
+</insert>
+<select id="QnArebbsList" resultType="papa.qnare.model.QnaReDTO">
+	select * from qna_rebbs where ref=#{idx}
+</select>
+</mapper>
