@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,111 +36,143 @@
     <link rel="stylesheet" href="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<%@ include file="../header.jsp" %>
-     
-     <!-- Left side column. contains the logo and sidebar -->
+    
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="index.do" class="logo"><!-- index로 이동 -->
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>C</b>RM</span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b>Class</b>Room</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              
+              <!-- Myclass-menu -->
+              <li class="myclass-menu">
+                <a href="classRoomForm.do"><span>MyClass</span></a>
+              </li>
+              
+              <!-- login-menu -->
+              <li class="login-menu">
+              <c:if test="${empty sid }">
+               <a href="loginForm.do"><span>login</span></a>
+               </c:if>
+               <c:if test="${!empty sid}">
+               <a href="logout.do">logout</a>
+               </c:if> 
+              </li>
+              
+              <!-- Find-menu -->
+              <li class="Find-menu">
+                <a href="findListForm.do"><span>Search</span></a>
+              </li>
+             
+              <!-- bbs-menu -->
+              <li class="bbs-menu">
+                <a href="bbsListForm.do"><span>Bbs</span></a>
+              </li>
+              <!-- support-menu -->
+              <li class="support-menu">
+                <a href="supportForm.do"><span>Support</span></a>
+              </li>
+              <!-- Control Sidebar Toggle Button -->
+		          <li>
+		            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+		          </li>
+            </ul>
+          </div>
+        </nav>
+     </header>
+	
+	 <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- Sidebar user panel -->
           <div class="user-panel">
+          <c:if test="${empty sid}">
+          <div class="pull-left image">
+          	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+          </div>
+          </c:if>
+          <c:if test="${!empty sid}">
             <div class="pull-left image">
               <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
             </div>
+           </c:if>
             <div class="pull-left info">
-              <p>${sname}</p>
+              <c:if test="${empty sid}">
+              <p>로그인 해주세요...</p>
+              <a href="#"><i class="fa fa-circle text-danger"></i> Offline</a>
+              </c:if>
+              <c:if test="${!empty sid}">
+              <p>${sname}님 환영합니다!</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+              </c:if>
             </div>
           </div>
-          
-          <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
-            <li class="header">Menu</li>
-            <li>
-              <a href="myInfo.do">
-                <i class="fa fa-circle-o text-red"></i> <span>내정보</span>
-                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-              </a>
-            </li>
-            <li>
-              <a href="myPlan.do">
-                <i class="fa fa-circle-o text-aqua"></i><span>스케줄</span>
-                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-              </a>
-            </li>
-          </ul>
-           <ul class="sidebar-menu"></ul>
         </section>
         <!-- /.sidebar -->
       </aside>
-      
-      <!-- general form elements disabled -->
-             <div class="container" style="width: 900px"> 
-              <div class="box box-warning">
-                <div class="box-header with-border">
-                  <h3 class="box-title">내정보수정</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <form role="form">
-                    <!-- text input -->
-                    <div class="form-group">
-                      <label>이름</label>
-                      <input type="text" class="form-control" value="강동원" disabled>
-                    </div>
-                    <div class="form-group">
-                      <label>아이디</label>
-                      <input type="text" class="form-control" value="handsomeguy0118">
-                    </div>
-                    <div class="form-group">
-                      <label>닉네임</label>
-                      <input type="text" class="form-control" value="핸썸가이">
-                    </div>
-                    <div class="form-group">
-                      <label>이메일</label>
-                      <input type="text" class="form-control" value="handsomeguy0118@gmail.com">
-                    </div>
-                    <div class="form-group">
-                      <label>주소</label>
-                      <input type="text" class="form-control" value="서울시 강남구">
-                    </div>
 
-                    <!-- textarea -->
-                    <div class="form-group">
-                      <label>Textarea</label>
-                      <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                    </div>
-                    
-                    <!-- checkbox -->
-                     <div class="form-group">
-                     <label>정보수신</label>
-                      <div class="checkbox">
-                      	<span>
-                        <label>
-                          <input type="checkbox">
-                          	mailing
-                        </label>
-                        </span>
-                        <span>
-                        <label>
-                          <input type="checkbox">
-                          	SNS
-                        </label>
-                        </span>
-                      </div>
-                    </div>
-                   <div align="center">
-                  <span><a href="#" class="btn btn-sm btn-success btn-flat pull-center">수정하기</a></span>
-                  <span><a href="#" class="btn btn-sm btn-info btn-flat pull-center">목록으로</a></span>
-                  </div>
-      			</form>
-      		</div>
-      	</div>
-	</div><!-- container -->
-	         
-  	<%@ include file="../footer.jsp" %>
+	<section>
+	<article>
+	<table style="margin:0px auto" width="200" border="1" cellspacing="0" cellpadding="0">
+	<tr>
+	<td style="color:black">테스트입니다.</td>
+	</tr>
+	<tr>
+	<td><input type="button" value="버튼"></td>
+	</tr>
+	<tr>
+	<td>
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/sockjs-0.3.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#sendBtn').click(function() { sendMessage(); });
+	});
+	
+	var sock;
+	function sendMessage() {
+		sock = new SockJS("http://localhost:9090/papajohns/echo.sockjs");
+		sock.onmessage = onMessage;
+		sock.onclose = onClose;
+		sock.onopen = function() {
+			sock.send( $("#message").val() );
+		};
+	}
+	function onMessage(evt) {
+		var data = evt.data;
+		alert("서버에서 데이터 받음: " + data);
+		sock.close();
+	}
+	function onClose(evt) {
+		alert("연결 끊김");
+	}
+</script>
+    <input type="text" id="message">
+    <input type="button" id="sendBtn" value="전송">
+	</td>
+	</tr>
+	</table>
+	
+	</article>
+	</section>
+
+	
+
+ 	<%@ include file="../footer.jsp" %>
     <%@ include file="../controllSide.jsp" %>
-     
-  	<!-- jQuery 2.1.4 -->
+
+    <!-- jQuery 2.1.4 -->
     <script src="css/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -176,5 +209,5 @@
     <script src="css/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="css/dist/js/demo.js"></script>
-</body>
+  </body>
 </html>

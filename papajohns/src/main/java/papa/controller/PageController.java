@@ -9,7 +9,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PageController {
-	
+	@RequestMapping("/test.do")
+	public String test(){
+		return "test/test";
+		
+	}
 	
 	@RequestMapping("/classRoomForm.do")//내강의실Form 이동
 	public String classRoomForm(){
@@ -55,10 +59,5 @@ public class PageController {
 		mav.setViewName("find/findListForm");
 		return mav;
 	}
-	
-	@RequestMapping("/myInfo.do")//내정보 Form 이동
-	public String myInfo(){
-		return "myinfo/myInfo";
-	}
-	
+
 }

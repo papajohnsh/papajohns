@@ -22,6 +22,7 @@ public class TestController {
 		this.testDao = testDao;
 	}
 
+	/*
 	@RequestMapping("/test.do")
 	public ModelAndView test(TestDTO dto){
 		int result=testDao.testAdd(dto);
@@ -32,4 +33,5 @@ public class TestController {
 		mav.setViewName("test/testMsg");
 		return mav;
 	}
+	*/
 }

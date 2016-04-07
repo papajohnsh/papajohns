@@ -79,9 +79,12 @@ public class MemberController {
 			if(getPw.equals(pwd)){//비밀번호가 맞으면
 				msg="로그인 성공!";
 				url="index.do";
-				String name=memberDao.getUserInfo(id);
+				MemberDTO dto=memberDao.getUserInfo(id);
 				session.setAttribute("sid", id);
-				session.setAttribute("sname", name);
+				session.setAttribute("sname", dto.getName());
+				session.setAttribute("semail", dto.getEmail());
+				session.setAttribute("sphone", dto.getPhonenumber());
+				session.setAttribute("spwd", dto.getPwd());
 			}else{//비밀번호가 틀리면
 				msg="비밀번호를 확인해주세요.";
 				url="loginForm.do";
@@ -145,37 +148,102 @@ public class MemberController {
 		return "member/idFindForm";
 	}
 	
-	/*@RequestMapping("/idFind.do")//아이디 찾는 로직
+	@RequestMapping("/idFind.do")//아이디 찾기 로직
 	public ModelAndView idFind(@RequestParam("name") String name, @RequestParam("email") String email){
-		
-		Map map=new HashMap();
+	
+		Map<String, String> map=new HashMap<String, String>();
 		map.put("name", name);
 		map.put("email", email);
 		
-		String getName=memberDao.idFind(map);
-		
-		System.out.println("name:"+name);
-		System.out.println("eamil:"+email);
+		int result=memberDao.idFind(map);
 		
 		ModelAndView mav=new ModelAndView();
-		
 		String msg="";
 		String url="";
 		
-		if(name.equals(name) && email.equals(email)){//이름과 이메일 일치
-			msg="당신의 아이디는 ~입니다.";
-			url="idFind.do";
-		}else{//둘 중 하나라도 없다면
+		if(result>0){
+			String getId=memberDao.emailFind(email);
+			msg="당신의 아이디는"+getId+"입니다.";
+			url="index.do";
+			mav.addObject("msg", msg);
+			mav.addObject("url", url);
+			mav.addObject("getId", getId);
+		}else{
 			msg="가입된 회원이 아닙니다.";
-			url="idFind.do";
+			url="idFindForm.do";
+			mav.addObject("msg", msg);
+			mav.addObject("url", url);
 		}
-		
-		mav.addObject("msg", msg);
-		mav.addObject("url", url);
 		mav.setViewName("member/idFindMsg");
+		return mav;	
 		
-		return mav;
-	}*/
+	}
 	
-
+	@RequestMapping("/pwdFindForm.do")//비밀번호 찾기 폼
+	public String pwdFindForm(){
+		return "member/pwdFindForm";
+	}
+	
+	@RequestMapping("/pwdFind.do")//비밀번호 찾기 로직
+	public ModelAndView pwdFind(@RequestParam("id") String id, @RequestParam("email") String email){
+	
+		Map<String, String> map=new HashMap<String, String>();
+		map.put("id", id);
+		map.put("email", email);
+		
+		int result=memberDao.pwdFind(map);
+		
+		ModelAndView mav=new ModelAndView();
+		String msg="";
+		String url="";
+		
+		if(result>0){
+			String getPwd=memberDao.emailFind2(email);
+			msg="당신의 비밀번호는"+getPwd+"입니다.";
+			url="index.do";
+			mav.addObject("msg", msg);
+			mav.addObject("url", url);
+			mav.addObject("getPwd", getPwd);
+		}else{
+			msg="가입된 회원이 없습니다.";
+			url="idFindForm.do";
+			mav.addObject("msg", msg);
+			mav.addObject("url", url);
+		}
+		mav.setViewName("member/idFindMsg");
+		return mav;			
+	}
+	
+	@RequestMapping("/myInfoForm.do")//내정보 수정 폼
+	public String myInfoForm(MemberDTO dto){
+		return "member/myInfoForm";
+	}
+	
+	@RequestMapping("/myInfo.do")//내정보 수정하기
+	public ModelAndView myInfo(MemberDTO dto){
+		
+		int count=memberDao.infoMod(dto);
+		System.out.println("count:"+count);
+		String msg=count>0?"수정성공!":"수정실패!";
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("msg", msg);
+		mav.setViewName("member/myInfoMsg");
+		return mav;
+	}
+	
+	@RequestMapping("/memberOutForm.do")//회원탈퇴 폼
+	public String memberOutForm(){
+		return "member/memberOutForm";
+	}
+	
+	@RequestMapping("/memberOut.do")//회원탈퇴하기
+	public ModelAndView memberOut(MemberDTO dto){
+		int count=memberDao.memberOut(dto);
+		  System.out.println("count:"+count);
+		  String msg=count>0?"회원탈퇴성공!":"회원탈퇴실패!";
+		  ModelAndView mav=new ModelAndView();
+		  mav.addObject("msg", msg);
+		  mav.setViewName("member/myInfoMsg");
+		  return mav;
+	}
 }
