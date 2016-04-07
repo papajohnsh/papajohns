@@ -3,8 +3,23 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="classSQL">
-<insert id="classAdd" parameterType="papa.class_.model.classDTO">
+<insert id="classAdd" parameterType="papa.class_.model.classDTO" >
 insert into class_info(name,subject,class_time,institut,class_date,write_date,explanation,location) 
 values(#{name},#{subject},#{class_time},#{institut},#{class_date},now(),#{explanation},#{location})
 </insert>
+<select id="classRoomNameSearch" parameterType="String" resultType="papa.class_.model.classDTO">
+select * from class_info where subject LIKE CONCAT('%',#{subject},'%')
+</select>
+<select id="institutSearch" parameterType="String" resultType="papa.class_.model.classDTO">
+select * from class_info where institut LIKE CONCAT('%',#{institut},'%')
+</select>
+<select id="nameSearch" parameterType="String" resultType="papa.class_.model.classDTO">
+select * from class_info where name LIKE CONCAT('%',#{name},'%')
+</select>
+<select id="class_dateSearch" parameterType="String" resultType="papa.class_.model.classDTO">
+select * from class_info where class_date LIKE CONCAT('%',#{class_date},'%')
+</select>
+<select id="class_timeSearch" parameterType="String" resultType="papa.class_.model.classDTO">
+select * from class_info where class_time LIKE CONCAT('%',#{class_time},'%')
+</select>
 </mapper>
