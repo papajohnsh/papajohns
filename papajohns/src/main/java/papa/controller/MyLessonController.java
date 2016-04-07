@@ -31,5 +31,9 @@ public class MyLessonController {
 		mav.setViewName("class/studentList");
 		return mav;
 	}
+	@RequestMapping("/classQuiz.do")
+	public String classQuiz(){
+		return "class/classQuiz";
+	}
 
 }
