@@ -31,5 +31,9 @@ public class MyLessonController {
 		mav.setViewName("class/studentList");
 		return mav;
 	}
+	
+	public String classQuiz(){
+		return "class/classQuiz";
+	}
 
 }
