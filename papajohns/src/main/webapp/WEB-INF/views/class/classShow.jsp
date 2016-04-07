@@ -43,6 +43,12 @@ $(function(){
                       remote : 'studentList.do'
                 });
     })
+    
+        $("#classQuiz").on('click', function(){
+        $('#myModal2').modal({
+                      remote : 'classQuiz.do'
+                });
+    })
    
 })
 </script>
@@ -81,8 +87,8 @@ $(function(){
               </a>
               <ul class="treeview-menu">
                 <li><a href="#" id="studentList"><i class="fa fa-circle-o" ></i> 학생리스트</a></li>
-                <li><a href="classPlan.do"><i class="fa fa-circle-o"></i> 강의스케줄</a></li>
-                <li><a href="classQuiz.do"><i class="fa fa-circle-o"></i> 쪽지시험 출제</a></li>
+                <li><a href="classPlan.do" ><i class="fa fa-circle-o"></i> 강의스케줄</a></li>
+                <li><a href="#" id="classQuiz"><i class="fa fa-circle-o"></i> 쪽지시험 출제</a></li>
                 <li><a href="resultQuiz.do"><i class="fa fa-circle-o"></i> 쪽지시험 결과</a></li>
                 <li><a href="pastQuery.do"><i class="fa fa-circle-o"></i> 지난질문 보기</a></li>
                 <li><a href="showMessage.do"><i class="fa fa-circle-o"></i> 메세지 보기</a></li>
@@ -107,9 +113,17 @@ $(function(){
         </section>
         <!-- /.sidebar -->
       </aside>
-        
-
+					
+             		<iframe style="float: right;" src="http://192.168.50.81:8081?student=${sname }&classRoom=자바" width="550" height="550">
+ 		</iframe>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <!-- remote ajax call이 되는영역 -->
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
         <!-- remote ajax call이 되는영역 -->

@@ -7,5 +7,8 @@
 		<mapper resource="sql/testSQL.xml"/>
 		<mapper resource="sql/memberSQL.xml"/>
 		<mapper resource="sql/freebbsSQL.xml"/>
+		<mapper resource="sql/classSQL.xml"/>
+		<mapper resource="sql/classbbsSQL.xml"/>
+		<mapper resource="sql/faqSQL.xml"/>
 	</mappers>
 </configuration>

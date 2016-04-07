@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,37 +74,37 @@
           <ul class="sidebar-menu">
             <li class="header">Menu</li>
             <li>
-              <a href="classRoomForm.do">
+              <a href="classRoomNameSearchForm.do?num=1">
                 <i class="fa fa-search"></i> <span>수업이름검색</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
             <li>
-              <a href="classForm.do">
+              <a href="classRoomNameSearchForm.do?num=2">
                 <i class="fa fa-search"></i><span>소속기간검색</span>
                	<span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span> 
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="classRoomNameSearchForm.do?num=3">
                 <i class="fa fa-search"></i><span>거리별검색</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="classRoomNameSearchForm.do?num=4">
                 <i class="fa fa-search"></i><span>선생님검색</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="classRoomNameSearchForm.do?num=5">
                 <i class="fa fa-search"></i><span>날짜별검색</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="classRoomNameSearchForm.do?num=6">
                 <i class="fa fa-search"></i><span>시간별검색</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
@@ -118,9 +119,11 @@
               
               <div class="container">
                 <div class="box-header with-border" align="center">
-                  <h3 class="box-title">수업신청하기</h3>
+                  
                 </div><!-- /.box-header -->
                 <div class="box-body">
+                <c:if test="${empty num && empty list}">
+                <h3 class="box-title">수업신청하기</h3>
                   <table class="table table-bordered">
                     <tr>
                       <th>수업기관명</th>
@@ -146,10 +149,108 @@
                       </td>
                     </tr>
                   </table>
+                  
                   <div align="center">
                   <span><a href="#" class="btn btn-sm btn-success btn-flat pull-center">참여신청</a></span>
                   <span><a href="#" class="btn btn-sm btn-info btn-flat pull-center">목록으로</a></span>
                   </div>
+                  </c:if>
+                  <c:if test="${num==1}">
+                  <form action="classRoomNameSearch.do">
+                                            수업명<input type="text" name="subject">
+                  <input type="hidden" name="num" value="1">
+                  <input type="submit" value="검색">
+                  <table>
+                  <c:forEach var="dto" items="${list }">
+                  <tr>
+                  <td>과목:${dto.subject }</td>
+                  <td>선생님이름:${dto.name }</td>
+                  </tr>
+                  </c:forEach>
+                  </table>
+                  </form>
+                  </c:if>
+                  
+                  <c:if test="${num==2}">
+                  <form action="classRoomNameSearch.do">
+                                           소속기간<input type="text" name="institut">
+                  <input type="hidden" name="num" value="2">
+                  <input type="submit" value="검색">
+                  <table>
+                  <c:forEach var="dto" items="${list2 }">
+                  <tr>
+                  <td>과목:${dto.subject }</td>
+                  <td>선생님이름:${dto.name }</td>
+                  </tr>
+                  </c:forEach>
+                  </table>
+                  </form>
+                  </c:if>
+                  
+                  <c:if test="${num==3}">
+                  <form action="classRoomNameSearch.do">
+                                            <input type="text" name="subject">
+                  <input type="hidden" name="num" value="3">
+                  <input type="submit" value="검색">
+                  <table>
+                  <c:forEach var="dto" items="${list }">
+                  <tr>
+                  <td>과목:${dto.subject }</td>
+                  <td>선생님이름:${dto.name }</td>
+                  </tr>
+                  </c:forEach>
+                  </table>
+                  </form>
+                  </c:if>
+                  
+                  <c:if test="${num==4}">
+                  <form action="classRoomNameSearch.do">
+                                            선생님이름:<input type="text" name="name">
+                  <input type="hidden" name="num" value="4">
+                  <input type="submit" value="검색">
+                  <table>
+                  <c:forEach var="dto" items="${list3 }">
+                  <tr>
+                  <td>과목:${dto.subject }</td>
+                  <td>선생님이름:${dto.name }</td>
+                  </tr>
+                  </c:forEach>
+                  </table>
+                  </form>
+                  </c:if>
+                  
+                  <c:if test="${num==5}">
+                  <form action="classRoomNameSearch.do">
+                                            수업날짜:<input type="text" name="class_date">
+                  <input type="hidden" name="num" value="5">
+                  <input type="submit" value="검색">
+                  <table>
+                  <c:forEach var="dto" items="${list4 }">
+                  <tr>
+                  <td>과목:${dto.subject }</td>
+                  <td>선생님이름:${dto.name }</td>
+                  </tr>
+                  </c:forEach>
+                  </table>
+                  </form>
+                  </c:if>
+                  
+                  <c:if test="${num==6}">
+                  <form action="classRoomNameSearch.do">
+                                            수업시간:<input type="text" name="class_time">
+                  <input type="hidden" name="num" value="6">
+                  <input type="submit" value="검색">
+                  <table>
+                  <c:forEach var="dto" items="${list5 }">
+                  <tr>
+                  <td>과목:${dto.subject }</td>
+                  <td>선생님이름:${dto.name }</td>
+                  </tr>
+                  </c:forEach>
+                  </table>
+                  </form>
+                  </c:if>
+                  
                 </div>
               </div><!-- /.box -->
              <%@ include file="../footer.jsp" %>

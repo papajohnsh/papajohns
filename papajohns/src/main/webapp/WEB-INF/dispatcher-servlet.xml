@@ -71,6 +71,24 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
+
+	<bean id="classDao" class="papa.class_.model.classDAOImple">
+	<constructor-arg>
+		<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="classbbsDao" class="papa.classbbs.model.ClassBbsDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
+	<bean id="faqDao" class="papa.faq.model.FaqDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
+
 	<!-- controller -->
 	
 	<!-- view -->
