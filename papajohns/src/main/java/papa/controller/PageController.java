@@ -15,6 +15,12 @@ public class PageController {
 		
 	}
 	
+	@RequestMapping("/testChat.do")
+	public String testChat(){
+		return "test/testChat";
+		
+	}
+	
 	@RequestMapping("/classRoomForm.do")//내강의실Form 이동
 	public String classRoomForm(){
 		return "class/classRoomForm";

@@ -26,7 +26,7 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
 		log(session.getId() + " 연결 종료됨");
 		users.remove(session.getId());
 	}
-
+	
 	@Override
 	protected void handleTextMessage(
 			WebSocketSession session, TextMessage message) throws Exception {
