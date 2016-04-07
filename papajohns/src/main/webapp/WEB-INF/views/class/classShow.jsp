@@ -45,7 +45,7 @@ $(function(){
     })
     
         $("#classQuiz").on('click', function(){
-        $('#myModal').modal({
+        $('#myModal2').modal({
                       remote : 'classQuiz.do'
                 });
     })
@@ -114,9 +114,16 @@ $(function(){
         <!-- /.sidebar -->
       </aside>
 					
-             		<iframe style="float: right;" src="http://192.168.50.81:8081?student=<%=session.getAttribute("saveid") %>&classRoom=자바" width="550" height="550">
+             		<iframe style="float: right;" src="http://192.168.50.81:8081?student=${sname }&classRoom=자바" width="550" height="550">
  		</iframe>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <!-- remote ajax call이 되는영역 -->
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
         <!-- remote ajax call이 되는영역 -->
