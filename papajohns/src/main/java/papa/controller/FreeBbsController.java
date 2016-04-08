@@ -11,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import papa.freebbs.model.FreeBbsDAO;
 import papa.freebbs.model.FreeBbsDTO;
+import papa.qnare.model.QnaReDAO;
+import papa.qnare.model.QnaReDTO;
 
 @Controller
 public class FreeBbsController {
@@ -26,6 +28,17 @@ public class FreeBbsController {
 		this.freebbsDao = freebbsDao;
 	}
 
+	@Autowired
+	private QnaReDAO qnareDao;
+	
+	
+	public QnaReDAO getQnareDao() {
+		return qnareDao;
+	}
+
+	public void setQnareDao(QnaReDAO qnareDao) {
+		this.qnareDao = qnareDao;
+	}
 	
 	@RequestMapping("/bbsListForm.do")//게시판Form 이동,list 보여주기
 	public ModelAndView bbsListForm(){
@@ -82,12 +95,14 @@ public class FreeBbsController {
 	@RequestMapping("/bbsContent.do")//게시판 본문내용보기
 	public ModelAndView bbsContent(@RequestParam("idx") int idx){
 		int count= freebbsDao.readNum(idx);
+		//List<QnaReDTO> reList=qnareDao.QnArebbsList(idx);
 		FreeBbsDTO list=freebbsDao.bbsContent(idx);
 		
 		
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list", list);
+		//mav.addObject("reList", reList);
 		mav.addObject("count", count);
 		mav.setViewName("bbs/bbsContent");
 		return mav;
