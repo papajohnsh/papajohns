@@ -10,33 +10,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 import papa.qna.model.QnaDAO;
 import papa.qna.model.QnaDTO;
-import papa.qnare.model.QnaReDAO;
-import papa.qnare.model.QnaReDTO;
 
-@Controller
+
+/*@Controller
 public class QnaController {
-	/*@Autowired
+	@Autowired
 	private QnaDAO qnaDao;
 
 	public QnaDAO getQnaDao() {
 		return qnaDao;
 	}
 
-	public void setQnaDao(QnaDAO qnaDao) {
-		this.qnaDao = qnaDao;
-	}
-	
-	@Autowired
-	private QnaReDAO qnareDao;
-	
-	
-	public QnaReDAO getQnareDao() {
-		return qnareDao;
-	}
 
-	public void setQnareDao(QnaReDAO qnareDao) {
-		this.qnareDao = qnareDao;
-	}
 
 	@RequestMapping("/qnaList.do")//qna 리스트 보기
 	public ModelAndView qnaList(){
@@ -71,11 +56,10 @@ public class QnaController {
 	public ModelAndView qnaContent(@RequestParam("idx") int idx){
 		
 		List<QnaDTO> list=qnaDao.QnAJoin(idx);
-		List<QnaReDTO> reList=qnareDao.QnArebbsList(idx);
+
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list", list);
-		mav.addObject("reList", reList);
 		mav.setViewName("qna/qnaContent");
 		return mav;
 	}
@@ -89,16 +73,6 @@ public class QnaController {
 		return mav;
 	}
 	
-	@RequestMapping("/qnaReWrite.do")//답변글쓰기 등록
-	public ModelAndView qnaReWrite(QnaReDTO dto){
-		
-		int result=qnareDao.qnaReWrite(dto);
-		String msg=result>0?"답변글쓰기 성공":"답변글쓰기 실패";
-		
-		ModelAndView mav=new ModelAndView();
-		mav.addObject("msg", msg);
-		mav.setViewName("qna/qnaMsg");
-		return mav;
-	}*/
+
 	
-}
+}*/
