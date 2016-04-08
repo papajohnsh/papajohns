@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -17,6 +19,7 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
 	public void afterConnectionEstablished(
 			WebSocketSession session) throws Exception {
 		log(session.getId() + " 연결 됨");
+	
 		users.put(session.getId(), session);
 	}
 
@@ -30,12 +33,14 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
 	@Override
 	protected void handleTextMessage(
 			WebSocketSession session, TextMessage message) throws Exception {
+		System.out.println("진입함");
 		log(session.getId() + "로부터 메시지 수신: " + message.getPayload());
 		for (WebSocketSession s : users.values()) {
 			s.sendMessage(message);
 			log(s.getId() + "에 메시지 발송: " + message.getPayload());
 		}
 	}
+	
 
 	@Override
 	public void handleTransportError(

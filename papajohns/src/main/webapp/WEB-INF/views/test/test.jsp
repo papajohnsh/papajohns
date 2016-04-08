@@ -121,44 +121,59 @@
         </section>
         <!-- /.sidebar -->
       </aside>
-
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#wsBtn1').click(function() { sendMessage("red"); })
+		$('#wsBtn2').click(function() { sendMessage("blue"); })
+		$('#wsBtn3').click(function() { sendMessage("yellow"); })
+	});
+	
+	var wsocket;
+	function sendMessage(color) {
+		wsocket = new WebSocket("ws://localhost:9090/papajohns/echo-ws");
+		wsocket.onmessage = onMessage;
+		//wsocket.onclose = onClose;
+		wsocket.onopen = function() {
+			wsocket.send(color);
+		};
+	}
+	
+	function onMessage(evt) {
+		var data = evt.data;
+		
+		tab.style.backgroundColor = data;
+		
+		//wsocket.close();
+	}
+	
+	function onClose(evt) {
+		alert("연결 끊김");
+	}
+	
+	function sendBtn(){
+		   tab.style.backgroundColor = "blue"; 
+		
+	}
+</script>
 	<section>
 	<article>
-	<table style="margin:0px auto" width="200" border="1" cellspacing="0" cellpadding="0">
+	<table style="margin:0px auto; background-color:red;" id="tab" width="200" border="1" cellspacing="0" cellpadding="0">
 	<tr>
 	<td style="color:black">테스트입니다.</td>
 	</tr>
 	<tr>
-	<td><input type="button" value="버튼"></td>
+	<td>
+	<input type="button" id="wsBtn1" value="빨강">
+	<input type="button" id="wsBtn2" value="파랑">
+	<input type="button" id="wsBtn3" value="노랑">
+	</td>
 	</tr>
 	<tr>
 	<td>
-	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#sendBtn').click(function() { sendMessage(); });
-	});
-	
-	var wsocket;
-	function sendMessage() {
-		wsocket = new WebSocket("ws://localhost:9090/papajohns/echo-ws");
-		wsocket.onmessage = onMessage;
-		wsocket.onclose = onClose;
-		wsocket.onopen = function() {
-			wsocket.send( $("#message").val() );
-		};
-	}
-	function onMessage(evt) {
-		var data = evt.data;
-		alert("서버에서 데이터 받음: " + data);
-		wsocket.close();
-	}
-	function onClose(evt) {
-		alert("연결 끊김");
-	}
-</script>
+
     <input type="text" id="message">
-    <input type="button" id="sendBtn" value="전송">
+    <input type="button" id="sendBtn" value="전송" onclick="sendBtn()">
 	</td>
 	</tr>
 	</table>
