@@ -10,4 +10,5 @@ public interface FreeBbsDAO {
 	public FreeBbsDTO bbsContent(int idx);
 	public int bbsReWriteAdd(FreeBbsDTO dto);
 	public int readNum(int idx);
+
 }

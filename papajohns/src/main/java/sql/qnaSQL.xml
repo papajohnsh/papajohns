@@ -19,11 +19,4 @@
 <select id="getIdx" resultType="int">
 	select idx from qna_bbs where idx=#{idx}
 </select>
-<insert id="QnArebbsAdd" parameterType="papa.qnare.model.QnaReDTO">
-	insert into qna_rebbs(writer,subject,content,write_date,ref)
-	values(#{writer},#{subject},#{content},now(),#{ref})
-</insert>
-<select id="QnArebbsList" resultType="papa.qnare.model.QnaReDTO">
-	select * from qna_rebbs where ref=#{idx}
-</select>
 </mapper>

@@ -15,7 +15,7 @@ import papa.qnare.model.QnaReDTO;
 
 @Controller
 public class QnaController {
-	/*@Autowired
+	@Autowired
 	private QnaDAO qnaDao;
 
 	public QnaDAO getQnaDao() {
@@ -99,6 +99,6 @@ public class QnaController {
 		mav.addObject("msg", msg);
 		mav.setViewName("qna/qnaMsg");
 		return mav;
-	}*/
+	}
 	
 }

@@ -95,7 +95,7 @@ public class FreeBbsController {
 	@RequestMapping("/bbsContent.do")//게시판 본문내용보기
 	public ModelAndView bbsContent(@RequestParam("idx") int idx){
 		int count= freebbsDao.readNum(idx);
-		//List<QnaReDTO> reList=qnareDao.QnArebbsList(idx);
+		List<QnaReDTO> reList=qnareDao.QnArebbsList(idx);
 		FreeBbsDTO list=freebbsDao.bbsContent(idx);
 		
 		
