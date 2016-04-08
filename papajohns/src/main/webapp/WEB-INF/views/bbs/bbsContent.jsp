@@ -81,17 +81,6 @@
            </c:choose>
            
              <!-- Chat box -->
-             <c:set var="dto" value="${reList}"></c:set>
-		   <c:choose>
-		   	<c:when test="${empty dto}">
-		
-		    <tr>
-		     <td colspan="5" align="center">
-		      	잘못된 접근입니다.
-		     </td>
-		    </tr>
-		   </c:when>
-		   <c:otherwise> 
              <div class="content-wrapper">
               <div class="box box-success">
                 <div class="box-header">
@@ -150,8 +139,7 @@
                 </div>
               </div><!-- /.box (chat box) -->
              </div> 
-</c:otherwise>
-           </c:choose>
+
             <%@ include file="../footer.jsp" %>
              
 
