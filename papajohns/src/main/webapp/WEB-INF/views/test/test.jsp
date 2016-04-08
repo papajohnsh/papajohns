@@ -167,6 +167,8 @@
 	<input type="button" id="wsBtn1" value="빨강">
 	<input type="button" id="wsBtn2" value="파랑">
 	<input type="button" id="wsBtn3" value="노랑">
+	
+	
 	</td>
 	</tr>
 	<tr>
