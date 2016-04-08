@@ -33,7 +33,6 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
 	@Override
 	protected void handleTextMessage(
 			WebSocketSession session, TextMessage message) throws Exception {
-		System.out.println("진입함");
 		log(session.getId() + "로부터 메시지 수신: " + message.getPayload());
 		for (WebSocketSession s : users.values()) {
 			s.sendMessage(message);

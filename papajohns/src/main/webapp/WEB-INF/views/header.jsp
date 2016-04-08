@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="css/plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+<script type="text/javascript" src="js/httpRequest.js"></script>
 </head>
 <body> 
  <header class="main-header">
