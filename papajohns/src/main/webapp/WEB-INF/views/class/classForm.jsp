@@ -49,7 +49,7 @@
               </a>
             </li>
             <li>
-              <a href="classDesign.do">
+              <a href="classDesign.do?idx=${sidx }">
                 <i class="fa fa-edit"></i><span>강의실 디자인</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
