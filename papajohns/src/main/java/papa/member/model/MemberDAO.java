@@ -19,5 +19,6 @@ public interface MemberDAO {
 	public int infoMod(MemberDTO dto);
 	
 	public int memberOut(MemberDTO dto);
+	
 
 }

@@ -2,6 +2,8 @@ package papa.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,12 +12,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import papa.class_.model.classDAO;
 import papa.class_.model.classDTO;
-
+import papa.member.model.MemberDTO;
 @Controller
 public class ClassController {
 	
 	@Autowired
 	private classDAO classDao;
+	
 	
 	
 	public classDAO getClassDao() {
@@ -50,6 +53,7 @@ public class ClassController {
 	public ModelAndView classRoomNameSearch(@RequestParam(value="subject",required=false)String subject,@RequestParam("num")String num,
 			@RequestParam(value="institut",required=false)String institut,@RequestParam(value="name",required=false)String name,
 			@RequestParam(value="class_date",required=false)String class_date,@RequestParam(value="class_time",required=false)String class_time){
+		
 		List<String> list=classDao.classRoomNameSearch(subject);
 		List<String> list2=classDao.institutSearch(institut);
 		List<String> list3=classDao.nameSearch(name);
@@ -66,5 +70,49 @@ public class ClassController {
 		return mav;
 		
 	}
-
+	@RequestMapping("/popup.do")
+	public ModelAndView classJoin(@RequestParam(value="idx",required=false)String idx){
+		
+		
+		List<classDTO> list=classDao.classJoin(idx);
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("list",list);
+		mav.setViewName("class/classJoin");
+		return mav;
+	}
+	@RequestMapping("/classAttend.do")
+	public ModelAndView classAttend(HttpSession session,int reidx){
+		
+		int idx=(int) session.getAttribute("sidx");
+		int result=classDao.classAddUpdate(reidx, idx);
+	
+		String msg=result>0?"참가성공":"참가 실패";
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("msg",msg);
+		mav.setViewName("class/Msg");
+		return mav;
+	
+	}
+	@RequestMapping("/classDesign.do")
+	public ModelAndView classDesign(@RequestParam(value="idx",required=false)int idx){
+		
+		List<classDTO> list=classDao.classDesign(idx);
+		ModelAndView mav=new ModelAndView();
+		
+		mav.addObject("list",list);
+		mav.setViewName("class/classDesign");
+		return mav;
+	}
+	@RequestMapping("/designJoin.do")
+	public ModelAndView designJoin(int idx){
+	
+		
+	List<MemberDTO> list=classDao.designJoin(idx);
+	ModelAndView mav=new ModelAndView();
+	mav.addObject("idx",idx);
+	mav.addObject("list",list);
+	mav.setViewName("class/designJoin");
+	return mav;
+	}
+	
 }

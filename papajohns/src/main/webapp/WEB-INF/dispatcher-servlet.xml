@@ -90,6 +90,11 @@
 	</bean>
 	<bean id="qnaDao" class="papa.qna.model.QnaDAOImple">
 		<constructor-arg>
+					<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
+	<bean id="designDao" class="papa.design.model.designDAOImple">
+	<constructor-arg>
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>

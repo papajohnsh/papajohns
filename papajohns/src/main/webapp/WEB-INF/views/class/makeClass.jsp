@@ -51,7 +51,7 @@
               </a>
             </li>
             <li>
-              <a href="classDesign.do">
+              <a href="classDesign.do?idx=${sidx }">
                 <i class="fa fa-edit"></i><span>강의실 디자인</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
@@ -78,7 +78,9 @@
                       <th>수업기간명</th>
                       <td><input type="text" name="institut" class="form-control"></td>
                       <th>강사명</th>
-                      <td><input type="text" name="name" class="form-control"></td>
+                      <td><input type="text" name="name" class="form-control">
+                      <input type="hidden" name="reidx" value="${sidx }">
+                      </td>
                     </tr>
                     <tr>
                       <th>강의명</th>
@@ -90,7 +92,8 @@
                       <th>강의스케줄</th>
                       <td><input type="text" name="class_date" class="form-control"></td>
                       <th>위치</th>
-                      <td><input type="text" name="location" class="form-control"></td>
+                      <td><input type="text" name="location" class="form-control">
+                      </td>
                     </tr>
                     <tr>
                       <td colspan="4">

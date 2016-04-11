@@ -82,4 +82,5 @@ public class MemberDAOImple implements MemberDAO {
 		int count=sqlMap.delete("memberOut", dto);
 		return count;
 	}
+	
 }

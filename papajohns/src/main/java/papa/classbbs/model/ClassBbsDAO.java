@@ -2,6 +2,8 @@ package papa.classbbs.model;
 
 import java.util.List;
 
+
+
 public interface ClassBbsDAO {
 
 	public int writeAdd(ClassBbsDTO dto);
@@ -16,4 +18,5 @@ public interface ClassBbsDAO {
 	public int classReWrite(ClassBbsReDTO dto);
 	public int getIdx(int idx);
 	public int getRef();
+
 }
