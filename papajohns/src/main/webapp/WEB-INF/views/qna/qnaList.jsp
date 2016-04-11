@@ -80,10 +80,10 @@
          <div class="col-xs-12">
            <div class="box">
              <div class="box-header" align="center">
-               <h3 class="box-title">수업게시판</h3>
+               <h3 class="box-title">질문게시판</h3>
                <div class="box-tools">
                  <div class="input-group" style="width: 150px;">
-                 <form name="search" action="bbsFind.do" method="post">
+                 <form name="search" action="#" method="post">
                  <input type="text" name="subject" required="required" class="form-control input-sm pull-right" placeholder="Search">
                  	<select name="writer">
                  		<option value="subject">제목</option>
@@ -107,8 +107,8 @@
                    </thead>
 
                  <tbody>
-                   	<c:set var="classbbsList" value="${list}"></c:set>
-                   	<c:if test="${empty classbbsList}">
+                   	<c:set var="qnaList" value="${list}"></c:set>
+                   	<c:if test="${empty qnaList}">
                    		<tr>
                    			<td colspan="4" align="center">
                    			 	등록된 게시글이 없습니다.
@@ -116,10 +116,10 @@
                    		</tr>
                    	</c:if>
 
-                   	<c:forEach var="dto" items="${classbbsList}">
+                   	<c:forEach var="dto" items="${qnaList}">
                      <tr>
                        <td>${dto.idx}</td>
-                       <td><a href="classBbsContent.do?idx=${dto.idx}">${dto.subject}</a></td>
+                       <td><a href="qnaContent.do?idx=${dto.idx}">${dto.subject}</a></td>
                        <td>${dto.writer}</td>
                        <td><span class="badge bg-red">${dto.readnum}</span></td>
                      </tr>
@@ -129,7 +129,7 @@
 
                <div class="box-footer clearfix" align="center">
 
-               <a href="classBbsWriteForm.do" class="btn btn-sm btn-info btn-flat pull-right">글쓰기</a>
+               <a href="qnaWriteForm.do" class="btn btn-sm btn-info btn-flat pull-right">글쓰기</a>
 
            <ul class="pagination pagination-sm no-margin pull-center">
                  <li><a href="#">&laquo;</a></li>

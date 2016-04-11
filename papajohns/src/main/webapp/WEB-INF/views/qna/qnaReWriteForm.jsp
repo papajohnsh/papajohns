@@ -75,7 +75,7 @@
      
       <div class="container" style="width: 900px"> 
         <!-- Content Header (Page header) -->
-        <h3 align="center">댓글 쓰기</h3>
+        <h3 align="center">댓글쓰기</h3>
         <section class="content-header">
 
           <ol class="breadcrumb">
@@ -88,7 +88,7 @@
         <!-- Main content -->
      
   <div class="box box-info">
-                 <form name="classBbsReWrite" action="classBbsReWrite.do">
+                 <form name="qnaReWrite" action="qnaReWrite.do">
                  <table class="table table-bordered">
                  
                   <tr>
@@ -109,9 +109,7 @@
  				</table>
                 <div class="box-body pad">
                   
-                    <textarea id="content" name="content" rows="10" cols="80">
-                                            This is my textarea to be replaced with TextEditor.
-                    </textarea>
+                    <textarea id="content" name="content" rows="10" cols="80"></textarea>
                   <br>
                   <!-- writeAdd button -->
                   <div>

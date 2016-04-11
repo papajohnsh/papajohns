@@ -149,8 +149,8 @@
 					</tr>
                   </table>
                   <div align="center">
-                  <span><a href="classBbsReWriteForm.do?idx=${dto.idx }&subject\" class="btn btn-sm btn-danger btn-flat pull-center"> 답변글쓰기</a></span>
-                  <span><a href="classBbsList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a></span>
+                  <span><a href="qnaReWrite.do?idx=${dto.idx }&subject=${dto.subject}" class="btn btn-sm btn-danger btn-flat pull-center"> 댓글작성</a></span>
+                  <span><a href="qnaListForm.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a></span>
                   </div>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
@@ -167,11 +167,11 @@
                 </div>
                 <div class="box-body chat" id="chat-box">
                   <!-- chat item -->
-                  <c:set var="classReList" value="${reList}"></c:set>
-                  <c:if test="${empty classReList}">
+                  <c:set var="qnaReList" value="${reList}"></c:set>
+                  <c:if test="${empty qnaReList}">
                   	등록된 댓글이 없습니다.
                   </c:if>
-                  <c:forEach var="dto" items="${classReList}">
+                  <c:forEach var="dto" items="${qnaReList}">
                   <div class="item">
                     <img src="img/송중기.jpg" alt="user image" class="online">
                     <p class="message">

@@ -33,7 +33,7 @@
               <a href="#"><i class="fa fa-circle text-danger"></i> Offline</a>
               </c:if>
               <c:if test="${!empty sid}">
-              <p>${sname}님 환영합니다!</p>
+              <p>${sname}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
               </c:if>
             </div>
@@ -41,10 +41,11 @@
         </section>
         <!-- /.sidebar -->
       </aside>
-
+		
+		  <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
 
 		<!-- Small boxes (Stat box) -->
-         <div class="container" style="width: 900px"> 
           <div class="row">
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
@@ -99,22 +100,18 @@
               </div>
             </div><!-- ./col -->
           </div><!-- /.row -->
-		</div><!-- container -->
 
-      <!-- TABLE: LATEST ORDERS -->
-		<section>
-              <div class="container" style="width: 900px">
-                <div class="box-header with-border" align="center">
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box">
+                <div class="box-header with-border">
                   <h3 class="box-title">공지사항</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <div class="table-responsive">
-                    <table class="table no-margin">
-                      <thead>
+                  <table class="table table-bordered">
+                     <thead>
                         <tr>
                           <th>번호</th>
                           <th>제목</th>
@@ -122,7 +119,7 @@
                           <th>조회수</th>
                         </tr>
                       </thead>
-                      <tbody>
+                    <tbody>
                         <tr>
                           <td>1.</td>
                           <td><a href="noticeShow.do">쪽지시험 관련 공지</a></td>
@@ -143,30 +140,30 @@
                         </tr>
                         <tr>
                       </tbody>
-                    </table>
-                     <div class="box-footer clearfix" align="center">
-             		<ul class="pagination pagination-sm no-margin pull-center">
-                    	<li><a href="#">&laquo;</a></li>
-                    	<li><a href="#">&raquo;</a></li>
-                  	</ul>
-                  
-                </div><!-- /.box-footer -->
-                    </div><!-- container -->
-                  </div><!-- /.table-responsive -->
-                 </div><!-- /.box --> 
-            </section>    
-   
-   <!-- TABLE: LATEST ORDERS -->
-		<section>
-              <div class="container" style="width: 900px">
-                <div class="box-header with-border" align="center">
+                  </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                  <ul class="pagination pagination-sm no-margin pull-right">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+                </div>
+               </div> 
+              </div><!-- /.box -->
+ 
+				<div class="row">
+            <div class="col-md-6">
+              <div class="box">
+                <div class="box-header with-border">
                   <h3 class="box-title">내강의실</h3>
                 </div><!-- /.box-header -->
-                
                 <div class="box-body">
-                  <div class="table-responsive">
-                    <table class="table no-margin">
-                      <thead>
+                  <table class="table table-bordered">
+                     <thead>
                         <tr>
                           <th>번호</th>
                           <th>강의명</th>
@@ -174,7 +171,7 @@
                           <th>강의종료일</th>
                         </tr>
                       </thead>
-                      <tbody>
+                     <tbody>
                         <tr>  
                           <td>1.</td>
                           <td><a href="classShow.do">Java basic</a></td>
@@ -195,21 +192,22 @@
                         </tr>
                         <tr>
                       </tbody>
-                    </table>
-                    <div class="box-footer clearfix" align="center">
-              
-             <ul class="pagination pagination-sm no-margin pull-center">
+                  </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                  <ul class="pagination pagination-sm no-margin pull-right">
                     <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
                     <li><a href="#">&raquo;</a></li>
                   </ul>
-                  
-                </div><!-- /.box-footer -->
-                    </div><!-- container -->
-                  </div><!-- /.table-responsive -->
-                 </div><!-- /.box --> 
-
- 		</section>
-
+                </div>
+              </div><!-- /.box -->
+			</div>
+			</div>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
  	<%@ include file="footer.jsp" %>
     <%@ include file="controllSide.jsp" %>
 

@@ -86,16 +86,17 @@
        </section>
 
         <!-- Main content -->
-     <input type="hidden" name="ref" value="${param.ref}">
-     <input type="hidden" name="lev" value="${param.lev}">
-     <input type="hidden" name="sunbun" value="${param.sunbun}">
+     
   <div class="box box-info">
                  <form name="bbsReWrite" action="bbsReWrite.do">
                  <table class="table table-bordered">
                  
                   <tr>
 					<th>작성자</th>
-        			<td><input type="text" name="writer" placeholder="writer"></td>
+        			<td><input type="text" name="writer" placeholder="writer">
+       				<input type="hidden" name="re_idx" value="${param.idx}">
+
+        			</td>
         			<th>조회수</th>
         			<td><span class="badge bg-red">0</span></td>
                   </tr>

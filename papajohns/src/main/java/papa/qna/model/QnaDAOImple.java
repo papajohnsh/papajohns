@@ -14,28 +14,53 @@ public class QnaDAOImple implements QnaDAO {
 	}
 	
 
-	public int QnAAdd(QnaDTO dto) {//글쓰기 등록
-		int result=sqlMap.insert("QnAbbsAdd", dto);
+	public int qnaWrite(QnaDTO dto) {//글쓰기 등록
+		int result=sqlMap.insert("qnaWrite", dto);
 		return result;
 	}
 	
-	public List<QnaDTO> QnAJoin(int idx) {//qna 검색
-		List<QnaDTO> list=sqlMap.selectOne("QnAJoin", idx);
+	public List<QnaDTO> qnaContent(int idx) {//qna 검색
+		List<QnaDTO> list=sqlMap.selectOne("qnaContent", idx);
 		return list;
 	}
 
-	public List<QnaDTO> QnAList() {//qna 리스트 보기
-		List<QnaDTO> list=sqlMap.selectList("QnAList");
+	public List<QnaDTO> qnaList() {//qna 리스트 보기
+		List<QnaDTO> list=sqlMap.selectList("qnaList");
 		return list;
 	}
 	
-	public int getIdx(int idx) {
-		int result=sqlMap.selectOne("getIdx", idx);
+	public int getIdx(int idx) {//본문 idx 가져오기
+		int result=sqlMap.selectOne("qnaIdx", idx);
 		return result;
 	}
 	
-	public int getRef() {
-		int result=sqlMap.selectOne("getRef");
+	public int getRef() {//마지막 순번
+		int result=sqlMap.selectOne("qnaRef");
 		return result;
+	}
+
+	public int qnaNum(int idx) {//조회수
+		int result=sqlMap.selectOne("qnaNum", idx);
+		return result;
+	}
+
+	public QnaDTO qnaFindName(String writer) {//qna 작성자 검색
+		QnaDTO dto=sqlMap.selectOne("qnaFindName", writer);
+		return dto;
+	}
+
+	public QnaDTO qnaFindSubject(String subject) {//qna 제목 검색
+		QnaDTO dto=sqlMap.selectOne("qnaFindSubject", subject);
+		return dto;
+	}
+
+	public int qnaReWrite(QnaReDTO dto) {//qna 댓글 등록
+		int count=sqlMap.insert("qnaReWrite", dto);
+		return count;
+	}
+
+	public List<QnaReDTO> qnaReList(int idx) {//qna 리스트 보기
+		List<QnaReDTO> list=sqlMap.selectList("qnaReList", idx);
+		return list;
 	}
 }
