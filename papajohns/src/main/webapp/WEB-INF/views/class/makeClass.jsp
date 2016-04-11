@@ -3,11 +3,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ include file="../header.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="wickedpicker.css">
+<style>
+	$('.selector').wickedpicker({
+		  // current time
+		  now: new Date(),
+		  // 12- or 24-hour format
+		  twentyFour: false,
+		  // CSS classes
+		  upArrow: 'wickedpicker__controls__control-up',
+		  downArrow: 'wickedpicker__controls__control-down',
+		  close: 'wickedpicker__close',
+		  hoverState: 'hover-state',
+		  // title
+		  title: 'Timepicker'
+		});
+</style>
+<script src="wickedpicker.js"></script>
+<script>
+	function aaa(){
+		f.submit();
+	}
+</script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<%@ include file="../header.jsp" %>
+
 
 <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
@@ -46,7 +69,7 @@
               </a>
             </li>
             <li>
-              <a href="classDesign.do">
+              <a href="classDesign.do?idx=${sidx }">
                 <i class="fa fa-edit"></i><span>강의실 디자인</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
@@ -58,43 +81,56 @@
       </aside>
       
       <!-- Main content -->
-              
+            
               <div class="container">
+              
                 <div class="box-header with-border" align="center">
                   <h3 class="box-title">새 강의</h3>
+                   
                 </div><!-- /.box-header -->
+                
                 <div class="box-body">
-                  <table class="table table-bordered" style="width=50%;">
+                 <form name="f" role="form" action="makeClassAdd.do">
+                  <table>
                     <tr>
                       <th>수업기간명</th>
-                      <td>Papa교육원</td>
+                      <td><input type="text" name="institut" class="form-control"></td>
                       <th>강사명</th>
-                      <td>유아인</td>
+                      <td><input type="text" name="name" class="form-control">
+                      <input type="hidden" name="reidx" value="${sidx }">
+                      </td>
                     </tr>
                     <tr>
                       <th>강의명</th>
-                      <td>데이터베이스</td>
+                      <td><input type="text" name="subject" class="form-control"></td>
                       <th>강의시간</th>
-                      <td>9:00AM</td>
+                   
+                      <td><input type="text" name="class_time" class="selector form-control"></td>
                     </tr>
                     <tr>
                       <th>강의스케줄</th>
-                      <td>2016.05.10</td>
-                      <th>위치</th>
-                      <td>서울시 서초구</td>
-                    </tr>
+                      <td><input type="text" name="class_date" class="form-control"></td>
+					</tr>
                     <tr>
                       <td colspan="4">
-                      <textarea rows="20" cols="180" id="content"></textarea>
+                      <textarea rows="20" cols="180" id="content" name="explanation" class="form-control"></textarea>
                       </td>
                     </tr>
                   </table>
-                  <div align="center">
-                  <span><a href="makeClassAdd.do" class="btn btn-sm btn-success btn-flat pull-center">등록하기</a></span>
+                  <div align="center">	
+                  <span><input type="submit" class="btn btn-default" value="등록하기"></span>
                   <span><a href="classForm.do" class="btn btn-sm btn-info btn-flat pull-center">목록으로</a></span>
-                  </div>
+                   </div>
+                  </form>
+                  
+                   
+                
+                 
+                 
+                  
                 </div>
-              </div><!-- /.box -->
+                </div><!-- /.box -->
+                
              <%@ include file="../footer.jsp" %>
     		<%@ include file="../controllSide.jsp" %>          
  

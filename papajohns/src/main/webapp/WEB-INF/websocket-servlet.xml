@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:websocket="http://www.springframework.org/schema/websocket"
@@ -9,14 +11,21 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc 
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/websocket
 		http://www.springframework.org/schema/websocket/spring-websocket.xsd ">	
 	<!--  websocket -->
-	<websocket:handlers>
-		<websocket:mapping handler="echoHandler" path="/echo.sockjs" />
-		<websocket:sockjs />
+	<beans:bean id="chatHandler" class="papa.websocket.ChatWebSocketHandler" />
+	<websocket:handlers allowed-origins="*">
+		<websocket:mapping handler="chatHandler" path="/chat-ws" />
+		<websocket:handshake-interceptors>
+	 	<beans:bean class="papa.websocket.HandshakeInterceptor"/>
+		</websocket:handshake-interceptors>
 	</websocket:handlers>
-	<bean id="echoHandler" class="papa.websocket.EchoHandler" />
+	
 	<mvc:default-servlet-handler />	
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<mvc:annotation-driven />

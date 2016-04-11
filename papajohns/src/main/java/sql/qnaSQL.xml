@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sqlMapper.qna">
+	<insert id="qnaWrite" parameterType="papa.qna.model.QnaDTO">
+		insert into
+		qna_bbs(writer,subject,content,write_date,readnum,ref,lev,sunbun)
+		values(#{writer},#{subject},#{content},now(),0,0,0,0)
+	</insert>
+	<select id="qnaList" resultType="papa.qna.model.QnaDTO">
+		select * from qna_bbs
+	</select>
+	<select id="qnaContent" parameterType="int" resultType="papa.qna.model.QnaDTO">
+		select * from qna_bbs where idx=#{idx}
+	</select>
+	<select id="qnaRef" resultType="int">
+		select max(ref)from qna_bbs
+	</select>
+	<select id="qnaIdx" resultType="int">
+		select idx from qna_bbs where idx=#{idx}
+	</select>
+	<update id="qnaNum" parameterType="int">
+		update qna_bbs set readnum=readnum+1 where idx=#{idx}
+	</update>
+
+	<select id="qnaFindName" parameterType="String" resultType="papa.qna.model.QnaDTO">
+		select * from qna_bbs where writer LIKE CONCAT('%',#{writer},'%')
+	</select>
+	<select id="qnaFindSubject" parameterType="String"
+		resultType="papa.qna.model.QnaDTO">
+		select * from qna_bbs where subject LIKE CONCAT('%',#{subject},'%')
+	</select>
+
+	<update id="updateSun" parameterType="int">
+		update qna_bbs set sunbun=sunbun+1 where ref=#{ref} and sunbun>=#{sunbun}
+	</update>
+
+	<select id="qnaReList" parameterType="int" resultType="papa.qna.model.QnaReDTO">
+		select * from qna_rebbs where re_idx=#{idx}
+	</select>
+	<insert id="qnaReWrite" parameterType="papa.qna.model.QnaReDTO">
+		insert into
+		qna_rebbs(writer,subject,content,write_date,re_idx,ref,lev,sunbun)
+		values(#{writer},#{subject},#{content},now(),#{re_idx},0,0,0)
+	</insert>
+</mapper>

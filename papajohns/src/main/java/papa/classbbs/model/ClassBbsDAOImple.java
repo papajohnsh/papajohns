@@ -30,14 +30,38 @@ public class ClassBbsDAOImple implements ClassBbsDAO {
 		return list;
 	}
 	
-	public int reWriteAdd(ClassBbsDTO dto) {//답변글쓰기 등록
-		int count=sqlMap.insert("reWriteAdd", dto);
-		return count;
-	}
-	
-	public int readNum(int idx) {//조회수
-		int count=sqlMap.update("readNum", idx);
+	public int classNum(int idx) {//조회수
+		int count=sqlMap.update("classNum", idx);
 		return count;
 	}
 
+	public int getRef() {//마지막 순번
+		int result=sqlMap.selectOne("classRef");
+		return result;
+	}
+
+	public List<ClassBbsReDTO> classBbsReList(int idx) {//댓글 보기
+		List<ClassBbsReDTO> list=sqlMap.selectList("classReList", idx);
+		return list;
+	}
+
+	public int classReWrite(ClassBbsReDTO dto) {//댓글 등록
+		int count=sqlMap.insert("classReWrite", dto);
+		return count;
+	}
+
+	public int getIdx(int idx) {//본문 idx 가져오기
+		int result=sqlMap.selectOne("classIdx", idx);
+		return result;
+	}
+
+	public ClassBbsDTO classFindName(String writer) {//수업 검색(작성자)
+		ClassBbsDTO dto=sqlMap.selectOne("classFindName", writer);
+		return dto;
+	}
+
+	public ClassBbsDTO classFindSubject(String subject) {//수업 검색(제목)
+		ClassBbsDTO dto=sqlMap.selectOne("classFindSubject", subject);
+		return dto;
+	}
 }

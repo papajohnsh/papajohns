@@ -39,13 +39,48 @@ public class FreeBbsDAOImple implements FreeBbsDAO {
 		return list;
 	}
 	
-	public int bbsReWriteAdd(FreeBbsDTO dto) {//게시판 답변 글쓰기
-		int result=sqlMap.insert("bbsReWrite", dto);
-		return result;
-	}
-	
 	public int readNum(int idx) {//게시판 조회수
 		int count=sqlMap.update("readNum", idx);
 		return count;
 	}
+	
+	
+	public FreeBbsDTO bbsFindName(String writer) {//게시판 작성자 검색
+		FreeBbsDTO dto=sqlMap.selectOne("bbsFindName", writer);
+		return dto;
+	}
+	
+	
+	public FreeBbsDTO bbsFindSubject(String subject) {//게시판 제목 검색
+		FreeBbsDTO dto=sqlMap.selectOne("bbsFindSubject", subject);
+		return dto;
+	}
+	
+	
+	public List<FreeBbsReDTO> freeBbsReList(int idx) {//댓글 보기
+		List<FreeBbsReDTO> list=sqlMap.selectList("freeReList", idx);
+		return list;
+	}
+	
+	public int bbsReWrite(FreeBbsReDTO dto) {//댓글 등록
+		int count=sqlMap.insert("freeReWrite", dto);
+		return count;
+	}
+	
+	public int getIdx(int idx) {//본문 idx 가져오기
+		int result=sqlMap.selectOne("getIdx", idx);
+		return result;
+	}
+
+	public int getRef() {//마지막 순번
+		int result=sqlMap.selectOne("getRef");
+		return result;
+	}
+
+
+	public List<FreeBbsDTO> bbsFind(Map<String, String> map) {
+		List<FreeBbsDTO> list=sqlMap.selectList("bbsFind", map);
+		return list;
+	}
+	
 }

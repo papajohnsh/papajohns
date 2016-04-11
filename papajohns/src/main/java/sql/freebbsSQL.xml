@@ -16,10 +16,34 @@
  	<select id="bbsContent" parameterType="int" resultType="papa.freebbs.model.FreeBbsDTO">
  		select * from free_bbs where idx=#{idx} 
  	</select>
- 	<insert id="bbsReWrite" parameterType="papa.freebbs.model.FreeBbsDTO">
- 		insert into free_bbs(writer,subject,content,write_date,readnum,ref,lev,sunbun) values(#{writer},#{subject},#{content},now(),0,0,0,0)
- 	</insert>
  	<update id="readNum" parameterType="int">
  		update free_bbs set readnum=readnum+1 where idx=#{idx}
  	</update>
+ 	
+ 	<select id="bbsFindName" parameterType="String" resultType="papa.freebbs.model.FreeBbsDTO">
+ 		select * from free_bbs where writer LIKE CONCAT('%',#{writer},'%')
+ 	</select>
+ 	<select id="bbsFindSubject" parameterType="String" resultType="papa.freebbs.model.FreeBbsDTO">
+ 		select * from free_bbs where subject LIKE CONCAT('%',#{subject},'%')
+ 	</select>
+ 	<select id="bbsFind" parameterType="Map" resultType="papa.freebbs.model.FreeBbsDTO">
+ 		select * from free_bbs where "+fkey+" LIKE '%',#{fkey},'%'
+ 	</select>
+ 	<select id="getRef" resultType="int">
+ 		select max(ref) from free_bbs
+ 	</select>
+ 	<update id="updateSun" parameterType="int">
+ 		update free_bbs set sunbun=sunbun+1 where ref=#{ref} and sunbun>=#{sunbun}
+ 	</update>
+
+ 	<select id="freeReList" parameterType="int" resultType="papa.freebbs.model.FreeBbsReDTO">
+ 		select * from free_rebbs where re_idx=#{idx}
+ 	</select>
+ 	<insert id="freeReWrite" parameterType="papa.freebbs.model.FreeBbsReDTO">
+ 		insert into free_rebbs(writer,subject,content,write_date,re_idx,ref,lev,sunbun)
+ 		values(#{writer},#{subject},#{content},now(),#{re_idx},0,0,0)
+ 	</insert>
+ 	<select id="getIdx" resultType="int">
+ 		select idx from free_bbs where idx=#{idx}
+ 	</select>
  </mapper>

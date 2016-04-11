@@ -6,95 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
- <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="css/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="css/dist/css/skins/_all-skins.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="css/plugins/iCheck/flat/blue.css">
-    <!-- Morris chart -->
-    <link rel="stylesheet" href="css/plugins/morris/morris.css">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="css/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-    <!-- Date Picker -->
-    <link rel="stylesheet" href="css/plugins/datepicker/datepicker3.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="css/plugins/daterangepicker/daterangepicker-bs3.css">
-    <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
-<script type="text/javascript" src="js/httpRequest.js"></script>
-<script>
-	
-</script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-    
-    <header class="main-header">
-        <!-- Logo -->
-        <a href="index.do" class="logo"><!-- index로 이동 -->
-          <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>C</b>RM</span>
-          <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Class</b>Room</span>
-        </a>
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
-          <!-- Sidebar toggle button-->
-          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
-          </a>
-          <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-              
-              <!-- Myclass-menu -->
-              <li class="myclass-menu">
-                <a href="classRoomForm.do"><span>MyClass</span></a>
-              </li>
-              
-              <!-- login-menu -->
-              <li class="login-menu">
-              <c:if test="${empty sid }">
-               <a href="loginForm.do"><span>login</span></a>
-               </c:if>
-               <c:if test="${!empty sid}">
-               <a href="logout.do">logout</a>
-               </c:if> 
-              </li>
-              
-              <!-- Find-menu -->
-              <li class="Find-menu">
-                <a href="findListForm.do"><span>Search</span></a>
-              </li>
-             
-              <!-- bbs-menu -->
-              <li class="bbs-menu">
-                <a href="bbsListForm.do"><span>Bbs</span></a>
-              </li>
-              <!-- support-menu -->
-              <li class="support-menu">
-                <a href="supportForm.do"><span>Support</span></a>
-              </li>
-              <!-- Control Sidebar Toggle Button -->
-		          <li>
-		            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-		          </li>
-            </ul>
-          </div>
-        </nav>
-     </header>
+<%@ include file="header.jsp" %>
 	
 	 <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
@@ -114,22 +28,30 @@
            </c:if>
             <div class="pull-left info">
               <c:if test="${empty sid}">
-              <p>로그인 해주세요...</p>
+              <p>로그인</p>
               <a href="#"><i class="fa fa-circle text-danger"></i> Offline</a>
               </c:if>
               <c:if test="${!empty sid}">
-              <p>${sname}님 환영합니다!</p>
+              <p>${sname}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
               </c:if>
             </div>
           </div>
+          <!-- login button -->
+	       	<c:if test="${empty sid }">
+				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
+			</c:if>
+			<c:if test="${!empty sid}">
+				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
+			</c:if>
         </section>
         <!-- /.sidebar -->
       </aside>
-
+		
+		  <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
 
 		<!-- Small boxes (Stat box) -->
-         <div class="container" style="width: 900px"> 
           <div class="row">
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
@@ -184,22 +106,18 @@
               </div>
             </div><!-- ./col -->
           </div><!-- /.row -->
-		</div><!-- container -->
 
-      <!-- TABLE: LATEST ORDERS -->
-		<section>
-              <div class="container" style="width: 900px">
-                <div class="box-header with-border" align="center">
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box">
+                <div class="box-header with-border">
                   <h3 class="box-title">공지사항</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <div class="table-responsive">
-                    <table class="table no-margin">
-                      <thead>
+                  <table class="table table-bordered">
+                     <thead>
                         <tr>
                           <th>번호</th>
                           <th>제목</th>
@@ -207,7 +125,7 @@
                           <th>조회수</th>
                         </tr>
                       </thead>
-                      <tbody>
+                    <tbody>
                         <tr>
                           <td>1.</td>
                           <td><a href="noticeShow.do">쪽지시험 관련 공지</a></td>
@@ -228,30 +146,30 @@
                         </tr>
                         <tr>
                       </tbody>
-                    </table>
-                     <div class="box-footer clearfix" align="center">
-             		<ul class="pagination pagination-sm no-margin pull-center">
-                    	<li><a href="#">&laquo;</a></li>
-                    	<li><a href="#">&raquo;</a></li>
-                  	</ul>
-                  
-                </div><!-- /.box-footer -->
-                    </div><!-- container -->
-                  </div><!-- /.table-responsive -->
-                 </div><!-- /.box --> 
-            </section>    
-   
-   <!-- TABLE: LATEST ORDERS -->
-		<section>
-              <div class="container" style="width: 900px">
-                <div class="box-header with-border" align="center">
+                  </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                  <ul class="pagination pagination-sm no-margin pull-right">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+                </div>
+               </div> 
+              </div><!-- /.box -->
+ 
+				<div class="row">
+            <div class="col-md-6">
+              <div class="box">
+                <div class="box-header with-border">
                   <h3 class="box-title">내강의실</h3>
                 </div><!-- /.box-header -->
-                
                 <div class="box-body">
-                  <div class="table-responsive">
-                    <table class="table no-margin">
-                      <thead>
+                  <table class="table table-bordered">
+                     <thead>
                         <tr>
                           <th>번호</th>
                           <th>강의명</th>
@@ -259,7 +177,7 @@
                           <th>강의종료일</th>
                         </tr>
                       </thead>
-                      <tbody>
+                     <tbody>
                         <tr>  
                           <td>1.</td>
                           <td><a href="classShow.do">Java basic</a></td>
@@ -280,21 +198,22 @@
                         </tr>
                         <tr>
                       </tbody>
-                    </table>
-                    <div class="box-footer clearfix" align="center">
-              
-             <ul class="pagination pagination-sm no-margin pull-center">
+                  </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                  <ul class="pagination pagination-sm no-margin pull-right">
                     <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
                     <li><a href="#">&raquo;</a></li>
                   </ul>
-                  
-                </div><!-- /.box-footer -->
-                    </div><!-- container -->
-                  </div><!-- /.table-responsive -->
-                 </div><!-- /.box --> 
-
- 		</section>
-
+                </div>
+              </div><!-- /.box -->
+			</div>
+			</div>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
  	<%@ include file="footer.jsp" %>
     <%@ include file="controllSide.jsp" %>
 

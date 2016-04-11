@@ -66,13 +66,17 @@ public class MemberController {
 		String getId=memberDao.loginOk(id);
 		System.out.println("getId:"+getId);
 		System.out.println("id:"+id);
-		
-		if(id==null && id.equals("")){
+	
+	/*	if(id==null && id.equals("")){
 			msg="아이디를 입력해주세요";
 			url="loginForm.do";
-		}
+		}*/
 
-		if(getId.equals(id)){//아이디가 맞으면
+		
+		if(getId==null){
+			msg="아이디를 확인해주세요.";
+			url="loginForm.do";
+		}else if(getId.equals(id)){//아이디가 맞으면
 			String getPw=memberDao.loginOkPw(id);
 			System.out.println("getPw:"+getPw);
 			System.out.println("pwd:"+pwd);
@@ -85,6 +89,9 @@ public class MemberController {
 				session.setAttribute("semail", dto.getEmail());
 				session.setAttribute("sphone", dto.getPhonenumber());
 				session.setAttribute("spwd", dto.getPwd());
+				session.setAttribute("sidx", dto.getIdx());
+				session.setAttribute("sreidx", dto.getReidx());
+				session.setAttribute("snickname", dto.getNickname());
 			}else{//비밀번호가 틀리면
 				msg="비밀번호를 확인해주세요.";
 				url="loginForm.do";
@@ -93,6 +100,7 @@ public class MemberController {
 			msg="아이디를 확인해주세요.";
 			url="loginForm.do";
 		}
+		
 
 		mav.addObject("msg", msg);
 		mav.addObject("url", url);

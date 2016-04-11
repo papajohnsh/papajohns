@@ -2,22 +2,49 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- <mapper namespace="sqlMapper.cl">
- 	<insert id="writeAdd" parameterType="papa.classbbs.model.ClassBbsDTO">
- 		insert into class_bbs(writer,subject,content,write_date,readnum,ref,lev,sunbun)
- 		values(#{writer},#{subject},#{content},now(),0,0,0,0)
- 	</insert>
- 	<select id="classList" resultType="papa.classbbs.model.ClassBbsDTO">
- 		select * from class_bbs
- 	</select>
- 	<select id="classContent" parameterType="int" resultType="papa.classbbs.model.ClassBbsDTO">
- 		select * from class_bbs where idx=#{idx}
- 	</select>
- 	<insert id="reWriteAdd" parameterType="papa.classbbs.model.ClassBbsDTO">
- 		insert into class_bbs(writer,subject,content,write_date,readnum,ref,lev,sunbun)
- 		values(#{writer},#{subject},#{content},now(),0,0,0,0)
- 	</insert>
- 	<update id="readNum" parameterType="int">
- 		update class_bbs set readnum=readnum+1 where idx=#{idx}
- 	</update>
- </mapper>
+<mapper namespace="sqlMapper.cl">
+	<insert id="writeAdd" parameterType="papa.classbbs.model.ClassBbsDTO">
+		insert into
+		class_bbs(writer,subject,content,write_date,readnum,ref,lev,sunbun)
+		values(#{writer},#{subject},#{content},now(),0,0,0,0)
+	</insert>
+	<select id="classList" resultType="papa.classbbs.model.ClassBbsDTO">
+		select * from class_bbs
+	</select>
+	<select id="classContent" parameterType="int"
+		resultType="papa.classbbs.model.ClassBbsDTO">
+		select * from class_bbs where idx=#{idx}
+	</select>
+	<update id="classNum" parameterType="int">
+		update class_bbs set readnum=readnum+1 where idx=#{idx}
+	</update>
+
+	<select id="classFindName" parameterType="String"
+		resultType="papa.classbbs.model.ClassBbsDTO">
+		select * from class_bbs where writer LIKE CONCAT('%',#{writer},'%')
+	</select>
+	<select id="classFindSubject" parameterType="String"
+		resultType="papa.classbbs.model.ClassBbsDTO">
+		select * from class_bbs where subject LIKE CONCAT('%',#{subject},'%')
+	</select>
+
+	<select id="classRef" resultType="int">
+		select max(ref) from class_bbs
+	</select>
+	<update id="updateSun" parameterType="int">
+		update free_bbs set sunbun=sunbun+1 where ref=#{ref} and sunbun>=#{sunbun}
+	</update>
+
+	<select id="classReList" parameterType="int"
+		resultType="papa.classbbs.model.ClassBbsReDTO">
+		select * from class_rebbs where re_idx=#{idx}
+	</select>
+	<insert id="classReWrite" parameterType="papa.classbbs.model.ClassBbsReDTO">
+		insert into
+		class_rebbs(writer,subject,content,write_date,re_idx,ref,lev,sunbun)
+		values(#{writer},#{subject},#{content},now(),#{re_idx},0,0,0)
+	</insert>
+	<select id="classIdx" resultType="int">
+		select idx from class_bbs where idx=#{idx}
+	</select>
+</mapper>

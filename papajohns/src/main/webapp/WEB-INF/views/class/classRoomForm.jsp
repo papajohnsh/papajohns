@@ -62,7 +62,7 @@
               </a>
             </li>
             <li>
-              <a href="classDesign.do">
+              <a href="classDesign.do?idx=${sidx }">
                 <i class="fa fa-edit"></i><span>강의실 디자인</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
@@ -164,38 +164,19 @@
                         </tr>
                       </thead>
                       <tbody>
+                      <c:forEach var="dto" items="${list }">
                         <tr>
                         <td><input type="checkbox"></td>   
                           <td>1.</td>
-                          <td><a href="classRoomShow.do">Java basic</a></td>
-                          <td>송중기</td>
-                          <td>A강의실</td>
-                          <td>9:00AM</td>
+                          <td><a href="myClassRoom.do?idx=${dto.idx }">Java basic</a></td>
+                          <td>${dto.idx }</td>
+                          <td>${dto.location }</td>
+                          <td>${dto.class_time }</td>
                         </tr>
-                        <tr>
-                        <td><input type="checkbox"></td> 
-                          <td>2.</td>
-                          <td><a href="#">Java 열혈 강의</a></td>
-                          <td>유해진</td>
-                          <td>B강의실</td>
-                          <td>11:00AM</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox"></td> 
-                          <td>3.</td>
-                          <td><a href="#">Hello Java</a></td>
-                       	  <td>차승원</td>
-                       	  <td>C강의실</td>
-                       	  <td>2:00PM</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox"></td> 
-                          <td>4.</td>
-                          <td><a href="#">C언어 정복하기</a></td>
-                       	  <td>김지원</td>
-                       	  <td>D강의실</td>
-                       	  <td>4:00PM</td>
-                        </tr>
+                     </c:forEach>
+                      
+                       
+                       
                       </tbody>
                     </table>
                     <div class="box-footer clearfix" align="center">

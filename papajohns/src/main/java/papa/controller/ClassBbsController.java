@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import papa.classbbs.model.ClassBbsDAO;
 import papa.classbbs.model.ClassBbsDTO;
+import papa.classbbs.model.ClassBbsReDTO;
 
 @Controller
 public class ClassBbsController {
@@ -53,27 +54,41 @@ public class ClassBbsController {
 		return mav;
 	}
 	
-	@RequestMapping("/classBbsContent.do")//본문내용 보기
+	@RequestMapping("/classBbsContent.do")//수업 본문내용 보기
 	public ModelAndView classContent(@RequestParam("idx") int idx){
 		
-		ClassBbsDTO list=classbbsDao.classContent(idx);
+		int count=classbbsDao.classNum(idx);//조회수
+		
+		ClassBbsDTO list=classbbsDao.classContent(idx);//본문내용리스트
+		List<ClassBbsReDTO> reList=classbbsDao.classBbsReList(idx);//댓글 리스트
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list", list);
+		mav.addObject("reList", reList);
+		mav.addObject("count", count);
 		mav.setViewName("classBbs/classBbsContent");
 		return mav;
 	}
 	
-	@RequestMapping("/classBbsReWriteForm.do")//답변글쓰기 폼
-	public String classBbsReWriteForm(){
-		return "classBbs/classBbsReWriteForm";
+	@RequestMapping("/classBbsReWriteForm.do")//수업 댓글 쓰기 폼
+	public ModelAndView classBbsReWriteForm(@RequestParam(value="idx",required=false) int re_idx){
+		
+		int result=classbbsDao.getIdx(re_idx);
+		
+		System.out.println(re_idx);
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("result", result);
+		mav.setViewName("classBbs/classBbsReWriteForm");
+		return mav;
+		
 	}
 	
-	@RequestMapping("/classBbsReWrite.do")//답변글쓰기 등록
-	public ModelAndView classBbsReWrite(ClassBbsDTO dto){
+	@RequestMapping("/classBbsReWrite.do")//수업 게시판 댓글 등록
+	public ModelAndView classBbsReWrite(ClassBbsReDTO dto){
 		
-		int count=classbbsDao.reWriteAdd(dto);
-		String msg=count>0?"답변글쓰기 성공!":"답변글쓰기 실패!";
+		int count=classbbsDao.classReWrite(dto);
+		String msg=count>0?"댓글쓰기성공!":"댓글쓰기실패!";
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("msg", msg);

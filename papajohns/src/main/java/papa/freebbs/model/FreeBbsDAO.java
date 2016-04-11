@@ -1,6 +1,7 @@
 package papa.freebbs.model;
 
 import java.util.List;
+import java.util.Map;
 
 public interface FreeBbsDAO {
 
@@ -8,6 +9,15 @@ public interface FreeBbsDAO {
 	public List<FreeBbsDTO> freeBbsList();
 	public int getTotalCnt();
 	public FreeBbsDTO bbsContent(int idx);
-	public int bbsReWriteAdd(FreeBbsDTO dto);
 	public int readNum(int idx);
+	public FreeBbsDTO bbsFindName(String writer);
+	public FreeBbsDTO bbsFindSubject(String subject);
+	
+	public List<FreeBbsDTO> bbsFind(Map<String, String> map);
+	
+	public List<FreeBbsReDTO> freeBbsReList(int idx);
+	public int bbsReWrite(FreeBbsReDTO dto);
+	public int getIdx(int idx);
+	public int getRef();
+
 }

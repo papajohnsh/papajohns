@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="classSQL">
+<insert id="classAdd" parameterType="papa.class_.model.classDTO" >
+insert into class_info(name,subject,class_time,institut,class_date,write_date,explanation,location,reidx) 
+values(#{name},#{subject},#{class_time},#{institut},#{class_date},now(),#{explanation},#{location},#{reidx})
+</insert>
+<select id="classRoomNameSearch" parameterType="String" resultType="papa.class_.model.classDTO">
+select * from class_info where subject LIKE CONCAT('%',#{subject},'%')
+</select>
+<select id="institutSearch" parameterType="String" resultType="papa.class_.model.classDTO">
+select * from class_info where institut LIKE CONCAT('%',#{institut},'%')
+</select>
+<select id="nameSearch" parameterType="String" resultType="papa.class_.model.classDTO">
+select * from class_info where name LIKE CONCAT('%',#{name},'%')
+</select>
+<select id="class_dateSearch" parameterType="String" resultType="papa.class_.model.classDTO">
+select * from class_info where class_date LIKE CONCAT('%',#{class_date},'%')
+</select>
+<select id="class_timeSearch" parameterType="String" resultType="papa.class_.model.classDTO">
+select * from class_info where class_time LIKE CONCAT('%',#{class_time},'%')
+</select>
+<select id="classJoin" parameterType="String" resultType="papa.class_.model.classDTO">
+select * from class_info where idx=#{idx}
+</select>
+<update id="classAddUpdate" parameterType="int">
+update member set reidx=${reidx} where idx=#{idx}
+</update>
+<select id="classJoinList" parameterType="int" resultType="papa.class_.model.classDTO">
+select * from class_info where reidx=#{idx}
+</select>
+<select id="designJoin" parameterType="int" resultType="papa.member.model.MemberDTO">
+select * from member where reidx=#{idx}
+</select>
+</mapper>
