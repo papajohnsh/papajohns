@@ -47,6 +47,7 @@
 		$('#wsBtn1').click(function() { sendMessage("red"); })
 		$('#wsBtn2').click(function() { sendMessage("blue"); })
 		$('#wsBtn3').click(function() { sendMessage("yellow"); })
+		$('#dbSend').click(function() { dbSend($("message").val());})
 	});
 	
 	var wsocket;
@@ -75,6 +76,10 @@
 	function sendMessage(color){
 		//window.alert('확인을 누르면 '+color+' 메세지가 전달됩니다.');
 		wsocket.send(color);
+	}
+	
+	function dbSend(message){
+		
 		
 	}
 </script>
@@ -98,6 +103,7 @@
 
     <input type="text" id="message">
     <input type="button" id="sendBtn" value="연결" onclick="sendBtn()">
+    <input type="button" id="dbSend" value="DB저장">
 	</td>
 	</tr>
 	</table>

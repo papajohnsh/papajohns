@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <script>
 	function aaa(){
 		f.submit();
@@ -84,13 +85,12 @@
                       <th>강의명</th>
                       <td><input type="text" name="subject" class="form-control"></td>
                       <th>강의시간</th>
-                      <td><input type="text" name="class_time" class="form-control"></td>
+                   
+                      <!-- <td><input type="text" name="class_time" class="form-control"></td> -->
                     </tr>
                     <tr>
                       <th>강의스케줄</th>
                       <td><input type="text" name="class_date" class="form-control"></td>
-                      <th>위치</th>
-                      <td><input type="text" name="location" class="form-control"></td>
                     </tr>
                     <tr>
                       <td colspan="4">
