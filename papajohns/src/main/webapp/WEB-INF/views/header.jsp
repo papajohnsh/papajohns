@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 </head>
 <body> 
+<text type="hidden" value="${sname }">
  <header class="main-header">
         <!-- Logo -->
         <a href="index.do" class="logo"><!-- index로 이동 -->
