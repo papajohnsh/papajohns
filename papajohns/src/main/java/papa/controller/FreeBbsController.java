@@ -1,7 +1,9 @@
 package papa.controller;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -101,7 +103,7 @@ public class FreeBbsController {
 		return mav;
 	}
 	
-	@RequestMapping("/bbsFind.do")
+	/*@RequestMapping("/bbsFind.do")
 	public ModelAndView bbsFind(@RequestParam(value="writer",required=false) String writer, @RequestParam(value="subject",required=false) String subject){
 		System.out.println("작성자"+writer);
 		System.out.println(subject);
@@ -113,12 +115,16 @@ public class FreeBbsController {
 		mav.addObject("getSubject", getSubject);
 		mav.setViewName("freebbs/bbsFind");
 		return mav;
-	}
+	}*/
 	
-	/*@RequestMapping(value="/bbsFind.do",method=RequestMethod.POST)
+	@RequestMapping(value="/bbsFind.do",method=RequestMethod.POST)
 	public ModelAndView bbsFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
 		
-		List<FreeBbsDTO> list=freebbsDao.bbsFind(fkey, fvalue);
+		Map<String, String> map=new HashMap();
+		map.put("fkey", fkey);
+		map.put("fvalue", fvalue);
+		
+		List<FreeBbsDTO> list=freebbsDao.bbsFind(map);
 		
 		System.out.println(fkey);
 		System.out.println(fvalue);
@@ -127,6 +133,6 @@ public class FreeBbsController {
 		mav.addObject("list", list);
 		mav.setViewName("freebbs/bbsFind");
 		return mav;
-	}*/
+	}
 	
 }

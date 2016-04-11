@@ -29,7 +29,7 @@
            </c:if>
             <div class="pull-left info">
               <c:if test="${empty sid}">
-              <p>로그인 해주세요...</p>
+              <p>로그인</p>
               <a href="#"><i class="fa fa-circle text-danger"></i> Offline</a>
               </c:if>
               <c:if test="${!empty sid}">
@@ -37,6 +37,13 @@
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
               </c:if>
             </div>
+            <!-- login button -->
+	       	<c:if test="${empty sid }">
+				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
+			</c:if>
+			<c:if test="${!empty sid}">
+				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
+			</c:if>
           </div>
         </section>
         <!-- /.sidebar -->

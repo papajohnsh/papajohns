@@ -26,8 +26,8 @@
  	<select id="bbsFindSubject" parameterType="String" resultType="papa.freebbs.model.FreeBbsDTO">
  		select * from free_bbs where subject LIKE CONCAT('%',#{subject},'%')
  	</select>
- 	<select id="bbsFind" parameterType="papa.freebbs.model.FreeBbsDTO" resultType="papa.freebbs.model.FreeBbsDTO">
- 		select * from free_bbs where "+fkey+" LIKE CONCAT('%',#{fkey},'%')
+ 	<select id="bbsFind" parameterType="Map" resultType="papa.freebbs.model.FreeBbsDTO">
+ 		select * from free_bbs where "+fkey+" LIKE CONCAT('%',#{fvalue},'%')
  	</select>
  	<select id="getRef" resultType="int">
  		select max(ref) from free_bbs

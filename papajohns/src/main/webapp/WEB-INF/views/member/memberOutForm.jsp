@@ -18,6 +18,16 @@
             <div class="pull-left image">
               <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
             </div>
+            
+            <!-- login button -->
+       	
+	       	<c:if test="${empty sid }">
+				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
+			</c:if>
+			<c:if test="${!empty sid}">
+				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
+			</c:if>
+            
             <div class="pull-left info">
               <p>${sname}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
@@ -39,12 +49,6 @@
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
-             <li>
-              <a href="memberOutForm.do">
-                <i class="fa fa-circle-o text-yellow"></i><span>회원탈퇴</span>
-                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-              </a>
-            </li>
           </ul>
            <ul class="sidebar-menu"></ul>
         </section>
@@ -52,7 +56,8 @@
       </aside>
       
       <!-- general form elements disabled -->
-             <div class="container" style="width: 900px"> 
+             <<!-- Content Wrapper. Contains page content -->
+   			<div class="content-wrapper">
               <div class="box box-warning">
                 <div class="box-header with-border">
                   <h3 class="box-title">회원탈퇴</h3>

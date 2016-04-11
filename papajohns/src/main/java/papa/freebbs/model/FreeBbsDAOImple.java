@@ -77,14 +77,10 @@ public class FreeBbsDAOImple implements FreeBbsDAO {
 		return result;
 	}
 
-	public List<FreeBbsDTO> bbsFind(String fkey, String fvalue) {
 
-		Map<String, String> map= new HashMap();
-		map.put("fkey", fkey);
-		map.put("fvalue", fvalue);
-		
-		List<FreeBbsDTO> result=sqlMap.selectOne("bbsFind", map);
-		return result;
+	public List<FreeBbsDTO> bbsFind(Map<String, String> map) {
+		List<FreeBbsDTO> list=sqlMap.selectList("bbsFind", map);
+		return list;
 	}
 	
 }

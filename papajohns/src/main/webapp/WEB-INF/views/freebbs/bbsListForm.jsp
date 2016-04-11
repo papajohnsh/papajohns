@@ -35,8 +35,17 @@
 
         </c:if>
 
+		<!-- login button -->
+       	
+	       	<c:if test="${empty sid }">
+				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
+			</c:if>
+			<c:if test="${!empty sid}">
+				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
+			</c:if>
          <div class="pull-left info">
-            <c:if test="${empty sid}">
+      
+          <c:if test="${empty sid}">
            	<script type="text/javascript">
           		window.alert('로그인 후 이용 가능한 서비스입니다.');
            		location.href="index.do";
@@ -47,9 +56,12 @@
            	<p>${sname}</p>
            	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
            	</c:if>
+           	
+           	
+       		
          </div>
        </div>
-
+		
        <!-- sidebar menu: : style can be found in sidebar.less -->
 
        <ul class="sidebar-menu">
@@ -84,8 +96,8 @@
                <div class="box-tools">
                  <div class="input-group" style="width: 150px;">
                  <form name="search" action="bbsFind.do" method="post">
-                 <input type="text" name="subject" required="required" class="form-control input-sm pull-right" placeholder="Search">
-                 	<select name="writer">
+                 <input type="text" name="fvalue" required="required" class="form-control input-sm pull-right" placeholder="Search">
+                 	<select name="fkey">
                  		<option value="subject">제목</option>
                  		<option value="writer">작성자</option>     		
                  	</select>
