@@ -53,8 +53,8 @@ public class QnaController {
 	
 	@RequestMapping("/qnaContent.do")//본문내용보기
 	public ModelAndView qnaContent(@RequestParam("idx") int idx){
-		
-		//int count=qnaDao.qnaNum(idx);//조회수 증가
+		System.out.println("idx="+idx);
+		int count=qnaDao.qnaNum(idx);//조회수 증가
 
 		List<QnaDTO> list=qnaDao.qnaContent(idx);//본문내용리스트
 		List<QnaReDTO> reList=qnaDao.qnaReList(idx);//댓글리스트
@@ -63,7 +63,7 @@ public class QnaController {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list", list);
 		mav.addObject("reList", reList);
-		//mav.addObject("count", count);
+		mav.addObject("count", count);
 		mav.setViewName("qna/qnaContent");
 		return mav;
 	}

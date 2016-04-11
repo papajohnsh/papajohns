@@ -7,9 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<%@ include file="header.jsp" %>
 <body class="hold-transition skin-blue sidebar-mini">
-
+<%@ include file="header.jsp" %>
 	
 	 <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
@@ -37,14 +36,14 @@
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
               </c:if>
             </div>
-            <!-- login button -->
+          </div>
+          <!-- login button -->
 	       	<c:if test="${empty sid }">
 				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
 			</c:if>
 			<c:if test="${!empty sid}">
 				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
 			</c:if>
-          </div>
         </section>
         <!-- /.sidebar -->
       </aside>

@@ -20,7 +20,7 @@ public class QnaDAOImple implements QnaDAO {
 	}
 	
 	public List<QnaDTO> qnaContent(int idx) {//qna 검색
-		List<QnaDTO> list=sqlMap.selectOne("qnaContent", idx);
+		List<QnaDTO> list=sqlMap.selectList("qnaContent", idx);
 		return list;
 	}
 

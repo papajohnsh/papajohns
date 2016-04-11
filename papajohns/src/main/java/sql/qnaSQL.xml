@@ -10,7 +10,7 @@
 <select id="qnaList" resultType="papa.qna.model.QnaDTO">
 	select * from qna_bbs
 </select>
-<select id="qnaContent" resultType="papa.qna.model.QnaDTO">
+<select id="qnaContent" parameterType="int" resultType="papa.qna.model.QnaDTO">
 	select * from qna_bbs where idx=#{idx}
 </select>
 <select id="qnaRef" resultType="int">

@@ -19,6 +19,12 @@
             <div class="pull-left image">
               <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
             </div>
+            
+            <div class="pull-left info">
+              <p>강동원</p>
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+            
             <!-- login button -->
        	
 	       	<c:if test="${empty sid }">
@@ -27,11 +33,6 @@
 			<c:if test="${!empty sid}">
 				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
 			</c:if>
-            
-            <div class="pull-left info">
-              <p>강동원</p>
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
           </div>
           
           <!-- sidebar menu: : style can be found in sidebar.less -->

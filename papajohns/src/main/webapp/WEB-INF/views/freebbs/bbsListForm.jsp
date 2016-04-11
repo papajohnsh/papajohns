@@ -34,17 +34,8 @@
          </div>
 
         </c:if>
-
-		<!-- login button -->
-       	
-	       	<c:if test="${empty sid }">
-				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
-			</c:if>
-			<c:if test="${!empty sid}">
-				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
-			</c:if>
+        
          <div class="pull-left info">
-      
           <c:if test="${empty sid}">
            	<script type="text/javascript">
           		window.alert('로그인 후 이용 가능한 서비스입니다.');
@@ -56,12 +47,17 @@
            	<p>${sname}</p>
            	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
            	</c:if>
-           	
-           	
-       		
          </div>
+          <!-- login button -->
+     
+	       	<c:if test="${empty sid }">
+				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
+			</c:if>
+			<c:if test="${!empty sid}">
+				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
+			</c:if>
        </div>
-		
+       
        <!-- sidebar menu: : style can be found in sidebar.less -->
 
        <ul class="sidebar-menu">
@@ -78,9 +74,10 @@
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
-       </ul>
+       </ul> 
         <ul class="sidebar-menu"></ul>
      </section>
+	
      <!-- /.sidebar -->
    </aside>
 
