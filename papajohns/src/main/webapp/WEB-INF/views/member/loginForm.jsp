@@ -149,6 +149,10 @@ var date = now.getDate();
 		     <input type="text" required="required" class="form-control" name="name" id="name" placeholder="Enter name">
 		   </div>
 		   <div class="form-group">
+		     <label for="nickname">닉네임:</label>
+		     <input type="text" required="required" class="form-control" name="nickname" id="nickname" placeholder="Enter nickname">
+		   </div>
+		   <div class="form-group">
 		     <label for="gender">성별:</label>
 		     <input type="radio"  name="gender" value="0" checked="true">남자
 		     <input type="radio"  name="gender" value="1">여자
@@ -198,7 +202,7 @@ var date = now.getDate();
 		     <label for="email">email:</label>
 		     <input type="text" name="email"  id="email" placeholder="Enter email">
 		     <select style="width: 30%" name="email">
-		     	<option value="직접입력">직접입력</option>
+		     	<option value="">직접입력</option>
 		     	<option value="@naver.com">@naver.com</option>
 		     	<option value="@daum.net">@daum.net</option>
 		     	<option value="@gmail.com">@gmail.com</option>

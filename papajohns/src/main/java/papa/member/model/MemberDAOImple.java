@@ -29,11 +29,13 @@ public class MemberDAOImple implements MemberDAO {
 	public String loginOk(String id) {//로그인
 		
 		String result=sqlMap.selectOne("loginCheck", id);
+		System.out.println(result+"dao검색");
 		return result;
 	}
 	
 	public String loginOkPw(String id){//로그인 판별
 		String result=sqlMap.selectOne("loginCheckPw", id);
+		
 		return result;
 	}
 	

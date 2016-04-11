@@ -1,15 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+  pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>Insert title here</title>
-
 </head>
-
 <body class="hold-transition skin-blue sidebar-mini">
 <%@include file="../header.jsp" %>
 
@@ -32,7 +28,6 @@
             <div class="pull-left image">
               <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
             </div>
-
            </c:if>
 
             <div class="pull-left info">
@@ -48,6 +43,16 @@
               	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
               	</c:if>
             </div>
+            
+              <!-- login button -->
+       	
+	       	<c:if test="${empty sid }">
+				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
+			</c:if>
+			<c:if test="${!empty sid}">
+				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
+			</c:if>
+            
           </div>
 
           <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -80,13 +85,9 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header" align="center">
-                  <h3 class="box-title">질문게시판</h3>
+                  <h3 class="box-title">검색 결과</h3>
                   <div class="box-tools">
-                    <div class="input-group" style="width: 150px;">
-                      <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">
-                      <div class="input-group-btn">
-                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                      </div>
+                    <div class="input-group" style="width: 150px;">      
                     </div>
                   </div>
 
@@ -103,29 +104,29 @@
                       </thead>
 
                     <tbody>
-                      	<c:set var="freebbsList" value="${list}"></c:set>
-                      	<c:if test="${empty freebbsList}">
+                      	<c:set var="freebbsFind" value="${list}"></c:set>
+                      	<c:if test="${empty freebbsFind}">
                       		<tr>
                       			<td colspan="4" align="center">
-                      			 	등록된 게시글이 없습니다.
+                      			 	해당 게시글이 없습니다.
                       			</td>
                       		</tr>
                       	</c:if>
 
-                      	<c:forEach var="dto" items="${freebbsList}">
+                      	<c:forEach var="dto" items="${freebbsFind}">
                         <tr>
                           <td>${dto.idx}</td>
-                          <td><a href="bbsContent.do?idx=${dto.idx}">${dto.subject}</a></td>
+				          <td>${dto.subject}</td>
                           <td>${dto.writer}</td>
-                          <td><span class="badge bg-red">${dto.readnum}</span></td>
+					     <td><span class="badge bg-yellow">${dto.readnum}</span></td>	
                         </tr>
+                        
                         </c:forEach>
+                        
                       </tbody>
                   </table>
 
                   <div class="box-footer clearfix" align="center">
-
-                  <a href="bbsWriteAdd.do" class="btn btn-sm btn-info btn-flat pull-right">글쓰기</a>
 
 	             <ul class="pagination pagination-sm no-margin pull-center">
                     <li><a href="#">&laquo;</a></li>
@@ -137,14 +138,11 @@
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div>
-          </div>
-        </section><!-- /.content -->
-
-	</div>
+		</div>
+		</div>
       </div><!-- /.content-wrapper -->
    
        <%@include file="../footer.jsp" %>
        <%@ include file="../controllSide.jsp" %>  
-
 </body>
 </html>
