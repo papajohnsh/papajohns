@@ -76,6 +76,18 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
+	<bean id="quizdao" class="papa.quiz.model.quizDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
+	<bean id="quiztestdao" class="papa.quiztest.model.quizTestDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean> 
+
+
 	<!-- controller -->
 	
 	<!-- view -->
