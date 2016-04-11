@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import papa.freebbs.model.FreeBbsDAO;
 import papa.freebbs.model.FreeBbsDTO;
 
+
 @Controller
 public class FreeBbsController {
 	
@@ -26,7 +27,6 @@ public class FreeBbsController {
 		this.freebbsDao = freebbsDao;
 	}
 
-	
 	@RequestMapping("/bbsListForm.do")//게시판Form 이동,list 보여주기
 	public ModelAndView bbsListForm(){
 		
