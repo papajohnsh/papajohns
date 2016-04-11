@@ -13,11 +13,12 @@ public class classDTO {
 	private Date write_date;
 	private String explanation;
 	private	String location;
+	private int reidx;
 	public classDTO() {
 		// TODO Auto-generated constructor stub
 	}
 	public classDTO(int idx, String name, String subject, String class_time, String institut, String class_date,
-			Date write_date, String explanation, String location) {
+			Date write_date, String explanation, String location, int reidx) {
 		super();
 		this.idx = idx;
 		this.name = name;
@@ -28,6 +29,7 @@ public class classDTO {
 		this.write_date = write_date;
 		this.explanation = explanation;
 		this.location = location;
+		this.reidx = reidx;
 	}
 	public int getIdx() {
 		return idx;
@@ -83,7 +85,12 @@ public class classDTO {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	
+	public int getReidx() {
+		return reidx;
+	}
+	public void setReidx(int reidx) {
+		this.reidx = reidx;
+	}
 	
 	
 

@@ -85,6 +85,8 @@ public class MemberController {
 				session.setAttribute("semail", dto.getEmail());
 				session.setAttribute("sphone", dto.getPhonenumber());
 				session.setAttribute("spwd", dto.getPwd());
+				session.setAttribute("sidx", dto.getIdx());
+				session.setAttribute("sreidx", dto.getReidx());
 			}else{//비밀번호가 틀리면
 				msg="비밀번호를 확인해주세요.";
 				url="loginForm.do";

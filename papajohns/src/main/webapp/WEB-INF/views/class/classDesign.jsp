@@ -78,69 +78,7 @@
         </section>
         <!-- /.sidebar -->
       </aside>
-
-<!-- TABLE: LATEST ORDERS -->
-		<section>
-              <div class="container" style="width: 900px">
-                <div class="box-header with-border" align="center">
-                  <h3 class="box-title">공지사항</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <div class="table-responsive">
-                    <table class="table no-margin">
-                      <thead>
-                        <tr>
-                          <th>번호</th>
-                          <th>제목</th>
-                          <th>작성자</th>
-                          <th>조회수</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1.</td>
-                          <td><a href="noticeShow.do">쪽지시험 관련 공지</a></td>
-                          <td>송중기</td>
-                          <td><span class="badge bg-red">50</span></td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td><a href="#">수학 과제 제출 요망</a></td>
-                          <td>송혜교</td>
-                          <td><span class="badge bg-yellow">80</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td><a href="#">수업시간표 변경 관련 사항</a></td>
-                          <td>이진욱</td>
-                          <td><span class="badge bg-blue">20</span></td>
-                        </tr>
-                        <tr>
-                          <td>4.</td>
-                          <td><a href="#">휴강일 공지</a></td>
-                          <td>유해진</td>
-                          <td><span class="badge bg-blue">20</span></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                     <div class="box-footer clearfix" align="center">
-             		<ul class="pagination pagination-sm no-margin pull-center">
-                    	<li><a href="#">&laquo;</a></li>
-                    	<li><a href="#">&raquo;</a></li>
-                  	</ul>
-                  
-                </div><!-- /.box-footer -->
-                    </div><!-- container -->
-                  </div><!-- /.table-responsive -->
-                 </div><!-- /.box --> 
-            </section>    
-   
-   <!-- TABLE: LATEST ORDERS -->
-		<section>
+      <section>
               <div class="container" style="width: 900px">
                 <div class="box-header with-border" align="center">
                   <h3 class="box-title">내 강의실</h3>
@@ -167,33 +105,24 @@
                       <c:forEach var="dto" items="${list }">
                         <tr>
                         <td><input type="checkbox"></td>   
-                          <td>1.</td>
-                          <td><a href="myClassRoom.do?idx=${dto.idx }">Java basic</a></td>
                           <td>${dto.idx }</td>
+                          <td><a href="designJoin.do?idx=${dto.idx }">${dto.subject }</a></td>
+                          <td>${dto.name }</td>
                           <td>${dto.location }</td>
                           <td>${dto.class_time }</td>
                         </tr>
-                     </c:forEach>
-                      
-                       
-                       
-                      </tbody>
+                        </c:forEach>
+                       </tbody>
                     </table>
                     <div class="box-footer clearfix" align="center">
-              
-             <ul class="pagination pagination-sm no-margin pull-center">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                  
-                </div><!-- /.box-footer -->
-                    </div><!-- container -->
-                  </div><!-- /.table-responsive -->
-                 </div><!-- /.box --> 
-            
- 		</section>            
-        <%@ include file="../footer.jsp" %>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </section>
+                    
+<%@ include file="../footer.jsp" %>
         <%@ include file="../controllSide.jsp" %>
-     
-</body>
-</html>
+      </body>
+      </html>
+      

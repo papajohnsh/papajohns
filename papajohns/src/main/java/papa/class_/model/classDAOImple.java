@@ -1,8 +1,12 @@
 package papa.class_.model;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
+
+import papa.member.model.MemberDTO;
 
 public class classDAOImple implements classDAO {
 	
@@ -46,5 +50,31 @@ public class classDAOImple implements classDAO {
 	   List<String> list=sqlMap.selectList("class_timeSearch",class_time);
 		return list;
 	}
+   @Override
+	public List<classDTO> classJoin(String idx) {
+		List<classDTO> list=sqlMap.selectList("classJoin",idx);
+		return list;
+	}
+	
+	@Override
+		public int classAddUpdate(int reidx,int idx) {
+		Map map=new HashMap();
+		map.put("reidx", reidx);
+		map.put("idx", idx);
+			int result=sqlMap.insert("classAddUpdate",map);
+			return result;
+		}
+	
+	@Override
+		public List<classDTO> classDesign(int idx) {
+			List<classDTO> list=sqlMap.selectList("classJoinList",idx);
+			return list;
+		}
+		
+		@Override
+			public List<MemberDTO> designJoin(int idx) {
+				List<MemberDTO>list=sqlMap.selectList("designJoin",idx);
+				return list;
+			}
 
 }

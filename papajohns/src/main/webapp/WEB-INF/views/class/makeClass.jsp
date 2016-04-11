@@ -3,9 +3,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ include file="../header.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+<link rel="stylesheet" href="wickedpicker.css">
+<style>
+	$('.selector').wickedpicker({
+		  // current time
+		  now: new Date(),
+		  // 12- or 24-hour format
+		  twentyFour: false,
+		  // CSS classes
+		  upArrow: 'wickedpicker__controls__control-up',
+		  downArrow: 'wickedpicker__controls__control-down',
+		  close: 'wickedpicker__close',
+		  hoverState: 'hover-state',
+		  // title
+		  title: 'Timepicker'
+		});
+</style>
+<script src="wickedpicker.js"></script>
 <script>
 	function aaa(){
 		f.submit();
@@ -13,7 +30,7 @@
 </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<%@ include file="../header.jsp" %>
+
 
 <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
@@ -52,7 +69,7 @@
               </a>
             </li>
             <li>
-              <a href="classDesign.do">
+              <a href="classDesign.do?idx=${sidx }">
                 <i class="fa fa-edit"></i><span>강의실 디자인</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
@@ -79,19 +96,21 @@
                       <th>수업기간명</th>
                       <td><input type="text" name="institut" class="form-control"></td>
                       <th>강사명</th>
-                      <td><input type="text" name="name" class="form-control"></td>
+                      <td><input type="text" name="name" class="form-control">
+                      <input type="hidden" name="reidx" value="${sidx }">
+                      </td>
                     </tr>
                     <tr>
                       <th>강의명</th>
                       <td><input type="text" name="subject" class="form-control"></td>
                       <th>강의시간</th>
                    
-                      <!-- <td><input type="text" name="class_time" class="form-control"></td> -->
+                      <td><input type="text" name="class_time" class="selector form-control"></td>
                     </tr>
                     <tr>
                       <th>강의스케줄</th>
                       <td><input type="text" name="class_date" class="form-control"></td>
-                    </tr>
+					</tr>
                     <tr>
                       <td colspan="4">
                       <textarea rows="20" cols="180" id="content" name="explanation" class="form-control"></textarea>

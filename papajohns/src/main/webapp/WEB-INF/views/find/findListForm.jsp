@@ -35,7 +35,13 @@
     <link rel="stylesheet" href="css/plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    
+<script type="text/javascript" src="js/httpRequest.js"></script>
 </head>
+
+<script>
+
+</script>
 <body class="hold-transition skin-blue sidebar-mini">
 <%@ include file="../header.jsp" %>
 
@@ -151,20 +157,23 @@
                   </table>
                   
                   <div align="center">
-                  <span><a href="#" class="btn btn-sm btn-success btn-flat pull-center">참여신청</a></span>
+                  <span><a href="#" class="btn btn-sm btn-success btn-flat pull-center" >참여신청</a></span>
                   <span><a href="#" class="btn btn-sm btn-info btn-flat pull-center">목록으로</a></span>
                   </div>
                   </c:if>
                   <c:if test="${num==1}">
-                  <form action="classRoomNameSearch.do">
+                  <form name="f" action="classRoomNameSearch.do">
                                             수업명<input type="text" name="subject">
                   <input type="hidden" name="num" value="1">
                   <input type="submit" value="검색">
+                  <input type="hidden" name="test">
                   <table>
                   <c:forEach var="dto" items="${list }">
                   <tr>
-                  <td>과목:${dto.subject }</td>
-                  <td>선생님이름:${dto.name }</td>
+                  <td>과목:<a href="javascript: window.open('popup.do?idx=${dto.idx }','','width=280,height=280,top,200,left=200');">${dto.subject }</a></td>
+                  <td>선생님이름:${dto.name }
+                  
+                  </td>
                   </tr>
                   </c:forEach>
                   </table>
@@ -179,8 +188,10 @@
                   <table>
                   <c:forEach var="dto" items="${list2 }">
                   <tr>
-                  <td>과목:${dto.subject }</td>
-                  <td>선생님이름:${dto.name }</td>
+                  <td>과목:<a href="#" >${dto.subject }</a></td>
+                  <td>선생님이름:${dto.name }
+                  <input type="hidden" name="idx" value="${dto.idx }">
+                  </td>
                   </tr>
                   </c:forEach>
                   </table>
@@ -195,8 +206,10 @@
                   <table>
                   <c:forEach var="dto" items="${list }">
                   <tr>
-                  <td>과목:${dto.subject }</td>
-                  <td>선생님이름:${dto.name }</td>
+                  <td>과목:<a href="#" class="studentList" id="${dto.idx }">${dto.subject }</a></td>
+                  <td>선생님이름:${dto.name }
+                  <input type="hidden" name="idx" value="${dto.idx }">
+                  </td>
                   </tr>
                   </c:forEach>
                   </table>
@@ -211,8 +224,10 @@
                   <table>
                   <c:forEach var="dto" items="${list3 }">
                   <tr>
-                  <td>과목:${dto.subject }</td>
-                  <td>선생님이름:${dto.name }</td>
+                  <td>과목:<a href="#" class="studentList" id="${dto.idx }">${dto.subject }</a></td>
+                  <td>선생님이름:${dto.name }
+                  <input type="hidden" name="idx" value="${dto.idx }">
+                  </td>
                   </tr>
                   </c:forEach>
                   </table>
@@ -227,8 +242,10 @@
                   <table>
                   <c:forEach var="dto" items="${list4 }">
                   <tr>
-                  <td>과목:${dto.subject }</td>
-                  <td>선생님이름:${dto.name }</td>
+                  <td>과목:<a href="#" class="studentList" id="${dto.idx }">${dto.subject }</a></td>
+                  <td>선생님이름:${dto.name }
+                  <input type="hidden" name="idx" value="${dto.idx }">
+                  </td>
                   </tr>
                   </c:forEach>
                   </table>
@@ -243,19 +260,20 @@
                   <table>
                   <c:forEach var="dto" items="${list5 }">
                   <tr>
-                  <td>과목:${dto.subject }</td>
-                  <td>선생님이름:${dto.name }</td>
+                  <td>과목:<a href="#" class="studentList" id="${dto.idx }">${dto.subject }</a></td>
+                  <td>선생님이름:${dto.name }
+                  <input type="hidden" name="idx" value="${dto.idx }">
+                  </td>
                   </tr>
                   </c:forEach>
                   </table>
                   </form>
                   </c:if>
                   
-                </div>
-              </div><!-- /.box -->
+    
              <%@ include file="../footer.jsp" %>
     		<%@ include file="../controllSide.jsp" %>          
-  	
+  
   	<!-- jQuery 2.1.4 -->
     <script src="css/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -264,34 +282,9 @@
     <script>
       $.widget.bridge('uibutton', $.ui.button);
     </script>
-    <!-- Bootstrap 3.3.5 -->
+    <!-- Bootstrap 3.3.5 모달 -->
     <script src="css/bootstrap/js/bootstrap.min.js"></script>
     <!-- Morris.js charts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="css/plugins/morris/morris.min.js"></script>
-    <!-- Sparkline -->
-    <script src="css/plugins/sparkline/jquery.sparkline.min.js"></script>
-    <!-- jvectormap -->
-    <script src="css/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="css/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="css/plugins/knob/jquery.knob.js"></script>
-    <!-- daterangepicker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    <script src="css/plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- datepicker -->
-    <script src="css/plugins/datepicker/bootstrap-datepicker.js"></script>
-    <!-- Bootstrap WYSIHTML5 -->
-    <script src="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-    <!-- Slimscroll -->
-    <script src="css/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="css/plugins/fastclick/fastclick.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="css/dist/js/app.min.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="css/dist/js/pages/dashboard.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="css/dist/js/demo.js"></script>
-</body>
+   
+   
 </html>
