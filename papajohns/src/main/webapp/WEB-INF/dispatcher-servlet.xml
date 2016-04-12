@@ -110,7 +110,11 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
-
+	<bean id="planDao" class="papa.plan.model.PlanDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
 	<!-- controller -->
 	
 	<!-- view -->
