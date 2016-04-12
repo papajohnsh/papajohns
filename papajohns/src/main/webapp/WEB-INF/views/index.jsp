@@ -119,25 +119,22 @@
                         </tr>
                       </thead>
                     <tbody>
+                    <c:set var="noticeList" value="${list}"></c:set>
+                    <c:if test="${empty noticeList}">
+                    	<tr>
+                    		<td colspan="4" align="center">
+                    			등록된 공지사항이 없습니다.
+                    		</td>
+                    	</tr>
+                    </c:if>
+                    <c:forEach var="dto" items="${noticeList}">
                         <tr>
-                          <td>1.</td>
-                          <td><a href="noticeShow.do">쪽지시험 관련 공지</a></td>
-                          <td>송중기</td>
-                          <td><span class="badge bg-red">50</span></td>
+                          <td>${dto.idx}</td>
+                          <td><a href="noticeContent.do?idx=${dto.idx}">${dto.subject}</a></td>
+                          <td>${dto.writer}</td>
+                          <td><span class="badge bg-blue">${dto.readnum}</span></td>
                         </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td><a href="#">수학 과제 제출 요망</a></td>
-                          <td>송혜교</td>
-                          <td><span class="badge bg-yellow">80</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td><a href="#">수업시간표 변경 관련 사항</a></td>
-                          <td>이진욱</td>
-                          <td><span class="badge bg-blue">20</span></td>
-                        </tr>
-                        <tr>
+                      </c:forEach>  
                       </tbody>
                   </table>
                 </div><!-- /.box-body -->

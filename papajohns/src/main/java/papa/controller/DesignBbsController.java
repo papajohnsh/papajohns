@@ -58,10 +58,10 @@ public class DesignBbsController {
 		
 		int count=designbbsDao.designNum(idx);//조회수 증가
 		
-		DesignBbsDTO result=designbbsDao.designContent(idx);
+		DesignBbsDTO list=designbbsDao.designContent(idx);
 		
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("result", result);
+		mav.addObject("list", list);
 		mav.addObject("count", count);
 		mav.setViewName("designbbs/designContent");
 		return mav;

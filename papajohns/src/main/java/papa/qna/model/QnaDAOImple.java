@@ -40,7 +40,7 @@ public class QnaDAOImple implements QnaDAO {
 	}
 
 	public int qnaNum(int idx) {//조회수
-		int result=sqlMap.selectOne("qnaNum", idx);
+		int result=sqlMap.update("qnaNum", idx);
 		return result;
 	}
 

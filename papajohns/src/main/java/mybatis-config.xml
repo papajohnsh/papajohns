@@ -15,5 +15,6 @@
 		<mapper resource="sql/designSQL.xml"/>
 		<mapper resource="sql/planSQL.xml"/>
 		<mapper resource="sql/designbbsSQL.xml"/>
+		<mapper resource="sql/noticeSQL.xml"/>
 	</mappers>
 </configuration>

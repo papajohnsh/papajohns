@@ -109,8 +109,11 @@
                 	<input type="submit" class="btn btn-primary pull-right" value="글올리기">
 				  </div>
 				  <!-- file -->
-                	<div class="form-group" align="center">
-          				<span><input type="file" id="exampleInputFile"></span>
+                	
+                	<div class="form-group" align="center">	
+          				<span>작성자:<input type="text" name="writer"></span>
+          				<span>파일:<input type="file" name="upload"></span>
+          				<input type="submit" value="파일 올리기">
       				</div>
              	</div>
              	</form>

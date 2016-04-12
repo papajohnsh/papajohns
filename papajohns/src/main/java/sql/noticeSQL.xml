@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="sqlMapper.no">
+ 	<insert id="noticeWrite" parameterType="papa.notice.model.NoticeDTO">
+ 		insert into notice(writer,subject,content,write_date,readnum)
+ 		values(#{writer},#{subject},#{content},now(),0)
+ 	</insert>
+ 	<select id="noticeList" resultType="papa.notice.model.NoticeDTO">
+ 		select * from notice
+ 	</select>
+ 	<select id="noticeContent" parameterType="int" resultType="papa.notice.model.NoticeDTO">
+ 		select * from notice where idx=#{idx}
+ 	</select>
+ 	<update id="noticeNum" parameterType="int">
+ 		update notice set readnum=readnum+1 where idx=#{idx}
+ 	</update>
+ </mapper>
