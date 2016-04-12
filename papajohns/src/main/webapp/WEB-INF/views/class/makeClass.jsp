@@ -6,28 +6,13 @@
 <%@ include file="../header.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="wickedpicker.css">
-<style>
-	$('.selector').wickedpicker({
-		  // current time
-		  now: new Date(),
-		  // 12- or 24-hour format
-		  twentyFour: false,
-		  // CSS classes
-		  upArrow: 'wickedpicker__controls__control-up',
-		  downArrow: 'wickedpicker__controls__control-down',
-		  close: 'wickedpicker__close',
-		  hoverState: 'hover-state',
-		  // title
-		  title: 'Timepicker'
-		});
-</style>
-<script src="wickedpicker.js"></script>
-<script>
-	function aaa(){
-		f.submit();
-	}
-</script>
+		<link rel="stylesheet" href="css/datepicker/bootstrap-material-datetimepicker.css" />
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<script type="text/javascript" src="https://rawgit.com/FezVrasta/bootstrap-material-design/master/dist/js/material.min.js"></script>
+		<script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
+		<script type="text/javascript" src="js/datepicker/bootstrap-material-datetimepicker.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
@@ -92,6 +77,14 @@
                 <div class="box-body">
                  <form name="f" role="form" action="makeClassAdd.do">
                   <table>
+                   <tr>
+                      <th>강의명</th>
+                      <td colspan="3">
+                      <input type="text" name="subject" class="form-control">
+                      </td>
+                      
+                    <!--   <td><input type="text" name="class_time" class="selector form-control"></td> -->
+                    </tr>
                     <tr>
                       <th>수업기간명</th>
                       <td><input type="text" name="institut" class="form-control"></td>
@@ -100,16 +93,19 @@
                       <input type="hidden" name="reidx" value="${sidx }">
                       </td>
                     </tr>
-                    <tr>
-                      <th>강의명</th>
-                      <td><input type="text" name="subject" class="form-control"></td>
-                      <th>강의시간</th>
                    
-                      <td><input type="text" name="class_time" class="selector form-control"></td>
-                    </tr>
                     <tr>
                       <th>강의스케줄</th>
-                      <td><input type="text" name="class_date" class="form-control"></td>
+                      <td>
+                      <input type="text" id="start_date" class="form-control floating-label" placeholder="시작 날짜">
+                      <input type="text" id="end_date" class="form-control floating-label" placeholder="종료 날짜">
+                      </td>
+                       <th>강의시간</th>
+	                   	<td>
+	                   	<input type="text" id="start_time" class="form-control floating-label" placeholder="시작 시간">
+	                   	<input type="text" id="end_time" class="form-control floating-label" placeholder="종료 날짜">
+	                   	</td>
+                      <!-- <td><input type="text" name="class_date" class="form-control"></td> -->
 					</tr>
                     <tr>
                       <td colspan="4">
@@ -130,8 +126,66 @@
                   
                 </div>
                 </div><!-- /.box -->
-                
-             <%@ include file="../footer.jsp" %>
+                	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$('#start_date').bootstrapMaterialDatePicker
+			({
+				time: false,
+				clearButton: true
+			});
+
+			$('#end_date').bootstrapMaterialDatePicker
+			({
+				time: false,
+				clearButton: true
+			});
+			
+			$('#start_time').bootstrapMaterialDatePicker
+			({
+				date: false,
+				shortTime: false,
+				format: 'HH:mm'
+			});
+
+			$('#end_time').bootstrapMaterialDatePicker
+			({
+				date: false,
+				shortTime: false,
+				format: 'HH:mm'
+			});
+			
+			$('#date-format').bootstrapMaterialDatePicker
+			({
+				format: 'dddd DD MMMM YYYY - HH:mm'
+			});
+			$('#date-fr').bootstrapMaterialDatePicker
+			({
+				format: 'DD/MM/YYYY HH:mm',
+				lang: 'fr',
+				weekStart: 1, 
+				cancelText : 'ANNULER',
+				nowButton : true,
+				switchOnClick : true
+			});
+
+			$('#date-end').bootstrapMaterialDatePicker
+			({
+				weekStart: 0, format: 'DD/MM/YYYY HH:mm'
+			});
+			$('#date-start').bootstrapMaterialDatePicker
+			({
+				weekStart: 0, format: 'DD/MM/YYYY HH:mm', shortTime : true
+			}).on('change', function(e, date)
+			{
+				$('#date-end').bootstrapMaterialDatePicker('setMinDate', date);
+			});
+
+			$('#min-date').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate : new Date() });
+
+			$.material.init()
+		});
+		</script>
     		<%@ include file="../controllSide.jsp" %>          
  
 </body>
