@@ -9,6 +9,7 @@
 		<mapper resource="sql/freebbsSQL.xml"/>
 		<mapper resource="sql/classSQL.xml"/>
 		<mapper resource="sql/classbbsSQL.xml"/>
+		<mapper resource="sql/quizSQL.xml"/>
 		<mapper resource="sql/faqSQL.xml"/>
 		<mapper resource="sql/qnaSQL.xml"/>
 		<mapper resource="sql/designSQL.xml"/>

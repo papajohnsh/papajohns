@@ -35,5 +35,9 @@ public class MyLessonController {
 	public String classQuiz(){
 		return "class/classQuiz";
 	}
+	@RequestMapping("/question.do")
+	public String question(){
+		return "web/chat-ws";
+	}
 
 }

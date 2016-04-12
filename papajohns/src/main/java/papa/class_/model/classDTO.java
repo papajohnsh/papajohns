@@ -1,34 +1,38 @@
 package papa.class_.model;
 
-import java.util.Date;
+import java.sql.Time;
+import java.sql.Date;
 
 public class classDTO {
 	
 	private int idx;
 	private String name;
 	private String subject;
-	private String class_time;
+	private Time start_time;
+	private Time end_time;
 	private String institut;
-	private String class_date;
+	private Date start_date;
+	private Date end_date;
 	private Date write_date;
 	private String explanation;
-	private	String location;
+	
 	private int reidx;
 	public classDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	public classDTO(int idx, String name, String subject, String class_time, String institut, String class_date,
-			Date write_date, String explanation, String location, int reidx) {
+	public classDTO(int idx, String name, String subject, Time start_time, Time end_time, String institut,
+			Date start_date, Date end_date, Date write_date, String explanation, int reidx) {
 		super();
 		this.idx = idx;
 		this.name = name;
 		this.subject = subject;
-		this.class_time = class_time;
+		this.start_time = start_time;
+		this.end_time = end_time;
 		this.institut = institut;
-		this.class_date = class_date;
+		this.start_date = start_date;
+		this.end_date = end_date;
 		this.write_date = write_date;
 		this.explanation = explanation;
-		this.location = location;
 		this.reidx = reidx;
 	}
 	public int getIdx() {
@@ -49,11 +53,17 @@ public class classDTO {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public String getClass_time() {
-		return class_time;
+	public Time getStart_time() {
+		return start_time;
 	}
-	public void setClass_time(String class_time) {
-		this.class_time = class_time;
+	public void setStart_time(Time start_time) {
+		this.start_time = start_time;
+	}
+	public Time getEnd_time() {
+		return end_time;
+	}
+	public void setEnd_time(Time end_time) {
+		this.end_time = end_time;
 	}
 	public String getInstitut() {
 		return institut;
@@ -61,11 +71,17 @@ public class classDTO {
 	public void setInstitut(String institut) {
 		this.institut = institut;
 	}
-	public String getClass_date() {
-		return class_date;
+	public Date getStart_date() {
+		return start_date;
 	}
-	public void setClass_date(String class_date) {
-		this.class_date = class_date;
+	public void setStart_date(Date start_date) {
+		this.start_date = start_date;
+	}
+	public Date getEnd_date() {
+		return end_date;
+	}
+	public void setEnd_date(Date end_date) {
+		this.end_date = end_date;
 	}
 	public Date getWrite_date() {
 		return write_date;
@@ -78,12 +94,6 @@ public class classDTO {
 	}
 	public void setExplanation(String explanation) {
 		this.explanation = explanation;
-	}
-	public String getLocation() {
-		return location;
-	}
-	public void setLocation(String location) {
-		this.location = location;
 	}
 	public int getReidx() {
 		return reidx;
