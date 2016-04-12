@@ -1,5 +1,7 @@
 package papa.controller;
 
+
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -34,6 +36,7 @@ public class ClassController {
 	@RequestMapping("/makeClassAdd.do")
 	public ModelAndView makeClass(classDTO dto){
 		System.out.println("컨롤러진입");
+		
 		int result=classDao.makeClassAdd(dto);
 		ModelAndView mav=new ModelAndView();
 		String msg=result>0?"수업생성성공":"실패";
