@@ -13,26 +13,41 @@
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
-          <!-- Sidebar user panel -->
-          <div class="user-panel">
-            <div class="pull-left image">
-              <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
-            </div>
+         
+      <!-- Sidebar user panel -->
+       <div class="user-panel">
+       <c:if test="${empty sid}">
+       <div class="pull-left image">
+       	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+       </div>
+       </c:if>
+
+       <c:if test="${!empty sid}">
+         <div class="pull-left image">
+           <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
+         </div>
+
+        </c:if>
+        
+         <div class="pull-left info">
+          <c:if test="${empty sid}">
+           	<script type="text/javascript">
+          		window.alert('로그인 후 이용 가능한 서비스입니다.');
+           		location.href="index.do";
+           	</script>
+           	</c:if>
+
+           <c:if test="${!empty sid}">
+           	<p>${snickname}</p>
+           	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+           	</c:if>
+         </div>
+       </div>
             
             <div class="pull-left info">
-              <p>강동원</p>
+              <p>${snickname}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
-            
-            <!-- login button -->
-       	
-	       	<c:if test="${empty sid }">
-				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
-			</c:if>
-			<c:if test="${!empty sid}">
-				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
-			</c:if>
-          </div>
           
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
@@ -58,7 +73,7 @@
      
       <div class="container" style="width: 900px"> 
         <!-- Content Header (Page header) -->
-        <h3 align="center">답변게시판 글쓰기</h3>
+        <h3 align="center">댓글쓰기</h3>
         <section class="content-header">
 
           <ol class="breadcrumb">
@@ -71,7 +86,7 @@
         <!-- Main content -->
      
   <div class="box box-info">
-                 <form name="bbsReWrite" action="bbsReWrite.do">
+                 <form name="bbsReWrite" action="bbsReWrite.do" method="post">
                  <table class="table table-bordered">
                  
                   <tr>

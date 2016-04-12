@@ -63,6 +63,12 @@
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
+         <li>
+           <a href="designList.do">
+            <i class="fa fa-circle-o text-yellow"></i><span>디자인게시판</span>
+             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+           </a>
+         </li>
        </ul>
         <ul class="sidebar-menu"></ul>
      </section>
@@ -129,11 +135,11 @@
                 </div>
                 <div class="box-body chat" id="chat-box">
                   <!-- chat item -->
-                  <c:set var="bbsReList" value="${reList}"></c:set>
-                  <c:if test="${empty bbsReList}">
+                  <c:set var="designReList" value="${reList}"></c:set>
+                  <c:if test="${empty designReList}">
                   	등록된 댓글이 없습니다.
                   </c:if>
-                  <c:forEach var="dto" items="${bbsReList}">
+                  <c:forEach var="dto" items="${designReList}">
                   <div class="item">
                     <img src="img/송중기.jpg" alt="user image" class="online">
                     <p class="message">

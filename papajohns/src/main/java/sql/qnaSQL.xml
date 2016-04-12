@@ -27,8 +27,7 @@
 	<select id="qnaFindName" parameterType="String" resultType="papa.qna.model.QnaDTO">
 		select * from qna_bbs where writer LIKE CONCAT('%',#{writer},'%')
 	</select>
-	<select id="qnaFindSubject" parameterType="String"
-		resultType="papa.qna.model.QnaDTO">
+	<select id="qnaFindSubject" parameterType="String" resultType="papa.qna.model.QnaDTO">
 		select * from qna_bbs where subject LIKE CONCAT('%',#{subject},'%')
 	</select>
 
@@ -40,8 +39,7 @@
 		select * from qna_rebbs where re_idx=#{idx}
 	</select>
 	<insert id="qnaReWrite" parameterType="papa.qna.model.QnaReDTO">
-		insert into
-		qna_rebbs(writer,subject,content,write_date,re_idx,ref,lev,sunbun)
+		insert into qna_rebbs(writer,subject,content,write_date,re_idx,ref,lev,sunbun)
 		values(#{writer},#{subject},#{content},now(),#{re_idx},0,0,0)
 	</insert>
 </mapper>

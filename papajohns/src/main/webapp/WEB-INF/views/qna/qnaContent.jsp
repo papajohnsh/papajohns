@@ -42,17 +42,10 @@
            	</c:if>
 
            <c:if test="${!empty sid}">
-           	<p>${sname}</p>
+           	<p>${snickname}</p>
            	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
            	</c:if>
          </div>
-          <!-- login button -->
-	       	<c:if test="${empty sid }">
-				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
-			</c:if>
-			<c:if test="${!empty sid}">
-				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
-			</c:if>
        </div>
 
        <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -128,7 +121,7 @@
 					</tr>
                   </table>
                   <div align="center">
-                  <span><a href="qnaReWrite.do?idx=${dto.idx }&subject=${dto.subject}" class="btn btn-sm btn-danger btn-flat pull-center"> 댓글작성</a></span>
+                  <span><a href="qnaReWriteForm.do?idx=${dto.idx }&subject=${dto.subject}" class="btn btn-sm btn-danger btn-flat pull-center"> 댓글작성</a></span>
                   <span><a href="qnaList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a></span>
                   </div>
                 </div><!-- /.box-body -->

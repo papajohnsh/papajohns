@@ -67,11 +67,6 @@ public class MemberController {
 		System.out.println("getId:"+getId);
 		System.out.println("id:"+id);
 	
-	/*	if(id==null && id.equals("")){
-			msg="아이디를 입력해주세요";
-			url="loginForm.do";
-		}*/
-
 		
 		if(getId==null){
 			msg="아이디를 확인해주세요.";
@@ -245,12 +240,36 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/memberOut.do")//회원탈퇴하기
-	public ModelAndView memberOut(MemberDTO dto){
-		int count=memberDao.memberOut(dto);
-		  System.out.println("count:"+count);
-		  String msg=count>0?"회원탈퇴성공!":"회원탈퇴실패!";
+	public ModelAndView memberOut(MemberDTO dto,@RequestParam("name") String name,
+			@RequestParam("pwd") String pwd){
+		
+		String getPwd=memberDao.outCheckPw(name);
+		System.out.println("name="+name);
+		
+		String msg="";
+		String url="";
+		
+		if(getPwd.equals(pwd)){//비밀번호가 같으면
+			
+			int count=memberDao.memberOut(dto);
+			  System.out.println("count:"+count);
+
+			if(count>0){//회원정보가 있으면
+				msg="회원탈퇴성공";
+				url="index.do";
+			}else{//회원정보가 없으면
+				msg="회원탈퇴실패";
+				url="memberOutForm.do";
+			}
+			
+		}else{//비밀번호가 다르면
+			msg="회원탈퇴실패";
+			url="memberOutForm.do";	
+		}
+			  	 
 		  ModelAndView mav=new ModelAndView();
 		  mav.addObject("msg", msg);
+		  mav.addObject("url", url);
 		  mav.setViewName("member/myInfoMsg");
 		  return mav;
 	}

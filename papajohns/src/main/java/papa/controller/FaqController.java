@@ -49,7 +49,7 @@ public class FaqController {
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("msg", msg);
-		mav.setViewName("faq/faqWrite");
+		mav.setViewName("faq/faqMsg");
 		return mav;
 	}
 	

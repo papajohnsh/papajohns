@@ -6,34 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
- <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="css/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="css/dist/css/skins/_all-skins.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="css/plugins/iCheck/flat/blue.css">
-    <!-- Morris chart -->
-    <link rel="stylesheet" href="css/plugins/morris/morris.css">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="css/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-    <!-- Date Picker -->
-    <link rel="stylesheet" href="css/plugins/datepicker/datepicker3.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="css/plugins/daterangepicker/daterangepicker-bs3.css">
-    <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <%@include file="../header.jsp" %>
@@ -41,16 +14,36 @@
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
-          <!-- Sidebar user panel -->
-          <div class="user-panel">
-            <div class="pull-left image">
-              <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
-            </div>
-            <div class="pull-left info">
-              <p>강동원</p>
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
-          </div>
+         
+           <!-- Sidebar user panel -->
+		       <div class="user-panel">
+		       <c:if test="${empty sid}">
+		       <div class="pull-left image">
+		       	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+		       </div>
+		       </c:if>
+		
+		       <c:if test="${!empty sid}">
+		         <div class="pull-left image">
+		           <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
+		         </div>
+		
+		        </c:if>
+		        
+		         <div class="pull-left info">
+		          <c:if test="${empty sid}">
+		           	<script type="text/javascript">
+		          		window.alert('로그인 후 이용 가능한 서비스입니다.');
+		           		location.href="index.do";
+		           	</script>
+		           	</c:if>
+		
+		           <c:if test="${!empty sid}">
+		           	<p>${snickname}</p>
+		           	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+		           	</c:if>
+		         </div>
+		       </div>
           
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
@@ -76,7 +69,7 @@
      
       <div class="container" style="width: 900px"> 
         <!-- Content Header (Page header) -->
-        <h3 align="center">답변게시판 글쓰기</h3>
+        <h3 align="center">댓글쓰기</h3>
         <section class="content-header">
 
           <ol class="breadcrumb">
@@ -91,12 +84,12 @@
      <input type="hidden" name="lev" value="${param.lev}">
      <input type="hidden" name="sunbun" value="${param.sunbun}">
   <div class="box box-info">
-                 <form name="classReWrite" action="classBbsReWrite.do">
+                 <form name="classReWrite" action="classBbsReWrite.do" method="post">
                  <table class="table table-bordered">
                  
                   <tr>
 					<th>작성자</th>
-        			<td><input type="text" name="writer" placeholder="writer"></td>
+        			<td><input type="text" name="writer" value="${snickname}" placeholder="writer"></td>
         			<th>조회수</th>
         			<td><span class="badge bg-red">0</span></td>
                   </tr>
