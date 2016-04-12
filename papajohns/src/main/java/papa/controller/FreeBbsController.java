@@ -43,7 +43,7 @@ public class FreeBbsController {
 		return mav;
 	}
 	
-	@RequestMapping("/bbsWriteAdd.do")//게시판 글쓰기 폼
+	@RequestMapping(value="/bbsWriteAdd.do",method=RequestMethod.POST)//게시판 글쓰기 폼
 	public String bbsWriteAdd(){
 		return "freebbs/bbsWriteAdd";
 	}
@@ -61,7 +61,7 @@ public class FreeBbsController {
 		
 	}
 	
-	@RequestMapping("/bbsReWriteAdd.do")//게시판 댓글 쓰기 폼
+	@RequestMapping(value="/bbsReWriteAdd.do",method=RequestMethod.POST)//게시판 댓글 쓰기 폼
 	public ModelAndView bbsReWriteAdd(@RequestParam(value="idx",required=false) int re_idx){
 		int result=freebbsDao.getIdx(re_idx);//본문 idx 가져오기
 		System.out.println(re_idx);

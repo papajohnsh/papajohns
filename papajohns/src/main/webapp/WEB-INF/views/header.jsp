@@ -58,10 +58,18 @@
 					<li class="myclass-menu"><a href="classRoomForm.do"><span>MyClass</span></a>
 					</li>
 
-					<!-- Myinfo-menu -->
-					<c:if test="${!empty sid}">
-					<li class="Myinfo-menu"><a href="myInfoForm.do"><span>MyInfo</span></a></li>
+					<!-- login-menu -->
+					<c:if test="${empty sid }">
+						<li class="login-menu"><a href="loginForm.do"><span>login</span></a>
+						</li>
 					</c:if>
+
+					<c:if test="${!empty sid}">
+						<li class="login-menu"><a href="logout.do">logout</a></li>
+						<li class="Myinfo-menu"><a href="myInfoForm.do"><span>MyInfo</span></a>
+						</li>
+					</c:if>
+					
 					<!-- Find-menu -->
 					<li class="Find-menu"><a href="findListForm.do"><span>Search</span></a>
 					</li>

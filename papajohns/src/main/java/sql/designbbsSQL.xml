@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="sqlMapper.ds">
+  	<insert id="designWrite" parameterType="papa.designbbs.model.DesignBbsDTO">
+  		insert into design_bbs(writer,subject,content,write_date,readnum,path)
+  		values(#{writer},#{subject},#{content},#{write_date},0,#{path})
+  	</insert>
+  	<select id="designList" resultType="papa.designbbs.model.DesignBbsDTO">
+  		select * from design_bbs
+  	</select>
+  	<select id="designContent" parameterType="int" resultType="papa.designbbs.model.DesignBbsDTO">
+  		select * from design_bbs where idx=#{idx}
+  	</select>
+  	<update id="designNum" parameterType="int">
+  		update design_bbs set readnum=readnum+1 where idx=#{idx}
+  	</update>
+  </mapper>

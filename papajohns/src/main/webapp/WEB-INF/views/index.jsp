@@ -28,22 +28,15 @@
            </c:if>
             <div class="pull-left info">
               <c:if test="${empty sid}">
-              <p>로그인</p>
+              <p>로그인 해주세요</p>
               <a href="#"><i class="fa fa-circle text-danger"></i> Offline</a>
               </c:if>
               <c:if test="${!empty sid}">
-              <p>${sname}</p>
+              <p>${snickname}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
               </c:if>
             </div>
           </div>
-          <!-- login button -->
-	       	<c:if test="${empty sid }">
-				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
-			</c:if>
-			<c:if test="${!empty sid}">
-				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
-			</c:if>
         </section>
         <!-- /.sidebar -->
       </aside>
@@ -110,9 +103,9 @@
         <!-- Main content -->
         <section class="content">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
               <div class="box">
-                <div class="box-header with-border">
+                <div class="box-header with-border" align="center">
                   <h3 class="box-title">공지사항</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
@@ -162,9 +155,9 @@
               </div><!-- /.box -->
  
 				<div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
               <div class="box">
-                <div class="box-header with-border">
+                <div class="box-header with-border" align="center">
                   <h3 class="box-title">내강의실</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">

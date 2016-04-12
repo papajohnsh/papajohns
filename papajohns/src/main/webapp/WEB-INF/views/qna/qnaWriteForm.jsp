@@ -23,14 +23,6 @@
               <p>강동원</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
-            
-             <!-- login button -->
-	       	<c:if test="${empty sid }">
-				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
-			</c:if>
-			<c:if test="${!empty sid}">
-				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
-			</c:if>
           </div>
           
           <!-- sidebar menu: : style can be found in sidebar.less -->

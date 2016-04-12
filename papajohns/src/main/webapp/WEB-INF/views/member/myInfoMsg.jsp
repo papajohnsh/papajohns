@@ -2,5 +2,5 @@
     pageEncoding="EUC-KR"%>
 <script>
 window.alert('${msg}');
-location.href="myInfoForm.do";
+location.href="${url}";
 </script>

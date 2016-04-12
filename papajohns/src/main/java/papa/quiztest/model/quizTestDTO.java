@@ -9,20 +9,13 @@ public class quizTestDTO {
 	private Date quiz_date;
 	private String quiz_content;
 	private String quiz_num;
-	public quizTestDTO() {
-		super();
-	}
-	
-	public quizTestDTO(int idx, String subject, int class_idx, Date quiz_date, String quiz_content, String quiz_num) {
-		super();
-		this.idx = idx;
-		this.subject = subject;
-		this.class_idx = class_idx;
-		this.quiz_date = quiz_date;
-		this.quiz_content = quiz_content;
-		this.quiz_num = quiz_num;
-	}
-
+	private String writer;
+	private String question;
+	private int answer;
+	private String example1;
+	private String example2;
+	private String example3;
+	private String example4;
 	public int getIdx() {
 		return idx;
 	}
@@ -58,6 +51,51 @@ public class quizTestDTO {
 	}
 	public void setQuiz_num(String quiz_num) {
 		this.quiz_num = quiz_num;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+	public String getQuestion() {
+		return question;
+	}
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+	public int getAnswer() {
+		return answer;
+	}
+	public void setAnswer(int answer) {
+		this.answer = answer;
+	}
+	public String getExample1() {
+		return example1;
+	}
+	public void setExample1(String example1) {
+		this.example1 = example1;
+	}
+	public String getExample2() {
+		return example2;
+	}
+	public void setExample2(String example2) {
+		this.example2 = example2;
+	}
+	public String getExample3() {
+		return example3;
+	}
+	public void setExample3(String example3) {
+		this.example3 = example3;
+	}
+	public String getExample4() {
+		return example4;
+	}
+	public void setExample4(String example4) {
+		this.example4 = example4;
+	}
+	public quizTestDTO() {
+		super();
 	}
 	
 }

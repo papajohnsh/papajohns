@@ -84,5 +84,10 @@ public class MemberDAOImple implements MemberDAO {
 		int count=sqlMap.delete("memberOut", dto);
 		return count;
 	}
-	
+
+	public String outCheckPw(String name) {
+		String result=sqlMap.selectOne("outCheckPw", name);
+		return result;
+	}
+
 }

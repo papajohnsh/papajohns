@@ -42,8 +42,7 @@
             var sunbun = $(this).attr('id');
             var idx = $('#idx' + sunbun).val();
             var question = $('#question' + sunbun).val();
-            var Answer = $(":radio[id='Answer" + sunbun + "']:checked")
-                  .val();
+            var Answer = $(":radio[id='Answer" + sunbun + "']:checked").val();
             var example1 = $('#example1' + sunbun).val();
             var example2 = $('#example2' + sunbun).val();
             var example3 = $('#example3' + sunbun).val();

@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="sqlMapper.mb">
   	<insert id="memberAdd" parameterType="papa.member.model.MemberDTO">
-  		insert into member(id,pwd,name,birthday,gender,phonenumber,email,joindate)
-  		values(#{id},#{pwd},#{name},#{birthday},#{gender},#{phonenumber},#{email},now())
+  		insert into member(id,pwd,name,nickname,birthday,gender,phonenumber,email,joindate)
+  		values(#{id},#{pwd},#{name},#{nickname},#{birthday},#{gender},#{phonenumber},#{email},now())
   	</insert>
 
   	<select id="idCheck" parameterType="String" resultType="String">
@@ -46,9 +46,11 @@
 	</update>
 	
 	<delete id="memberOut" parameterType="papa.member.model.MemberDTO">
-		delete from member where name=#{name}
+		delete from member where pwd=#{pwd}
 	</delete>
-
+	<select id="outCheckPw" parameterType="String" resultType="String">
+		select pwd from member where name=#{name}
+	</select>
   </mapper>
 
 

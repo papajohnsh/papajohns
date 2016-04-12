@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,7 +38,7 @@ public class ClassBbsController {
 		return mav;
 	}
 	
-	@RequestMapping("/classBbsWriteForm.do")//글쓰기 폼
+	@RequestMapping(value="/classBbsWriteForm.do",method=RequestMethod.POST)//글쓰기 폼
 	public String classBbsWriteForm(){
 		return "classBbs/classBbsWriteForm";
 	}
@@ -70,7 +71,7 @@ public class ClassBbsController {
 		return mav;
 	}
 	
-	@RequestMapping("/classBbsReWriteForm.do")//수업 댓글 쓰기 폼
+	@RequestMapping(value="/classBbsReWriteForm.do",method=RequestMethod.POST)//수업 댓글 쓰기 폼
 	public ModelAndView classBbsReWriteForm(@RequestParam(value="idx",required=false) int re_idx){
 		
 		int result=classbbsDao.getIdx(re_idx);

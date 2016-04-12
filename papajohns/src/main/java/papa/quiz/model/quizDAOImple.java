@@ -25,13 +25,13 @@ private SqlSessionTemplate sqlMap;
 	}
 	
 	@Override
-		public int quizUpdate(quizDTO dto) {
+		public int quizUpdate(quizDTO dto) { //퀴즈 수정
 			int result=sqlMap.insert("quizUpdate", dto);
 			return result;
 		}
 
 	@Override
-	public List<quizDTO> quizList() {
+	public List<quizDTO> quizList() { 
 		List<quizDTO> result=sqlMap.selectList("quizList");
 		return result;
 

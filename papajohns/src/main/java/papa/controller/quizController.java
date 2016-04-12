@@ -76,17 +76,6 @@ public ModelAndView QuizList(){
 	mav.setViewName("quiz/quizList");
 	return mav;
 }
-
-@RequestMapping("/quizList2.do")
-public ModelAndView QuizList2(int idx){
-	
-	List<quizDTO> result= quizDao.quizList2(idx);
-		
-	ModelAndView mav=new ModelAndView();
-	mav.addObject("result",result);
-	mav.setViewName("quiz/quizList2");
-	return mav;
-}
 @RequestMapping("/quizTestSave.do")
 public ModelAndView QuizTestSave(quizTestDTO dto){
 	dto.setQuiz_num(dto.getQuiz_num().substring(4));
@@ -100,6 +89,36 @@ public ModelAndView QuizTestSave(quizTestDTO dto){
 	mav.setViewName("quiz/quizMsg");
 	return mav;
 	
+}
+/*@RequestMapping("/quizTestLoad.do")
+public ModelAndView QuizTestLoad(){
+	int idx=1;
+	List<quizDTO> result=quizDao.quizList2(idx);
+	
+	
+}*/
+@RequestMapping("/quizTest.do")
+public ModelAndView QuizTest(){
+	List<quizTestDTO> result=quizTestDao.quizTestList();
+	
+	ModelAndView mav=new ModelAndView();
+	mav.addObject("result",result);
+	mav.setViewName("quiz/quizTest");
+	return mav;
+}
+@RequestMapping("/quizTest2.do")
+public String Quiztest2(quizTestDTO dto){
+    dto.setIdx(1);
+    dto.setQuiz_num(",1,3,4,6");
+	int result=quizTestDao.quizTestUpdate(dto);
+	
+/*    String[] result=quiz_num.split(",");	
+	for(int i=0; i<result.length;i++ ){
+		System.out.println(result[i]);
+	}*/
+	
+	
+	return "class/classShow";
 }
 
 

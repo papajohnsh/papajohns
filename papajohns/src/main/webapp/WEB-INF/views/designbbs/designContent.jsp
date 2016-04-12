@@ -31,15 +31,6 @@
            <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
          </div>
         </c:if>
-        
-        <!-- login button -->
-       	
-	       	<c:if test="${empty sid }">
-				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
-			</c:if>
-			<c:if test="${!empty sid}">
-				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
-			</c:if>
 
          <div class="pull-left info">
             <c:if test="${empty sid}">
@@ -72,41 +63,41 @@
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
+         <li>
+           <a href="designList.do">
+            <i class="fa fa-circle-o text-yellow"></i><span>디자인게시판</span>
+             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+           </a>
+         </li>
        </ul>
         <ul class="sidebar-menu"></ul>
      </section>
      <!-- /.sidebar -->
    </aside>
-
-  <!-- Content Wrapper. Contains page content -->
+   
+      <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-
-<!-- Main content -->
-   <c:set var="dto" value="${list}"></c:set>
-   <c:choose>
-   <c:when test="${empty dto}">
-
-    <tr>
-     <td colspan="5" align="center">
-      	잘못된 접근입니다.
-     </td>
-    </tr>
-   </c:when>
-   <c:otherwise>  
-
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            <strong>본문내용 보기</strong>
-          </h1>
-        </section>
-
+      
         <!-- Main content -->
+        <c:set var="dto" value="${list}"></c:set>
+		   <c:choose>
+		   <c:when test="${empty dto}">
+		
+		    <tr>
+		     <td colspan="5" align="center">
+		      	잘못된 접근입니다.
+		     </td>
+		    </tr>
+		   </c:when>
+		   <c:otherwise>  
+        
+        <section class="content">
           <div class="row">
-            <div class="col-xs-12">
-              <div class="box">
-                <div class="box-header">
-                  <h4 class="box-title"></h4>
+            
+            <div class="col-md-12">
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">본문내용보기</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table id="example2" class="table table-bordered">
@@ -122,24 +113,21 @@
                 		<td>조회수</td>
                 		<td><span class="badge bg-red">${dto.readnum}</span></td>
                 	</tr>
-					<tr>
+                	<tr>
 						<td align="center" colspan="4">
 						${dto.content }
 						</td>
 					</tr>
                   </table>
-                  <div align="center">
-                  <span><a href="classBbsReWriteForm.do?idx=${dto.idx }&subject\" class="btn btn-sm btn-danger btn-flat pull-center"> 답변글쓰기</a></span>
-                  <span><a href="classBbsList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a></span>
-                  </div>
                 </div><!-- /.box-body -->
-              </div><!-- /.box -->
-              </div>
-              </div>
-              </c:otherwise>
-           </c:choose>
-           
-            <!-- Chat box -->
+              </div><!-- /. box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+        </c:otherwise>
+     </c:choose>
+     
+     <!-- Chat box -->
               <div class="box box-success">
                 <div class="box-header">
                   <i class="fa fa-comments-o"></i>
@@ -147,11 +135,11 @@
                 </div>
                 <div class="box-body chat" id="chat-box">
                   <!-- chat item -->
-                  <c:set var="classReList" value="${reList}"></c:set>
-                  <c:if test="${empty classReList}">
+                  <c:set var="designReList" value="${reList}"></c:set>
+                  <c:if test="${empty designReList}">
                   	등록된 댓글이 없습니다.
                   </c:if>
-                  <c:forEach var="dto" items="${classReList}">
+                  <c:forEach var="dto" items="${designReList}">
                   <div class="item">
                     <img src="img/송중기.jpg" alt="user image" class="online">
                     <p class="message">
@@ -167,12 +155,10 @@
                   <!-- chat item -->
                 </div><!-- /.chat -->
               </div><!-- /.box (chat box) -->
-             </div>
-
-            <%@ include file="../footer.jsp" %>
-    		<%@ include file="../controllSide.jsp" %>
-        
-             
-
+     
+      </div><!-- /.content-wrapper -->
+      <%@ include file="../footer.jsp" %>
+    <%@ include file="../controllSide.jsp" %>
+	 
 </body>
 </html>
