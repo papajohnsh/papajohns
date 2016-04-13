@@ -44,18 +44,10 @@
            	</c:if>
 
            <c:if test="${!empty sid}">
-           	<p>${sname}</p>
+           	<p>${snickname}</p>
            	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
            	</c:if>
          </div>
-          <!-- login button -->
-     
-	       	<c:if test="${empty sid }">
-				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
-			</c:if>
-			<c:if test="${!empty sid}">
-				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
-			</c:if>
        </div>
        
        <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -71,6 +63,18 @@
          <li>
            <a href="qnaList.do">
             <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span>
+             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+           </a>
+         </li>
+         <li>
+           <a href="designList.do">
+            <i class="fa fa-circle-o text-yellow"></i><span>디자인게시판</span>
+             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+           </a>
+         </li>
+         <li>
+           <a href="noticeList.do">
+            <i class="fa fa-circle-o text-red"></i><span>공지사항</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -93,11 +97,7 @@
                <div class="box-tools">
                  <div class="input-group" style="width: 150px;">
                  <form name="search" action="bbsFind.do" method="post">
-                 <input type="text" name="fvalue" required="required" class="form-control input-sm pull-right" placeholder="Search">
-                 	<select name="fkey">
-                 		<option value="subject">제목</option>
-                 		<option value="writer">작성자</option>     		
-                 	</select>
+                 	제목:<input type="text" name="subject" required="required" class="form-control input-sm pull-right" placeholder="Search">     		
       					<input type="submit" class="btn btn-sm btn-default" value="검색">
 					</form>
                  </div>

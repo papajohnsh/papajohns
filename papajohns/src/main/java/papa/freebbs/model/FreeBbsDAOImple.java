@@ -1,6 +1,5 @@
 package papa.freebbs.model;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -51,8 +50,9 @@ public class FreeBbsDAOImple implements FreeBbsDAO {
 	}
 	
 	
-	public FreeBbsDTO bbsFindSubject(String subject) {//게시판 제목 검색
-		FreeBbsDTO dto=sqlMap.selectOne("bbsFindSubject", subject);
+	public List<FreeBbsDTO> bbsFindSubject(String subject) {//게시판 제목 검색
+		
+		List<FreeBbsDTO> dto=sqlMap.selectList("bbsFindSubject", subject);
 		return dto;
 	}
 	

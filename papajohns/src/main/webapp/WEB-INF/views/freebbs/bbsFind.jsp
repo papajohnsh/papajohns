@@ -39,20 +39,10 @@
               	</c:if>
 
               <c:if test="${!empty sid}">
-              	<p>${sname}</p>
+              	<p>${snickname}</p>
               	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
               	</c:if>
-            </div>
-            
-              <!-- login button -->
-       	
-	       	<c:if test="${empty sid }">
-				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
-			</c:if>
-			<c:if test="${!empty sid}">
-				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
-			</c:if>
-            
+            </div>            
           </div>
 
           <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -104,7 +94,7 @@
                       </thead>
 
                     <tbody>
-                      	<c:set var="freebbsFind" value="${list}"></c:set>
+                      	<c:set var="freebbsFind" value="${getSubject}"></c:set>
                       	<c:if test="${empty freebbsFind}">
                       		<tr>
                       			<td colspan="4" align="center">

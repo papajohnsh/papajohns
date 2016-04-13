@@ -15,25 +15,35 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- Sidebar user panel -->
-          <div class="user-panel">
-            <div class="pull-left image">
-              <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
-            </div>
-            
-            <div class="pull-left info">
-              <p>강동원</p>
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
-            
-            <!-- login button -->
-       	
-	       	<c:if test="${empty sid }">
-				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
-			</c:if>
-			<c:if test="${!empty sid}">
-				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
-			</c:if>
-          </div>
+
+       <div class="user-panel">
+       <c:if test="${empty sid}">
+       <div class="pull-left image">
+       	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+       </div>
+       </c:if>
+
+       <c:if test="${!empty sid}">
+         <div class="pull-left image">
+           <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
+         </div>
+
+        </c:if>
+        
+         <div class="pull-left info">
+          <c:if test="${empty sid}">
+           	<script type="text/javascript">
+          		window.alert('로그인 후 이용 가능한 서비스입니다.');
+           		location.href="index.do";
+           	</script>
+           	</c:if>
+
+           <c:if test="${!empty sid}">
+           	<p>${snickname}</p>
+           	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+           	</c:if>
+         </div>
+       </div>
           
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
@@ -74,12 +84,12 @@
         <!-- Main content -->
        
   <div class="box box-info">
-                 <form name="bbsWrite" action="bbsWrite.do">
+                 <form name="bbsWrite" action="bbsWrite.do" method="post">
                  <table class="table table-bordered">
                  
                   <tr>
 					<th>작성자</th>
-        			<td><input type="text" name="writer" placeholder="writer"></td>
+        			<td><input type="text" name="writer" value="${snickname}"></td>
         			<th>조회수</th>
         			<td><span class="badge bg-red">0</span></td>
                   </tr>
@@ -92,17 +102,18 @@
  				</table>
                 <div class="box-body pad">
                   
-                    <textarea id="content" name="content" rows="10" cols="80">
-                                            This is my textarea to be replaced with TextEditor.
-                    </textarea>
+                    <textarea id="content" name="content" rows="10" cols="80"></textarea>
                   <br>
                   <!-- writeAdd button -->
                   <div>
                 	<input type="submit" class="btn btn-primary pull-right" value="글올리기">
 				  </div>
 				  <!-- file -->
-                	<div class="form-group" align="center">
-          				<span><input type="file" id="exampleInputFile"></span>
+                	
+                	<div class="form-group" align="center">	
+          				<span>작성자:<input type="text" name="writer"></span>
+          				<span>파일:<input type="file" name="upload"></span>
+          				<input type="submit" value="파일 올리기">
       				</div>
              	</div>
              	</form>
@@ -154,49 +165,7 @@
               </div><!-- /.box -->
             <!-- search form -->
        </div><!-- container -->  
-
-
-        <!-- Bootstrap 3.3.5 -->
-    <script src="css/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Morris.js charts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="css/plugins/morris/morris.min.js"></script>
-    <!-- Sparkline -->
-    <script src="css/plugins/sparkline/jquery.sparkline.min.js"></script>
-    <!-- jvectormap -->
-    <script src="css/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="css/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="css/plugins/knob/jquery.knob.js"></script>
-    <!-- daterangepicker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    <script src="css/plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- datepicker -->
-    <script src="css/plugins/datepicker/bootstrap-datepicker.js"></script>
-    <!-- Bootstrap WYSIHTML5 -->
-    <script src="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-    <!-- Bootstrap WYSIHTML5 -->
-    <script src="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-    <script>
-      $(function () {
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-        CKEDITOR.replace('editor1');
-        //bootstrap WYSIHTML5 - text editor
-        $(".textarea").wysihtml5();
-      });
-    </script>
-    <!-- Slimscroll -->
-    <script src="css/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="css/plugins/fastclick/fastclick.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="css/dist/js/app.min.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="css/dist/js/pages/dashboard.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="css/dist/js/demo.js"></script>
-     <!-- CK Editor -->
-    <script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
+	<%@include file="../footer.jsp" %>
+    <%@ include file="../controllSide.jsp" %> 
 </body>
 </html>

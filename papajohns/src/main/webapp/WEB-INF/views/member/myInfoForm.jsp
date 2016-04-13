@@ -20,18 +20,9 @@
               <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>${sname}</p>
+              <p>${snickname}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
-            
-            <!-- login button -->
-       	
-	       	<c:if test="${empty sid }">
-				<span><input type="button" class="btn btn-primary pull-right" value="login" onclick="location.href='loginForm.do'"></span>
-			</c:if>
-			<c:if test="${!empty sid}">
-				<span><input type="button" class="btn btn-default pull-right" value="logout" onclick="location.href='logout.do'"></span>	
-			</c:if>
           </div>
           
           <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -71,8 +62,8 @@
                       <input type="text" class="form-control" name="name" value="${sname}" readonly="readonly">
                     </div>
                     <div class="form-group">
-                      <label for="name">닉네임</label>
-                      <input type="text" class="form-control" name="name" value="${snickname}">
+                      <label for="nickname">닉네임</label>
+                      <input type="text" class="form-control" name="nickname" value="${snickname}">
                     </div>
                     <div class="form-group">
                       <label for="pwd">비밀번호</label>

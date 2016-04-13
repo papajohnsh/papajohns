@@ -6,7 +6,7 @@ public interface QnaDAO {
 
 	public int qnaWrite(QnaDTO dto);
 	public List<QnaDTO> qnaList();
-	public List<QnaDTO> qnaContent(int idx);
+	public QnaDTO qnaContent(int idx);
 	public int getRef();
 	public int getIdx(int idx);
 	public int qnaNum(int idx);

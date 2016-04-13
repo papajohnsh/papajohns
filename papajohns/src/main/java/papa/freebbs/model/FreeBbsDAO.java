@@ -11,7 +11,7 @@ public interface FreeBbsDAO {
 	public FreeBbsDTO bbsContent(int idx);
 	public int readNum(int idx);
 	public FreeBbsDTO bbsFindName(String writer);
-	public FreeBbsDTO bbsFindSubject(String subject);
+	public List<FreeBbsDTO> bbsFindSubject(String subject);
 	
 	public List<FreeBbsDTO> bbsFind(Map<String, String> map);
 	

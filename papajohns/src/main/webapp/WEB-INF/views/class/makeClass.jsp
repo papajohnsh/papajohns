@@ -186,6 +186,7 @@
 			$.material.init()
 		});
 		</script>
+		
     		<%@ include file="../controllSide.jsp" %>          
  
 </body>

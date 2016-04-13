@@ -43,7 +43,7 @@ public class FreeBbsController {
 		return mav;
 	}
 	
-	@RequestMapping("/bbsWriteAdd.do")//게시판 글쓰기 폼
+	@RequestMapping(value="/bbsWriteAdd.do",method=RequestMethod.POST)//게시판 글쓰기 폼
 	public String bbsWriteAdd(){
 		return "freebbs/bbsWriteAdd";
 	}
@@ -61,7 +61,7 @@ public class FreeBbsController {
 		
 	}
 	
-	@RequestMapping("/bbsReWriteAdd.do")//게시판 댓글 쓰기 폼
+	@RequestMapping(value="/bbsReWriteAdd.do",method=RequestMethod.POST)//게시판 댓글 쓰기 폼
 	public ModelAndView bbsReWriteAdd(@RequestParam(value="idx",required=false) int re_idx){
 		int result=freebbsDao.getIdx(re_idx);//본문 idx 가져오기
 		System.out.println(re_idx);
@@ -103,21 +103,21 @@ public class FreeBbsController {
 		return mav;
 	}
 	
-	/*@RequestMapping("/bbsFind.do")
-	public ModelAndView bbsFind(@RequestParam(value="writer",required=false) String writer, @RequestParam(value="subject",required=false) String subject){
-		System.out.println("작성자"+writer);
+	@RequestMapping("/bbsFind.do")
+	public ModelAndView bbsFind(@RequestParam(value="subject",required=false) String subject){
+		//System.out.println("작성자"+writer);
 		System.out.println(subject);
-		FreeBbsDTO getName=freebbsDao.bbsFindName(writer);
-		FreeBbsDTO getSubject=freebbsDao.bbsFindSubject(subject);
+		//FreeBbsDTO getName=freebbsDao.bbsFindName(writer);
+		List<FreeBbsDTO> getSubject=freebbsDao.bbsFindSubject(subject);
 		
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("getName", getName);
+		//mav.addObject("getName", getName);
 		mav.addObject("getSubject", getSubject);
 		mav.setViewName("freebbs/bbsFind");
 		return mav;
-	}*/
+	}
 	
-	@RequestMapping(value="/bbsFind.do",method=RequestMethod.POST)
+	/*@RequestMapping(value="/bbsFind.do",method=RequestMethod.POST)
 	public ModelAndView bbsFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
 		
 		Map<String, String> map=new HashMap();
@@ -133,6 +133,6 @@ public class FreeBbsController {
 		mav.addObject("list", list);
 		mav.setViewName("freebbs/bbsFind");
 		return mav;
-	}
+	}*/
 	
 }
