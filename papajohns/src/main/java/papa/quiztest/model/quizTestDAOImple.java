@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.experimental.ParallelComputer;
 import org.mybatis.spring.SqlSessionTemplate;
+
+import papa.quiz.model.quizDTO;
 
 public class quizTestDAOImple implements quizTestDAO {
 	private SqlSessionTemplate sqlMap;
@@ -30,17 +33,26 @@ public class quizTestDAOImple implements quizTestDAO {
 	}
 	@Override
 	public int quizTestUpdate(quizTestDTO dto) {
+		//quiz_num split
 		String quiz_num=dto.getQuiz_num();
-		    String[] quiz_idx=quiz_num.split(",");	
-		    List<String> quiz=new ArrayList<String>();
-			for(int i=0; i<quiz_idx.length;i++ ){
-				quiz.add(quiz_idx[i]);
-				System.out.println(quiz.get(i));
+		    String[] quiz_idx=quiz_num.split(",");
+		    
+			List<quizDTO> result = new ArrayList<quizDTO>();
+			Map<String, Integer> map = new HashMap<String,Integer>();
+			Map<String, Object> mInsert=new HashMap<String,Object>();
+			int result2;
+		    for(int i=0; i<quiz_idx.length;i++ ){
+		    	
+		    	//select quiz
+		    	map.put("quiz_num", Integer.parseInt(quiz_idx[i]));
+		    	System.out.println(map.get("quiz_num"));
+		    	quizDTO dtoResult=sqlMap.selectOne("quizTestUpdate", map);
+/*				result.add(dtoResult);*/
+				
+				//insert quiz
+				result2=sqlMap.update("quizTestInsert",dtoResult);
+				
 			}
-			HashMap<String, Object> map=new HashMap<String,Object>();
-			map.put("quiz_idx", quiz);
-		
-		List<String>result=sqlMap.selectList("quizTestUpdate",map);
 		return 0;
 	}
 	

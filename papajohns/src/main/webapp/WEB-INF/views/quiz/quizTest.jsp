@@ -19,9 +19,14 @@
    $(function() {
 
       $('.example2').accordion();
-	  $('#exam').on('click',function(){
-		 location.href="quizTest2.do"; 
-	  });
+      
+ 	  $('#exam').on('click',function(){
+		  var idx=$('input:radio[name="radio"]:checked').val();
+		  var quiz_num=$("#num"+idx).val();
+		  window.alert(idx);
+		 /* location.href="quizTest2.do?idx="idx+"&quiz_num="quiz_num;  */
+		 
+	  }); 
    });
 </script>
 </head>
@@ -53,7 +58,8 @@
    			</div>
    			</td>
    			<td style="vertical-align:top; text-align: center;">
- 				<input style="width:40px;height: 40px" class="chkBox" id="${dto.idx }" type="checkbox" >
+ 				<input style="width:40px;height: 40px" name="radio" value="${dto.idx }" id="${dto.idx }" type="radio" >
+ 				<input type="hidden" value="${dto.quiz_num }" id="num${dto.idx }" class="num">
    			</td>
 		</tr>
   	 </c:forEach>
