@@ -94,7 +94,7 @@
                       </thead>
 
                     <tbody>
-                      	<c:set var="freebbsFind" value="${list}"></c:set>
+                      	<c:set var="freebbsFind" value="${getSubject}"></c:set>
                       	<c:if test="${empty freebbsFind}">
                       		<tr>
                       			<td colspan="4" align="center">
