@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -39,7 +40,7 @@ public class QnaController {
 		return "qna/qnaWriteForm";
 	}
 	
-	@RequestMapping("/qnaWrite.do")//qna 글쓰기 등록
+	@RequestMapping(value="/qnaWrite.do",method=RequestMethod.POST)//qna 글쓰기 등록
 	public ModelAndView qnaWrite(QnaDTO dto){
 		
 		int count=qnaDao.qnaWrite(dto);
@@ -78,7 +79,7 @@ public class QnaController {
 		return mav;
 	}
 	
-	@RequestMapping("/qnaReWrite.do")//댓글 등록
+	@RequestMapping(value="/qnaReWrite.do",method=RequestMethod.POST)//댓글 등록
 	public ModelAndView qnaReWrite(QnaReDTO dto){
 		
 		int count=qnaDao.qnaReWrite(dto);
