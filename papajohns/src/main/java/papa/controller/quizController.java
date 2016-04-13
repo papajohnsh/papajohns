@@ -108,14 +108,11 @@ public ModelAndView QuizTest(){
 }
 @RequestMapping("/quizTest2.do")
 public String Quiztest2(quizTestDTO dto){
-    dto.setIdx(1);
-    dto.setQuiz_num(",1,3,4,6");
+
+	System.out.println(dto.getQuiz_num());
 	int result=quizTestDao.quizTestUpdate(dto);
 	
-/*    String[] result=quiz_num.split(",");	
-	for(int i=0; i<result.length;i++ ){
-		System.out.println(result[i]);
-	}*/
+
 	
 	
 	return "class/classShow";
@@ -123,3 +120,4 @@ public String Quiztest2(quizTestDTO dto){
 
 
 }
+

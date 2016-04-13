@@ -4,7 +4,7 @@ public class quizDTO {
 private int idx;
 private String writer;
 private String question;
-private int answer;
+private String answer;
 private String example1;
 private String example2;
 private String example3;
@@ -12,8 +12,8 @@ private String example4;
 public quizDTO() {
 	super();
 }
-public quizDTO(int idx, String writer, String question, int answer, String example1, String example2, String example3,
-		String example4) {
+public quizDTO(int idx, String writer, String question, String answer, String example1, String example2,
+		String example3, String example4) {
 	super();
 	this.idx = idx;
 	this.writer = writer;
@@ -42,10 +42,10 @@ public String getQuestion() {
 public void setQuestion(String question) {
 	this.question = question;
 }
-public int getAnswer() {
+public String getAnswer() {
 	return answer;
 }
-public void setAnswer(int answer) {
+public void setAnswer(String answer) {
 	this.answer = answer;
 }
 public String getExample1() {
@@ -72,6 +72,5 @@ public String getExample4() {
 public void setExample4(String example4) {
 	this.example4 = example4;
 }
-
 
 }

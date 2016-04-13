@@ -19,15 +19,23 @@
 		where idx=#{idx}
 	</update>
 	<insert id="quizTestSave" parameterType="papa.quiztest.model.quizTestDTO">
-		insert into quiz(subject,quiz_content,quiz_num) values(#{subject},#{quiz_content},#{quiz_num})
+		insert into quiz(subject,quiz_content,quiz_num,writer,question,answer,example1,example2,example3,example4) 
+		values(#{subject},#{quiz_content},#{quiz_num},"","","","","","","")
 	</insert>
 	<select id="quizTestList" resultType="papa.quiztest.model.quizTestDTO">
 		select * from quiz
 	</select>
-	<select id="quizTestUpdate" parameterType="hashmap" resultType="List">
-		select * from quiz_storage where 
-		<foreach collection="quiz_idx" item="quiz">
-			idx=#{quiz.value}
-		 </foreach>
+	<select id="quizTestUpdate" parameterType="Map" resultType="papa.quiz.model.quizDTO">
+		select * from quiz_storage where idx=#{quiz_num}
 	</select>
+	<update id="quizTestInsert" parameterType="papa.quiz.model.quizDTO">
+        update quiz set 
+        question=concat(question,#{question}"::"), 
+        answer=concat(answer,#{answer}"::"), 
+        example1=concat(example1,#{example1}"::"), 
+		example2=concat(example2,#{example2}"::"), 
+		example3=concat(example3,#{example3}"::"),
+		example4=concat(example4,#{example4}"::")
+		where idx=1
+ </update>
   </mapper>
