@@ -159,7 +159,7 @@
                           <th>번호</th>
                           <th>강의명</th>
                           <th>강사명</th>
-                          <th>강의실</th>
+                          
                           <th>강의시간</th>
                         </tr>
                       </thead>
@@ -170,8 +170,8 @@
                           <td>1.</td>
                           <td><a href="myClassRoom.do?idx=${dto.idx }">Java basic</a></td>
                           <td>${dto.idx }</td>
-                          <td>${dto.location }</td>
-                          <td>${dto.class_time }</td>
+                          
+                          
                         </tr>
                      </c:forEach>
                       

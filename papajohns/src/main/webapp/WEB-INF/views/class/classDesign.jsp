@@ -97,7 +97,7 @@
                           <th>번호</th>
                           <th>강의명</th>
                           <th>강사명</th>
-                          <th>강의실</th>
+                         
                           <th>강의시간</th>
                         </tr>
                       </thead>
@@ -108,8 +108,8 @@
                           <td>${dto.idx }</td>
                           <td><a href="designJoin.do?idx=${dto.idx }">${dto.subject }</a></td>
                           <td>${dto.name }</td>
-                          <td>${dto.location }</td>
-                          <td>${dto.class_time }</td>
+                          
+                         
                         </tr>
                         </c:forEach>
                        </tbody>
