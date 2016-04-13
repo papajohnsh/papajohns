@@ -8,11 +8,11 @@ public class classDTO {
 	private int idx;
 	private String name;
 	private String subject;
-	private Time start_time;
-	private Time end_time;
+	private String start_time;
+	private String end_time;
 	private String institut;
-	private Date start_date;
-	private Date end_date;
+	private String start_date;
+	private String end_date;
 	private Date write_date;
 	private String explanation;
 	
@@ -20,8 +20,8 @@ public class classDTO {
 	public classDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	public classDTO(int idx, String name, String subject, Time start_time, Time end_time, String institut,
-			Date start_date, Date end_date, Date write_date, String explanation, int reidx) {
+	public classDTO(int idx, String name, String subject, String start_time, String end_time, String institut,
+			String start_date, String end_date, Date write_date, String explanation, int reidx) {
 		super();
 		this.idx = idx;
 		this.name = name;
@@ -53,16 +53,16 @@ public class classDTO {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public Time getStart_time() {
+	public String getStart_time() {
 		return start_time;
 	}
-	public void setStart_time(Time start_time) {
+	public void setStart_time(String start_time) {
 		this.start_time = start_time;
 	}
-	public Time getEnd_time() {
+	public String getEnd_time() {
 		return end_time;
 	}
-	public void setEnd_time(Time end_time) {
+	public void setEnd_time(String end_time) {
 		this.end_time = end_time;
 	}
 	public String getInstitut() {
@@ -71,16 +71,16 @@ public class classDTO {
 	public void setInstitut(String institut) {
 		this.institut = institut;
 	}
-	public Date getStart_date() {
+	public String getStart_date() {
 		return start_date;
 	}
-	public void setStart_date(Date start_date) {
+	public void setStart_date(String start_date) {
 		this.start_date = start_date;
 	}
-	public Date getEnd_date() {
+	public String getEnd_date() {
 		return end_date;
 	}
-	public void setEnd_date(Date end_date) {
+	public void setEnd_date(String end_date) {
 		this.end_date = end_date;
 	}
 	public Date getWrite_date() {
@@ -101,6 +101,7 @@ public class classDTO {
 	public void setReidx(int reidx) {
 		this.reidx = reidx;
 	}
+	
 	
 	
 
