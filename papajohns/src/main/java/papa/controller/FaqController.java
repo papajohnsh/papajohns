@@ -29,12 +29,20 @@ public class FaqController {
 	}
 
 	@RequestMapping("/faqList.do")//faq 리스트 보기
-	public ModelAndView faqList(){
+	public ModelAndView faqList(@RequestParam(value="cp",defaultValue="1") int cp){
+		
+		/*int totalCnt=faqDao.getTotalCnt();//총게시물 수 가져오기
+		int listSize=5;//보여줄 리스트 수
+		int pageSize=5;//보여줄 페이지 수
+		
+		List<FaqDTO> list=faqDao.faqList(cp, listSize);
+		String pageStr=papa.page.PageMaker.goPage("faqList.do", totalCnt, listSize, pageSize, cp);*/
 		
 		List<FaqDTO> list=faqDao.faqList();
-
+		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list", list);
+		//mav.addObject("pageStr", pageStr);
 		mav.setViewName("faq/faqList");
 		return mav;
 	}
@@ -72,17 +80,16 @@ public class FaqController {
 	@RequestMapping(value="/faqFind.do",method=RequestMethod.POST)
 	public ModelAndView faqFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
 		
-		Map<String, String> map=new HashMap();
+		Map<String, String> map=new HashMap<String, String>();
 		map.put("fkey", fkey);
 		map.put("fvalue", fvalue);
 		
-		List<FaqDTO> list=faqDao.faqFind(map);
+		System.out.println(fkey+"/"+fvalue);
 		
-		System.out.println(fkey);
-		System.out.println(fvalue);
-		
+		List<FaqDTO> list2=faqDao.faqFind(map);
+		System.out.println(list2);
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("list", list);
+		mav.addObject("list2", list2);
 		mav.setViewName("faq/faqFind");
 		return mav;
 	}

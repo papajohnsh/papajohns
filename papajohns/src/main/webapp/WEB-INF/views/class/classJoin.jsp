@@ -15,11 +15,7 @@
 <td rowspan="4">
 <img alt="선생님 사진" src="1.jpg">
 </td>
-</tr>
-<td>
-일정:${dto.class_time }/${dto.class_date }
-</td>
-<tr>
+
 <td>
 기관:${dto.institut }
 </td>

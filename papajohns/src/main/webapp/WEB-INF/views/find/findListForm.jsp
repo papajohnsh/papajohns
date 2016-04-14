@@ -236,7 +236,7 @@
                   
                   <c:if test="${num==5}">
                   <form action="classRoomNameSearch.do">
-                                            수업날짜:<input type="text" name="class_date">
+                                            수업날짜:<input type="text" name="end_date">
                   <input type="hidden" name="num" value="5">
                   <input type="submit" value="검색">
                   <table>
@@ -254,7 +254,7 @@
                   
                   <c:if test="${num==6}">
                   <form action="classRoomNameSearch.do">
-                                            수업시간:<input type="text" name="class_time">
+                                            수업시간:<input type="text" name="end_time">
                   <input type="hidden" name="num" value="6">
                   <input type="submit" value="검색">
                   <table>
