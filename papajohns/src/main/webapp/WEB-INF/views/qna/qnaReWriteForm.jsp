@@ -61,7 +61,7 @@
         <!-- Main content -->
      
   <div class="box box-info">
-                 <form name="qnaReWrite" action="qnaReWrite.do">
+                 <form name="qnaReWrite" action="qnaReWrite.do" method="post">
                  <table class="table table-bordered">
                  
                   <tr>

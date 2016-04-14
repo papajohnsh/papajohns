@@ -85,12 +85,12 @@
                <div class="box-tools">
                  <div class="input-group" style="width: 150px;">
                  <form name="search" action="faqFind.do" method="post">
-                 <input type="text" name="fvalue" required="required" class="form-control input-sm pull-right" placeholder="Search">
-                 	<select name="fkey">
-                 		<option value="subject">제목</option>
-                 		<option value="writer">작성자</option>     		
+					<select name="fkey">
+                 		<option value="writer">작성자</option>
+                 		<option value="subject">제목</option>     		
                  	</select>
-      					<input type="submit" class="btn btn-sm btn-default" value="검색">
+                 	<input type="text" name="fvalue" required="required" class="form-control input-sm pull-right" placeholder="Search">
+      				<input type="submit" class="btn btn-sm btn-default" value="검색">
 					</form>
                  </div>
                </div>

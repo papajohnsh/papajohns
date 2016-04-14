@@ -41,11 +41,11 @@ public class FreeBbsDTO {
 	}
 
 	public String getWriter() {
-		return writer;
+		return writer.replace(",", "");
 	}
 
 	public void setWriter(String writer) {
-		this.writer = writer;
+		this.writer = writer.replace(",", "");
 	}
 
 	public String getSubject() {
