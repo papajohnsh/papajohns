@@ -16,18 +16,31 @@
    href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="js/styles/style.css">
 <script type="text/javascript">
-   $(function() {
-
-      $('.example2').accordion();
+$(function() {
+    $('.example2').accordion();
+   $('#exam').on('click',function(){
+        
+        var idx=$('input:radio[name="radio"]:checked').val();
+        var quiz_num=$("#num"+idx).val();
+        var url= 'quizTest2.do';
+        var params=  'idx='+idx+'&quiz_num='+quiz_num;
       
- 	  $('#exam').on('click',function(){
-		  var idx=$('input:radio[name="radio"]:checked').val();
-		  var quiz_num=$("#num"+idx).val();
-		  window.alert(idx);
-		 /* location.href="quizTest2.do?idx="idx+"&quiz_num="quiz_num;  */
-		 
-	  }); 
-   });
+        sendRequest('quizTest2.do', params, showResult, 'POST');
+       
+     }); 
+       function showResult() {
+          if (XHR.readyState == 4) {
+             if (XHR.status == 200) {
+                var text = XHR.responseText;
+                window.alert("등록완료");
+             }
+          }
+       }
+
+ });
+
+ 
+
 </script>
 </head>
 <body>

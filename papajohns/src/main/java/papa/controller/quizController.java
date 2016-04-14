@@ -99,8 +99,8 @@ public ModelAndView QuizTestLoad(){
 }*/
 @RequestMapping("/quizTest.do")
 public ModelAndView QuizTest(){
+	System.out.println("333333333333333333333333333333333333");
 	List<quizTestDTO> result=quizTestDao.quizTestList();
-	
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("result",result);
 	mav.setViewName("quiz/quizTest");
