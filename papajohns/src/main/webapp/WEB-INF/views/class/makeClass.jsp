@@ -97,13 +97,13 @@
                     <tr>
                       <th>강의스케줄</th>
                       <td>
-                      <input type="date" name="start_date" id="start_date" class="form-control floating-label" placeholder="시작 날짜">
-                      <input type="date" name="end_date"  id="end_date" class="form-control floating-label" placeholder="종료 날짜">
+                      <input type="text" name="start_date" id="start_date" class="form-control floating-label" placeholder="시작 날짜">
+                      <input type="text" name="end_date"  id="end_date" class="form-control floating-label" placeholder="종료 날짜">
                       </td>
                        <th>강의시간</th>
 	                   	<td>
-	                   	<input type="time" name="start_time" id="start_time" class="form-control floating-label" placeholder="시작 시간">
-	                   	<input type="time" name="end_time" id="end_time" class="form-control floating-label" placeholder="종료 날짜">
+	                   	<input type="text" name="start_time" id="start_time" class="form-control floating-label" placeholder="시작 시간">
+	                   	<input type="text" name="end_time" id="end_time" class="form-control floating-label" placeholder="종료 날짜">
 	                   	</td>
                       <!-- <td><input type="text" name="class_date" class="form-control"></td> -->
 					</tr>
@@ -132,13 +132,15 @@
 			$('#start_date').bootstrapMaterialDatePicker
 			({
 				time: false,
-				clearButton: true
+				clearButton: true,
+				format: 'YYYY/MM/DD'
 			});
 
 			$('#end_date').bootstrapMaterialDatePicker
 			({
 				time: false,
-				clearButton: true
+				clearButton: true,
+				format: 'YYYY/MM/DD'
 			});
 			
 			$('#start_time').bootstrapMaterialDatePicker
