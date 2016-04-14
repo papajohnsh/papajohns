@@ -90,17 +90,11 @@ public ModelAndView QuizTestSave(quizTestDTO dto){
 	return mav;
 	
 }
-/*@RequestMapping("/quizTestLoad.do")
-public ModelAndView QuizTestLoad(){
-	int idx=1;
-	List<quizDTO> result=quizDao.quizList2(idx);
-	
-	
-}*/
+
 @RequestMapping("/quizTest.do")
 public ModelAndView QuizTest(){
+	System.out.println("333333333333333333333333333333333333");
 	List<quizTestDTO> result=quizTestDao.quizTestList();
-	
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("result",result);
 	mav.setViewName("quiz/quizTest");
@@ -108,18 +102,26 @@ public ModelAndView QuizTest(){
 }
 @RequestMapping("/quizTest2.do")
 public String Quiztest2(quizTestDTO dto){
-    dto.setIdx(1);
-    dto.setQuiz_num(",1,3,4,6");
+
+	System.out.println(dto.getQuiz_num());
+	System.out.println("양석규");
 	int result=quizTestDao.quizTestUpdate(dto);
 	
-/*    String[] result=quiz_num.split(",");	
-	for(int i=0; i<result.length;i++ ){
-		System.out.println(result[i]);
-	}*/
+
 	
 	
 	return "class/classShow";
 }
-
+@RequestMapping("/quizTestLoad.do")
+public ModelAndView QuizTestLoad(){
+	int idx=1;
+	List<quizDTO> result=quizDao.quizList2(idx);
+	ModelAndView mav=new ModelAndView();
+	mav.addObject("result",result);
+	mav.setViewName("quiz/quizLoad");
+	return mav;
+	
+}
 
 }
+

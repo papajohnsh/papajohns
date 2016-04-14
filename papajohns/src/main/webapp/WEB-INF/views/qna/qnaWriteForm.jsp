@@ -63,7 +63,7 @@
         <!-- Main content -->
        
   <div class="box box-info">
-                 <form name="qnaWrite" action="qnaWrite.do">
+                 <form name="qnaWrite" action="qnaWrite.do" method="post">
                  <table class="table table-bordered">
                  
                   <tr>

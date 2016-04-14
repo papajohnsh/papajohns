@@ -16,4 +16,8 @@
   	<update id="faqNum" parameterType="int">
   		update faq_bbs set readnum=readnum+1 where idx=#{idx}
   	</update>
+  	
+  	<select id="faqFind" parameterType="Map" resultType="papa.faq.model.FaqDTO">
+ 		select * from faq_bbs where "+fkey+" LIKE CONCAT('%',#{fkey},'%')
+ 	</select>
   </mapper>

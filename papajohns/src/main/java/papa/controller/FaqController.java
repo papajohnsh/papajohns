@@ -1,10 +1,13 @@
 package papa.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,7 +32,7 @@ public class FaqController {
 	public ModelAndView faqList(){
 		
 		List<FaqDTO> list=faqDao.faqList();
-		
+
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list", list);
 		mav.setViewName("faq/faqList");
@@ -41,7 +44,7 @@ public class FaqController {
 		return "faq/faqWriteForm";
 	}
 	
-	@RequestMapping("/faqWrite.do")//faq 글쓰기 등록
+	@RequestMapping(value="/faqWrite.do",method=RequestMethod.POST)//faq 글쓰기 등록
 	public ModelAndView faqWrite(FaqDTO dto){
 		
 		int count=faqDao.faqWrite(dto);
@@ -54,7 +57,7 @@ public class FaqController {
 	}
 	
 	@RequestMapping("/faqContent.do")//본문내용 보기
-	public ModelAndView faqContent(@RequestParam("idx") int idx){
+	public ModelAndView faqContent(@RequestParam(value="idx",required=false) int idx){
 		
 		int count=faqDao.faqNum(idx);//조회수 증가
 		FaqDTO list=faqDao.faqContent(idx);
@@ -63,6 +66,24 @@ public class FaqController {
 		mav.addObject("list", list);
 		mav.addObject("count", count);
 		mav.setViewName("faq/faqContent");
+		return mav;
+	}
+	
+	@RequestMapping(value="/faqFind.do",method=RequestMethod.POST)
+	public ModelAndView faqFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
+		
+		Map<String, String> map=new HashMap();
+		map.put("fkey", fkey);
+		map.put("fvalue", fvalue);
+		
+		List<FaqDTO> list=faqDao.faqFind(map);
+		
+		System.out.println(fkey);
+		System.out.println(fvalue);
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("faq/faqFind");
 		return mav;
 	}
 

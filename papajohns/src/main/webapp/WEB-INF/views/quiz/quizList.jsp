@@ -21,7 +21,7 @@
 	   var quiz_num=null;
 	   $('.chkBox:checked').each(function() {
 
-		   quiz_num=quiz_num+','+$(this).attr('id');
+		   quiz_num=quiz_num+$(this).attr('id')+',';
 		
 	   });
 

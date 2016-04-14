@@ -16,13 +16,30 @@
    href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="js/styles/style.css">
 <script type="text/javascript">
-   $(function() {
+$(function() {
+    $('.example2').accordion();
 
-      $('.example2').accordion();
-	  $('#exam').on('click',function(){
-		 location.href="quizTest2.do"; 
-	  });
-   });
+ 	  $('#exam').on('click',function(){
+ 		 
+		  var idx=$('input:radio[name="radio"]:checked').val();
+		  var quiz_num=$("#num"+idx).val();
+		  var url= 'quizTest2.do';
+		  var params=  'idx='+idx+'&quiz_num='+quiz_num;
+		
+        sendRequest('quizTest2.do', params, showResult, 'POST');
+       
+     }); 
+       function showResult() {
+          if (XHR.readyState == 4) {
+             if (XHR.status == 200) {
+                var text = XHR.responseText;
+                window.alert("등록완료");
+             }
+          }
+       }
+
+ });
+
 </script>
 </head>
 <body>
@@ -53,7 +70,8 @@
    			</div>
    			</td>
    			<td style="vertical-align:top; text-align: center;">
- 				<input style="width:40px;height: 40px" class="chkBox" id="${dto.idx }" type="checkbox" >
+ 				<input style="width:40px;height: 40px" name="radio" value="${dto.idx }" id="${dto.idx }" type="radio" >
+ 				<input type="hidden" value="${dto.quiz_num }" id="num${dto.idx }" class="num">
    			</td>
 		</tr>
   	 </c:forEach>
