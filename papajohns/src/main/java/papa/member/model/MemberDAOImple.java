@@ -89,5 +89,15 @@ public class MemberDAOImple implements MemberDAO {
 		String result=sqlMap.selectOne("outCheckPw", name);
 		return result;
 	}
+	@Override
+	public MemberDTO facebookLogin(MemberDTO dto) { //facebook join infomation
+		MemberDTO fbInfo=sqlMap.selectOne("fbCheck", dto);
+		return fbInfo;
+	}
+	@Override
+	public int fbJoin(MemberDTO dto) {  //facebook join
+		int result=sqlMap.insert("fbJoin", dto);
+		return result;
+	}
 
 }
