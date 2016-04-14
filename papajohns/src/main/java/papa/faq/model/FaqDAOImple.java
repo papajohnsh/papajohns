@@ -1,6 +1,7 @@
 package papa.faq.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
@@ -33,4 +34,10 @@ public class FaqDAOImple implements FaqDAO {
 		int count=sqlMap.update("faqNum", idx);
 		return count;
 	}
+
+	public List<FaqDTO> faqFind(Map<String, String> map) {
+		List<FaqDTO> list=sqlMap.selectList("faqFind", map);
+		return list;
+	}
+
 }

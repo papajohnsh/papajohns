@@ -36,6 +36,6 @@
 		example2=concat(example2,#{example2}"::"), 
 		example3=concat(example3,#{example3}"::"),
 		example4=concat(example4,#{example4}"::")
-		where idx=1
+		where idx=#{idx}
  </update>
   </mapper>

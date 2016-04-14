@@ -43,12 +43,12 @@ public class FreeBbsController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/bbsWriteAdd.do",method=RequestMethod.POST)//게시판 글쓰기 폼
+	@RequestMapping("/bbsWriteAdd.do")//게시판 글쓰기 폼
 	public String bbsWriteAdd(){
 		return "freebbs/bbsWriteAdd";
 	}
 	
-	@RequestMapping("/bbsWrite.do")//게시판 글쓰기 등록
+	@RequestMapping(value="/bbsWrite.do",method=RequestMethod.POST)//게시판 글쓰기 등록
 	public ModelAndView bbsWrite(FreeBbsDTO dto){
 		
 		int result=freebbsDao.bbsWriteAdd(dto);
@@ -61,7 +61,7 @@ public class FreeBbsController {
 		
 	}
 	
-	@RequestMapping(value="/bbsReWriteAdd.do",method=RequestMethod.POST)//게시판 댓글 쓰기 폼
+	@RequestMapping("/bbsReWriteAdd.do")//게시판 댓글 쓰기 폼
 	public ModelAndView bbsReWriteAdd(@RequestParam(value="idx",required=false) int re_idx){
 		int result=freebbsDao.getIdx(re_idx);//본문 idx 가져오기
 		System.out.println(re_idx);
@@ -71,7 +71,7 @@ public class FreeBbsController {
 		return mav;
 	}
 	
-	@RequestMapping("/bbsReWrite.do")//게시판 댓글쓰기 등록
+	@RequestMapping(value="/bbsReWrite.do",method=RequestMethod.POST)//게시판 댓글쓰기 등록
 	public ModelAndView bbsReWrite(FreeBbsReDTO dto){
 		
 		int getRef=freebbsDao.getRef();//마지막 순번
