@@ -103,8 +103,8 @@ public ModelAndView QuizTest(){
 @RequestMapping("/quizTest2.do")
 public String Quiztest2(quizTestDTO dto){
 
-	System.out.println(dto.getQuiz_num());
-	System.out.println("양석규");
+	
+	
 	int result=quizTestDao.quizTestUpdate(dto);
 	
 
