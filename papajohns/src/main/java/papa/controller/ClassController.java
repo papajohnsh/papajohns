@@ -92,7 +92,7 @@ public class ClassController {
 		String msg=result>0?"참가성공":"참가 실패";
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("msg",msg);
-		mav.setViewName("class/Msg");
+		mav.setViewName("class/addMsg");
 		return mav;
 	
 	}
