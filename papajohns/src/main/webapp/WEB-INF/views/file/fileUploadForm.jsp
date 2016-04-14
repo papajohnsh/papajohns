@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<intpu
+
 <form name="fileupload1" action="fileupload1.do" method="post" enctype="multipart/form-data">
 
 파일 <input type="file" name="upload"><br>
