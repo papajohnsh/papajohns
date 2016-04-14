@@ -18,6 +18,15 @@
   	</update>
   	
   	<select id="faqFind" parameterType="Map" resultType="papa.faq.model.FaqDTO">
- 		select * from faq_bbs where "+fkey+" LIKE CONCAT('%',#{fkey},'%')
+ 		select * from faq_bbs where
+ 		<choose>
+ 			<when test="fkey=='writer'">
+ 				writer LIKE CONCAT('%',#{fvalue},'%')
+ 			</when>
+ 			<otherwise>
+ 				subject LIKE CONCAT('%',#{fvalue},'%')
+ 			</otherwise>
+ 		</choose>
  	</select>
+ 	
   </mapper>

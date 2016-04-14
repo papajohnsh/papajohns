@@ -72,17 +72,16 @@ public class FaqController {
 	@RequestMapping(value="/faqFind.do",method=RequestMethod.POST)
 	public ModelAndView faqFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
 		
-		Map<String, String> map=new HashMap();
+		Map<String, String> map=new HashMap<String, String>();
 		map.put("fkey", fkey);
 		map.put("fvalue", fvalue);
 		
-		List<FaqDTO> list=faqDao.faqFind(map);
+		System.out.println(fkey+"/"+fvalue);
 		
-		System.out.println(fkey);
-		System.out.println(fvalue);
-		
+		List<FaqDTO> list2=faqDao.faqFind(map);
+		System.out.println(list2);
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("list", list);
+		mav.addObject("list2", list2);
 		mav.setViewName("faq/faqFind");
 		return mav;
 	}

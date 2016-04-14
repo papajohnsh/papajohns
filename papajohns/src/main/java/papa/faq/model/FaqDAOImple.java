@@ -35,9 +35,9 @@ public class FaqDAOImple implements FaqDAO {
 		return count;
 	}
 
-	public List<FaqDTO> faqFind(Map<String, String> map) {
-		List<FaqDTO> list=sqlMap.selectList("faqFind", map);
-		return list;
+	public List<FaqDTO> faqFind(Map<String, String> map) {//faq검색
+		List<FaqDTO> list2=sqlMap.selectList("faqFind", map);
+		return list2;
 	}
 
 }

@@ -11,5 +11,6 @@ public interface FaqDAO {
 	public int faqNum(int idx);
 	
 	public List<FaqDTO> faqFind(Map<String, String> map);
+	
 
 }
