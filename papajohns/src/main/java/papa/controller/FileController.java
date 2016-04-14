@@ -31,6 +31,14 @@ public String fileUpload1(
 }
 
 
+@RequestMapping("/fileUpload2.do")
+public String fileUpload2(@RequestParam("upload") MultipartFile upload){
+	
+	copyInto2(upload);
+	
+	return "file/fileOK";
+}
+
 	private void copyInto(MultipartFile upload){
 	
 	System.out.println("올린파일명"+upload.getOriginalFilename());
@@ -46,6 +54,22 @@ public String fileUpload1(
 		e.printStackTrace();
 	}
 }
+	
+	private void copyInto2(MultipartFile upload){
+		
+	System.out.println("올린파일명"+upload.getOriginalFilename());
+	
+	try {
+		byte bytes[]=upload.getBytes();
+		File newFile= new File("C:/Users/user1/git/papajohns/papajohns/src/main/webapp/file/"+upload.getOriginalFilename());
+		FileOutputStream fos=new FileOutputStream(newFile);
+		fos.write(bytes);//copy 행위
+		fos.close();
+	} catch (IOException e) {
+		
+		e.printStackTrace();
+	}
+}	
 @RequestMapping("/down.do")
 public ModelAndView download(
 		@RequestParam("filename")String filename){
@@ -56,4 +80,25 @@ public ModelAndView download(
 	return mav;
 }
 
+
+@RequestMapping("/fileupload.do")
+public ModelAndView fileList2(){
+	File f=new File("C:/Users/user1/git/papajohns/papajohns/src/main/webapp/file");
+	File files[]=f.listFiles();
+	ModelAndView mav=new ModelAndView();
+	mav.addObject("files",files);
+	mav.setViewName("freebbs/bbsListForm");
+	return mav;
+}
+
+
+@RequestMapping("/down2.do")
+public ModelAndView download2(
+		@RequestParam("filename")String filename){
+	
+	File f=new File("C:/Users/user1/git/papajohns/papajohns/src/main/webapp/file/"+filename);
+	
+	ModelAndView mav= new ModelAndView("download","downloadFile",f);
+	return mav;
+}
 }
