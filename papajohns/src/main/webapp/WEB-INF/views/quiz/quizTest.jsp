@@ -21,12 +21,25 @@
       $('.example2').accordion();
       
  	  $('#exam').on('click',function(){
+ 		 
 		  var idx=$('input:radio[name="radio"]:checked').val();
 		  var quiz_num=$("#num"+idx).val();
+		  var url= 'quizTest2.do';
+		  var params=  'idx='+idx+'&quiz_num='+quiz_num;
+		
+		  sendRequest('quizTest2.do', params, showResult, 'POST');
 		  window.alert(idx);
-		 /* location.href="quizTest2.do?idx="idx+"&quiz_num="quiz_num;  */
 		 
 	  }); 
+ 	   function showResult() {
+ 	      if (XHR.readyState == 4) {
+ 	         if (XHR.status == 200) {
+ 	            var text = XHR.responseText;
+ 	            window.alert(text);
+ 	         }
+ 	      }
+ 	   }
+
    });
 </script>
 </head>

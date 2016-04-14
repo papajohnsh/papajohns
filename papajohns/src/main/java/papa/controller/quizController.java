@@ -90,13 +90,7 @@ public ModelAndView QuizTestSave(quizTestDTO dto){
 	return mav;
 	
 }
-/*@RequestMapping("/quizTestLoad.do")
-public ModelAndView QuizTestLoad(){
-	int idx=1;
-	List<quizDTO> result=quizDao.quizList2(idx);
-	
-	
-}*/
+
 @RequestMapping("/quizTest.do")
 public ModelAndView QuizTest(){
 	List<quizTestDTO> result=quizTestDao.quizTestList();
@@ -110,6 +104,7 @@ public ModelAndView QuizTest(){
 public String Quiztest2(quizTestDTO dto){
 
 	System.out.println(dto.getQuiz_num());
+	System.out.println("양석규");
 	int result=quizTestDao.quizTestUpdate(dto);
 	
 
@@ -117,7 +112,16 @@ public String Quiztest2(quizTestDTO dto){
 	
 	return "class/classShow";
 }
-
+@RequestMapping("/quizTestLoad.do")
+public ModelAndView QuizTestLoad(){
+	int idx=1;
+	List<quizDTO> result=quizDao.quizList2(idx);
+	ModelAndView mav=new ModelAndView();
+	mav.addObject("result",result);
+	mav.setViewName("quiz/quizLoad");
+	return mav;
+	
+}
 
 }
 
