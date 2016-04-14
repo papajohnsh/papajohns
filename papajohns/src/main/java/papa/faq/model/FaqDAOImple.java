@@ -1,5 +1,6 @@
 package papa.faq.model;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +21,14 @@ public class FaqDAOImple implements FaqDAO {
 	}
 
 	public List<FaqDTO> faqList() {//faq 리스트 보기
+		
+		/*int startNum=(cp-1)*ls+1;
+		int endNum=cp*ls;
+		
+		Map map=new HashMap();
+		map.put("startNum", startNum);
+		map.put("endNum", endNum);*/
+		
 		List<FaqDTO> list=sqlMap.selectList("faqList");
 		return list;
 	}
@@ -35,9 +44,14 @@ public class FaqDAOImple implements FaqDAO {
 		return count;
 	}
 
-	public List<FaqDTO> faqFind(Map<String, String> map) {
-		List<FaqDTO> list=sqlMap.selectList("faqFind", map);
-		return list;
+	public List<FaqDTO> faqFind(Map<String, String> map) {//faq검색
+		List<FaqDTO> list2=sqlMap.selectList("faqFind", map);
+		return list2;
+	}
+
+	public int getTotalCnt() {
+		int count=sqlMap.selectOne("totalCnt");
+		return count;
 	}
 
 }

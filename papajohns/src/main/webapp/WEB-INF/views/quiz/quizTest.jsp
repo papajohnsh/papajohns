@@ -18,13 +18,14 @@
 <script type="text/javascript">
 $(function() {
     $('.example2').accordion();
-   $('#exam').on('click',function(){
-        
-        var idx=$('input:radio[name="radio"]:checked').val();
-        var quiz_num=$("#num"+idx).val();
-        var url= 'quizTest2.do';
-        var params=  'idx='+idx+'&quiz_num='+quiz_num;
-      
+
+ 	  $('#exam').on('click',function(){
+ 		 
+		  var idx=$('input:radio[name="radio"]:checked').val();
+		  var quiz_num=$("#num"+idx).val();
+		  var url= 'quizTest2.do';
+		  var params=  'idx='+idx+'&quiz_num='+quiz_num;
+		
         sendRequest('quizTest2.do', params, showResult, 'POST');
        
      }); 
@@ -38,8 +39,6 @@ $(function() {
        }
 
  });
-
- 
 
 </script>
 </head>

@@ -74,6 +74,8 @@ $(function(){
                 <li><a href="showMessage.do"><i class="fa fa-circle-o"></i> 메세지 보기</a></li>
                 <li><a href="classBbs.do"><i class="fa fa-circle-o"></i> 수업게시판</a></li>
                 <li><a href="saveClass.do"><i class="fa fa-circle-o"></i> 수업내용 저장</a></li>
+                <li><a data-toggle="modal" href="fileUpload.do" data-target="#myModal6"><i class="fa fa-circle-o"></i>파일업로드</a></li>
+                
               </ul>
             </li>
             <li>
@@ -127,6 +129,13 @@ $(function(){
   </div>
 </div>
 <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <!-- remote ajax call이 되는영역 -->
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
         <!-- remote ajax call이 되는영역 -->

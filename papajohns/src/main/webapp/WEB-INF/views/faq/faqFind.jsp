@@ -94,26 +94,26 @@
                       </thead>
 
                     <tbody>
-                      	<c:set var="faqFind" value="${list}"></c:set>
-                      	<c:if test="${empty faqFind}">
-                      		<tr>
-                      			<td colspan="4" align="center">
-                      			 	해당 게시글이 없습니다.
-                      			</td>
-                      		</tr>
-                      	</c:if>
-
-                      	<c:forEach var="dto" items="${faqFind}">
-                        <tr>
-                          <td>${dto.idx}</td>
-				          <td>${dto.subject}</td>
-                          <td>${dto.writer}</td>
-					     <td><span class="badge bg-yellow">${dto.readnum}</span></td>	
-                        </tr>
-                        
-                        </c:forEach>
-                        
-                      </tbody>
+                      	<c:choose>
+                      		<c:when test="${empty list2 }">
+                      			<tr>
+	                      			<td colspan="4" align="center">
+	                      			 	해당 게시글이 없습니다.
+	                      			</td>
+	                      		</tr>
+                      		</c:when>
+                      		<c:otherwise>
+                      			<c:forEach var="dto" items="${list2}">
+		                        <tr>
+		                          <td>${dto.idx}</td>
+						          <td>${dto.subject}</td>
+		                          <td>${dto.writer}</td>
+							     <td><span class="badge bg-yellow">${dto.readnum}</span></td>	
+		                        </tr>
+		                        </c:forEach>
+                      		</c:otherwise>
+                      	</c:choose>
+                    </tbody>
                   </table>
 
                   <div class="box-footer clearfix" align="center">

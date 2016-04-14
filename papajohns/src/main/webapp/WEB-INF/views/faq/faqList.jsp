@@ -108,23 +108,28 @@
                    </thead>
 
                  <tbody>
-                   	<c:set var="faqList" value="${list}"></c:set>
-                   	<c:if test="${empty faqList}">
-                   		<tr>
-                   			<td colspan="4" align="center">
-                   			 	등록된 게시글이 없습니다.
-                   			</td>
-                   		</tr>
-                   	</c:if>
-
-                   	<c:forEach var="dto" items="${faqList}">
-                     <tr>
-                       <td>${dto.idx}</td>
-                       <td><a href="faqContent.do?idx=${dto.idx}">${dto.subject}</a></td>
-                       <td>${dto.writer}</td>
-                       <td><span class="badge bg-red">${dto.readnum}</span></td>
-                     </tr>
-                     </c:forEach>
+                   	<c:choose>
+                   		<c:when test="${empty list }">
+                   			<tr>
+	                   			<td colspan="4" align="center">
+	                   			 	등록된 게시글이 없습니다.
+	                   			</td>
+	                   		</tr>
+                   		</c:when>
+                   		<c:when test="${!empty list }">
+                   			<c:forEach var="dto" items="${list}">
+		                     <tr>
+		                       <td>${dto.idx}</td>
+		                       <td><a href="faqContent.do?idx=${dto.idx}">${dto.subject}</a></td>
+		                       <td>${dto.writer}</td>
+		                       <td><span class="badge bg-red">${dto.readnum}</span></td>
+		                     </tr>
+		                     </c:forEach>
+                   		</c:when>
+                   		<c:otherwise>
+                   			<jsp:include page="faqFind.jsp"></jsp:include>
+                   		</c:otherwise>
+                   	</c:choose>
                    </tbody>
                </table>
 
