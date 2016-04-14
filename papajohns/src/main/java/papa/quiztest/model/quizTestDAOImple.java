@@ -47,6 +47,7 @@ public class quizTestDAOImple implements quizTestDAO {
 		    	map.put("quiz_num", Integer.parseInt(quiz_idx[i]));
 		    	System.out.println(map.get("quiz_num"));
 		    	quizDTO dtoResult=sqlMap.selectOne("quizTestUpdate", map);
+		    	dtoResult.setIdx(dto.getIdx());
 /*				result.add(dtoResult);*/
 				
 				//insert quiz
