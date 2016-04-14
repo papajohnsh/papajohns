@@ -3,6 +3,7 @@ package papa.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.jws.WebParam.Mode;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -110,13 +111,31 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/memberAdd.do")//회원가입
-	public ModelAndView memberAdd(MemberDTO dto){
-		int result=memberDao.memberAdd(dto);
-		String msg=result>0?"회원가입성공":"회원가입실패";
-
+	public ModelAndView memberAdd(MemberDTO dto,@RequestParam("id") String id){
+		
+		String msg="";
+		String url="";
+		
+		String getId=memberDao.idCheck(id);
+		
+		if(memberDao.idCheck(id)==null){
+			int result=memberDao.memberAdd(dto);
+			if(result>0){
+				msg="성공";
+				url="index.do";
+			}else{
+				msg="실패";
+				url="loginForm.do";
+			}
+			
+		}else{
+			msg="실패";
+			url="loginForm.do";
+		}
+		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("msg", msg);
-		mav.addObject("url", "index.do");//index페이지 재활용
+		mav.addObject("url", url);//index페이지 재활용
 
 		mav.setViewName("member/memberMsg");
 		return mav;
@@ -273,4 +292,42 @@ public class MemberController {
 		  mav.setViewName("member/myInfoMsg");
 		  return mav;
 	}
+	@RequestMapping("/facebookLogin.do")
+	public ModelAndView facebookLogin(MemberDTO dto, HttpSession session){
+		MemberDTO result=memberDao.facebookLogin(dto);
+		ModelAndView mav=new ModelAndView();
+		String msg="";
+		String url="";
+		if(result!=null){
+			if(result.getNickname()!=null&&result.getNickname()!=""){
+				msg="로그인 성공!";
+				url="index.do";
+				session.setAttribute("sid", result.getId());
+				session.setAttribute("sname", result.getName());
+				session.setAttribute("snickname", result.getNickname());
+				mav.addObject("msg", msg);
+				mav.addObject("url", url);
+				mav.setViewName("member/memberMsg");
+				return mav;
+			}else{
+				session.setAttribute("sid", dto.getId());
+				session.setAttribute("sname", dto.getName());
+				mav.setViewName("member/nickname");
+				return mav;
+			}
+		}else{
+			int fbJoin=memberDao.fbJoin(dto);
+			if(fbJoin>0){
+				session.setAttribute("sid", dto.getId());
+				session.setAttribute("sname", dto.getName());
+				mav.setViewName("member/nickname");
+			}
+			return mav;
+		}
+	}
+/*	@RequestMapping("/nickUpdate.do")
+	public ModelAndView nickUpdate(@RequestParam("nickname") String nickname){
+		int result=
+	}*/
+
 }

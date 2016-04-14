@@ -20,5 +20,8 @@ public interface MemberDAO {
 	
 	public int memberOut(MemberDTO dto);
 	public String outCheckPw(String name);
+	public MemberDTO facebookLogin(MemberDTO dto);
+	public int fbJoin(MemberDTO dto);
+
 
 }

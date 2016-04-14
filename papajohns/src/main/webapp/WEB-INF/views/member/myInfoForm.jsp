@@ -107,9 +107,8 @@
         </div>
        </div>
  </div><!-- container -->
-        
-   <%@ include file="../footer.jsp" %>
-    <%@ include file="../controllSide.jsp" %>
+       
+   
 
 </body>
 </html>
