@@ -6,6 +6,8 @@ import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
+import papa.member.model.MemberDTO;
+
 public class designDAOImple implements designDAO {
 	  private SqlSessionTemplate sqlMap;
 		
@@ -35,5 +37,15 @@ public class designDAOImple implements designDAO {
 		String list= sqlMap.selectOne("send",idx);
 		return list;
 	}
+	 @Override
+		public List<MemberDTO> designJoin(String idx) {
+			List<MemberDTO>list=sqlMap.selectList("designJoin2",idx);
+			return list;
+		}
+	@Override
+		public String reidxList(int idx) {
+			String list=sqlMap.selectOne("reidxList2",idx);
+			return list;
+		}
 
 }

@@ -57,9 +57,9 @@ public class classDAOImple implements classDAO {
 	}
 	
 	@Override
-		public int classAddUpdate(int reidx,int idx) {
+		public int classAddUpdate(String list,int idx) {
 		Map map=new HashMap();
-		map.put("reidx", reidx);
+		map.put("list", list);
 		map.put("idx", idx);
 			int result=sqlMap.insert("classAddUpdate",map);
 			return result;
@@ -72,8 +72,13 @@ public class classDAOImple implements classDAO {
 		}
 		
 		@Override
-			public List<MemberDTO> designJoin(int idx) {
+			public List<MemberDTO> designJoin(String idx) {
 				List<MemberDTO>list=sqlMap.selectList("designJoin",idx);
+				return list;
+			}
+		@Override
+			public String reidxList(int idx) {
+				String list=sqlMap.selectOne("reidxList",idx);
 				return list;
 			}
 
