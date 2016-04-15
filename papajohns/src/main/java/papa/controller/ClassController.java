@@ -128,7 +128,8 @@ public class ClassController {
 		String to = list2[i];
 			if(list2[i].equals(to)){
 				System.out.println(to);
-				List<MemberDTO>list3=classDao.designJoin(to);
+				String idx2 = Integer.toString(idx);
+				List<MemberDTO>list3=classDao.designJoin(idx2);
 				mav.addObject("list",list3);
 				mav.addObject("idx",idx);
 				mav.setViewName("class/designJoin");

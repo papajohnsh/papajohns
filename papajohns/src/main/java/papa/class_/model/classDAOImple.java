@@ -72,8 +72,8 @@ public class classDAOImple implements classDAO {
 		}
 		
 		@Override
-			public List<MemberDTO> designJoin(String to) {
-				List<MemberDTO>list=sqlMap.selectList("designJoin",to);
+			public List<MemberDTO> designJoin(String idx) {
+				List<MemberDTO>list=sqlMap.selectList("designJoin",idx);
 				return list;
 			}
 		@Override

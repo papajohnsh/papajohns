@@ -12,4 +12,10 @@
   <select id="send" resultType="String" parameterType="int" >
   select send from class_design where reidx=#{idx}
   </select>
+  <select id="designJoin2" parameterType="String" resultType="papa.member.model.MemberDTO">
+select * from member where reidx LIKE CONCAT('%',#{idx},'%')
+</select>
+<select id="reidxList2" parameterType="int" resultType="String">
+select reidx from member where idx=#{idx}
+</select>
   </mapper>
