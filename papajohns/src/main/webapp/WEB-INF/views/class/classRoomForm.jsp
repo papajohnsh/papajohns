@@ -23,7 +23,11 @@
           </c:if>
           <c:if test="${!empty sid}">
             <div class="pull-left image">
-              <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
+              <img src="img/${sid }/profile.jpg"  class="img-circle" style="width: 40px" alt="User Image">
+            </div>
+            <div class="pull-left info">
+              <p>${snickname}</p>
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
            </c:if>
             <div class="pull-left info">

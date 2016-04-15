@@ -8,7 +8,11 @@
 <title>Insert title here</title>
 </head>
 
-
+ <script>
+    function show(){
+    	location.reload();
+    }
+    </script>
 
 <body class="hold-transition skin-blue sidebar-mini">
 <%@ include file="../header.jsp" %>
@@ -20,7 +24,7 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
+              <img src="img/${sid }/profile.jpg"  class="img-circle" style="width: 40px" alt="User Image">
             </div>
             <div class="pull-left info">
               <p>${snickname}</p>
@@ -59,9 +63,19 @@
                 <div class="box-body">
            
                     <!-- text input -->
-                      <img src="img/${sid }/profile.jpg">
-             <div style="width:200">
-       <%@ include file="javascript/a.jsp" %>
+                     
+                          
+    <div class="action">
+     <img src="img/${sid }/profile.jpg" >
+    <form name="fileupload1" action="fileupload1.do" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="id" value=${sid }>
+
+        <input type="file" name="upload" id="file" style="float:left; width: 250px">
+        
+  <input type="submit" value="등록하기"onclick="show()">
+             
+     </form>
+     
    
 </div>
 

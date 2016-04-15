@@ -248,6 +248,8 @@ public class MemberController {
 		System.out.println("count:"+count);
 		String msg=count>0?"수정성공!":"수정실패!";
 		ModelAndView mav=new ModelAndView();
+		String url="myInfoForm.do";
+		mav.addObject("url",url);
 		mav.addObject("msg", msg);
 		mav.setViewName("member/myInfoMsg");
 		return mav;

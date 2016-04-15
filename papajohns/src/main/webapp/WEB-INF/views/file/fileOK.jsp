@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <script>
 window.alert('성공');
-location.href="index.do";
+location.href="myInfoForm.do";
 </script>
