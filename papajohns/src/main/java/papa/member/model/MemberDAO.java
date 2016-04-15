@@ -22,6 +22,7 @@ public interface MemberDAO {
 	public String outCheckPw(String name);
 	public MemberDTO facebookLogin(MemberDTO dto);
 	public int fbJoin(MemberDTO dto);
-
+	
+	public void updateSun(int ref,int sunbun);
 
 }

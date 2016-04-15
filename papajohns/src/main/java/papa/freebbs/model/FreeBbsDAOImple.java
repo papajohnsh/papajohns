@@ -1,5 +1,6 @@
 package papa.freebbs.model;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,16 +20,14 @@ public class FreeBbsDAOImple implements FreeBbsDAO {
 		int result=sqlMap.insert("bbsWriteAdd", dto);
 		return result;
 	}
-	
-	public List<FreeBbsDTO> freeBbsList() {//게시판 보기
-	
-		List<FreeBbsDTO> list=sqlMap.selectList("bbsList");
-		return list;
 
+	public List<FreeBbsDTO> freeBbsList(Map<String, Integer> map) {
+		List<FreeBbsDTO> list=sqlMap.selectList("bbsList", map);
+		return list;
 	}
 	
 	public int getTotalCnt() {
-		int count=sqlMap.selectOne("totalCnt");
+		int count=sqlMap.selectOne("getTotalCnt");
 		return count;
 	}
 

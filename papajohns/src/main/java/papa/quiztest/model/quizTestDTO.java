@@ -16,6 +16,25 @@ public class quizTestDTO {
 	private String example2;
 	private String example3;
 	private String example4;
+	
+	public quizTestDTO(int idx, String subject, int class_idx, String quiz_content, String quiz_num,
+			String writer, String question, int answer, String example1, String example2, String example3,
+			String example4) {
+		super();
+		this.idx = idx;
+		this.subject = subject;
+		this.class_idx = class_idx;
+
+		this.quiz_content = quiz_content;
+		this.quiz_num = quiz_num;
+		this.writer = writer;
+		this.question = question;
+		this.answer = answer;
+		this.example1 = example1;
+		this.example2 = example2;
+		this.example3 = example3;
+		this.example4 = example4;
+	}
 	public int getIdx() {
 		return idx;
 	}
