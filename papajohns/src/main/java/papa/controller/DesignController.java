@@ -278,7 +278,7 @@ public class DesignController {
 		
 		String send=designDao.send(idx);
 		String a=send;
-		  String b="";
+		String b="";
 		  
 		  String result1[]=new String[300];
 		  int count=0; 

@@ -25,13 +25,16 @@ select * from class_info where end_time LIKE CONCAT('%',#{end_time},'%')
 <select id="classJoin" parameterType="String" resultType="papa.class_.model.classDTO">
 select * from class_info where idx=#{idx}
 </select>
-<update id="classAddUpdate" parameterType="int">
-update member set reidx=${reidx} where idx=#{idx}
+<update id="classAddUpdate" parameterType="Map">
+update member set reidx=#{list} where idx=#{idx}
 </update>
 <select id="classJoinList" parameterType="int" resultType="papa.class_.model.classDTO">
 select * from class_info where reidx=#{idx}
 </select>
-<select id="designJoin" parameterType="int" resultType="papa.member.model.MemberDTO">
-select * from member where reidx=#{idx}
+<select id="designJoin" parameterType="String" resultType="papa.member.model.MemberDTO">
+select * from member where reidx LIKE CONCAT('%',#{to},'%')
+</select>
+<select id="reidxList" parameterType="int" resultType="String">
+select reidx from member where idx=#{idx}
 </select>
 </mapper>
