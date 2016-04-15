@@ -111,13 +111,31 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/memberAdd.do")//회원가입
-	public ModelAndView memberAdd(MemberDTO dto){
-		int result=memberDao.memberAdd(dto);
-		String msg=result>0?"회원가입성공":"회원가입실패";
-
+	public ModelAndView memberAdd(MemberDTO dto,@RequestParam("id") String id){
+		
+		String msg="";
+		String url="";
+		
+		String getId=memberDao.idCheck(id);
+		
+		if(memberDao.idCheck(id)==null){
+			int result=memberDao.memberAdd(dto);
+			if(result>0){
+				msg="성공";
+				url="index.do";
+			}else{
+				msg="실패";
+				url="loginForm.do";
+			}
+			
+		}else{
+			msg="실패";
+			url="loginForm.do";
+		}
+		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("msg", msg);
-		mav.addObject("url", "index.do");//index페이지 재활용
+		mav.addObject("url", url);//index페이지 재활용
 
 		mav.setViewName("member/memberMsg");
 		return mav;
@@ -311,4 +329,5 @@ public class MemberController {
 	public ModelAndView nickUpdate(@RequestParam("nickname") String nickname){
 		int result=
 	}*/
+
 }

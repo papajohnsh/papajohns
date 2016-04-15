@@ -16,6 +16,9 @@ import papa.freebbs.model.FreeBbsDAO;
 import papa.freebbs.model.FreeBbsDTO;
 import papa.freebbs.model.FreeBbsReDTO;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 @Controller
 public class FreeBbsController {
@@ -32,16 +35,21 @@ public class FreeBbsController {
 	}
 
 	@RequestMapping("/bbsListForm.do")//게시판Form 이동,list 보여주기
-	public ModelAndView bbsListForm(){
+	public ModelAndView bbsListForm(
+			@RequestParam("filename")String filename){
 		
-		List<FreeBbsDTO> list=freebbsDao.freeBbsList();
+		File f=new File("C:/Users/user1/git/papajohns/papajohns/src/main/webapp/file");
+		File files[]=f.listFiles();
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("files",files);
 		
-		ModelAndView mav= new ModelAndView();
+		List<FreeBbsDTO> list=freebbsDao.freeBbsList();		
 		
 		mav.addObject("list", list);
 		mav.setViewName("freebbs/bbsListForm");
 		return mav;
-	}
+	}		
+	
 	
 	@RequestMapping("/bbsWriteAdd.do")//게시판 글쓰기 폼
 	public String bbsWriteAdd(){
