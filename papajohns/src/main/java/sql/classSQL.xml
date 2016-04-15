@@ -32,7 +32,7 @@ update member set reidx=#{list} where idx=#{idx}
 select * from class_info where reidx=#{idx}
 </select>
 <select id="designJoin" parameterType="String" resultType="papa.member.model.MemberDTO">
-select * from member where reidx LIKE CONCAT('%',#{to},'%')
+select * from member where reidx LIKE CONCAT('%',#{idx},'%')
 </select>
 <select id="reidxList" parameterType="int" resultType="String">
 select reidx from member where idx=#{idx}

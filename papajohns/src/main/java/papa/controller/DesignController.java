@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import papa.design.model.designDAO;
 import papa.design.model.designDTO;
+import papa.member.model.MemberDTO;
 
 @Controller
 public class DesignController {
@@ -495,11 +496,25 @@ public class DesignController {
 		   mav.addObject("y29",y29);
 		   mav.addObject("y30",y30);
 		   
-		List<designDTO> list=designDao.myClassRoom(idx);
+		   String list=designDao.reidxList(idx);
+			if(list==null){
+				list="0";
+			}
+		String[] list2=list.split(",");
 		
-		mav.addObject("list",list);
+		for(int i=0; i<list2.length;i++){
+			String to = list2[i];
+				if(list2[i].equals(to)){
+					System.out.println(to);
+					String idx2 = Integer.toString(idx);
+					List<MemberDTO>list3=designDao.designJoin(idx2);
+					mav.addObject("list",list3);
+					mav.addObject("idx",idx);
+				}
 		mav.setViewName("design/myClassRoom");
+		
+	}
 		return mav;
 	}
-
+	
 }

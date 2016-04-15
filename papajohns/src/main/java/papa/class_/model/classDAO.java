@@ -15,7 +15,7 @@ public interface classDAO {
 	public List<classDTO> classJoin(String idx);
 	public int classAddUpdate(String list,int idx);
 	public List<classDTO> classDesign(int idx);
-	public List<MemberDTO> designJoin(String to);
+	public List<MemberDTO> designJoin(String idx);
 	public String reidxList(int idx);
 
 }
