@@ -7,6 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+
+
+
 <body class="hold-transition skin-blue sidebar-mini">
 <%@ include file="../header.jsp" %>
      
@@ -54,9 +57,14 @@
                   <h3 class="box-title">내정보수정</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <form role="form" name="infoMod" action="myInfo.do">
+           
                     <!-- text input -->
-            
+             <div style="width:200">
+       <%@ include file="javascript/a.jsp" %>
+   
+</div>
+
+       <form role="form" name="infoMod" action="myInfo.do">
                     <div class="form-group">
                       <label for="name">이름</label>
                       <input type="text" class="form-control" name="name" value="${sname}" readonly="readonly">
@@ -107,8 +115,6 @@
         </div>
        </div>
  </div><!-- container -->
-       <%@ include file="javascript/example/a.jsp" %>
-   
 
 </body>
 </html>
