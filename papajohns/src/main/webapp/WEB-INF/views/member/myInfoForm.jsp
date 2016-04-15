@@ -107,7 +107,7 @@
         </div>
        </div>
  </div><!-- container -->
-       <%@ include file="javascript/example/a.jsp" %>
+      <%--  <%@ include file="javascript/example/a.jsp" %> --%>
    
 
 </body>

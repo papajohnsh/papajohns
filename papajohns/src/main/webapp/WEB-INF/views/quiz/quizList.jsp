@@ -74,10 +74,15 @@
 
 
 
-   <h1 style="text-align: center;">문제 수정 및 시험등록</h1>
+<h1 style="text-align: center;">문제 수정 및 시험등록</h1>
 <form name="registration" action="quizTestSave.do" method="post">
-   시험명:<input type="text" name="subject" ><br><br>
-  시험설명:<textarea rows="3" name="quiz_content" cols="30"></textarea>
+   시 험 명:<input type="text" name="subject" ><br><br>
+  시험내용:<textarea rows="3" name="quiz_content" cols="30"></textarea><br>
+  반IDX:<input type="text" name="class_idx"><br>
+  시험날짜:<br>
+  <input type="hidden" name="writer" value="${sname }">
+  
+  	
 	<input type="hidden" name="quiz_num" id="quiz_num">
 	<input id="exam" type="button" value="시험 등록하기">
 </form>
