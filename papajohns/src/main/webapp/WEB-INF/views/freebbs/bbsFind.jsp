@@ -94,25 +94,25 @@
                       </thead>
 
                     <tbody>
-                      	<c:set var="freebbsFind" value="${getSubject}"></c:set>
-                      	<c:if test="${empty freebbsFind}">
-                      		<tr>
-                      			<td colspan="4" align="center">
-                      			 	해당 게시글이 없습니다.
-                      			</td>
-                      		</tr>
-                      	</c:if>
-
-                      	<c:forEach var="dto" items="${freebbsFind}">
-                        <tr>
-                          <td>${dto.idx}</td>
-				          <td>${dto.subject}</td>
-                          <td>${dto.writer}</td>
-					     <td><span class="badge bg-yellow">${dto.readnum}</span></td>	
-                        </tr>
-                        
-                        </c:forEach>
-                        
+                      	<c:choose>
+                      		<c:when test="${empty list3}">
+                      			<tr>
+                      				<td colspan="4" align="center">
+                      					해당 게시글이 없습니다.
+                      				</td>
+                      			</tr>
+                      		</c:when>
+                        <c:otherwise>
+                        	<c:forEach var="dto" items="${list3}">
+                        	<tr>
+                        		<td>${dto.idx}</td>
+                        		<td>${dto.subject}</td>
+                        		<td>${dto.writer}</td>
+                        		<td><span class="badge bg-red">${dto.readnum}</span></td>
+                        	</tr>
+                        	</c:forEach>
+                        </c:otherwise>
+                        </c:choose>
                       </tbody>
                   </table>
 

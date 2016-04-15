@@ -36,31 +36,6 @@ public class FreeBbsController {
 		this.freebbsDao = freebbsDao;
 	}
 
-	/*@RequestMapping("/bbsListForm.do")//게시판Form 이동,list 보여주기
-	public ModelAndView bbsListForm(){
-		
-		//sql쿼리문에선 계산을 할 수 없기 때문에 DAOImple에서 처리함
-		int startNum=(cp-1)*ls+1;//시작페이지 계산
-		int endNum=cp*ls;//마지막페이지 계산
-		
-		Map map=new HashMap();//Map객체를 생성
-		map.put("startNum", startNum);//위에서 만든 startNum과 endNum을 저장
-		map.put("endNum", endNum);
-		
-		int totalCnt=freebbsDao.getTotalCnt();//총게시물 수 가져오기
-		int listSize=5;//보여줄 리스트 수
-		int pageSize=5;//보여줄 페이지 수
-		
-		List<FreeBbsDTO> list=freebbsDao.freeBbsList(cp, listSize);
-		String pageStr=papa.page.PageMaker.goPage("bbsListForm.do", totalCnt, listSize, pageSize, cp);
-		
-		ModelAndView mav=new ModelAndView();
-		mav.addObject("list", list);
-		mav.addObject("pageStr", pageStr);
-		mav.setViewName("freebbs/bbsListForm");
-		return mav;
-	}*/		
-	
 	@RequestMapping("/bbsListForm.do")
 	   public ModelAndView bbsListForm(HttpServletRequest req){
 	      
@@ -156,35 +131,20 @@ public class FreeBbsController {
 	}
 	
 	@RequestMapping("/bbsFind.do")
-	public ModelAndView bbsFind(@RequestParam(value="subject",required=false) String subject){
-		//System.out.println("작성자"+writer);
-		System.out.println(subject);
-		//FreeBbsDTO getName=freebbsDao.bbsFindName(writer);
-		List<FreeBbsDTO> getSubject=freebbsDao.bbsFindSubject(subject);
-		
-		ModelAndView mav=new ModelAndView();
-		//mav.addObject("getName", getName);
-		mav.addObject("getSubject", getSubject);
-		mav.setViewName("freebbs/bbsFind");
-		return mav;
-	}
-	
-	/*@RequestMapping(value="/bbsFind.do",method=RequestMethod.POST)
-	public ModelAndView bbsFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
+	public ModelAndView freeBbsFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
 		
 		Map<String, String> map=new HashMap();
 		map.put("fkey", fkey);
 		map.put("fvalue", fvalue);
 		
-		List<FreeBbsDTO> list=freebbsDao.bbsFind(map);
+		System.out.println(fkey+"/"+fvalue);
 		
-		System.out.println(fkey);
-		System.out.println(fvalue);
+		List<FreeBbsDTO> list3=freebbsDao.freeBbsFind(map);
 		
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("list", list);
+		mav.addObject("list3", list3);
 		mav.setViewName("freebbs/bbsFind");
 		return mav;
-	}*/
+	}
 	
 }
