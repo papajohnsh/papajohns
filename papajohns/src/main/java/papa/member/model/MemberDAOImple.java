@@ -90,6 +90,11 @@ public class MemberDAOImple implements MemberDAO {
 		return result;
 	}
 
+	public void updateSun(int ref, int sunbun) {
+		
+		
+	}
+
 	public MemberDTO facebookLogin(MemberDTO dto) { //facebook join infomation
 		MemberDTO fbInfo=sqlMap.selectOne("fbCheck", dto);
 		return fbInfo;

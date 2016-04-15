@@ -31,14 +31,6 @@ public String fileUpload1(
 }
 
 
-@RequestMapping("/fileUpload2.do")
-public String fileUpload2(@RequestParam("upload") MultipartFile upload){
-	
-	copyInto2(upload);
-	
-	return "file/fileOK";
-}
-
 	private void copyInto(MultipartFile upload){
 	
 	System.out.println("올린파일명"+upload.getOriginalFilename());
@@ -55,43 +47,55 @@ public String fileUpload2(@RequestParam("upload") MultipartFile upload){
 	}
 }
 	
-	private void copyInto2(MultipartFile upload){
+	@RequestMapping("/down.do")
+	public ModelAndView download(
+			@RequestParam("filename")String filename){
 		
-	System.out.println("올린파일명"+upload.getOriginalFilename());
+		File f=new File("C:/Users/kyu/git/papajohns/papajohns/src/main/webapp/img/"+filename);
+		
+		ModelAndView mav= new ModelAndView("download","downloadFile",f);
+		return mav;
+	}
+
 	
-	try {
-		byte bytes[]=upload.getBytes();
-		File newFile= new File("C:/Users/user1/git/papajohns/papajohns/src/main/webapp/file/"+upload.getOriginalFilename());
-		FileOutputStream fos=new FileOutputStream(newFile);
-		fos.write(bytes);//copy 행위
+//파일 업로드2
+@RequestMapping("/fileUpload2.do")
+public String fileUpload2(@RequestParam("upload") MultipartFile upload){
+	
+	copyInto2(upload);
+	
+	return "file/fileOK";
+}	
+	
+private void copyInto2(MultipartFile upload){
+	
+System.out.println("올린파일명"+upload.getOriginalFilename());
+
+try {
+	byte bytes[]=upload.getBytes();
+	File newFile= new File("C:/Users/user1/git/papajohns/papajohns/src/main/webapp/file/"+upload.getOriginalFilename());
+	FileOutputStream fos=new FileOutputStream(newFile);
+	fos.write(bytes);//copy 행위
 		fos.close();
 	} catch (IOException e) {
 		
 		e.printStackTrace();
 	}
 }	
-@RequestMapping("/down.do")
-public ModelAndView download(
-		@RequestParam("filename")String filename){
-	
-	File f=new File("C:/Users/kyu/git/papajohns/papajohns/src/main/webapp/img/"+filename);
-	
-	ModelAndView mav= new ModelAndView("download","downloadFile",f);
-	return mav;
-}
 
 
-@RequestMapping("/fileupload.do")
+//파일 다운로드 리스트
+@RequestMapping("/bbsFileList.do")
 public ModelAndView fileList2(){
 	File f=new File("C:/Users/user1/git/papajohns/papajohns/src/main/webapp/file");
 	File files[]=f.listFiles();
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("files",files);
-	mav.setViewName("freebbs/bbsListForm");
+	mav.setViewName("freebbs/bbsFileList");
 	return mav;
 }
 
-
+//파일 다운로드 처리
 @RequestMapping("/down2.do")
 public ModelAndView download2(
 		@RequestParam("filename")String filename){

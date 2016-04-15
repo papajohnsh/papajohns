@@ -44,7 +44,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/login.do")//login 처리 페이지
-	public ModelAndView loginOk(@RequestParam("id") String id,@RequestParam("pwd") String pwd,
+	public ModelAndView loginOk(@RequestParam(value="id") String id,@RequestParam("pwd") String pwd,
 			HttpSession session,HttpServletResponse resp,@RequestParam(value="saveid",defaultValue="")String saveid){
 
 		//saveid

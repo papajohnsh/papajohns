@@ -75,7 +75,8 @@ function pwdCheck(){//비밀번호 확인
 			var spanTag=document.getElementById('pwdmsg');
 			spanTag.innerHTML=msg;
 	}
-}	
+}
+
 </script>
 <script type="text/javascript">
 var now=new Date();
@@ -154,12 +155,6 @@ var date = now.getDate();
 		   <div class="form-group">
 		     <label for="nickname">닉네임:</label>
 		     <input type="text" required="required" class="form-control" name="nickname" id="nickname" placeholder="Enter nickname">
-		   </div>
-		   <div class="form-group">
-		     <label for="gender">성별:</label>
-		     <input type="radio"  name="gender" value="0" checked="true">남자
-		     <input type="radio"  name="gender" value="1">여자
-		     <input type="radio"  name="gender" value="2">기타
 		   </div>
 		   <div class="form-group">
 		   	<label for="birthday">생년월일:</label><br>

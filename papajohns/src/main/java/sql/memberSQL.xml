@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="sqlMapper.mb">
   	<insert id="memberAdd" parameterType="papa.member.model.MemberDTO">
-  		insert into member(id,pwd,name,nickname,birthday,gender,phonenumber,email,joindate)
-  		values(#{id},#{pwd},#{name},#{nickname},#{birthday},#{gender},#{phonenumber},#{email},now())
+  		insert into member(id,pwd,name,nickname,birthday,phonenumber,email,joindate)
+  		values(#{id},#{pwd},#{name},#{nickname},#{birthday},#{phonenumber},#{email},now())
   	</insert>
 
   	<select id="idCheck" parameterType="String" resultType="String">
@@ -51,7 +51,9 @@
 	<select id="outCheckPw" parameterType="String" resultType="String">
 		select pwd from member where name=#{name}
 	</select>
-	
+	<update id="updateSun" parameterType="int">
+		update member set sunbun+1 where ref=#{ref} and sunbun>=#{sunbun}
+	</update>
 	<select id="fbCheck" parameterType="papa.member.model.MemberDTO" resultType="papa.member.model.MemberDTO">
 		select * from member where id=#{id}
 	</select>
