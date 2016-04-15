@@ -1,6 +1,9 @@
 package papa.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -81,6 +84,7 @@ public ModelAndView QuizTestSave(quizTestDTO dto){
 	dto.setQuiz_num(dto.getQuiz_num().substring(4));
 	System.out.println(dto.getQuiz_num());
 	int result=quizTestDao.quizTestSave(dto);
+	System.out.println("시험등록 리절트 수:"+result);
 	String msg=result>0?"시험등록완료":"실패";
 	
 	ModelAndView mav=new ModelAndView();
@@ -93,7 +97,6 @@ public ModelAndView QuizTestSave(quizTestDTO dto){
 
 @RequestMapping("/quizTest.do")
 public ModelAndView QuizTest(){
-	System.out.println("333333333333333333333333333333333333");
 	List<quizTestDTO> result=quizTestDao.quizTestList();
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("result",result);
@@ -114,14 +117,36 @@ public String Quiztest2(quizTestDTO dto){
 }
 @RequestMapping("/quizTestLoad.do")
 public ModelAndView QuizTestLoad(){
-	int idx=1;
-	List<quizDTO> result=quizDao.quizList2(idx);
+	int class_idx=1;
+	List<quizTestDTO> result=quizTestDao.quizList2(class_idx);
+	List<quizTestDTO> result2=new ArrayList<>();
+	String ques=result.get(0).getQuestion();
+	int num=0;
+	String[] question=ques.split("::");
+	String[] example1=result.get(0).getExample1().split("::");
+	String[] example2=result.get(0).getExample2().split("::");
+	String[] example3=result.get(0).getExample3().split("::");
+	String[] example4=result.get(0).getExample4().split("::");
+	System.out.println("한번만실행");
+	for(int i=0; i<question.length;i++ ){
+	    	System.out.println("반복실행");
+	    	//select quiz
+		quizTestDTO dto= new quizTestDTO(i+1, "", 0, "", "", "", question[i], 0, example1[i], example2[i], example3[i], example4[i]);
+	    	result2.add(dto);			
+		
+	}
+	System.out.println("마지막실행");
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("result",result);
+	mav.addObject("result2", result2);
 	mav.setViewName("quiz/quizLoad");
 	return mav;
 	
 }
+/*@RequestMapping("/quizTestAnswer")
+public ModelAndView quizTestAnswer(){
+	
+}*/
 
 }
 

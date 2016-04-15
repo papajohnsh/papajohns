@@ -33,15 +33,9 @@ private SqlSessionTemplate sqlMap;
 	@Override
 	public List<quizDTO> quizList() { 
 		List<quizDTO> result=sqlMap.selectList("quizList");
+
 		return result;
 
-	}
-
-
-	@Override
-	public List<quizDTO> quizList2(int idx) {
-		List<quizDTO> list=sqlMap.selectList("quizList2",idx);
-		return list;
 	}
 
 }

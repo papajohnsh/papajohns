@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,21 +36,63 @@ public class FreeBbsController {
 		this.freebbsDao = freebbsDao;
 	}
 
-	@RequestMapping("/bbsListForm.do")//게시판Form 이동,list 보여주기
-	public ModelAndView bbsListForm(
-			@RequestParam("filename")String filename){
+	/*@RequestMapping("/bbsListForm.do")//게시판Form 이동,list 보여주기
+	public ModelAndView bbsListForm(){
 		
-		File f=new File("C:/Users/user1/git/papajohns/papajohns/src/main/webapp/file");
-		File files[]=f.listFiles();
+		//sql쿼리문에선 계산을 할 수 없기 때문에 DAOImple에서 처리함
+		int startNum=(cp-1)*ls+1;//시작페이지 계산
+		int endNum=cp*ls;//마지막페이지 계산
+		
+		Map map=new HashMap();//Map객체를 생성
+		map.put("startNum", startNum);//위에서 만든 startNum과 endNum을 저장
+		map.put("endNum", endNum);
+		
+		int totalCnt=freebbsDao.getTotalCnt();//총게시물 수 가져오기
+		int listSize=5;//보여줄 리스트 수
+		int pageSize=5;//보여줄 페이지 수
+		
+		List<FreeBbsDTO> list=freebbsDao.freeBbsList(cp, listSize);
+		String pageStr=papa.page.PageMaker.goPage("bbsListForm.do", totalCnt, listSize, pageSize, cp);
+		
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("files",files);
-		
-		List<FreeBbsDTO> list=freebbsDao.freeBbsList();		
-		
 		mav.addObject("list", list);
+		mav.addObject("pageStr", pageStr);
 		mav.setViewName("freebbs/bbsListForm");
 		return mav;
-	}		
+	}*/		
+	
+	@RequestMapping("/bbsListForm.do")
+	   public ModelAndView bbsListForm(HttpServletRequest req){
+	      
+		int totalCnt=freebbsDao.getTotalCnt();//총게시물 수 가져오기
+		System.out.println("1: "+totalCnt);  
+		totalCnt=totalCnt==0?1:totalCnt;      //전체 게시물 수
+		System.out.println("2: "+totalCnt);
+	      int listSize=5;                     //페이지에 출력할 게시물 수
+	      int pageSize=5;                     //페이지 출력 수
+	   
+	      String cp_s=req.getParameter("cp");
+	      if(cp_s==null||cp_s.equals("")){
+	         cp_s="1";
+	      }
+	      int cp=Integer.parseInt(cp_s);
+	      
+	      String pageStr=papa.page.PageMaker.goPage("bbsListForm.do", totalCnt, listSize, pageSize, cp);
+	      	      
+	      int startNum=(cp-1)*listSize+1;
+	     int endNum=cp*listSize;
+	      
+	      Map map=new HashMap();
+	      map.put("startNum", startNum);
+	      map.put("endNum", endNum);
+	      
+	      List<FreeBbsDTO> list=freebbsDao.freeBbsList(map);
+	      ModelAndView mav=new ModelAndView();
+	      mav.addObject("list", list);
+	      mav.addObject("pageStr", pageStr);
+	      mav.setViewName("freebbs/bbsListForm");
+	      return mav;
+	   }
 	
 	
 	@RequestMapping("/bbsWriteAdd.do")//게시판 글쓰기 폼

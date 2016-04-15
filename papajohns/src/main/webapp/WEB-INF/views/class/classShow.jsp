@@ -42,11 +42,11 @@ $(function(){
         <section class="sidebar">
           <!-- Sidebar user panel -->
           <div class="user-panel">
-            <div class="pull-left image">
-              <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
+              <div class="pull-left image">
+              <img src="img/${sid }/profile.jpg"  class="img-circle" style="width: 40px" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>${sname}</p>
+              <p>${snickname}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
@@ -128,10 +128,11 @@ $(function(){
     </div>
   </div>
 </div>
-<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-  <div class="modal-dialog">
+
+<div class="modal fade bs-example-modal-lg" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
-        <!-- remote ajax call이 되는영역 -->
+      
     </div>
   </div>
 </div>
