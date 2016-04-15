@@ -90,4 +90,14 @@ public class MemberDAOImple implements MemberDAO {
 		return result;
 	}
 
+	public MemberDTO facebookLogin(MemberDTO dto) { //facebook join infomation
+		MemberDTO fbInfo=sqlMap.selectOne("fbCheck", dto);
+		return fbInfo;
+	}
+
+	public int fbJoin(MemberDTO dto) {  //facebook join
+		int result=sqlMap.insert("fbJoin", dto);
+		return result;
+	}
+
 }

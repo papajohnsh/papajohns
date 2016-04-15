@@ -114,6 +114,9 @@ var date = now.getDate();
 <div align="center">
   <%@ include file="naverLogin.jsp" %>
   </div>
+ <div align="center">
+ <%@ include file="facebookLogin.jsp" %>
+ </div>
 <br>
 
 <div class="container">

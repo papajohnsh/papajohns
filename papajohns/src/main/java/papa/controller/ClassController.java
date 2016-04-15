@@ -87,13 +87,23 @@ public class ClassController {
 	public ModelAndView classAttend(HttpSession session,int reidx){
 		
 		int idx=(int) session.getAttribute("sidx");
-		int result=classDao.classAddUpdate(reidx, idx);
-	
+		String list=classDao.reidxList(idx);
+		
+		if(list==null){
+			list="0";
+		}
+		list=list+","+reidx;
+		
+		int result=classDao.classAddUpdate(list, idx);
+		
+		System.out.println(idx);
+		System.out.println(result);
 		String msg=result>0?"참가성공":"참가 실패";
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("msg",msg);
-		mav.setViewName("class/Msg");
+		mav.setViewName("class/addMsg");
 		return mav;
+		
 	
 	}
 	@RequestMapping("/classDesign.do")
@@ -108,13 +118,29 @@ public class ClassController {
 	}
 	@RequestMapping("/designJoin.do")
 	public ModelAndView designJoin(int idx){
-	
-		
-	List<MemberDTO> list=classDao.designJoin(idx);
+		String list=classDao.reidxList(idx);
+		if(list==null){
+			list="0";
+		}
+	String[] list2=list.split(",");
 	ModelAndView mav=new ModelAndView();
-	mav.addObject("idx",idx);
-	mav.addObject("list",list);
-	mav.setViewName("class/designJoin");
+	for(int i=0; i<list2.length;i++){
+		String to = list2[i];
+			if(list2[i].equals(to)){
+				System.out.println(to);
+				List<MemberDTO>list3=classDao.designJoin(to);
+				mav.addObject("list",list3);
+				mav.addObject("idx",idx);
+				mav.setViewName("class/designJoin");
+				
+			}
+	}
+		
+	
+	
+	
+	
+
 	return mav;
 	}
 	

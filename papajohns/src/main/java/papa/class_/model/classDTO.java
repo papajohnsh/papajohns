@@ -16,15 +16,16 @@ public class classDTO {
 	private String end_date;
 	private Date write_date;
 	private String explanation;
-	private int reidx;
+	private String reidx;
 	
 
 	public classDTO() {
 		super();
 	}
 
+
 	public classDTO(int idx, String name, String subject, String start_time, String end_time, String institut,
-			String start_date, String end_date, Date write_date, String explanation, int reidx) {
+			String start_date, String end_date, Date write_date, String explanation, String reidx) {
 		super();
 		this.idx = idx;
 		this.name = name;
@@ -69,15 +70,22 @@ public class classDTO {
 		this.subject = subject;
 	}
 
+
 	public String getStart_time() {
 		return start_time;
 	}
+
+
 	public void setStart_time(String start_time) {
 		this.start_time = start_time;
 	}
+
+
 	public String getEnd_time() {
 		return end_time;
 	}
+
+
 	public void setEnd_time(String end_time) {
 		this.end_time = end_time;
 	}
@@ -91,15 +99,23 @@ public class classDTO {
 	public void setInstitut(String institut) {
 		this.institut = institut;
 	}
+
+
 	public String getStart_date() {
 		return start_date;
 	}
+
+
 	public void setStart_date(String start_date) {
 		this.start_date = start_date;
 	}
+
+
 	public String getEnd_date() {
 		return end_date;
 	}
+
+
 	public void setEnd_date(String end_date) {
 		this.end_date = end_date;
 	}
@@ -125,12 +141,12 @@ public class classDTO {
 	}
 
 
-	public int getReidx() {
+	public String getReidx() {
 		return reidx;
 	}
 
 
-	public void setReidx(int reidx) {
+	public void setReidx(String reidx) {
 		this.reidx = reidx;
 	}
 
