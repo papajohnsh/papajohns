@@ -59,6 +59,7 @@
                 <div class="box-body">
            
                     <!-- text input -->
+                      <img src="img/${sid }/profile.jpg">
              <div style="width:200">
        <%@ include file="javascript/a.jsp" %>
    

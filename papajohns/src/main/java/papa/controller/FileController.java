@@ -34,38 +34,7 @@ public class FileController {
 		return "file/fileOK";
 	}
 
-	private void copyInto(MultipartFile upload){
-		System.out.println("올린파일명"+upload.getOriginalFilename());
-		
-		try {
-			byte bytes[]=upload.getBytes();
-			File newFile= new File("C:/Users/kyu/git/papajohns/papajohns/src/main/webapp/img/"+upload.getOriginalFilename());
-			FileOutputStream fos=new FileOutputStream(newFile);
-			fos.write(bytes);//copy 행위
-			fos.close();
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
-	}
 
-
-	
-	private void copyInto2(MultipartFile upload){
-	System.out.println("올린파일명"+upload.getOriginalFilename());
-	
-	try {
-		byte bytes[]=upload.getBytes();
-		File newFile= new File("C:/Users/user1/git/papajohns/papajohns/src/main/webapp/file/"+upload.getOriginalFilename());
-		FileOutputStream fos=new FileOutputStream(newFile);
-		fos.write(bytes);//copy 행위
-		fos.close();
-	} catch (IOException e) {
-		
-		e.printStackTrace();
-	}
-}	
-	
 
 	// 업로드
 	@RequestMapping("/fileupload1.do")
@@ -134,4 +103,41 @@ public ModelAndView download2(
 	ModelAndView mav= new ModelAndView("download","downloadFile",f);
 	return mav;
 }
+
+
+
+
+private void copyInto(MultipartFile upload){
+	System.out.println("올린파일명"+upload.getOriginalFilename());
+	
+	try {
+		byte bytes[]=upload.getBytes();
+		File newFile= new File("C:/Users/kyu/git/papajohns/papajohns/src/main/webapp/img/"+upload.getOriginalFilename());
+		FileOutputStream fos=new FileOutputStream(newFile);
+		fos.write(bytes);//copy 행위
+		fos.close();
+	} catch (IOException e) {
+		
+		e.printStackTrace();
+	}
+}
+
+
+
+private void copyInto2(MultipartFile upload){
+System.out.println("올린파일명"+upload.getOriginalFilename());
+
+try {
+	byte bytes[]=upload.getBytes();
+	File newFile= new File("C:/Users/user1/git/papajohns/papajohns/src/main/webapp/file/"+upload.getOriginalFilename());
+	FileOutputStream fos=new FileOutputStream(newFile);
+	fos.write(bytes);//copy 행위
+	fos.close();
+} catch (IOException e) {
+	
+	e.printStackTrace();
+}
+}	
+
+
 }

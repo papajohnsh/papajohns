@@ -61,6 +61,11 @@
             margin-right: 10px;
         }
     </style>
+    <script>
+    function show(){
+    	location.reload();
+    }
+    </script>
 </head>
 <body>
 
@@ -70,6 +75,7 @@
         <div class="thumbBox"></div>
         <div class="spinner" style="display: none">Loading...</div>
     </div>
+    
     <div class="action">
     <form name="fileupload1" action="fileupload1.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="id" value=${sid }>
@@ -78,7 +84,7 @@
         <input type="button" id="btnCrop" value="Crop" style="float: right">
         <input type="button" id="btnZoomIn" value="+" style="float: right">
         <input type="button" id="btnZoomOut" value="-" style="float: right">
-  <input type="submit" value="등록하기">
+  <input type="submit" value="등록하기" onclick="show();">
   </form>
     </div>
     <div class="cropped">
