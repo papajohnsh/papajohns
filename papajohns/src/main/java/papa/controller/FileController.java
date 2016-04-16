@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -15,10 +16,11 @@ import org.springframework.web.servlet.ModelAndView;
 //리스트
 @Controller
 public class FileController {
-
+	
 
 	@RequestMapping("/fileUpload.do")
 	public ModelAndView fileList(@RequestParam("id") String id) {
+		//application.getRealPath("/upload");
 			String account=id;
 			File f = new File("C:/Sukkyu/jspstudy/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/papajohns/img/"+account+"/"+"profile");
 			File files[] = f.listFiles();
@@ -71,15 +73,17 @@ try {
 
 	// 업로드
 	@RequestMapping("/fileupload1.do")
-	public String fileUpload1(@RequestParam("upload") MultipartFile upload,@RequestParam("id") String id) {
+	public String fileUpload1(@RequestParam("upload") MultipartFile upload,@RequestParam("id") String id, HttpServletRequest request) {
 		String account=id;
+		String path=request.getSession().getServletContext().getRealPath("/img/"+account);
+		System.out.println(path);
 		System.out.println(account);
-		File dir=new File("C:/Sukkyu/jspstudy/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/papajohns/img/"+account+"/");
+		File dir=new File(path);
 		dir.mkdir();
 		if(!dir.exists()){
-			copyInto(upload, account);
+			copyInto(upload, account, path);
 		}else{
-			copyInto(upload, account);
+			copyInto(upload, account, path);
 		}
 		
 
@@ -91,14 +95,12 @@ try {
 
 
 	
-	private void copyInto(MultipartFile upload, String account) {
-
+	private void copyInto(MultipartFile upload, String account, String path) {
 		System.out.println("올린파일명" + upload.getOriginalFilename());
 
 		try {
 			byte bytes[] = upload.getBytes();
-			File newFile = new File(
-					"C:/Sukkyu/jspstudy/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/papajohns/img/" +account+"/"+"profile.jpg");
+			File newFile = new File(path+"/profile.png");
 			FileOutputStream fos = new FileOutputStream(newFile);
 			fos.write(bytes);// copy 행위
 			fos.close();
