@@ -37,21 +37,21 @@
 		var jso = [{ id:"2" , start_date:"2014-05-24 00:00" , end_date:"2014-06-08 00:00" , text:"French Open" , details:"Philippe-Chatrier Court Paris, FRA" },
 		            { id:"3" , start_date:"2014-06-10 00:00" , end_date:"2014-06-13 00:00" , text:"Aegon Championship" , details:"The Queens Club London, ENG" },
 		            { id:"4" , start_date:"2014-06-21 00:00" , end_date:"2014-07-05 00:00" , text:"Wimbledon" , details:"WimbledonJune 21, 2009 - July 5, 2009" }]
-		
+		/*
 		scheduler.addEvent({
 		    start_date: jso[0].start_date,
 		    end_date:   jso[0].end_date,
 		    text:   jso[0].text,
 		    hoder: "서명원"
 		});
-
+		*/
 //		scheduler.setCurrentView();
-//		scheduler.load("resource/data/data.json","json");
-		
+		var obj = JSON.parse(scheduler.toJSON());
+		scheduler.load("resource/data/data.json","json");
 	}
 	
+	
 	function show() {
-		alert(scheduler.toJSON());
 	}
 	
 	//파일 만드는 함수--------------------------------------------------
@@ -63,8 +63,8 @@
 	
 	function log()
 	{
-		var obj = JSON.parse(scheduler.toJSON());
-		window.alert(obj);
+	
+		window.alert(obj[0].text);
 		
 	}
 	/*
