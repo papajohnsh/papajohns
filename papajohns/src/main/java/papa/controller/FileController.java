@@ -100,7 +100,7 @@ try {
 
 		try {
 			byte bytes[] = upload.getBytes();
-			File newFile = new File(path+"/profile.png");
+			File newFile = new File(path+"/profile.jpg");
 			FileOutputStream fos = new FileOutputStream(newFile);
 			fos.write(bytes);// copy 행위
 			fos.close();
