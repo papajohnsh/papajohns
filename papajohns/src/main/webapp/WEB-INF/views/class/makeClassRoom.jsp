@@ -17,7 +17,7 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
              <div class="pull-left image">
-              <img src="img/${sid }/profile.jpg"  class="img-circle" style="width: 40px" alt="User Image">
+    <img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" id="userImage">
             </div>
             <div class="pull-left info">
               <p>${snickname}</p>

@@ -22,12 +22,12 @@
 <style>
 #av{
 height: 100px;
-
+width: 100px;	
 	
 }
 #userImage{
 height: 100px;
-width: 80px;	
+width: 100px;	
 }
 .filebox label {
   display: inline-block;
@@ -64,7 +64,7 @@ width: 80px;
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left" id="av" >
-              <img src="img/${sid }/profile.jpg"  class="img-circle" id="userImage">${snickname}
+              <img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" id="userImage">${snickname}
                
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -105,7 +105,7 @@ width: 80px;
                      
                           
     <div class="action" style=text-align:center >
-     <img src="img/${sid }/profile.jpg" height="300px" width="250px" class="img-circle" >
+     <img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" height="300px" width="300px" class="img-circle" >
     <form name="fileupload1" action="fileupload1.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="id" value=${sid }>
 <div class="filebox">
