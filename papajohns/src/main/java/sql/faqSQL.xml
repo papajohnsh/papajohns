@@ -32,4 +32,5 @@
  	<select id="totalCnt" resultType="int">
  		select count(*) from faq_bbs
  	</select>
+
   </mapper>

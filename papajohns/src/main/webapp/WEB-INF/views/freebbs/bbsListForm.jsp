@@ -97,8 +97,12 @@
                <div class="box-tools">
                  <div class="input-group" style="width: 150px;">
                  <form name="search" action="bbsFind.do" method="post">
-                 	제목:<input type="text" name="subject" required="required" class="form-control input-sm pull-right" placeholder="Search">     		
-      					<input type="submit" class="btn btn-sm btn-default" value="검색">
+					<select name="fkey">
+                 		<option value="writer">작성자</option>
+                 		<option value="subject">제목</option>     		
+                 	</select>
+                 	<input type="text" name="fvalue" required="required" class="form-control input-sm pull-right" placeholder="Search">
+      				<input type="submit" class="btn btn-sm btn-default" value="검색">
 					</form>
                  </div>
                </div>
@@ -114,7 +118,6 @@
                        <th>조회수</th>
                      </tr>
                    </thead>
-
                  <tbody>
                    	<c:set var="freebbsList" value="${list}"></c:set>
                    	<c:if test="${empty freebbsList}">
@@ -134,23 +137,21 @@
                      </tr>
                      </c:forEach>
                    </tbody>
-                   <tfoot>
-                   		<tr>
-                   			<td colspan="3" align="center">
-								${pageStr}
-							</td>
-                   		</tr>
-                   </tfoot>
                </table>
+               <div align="center">${pageStr}</div><!-- 페이징 영역 -->
+				<br>
+				<!-- 파일올리기 영역 -->
 				<form name="fileupload2" action="fileUpload2.do" method="post" enctype="multipart/form-data">
-					파일 <input type="file" name="upload"><br>
-					<input type="submit" value="보내기">
+					<div align="center">
+						<input type="file" name="upload"><br>
+						<input type="submit" value="파일올리기">
+					</div>
 				</form>
                <div class="box-footer clearfix" align="center">
 				
-               <span><a href="bbsWriteAdd.do" class="btn btn-sm btn-info btn-flat pull-right">글쓰기</a></span>
-				<span><a href="bbsFileList.do" class="btn btn-sm btn-default btn-flat pull-right">파일리스트</a></span>
-           
+               <a href="bbsWriteAdd.do" class="btn btn-sm btn-info btn-flat pull-right">글쓰기</a>
+				<a href="bbsFileList.do" class="btn btn-sm btn-default btn-flat pull-right">파일리스트</a>
+          
              </div><!-- /.box-body -->
            </div><!-- /.box -->
          </div>

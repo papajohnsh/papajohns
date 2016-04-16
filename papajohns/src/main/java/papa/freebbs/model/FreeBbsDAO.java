@@ -10,10 +10,8 @@ public interface FreeBbsDAO {
 	public int getTotalCnt();
 	public FreeBbsDTO bbsContent(int idx);
 	public int readNum(int idx);
-	public FreeBbsDTO bbsFindName(String writer);
-	public List<FreeBbsDTO> bbsFindSubject(String subject);
 	
-	public List<FreeBbsDTO> bbsFind(Map<String, String> map);
+	public List<FreeBbsDTO> freeBbsFind(Map<String, String> map);
 	
 	public List<FreeBbsReDTO> freeBbsReList(int idx);
 	public int bbsReWrite(FreeBbsReDTO dto);

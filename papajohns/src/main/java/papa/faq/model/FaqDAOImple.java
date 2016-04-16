@@ -49,9 +49,8 @@ public class FaqDAOImple implements FaqDAO {
 		return list2;
 	}
 
-	public int getTotalCnt() {
+	public int getTotalCnt() {//총 게시물 수
 		int count=sqlMap.selectOne("totalCnt");
 		return count;
 	}
-
 }

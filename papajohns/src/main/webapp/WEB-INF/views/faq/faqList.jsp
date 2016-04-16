@@ -120,7 +120,7 @@
                    			<c:forEach var="dto" items="${list}">
 		                     <tr>
 		                       <td>${dto.idx}</td>
-		                       <td><a href="faqContent.do?idx=${dto.idx}">${dto.subject}</a></td>
+		                       <td><a href="faqContent.do?idx=${dto.idx}&nickname=${snickname}">${dto.subject}</a></td>
 		                       <td>${dto.writer}</td>
 		                       <td><span class="badge bg-red">${dto.readnum}</span></td>
 		                     </tr>
