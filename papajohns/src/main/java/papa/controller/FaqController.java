@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -65,16 +67,33 @@ public class FaqController {
 	}
 	
 	@RequestMapping("/faqContent.do")//본문내용 보기
-	public ModelAndView faqContent(@RequestParam(value="idx",required=false) int idx){
+	public ModelAndView faqContent(@RequestParam(value="idx",required=false) int idx,@RequestParam("nickname") String nickname){
 		
 		int count=faqDao.faqNum(idx);//조회수 증가
 		FaqDTO list=faqDao.faqContent(idx);
 		
-		ModelAndView mav=new ModelAndView();
-		mav.addObject("list", list);
-		mav.addObject("count", count);
-		mav.setViewName("faq/faqContent");
-		return mav;
+		String msg="";
+		String url="";
+		
+		if(!list.getWriter().equals(nickname)){
+			
+			ModelAndView mav=new ModelAndView();
+			msg="잠금";
+			url="faq/faqList";
+			mav.addObject("msg", msg);
+			mav.addObject("url", url);
+			mav.setViewName("faq/faqMsg");
+			return mav;
+			
+		}else{
+			
+			ModelAndView mav=new ModelAndView();
+			mav.addObject("list", list);
+			mav.addObject("count", count);
+			mav.setViewName("faq/faqContent");
+			return mav;
+		}
+		
 	}
 	
 	@RequestMapping(value="/faqFind.do",method=RequestMethod.POST)
