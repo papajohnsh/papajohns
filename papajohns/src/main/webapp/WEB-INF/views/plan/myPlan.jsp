@@ -27,8 +27,11 @@
 		scheduler.config.prevent_cache = true;
 		scheduler.xy.margin_top=30;
 		
-		
-		scheduler.init('scheduler_here',new Date(2015,0,20),"month");
+		var now=new Date();
+		var y=now.getFullYear();
+		var m=now.getMonth();
+		var d=now.getDate();
+		scheduler.init('scheduler_here',now,"month");
 		
 
 		
