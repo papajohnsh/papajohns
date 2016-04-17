@@ -16,6 +16,7 @@ import papa.quiz.model.quizDAO;
 import papa.quiz.model.quizDTO;
 import papa.quizAnswer.model.quizAnswerDTO;
 import papa.quiztest.model.*;
+import papa.quizAnswer.model.*;
 @Controller
 public class quizController {
 @Autowired
@@ -37,6 +38,17 @@ public quizTestDAO getQuizTestDao() {
 
 public void setQuizTestDao(quizTestDAO quizTestDao) {
 	this.quizTestDao = quizTestDao;
+}
+@Autowired
+private quizAnswerDAO quizAnswerDao;
+
+
+public quizAnswerDAO getQuizAnswerDao() {
+	return quizAnswerDao;
+}
+
+public void setQuizAnswerDao(quizAnswerDAO quizAnswerDao) {
+	this.quizAnswerDao = quizAnswerDao;
 }
 
 @RequestMapping("/quizTestForm.do")
@@ -120,26 +132,8 @@ public String Quiztest2(quizTestDTO dto){
 public ModelAndView QuizTestLoad(){
 	int class_idx=1;
 	List<quizTestDTO> result=quizTestDao.quizList2(class_idx);
-	List<quizTestDTO> result2=new ArrayList<>();
-	String ques=result.get(0).getQuestion();
-	int num=0;
-	String[] question=ques.split("::");
-	String[] example1=result.get(0).getExample1().split("::");
-	String[] example2=result.get(0).getExample2().split("::");
-	String[] example3=result.get(0).getExample3().split("::");
-	String[] example4=result.get(0).getExample4().split("::");
-	System.out.println("한번만실행");
-	for(int i=0; i<question.length;i++ ){
-	    	System.out.println("반복실행");
-	    	//select quiz
-		quizTestDTO dto= new quizTestDTO(i+1, "", 0, "", "", "", question[i], 0, example1[i], example2[i], example3[i], example4[i]);
-	    	result2.add(dto);			
-		
-	}
-	System.out.println("마지막실행");
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("result",result);
-	mav.addObject("result2", result2);
 	mav.setViewName("quiz/quizLoad");
 	return mav;
 	
@@ -147,14 +141,60 @@ public ModelAndView QuizTestLoad(){
 @RequestMapping("/quizTestAnswer")
 public ModelAndView quizTestAnswer(quizAnswerDTO dto){
 	
-	
-	dto.setQuiz_answer(dto.getQuiz_answer().substring(4));
-	
 	System.out.println(dto.getPaper_idx());
 	System.out.println(dto.getQuiz_answer());
 	
+	dto.setQuiz_answer(dto.getQuiz_answer().substring(4));
+	quizTestDTO result=quizTestDao.quizTestList2(dto.getPaper_idx());
+	String[] answer=result.getAnswer().split("::");
+	String[] user=dto.getQuiz_answer().split("::");
+	String ox=null;
+	int quiz_num=0;
+	for(int i=0;i<answer.length;i++){
+		if(answer[i].equals(user[i])){
+			quiz_num=quiz_num+1;
+			ox=ox+"O";
+		}else{
+			ox=ox+"X";
+		}
+	}
+	ox=ox.substring(4);
+	System.out.println("맞은개수:"+quiz_num);
+	System.out.println("맞은현황:"+ox);
+	quizAnswerDTO dto2=new quizAnswerDTO(0, dto.getSubject(),dto.getMember_id(), dto.getClass_idx(), dto.getPaper_idx(), ox, quiz_num, null, dto.getQuiz_answer());
+	int update_result=quizAnswerDao.quizAnswer(dto2);
+	String msg=update_result>0?"시험완료":"실패";
+
 	ModelAndView mav=new ModelAndView();
-	mav.setViewName("class/classShow");
+	mav.addObject("msg", msg);
+	mav.addObject("url","classShow.do");
+	mav.setViewName("quiz/quizMsg");
+	return mav;
+}
+@RequestMapping("/quizTestList.do")
+public ModelAndView QuizTestList(quizTestDTO dto){
+	quizTestDTO result=quizTestDao.quizTestList2(dto.getIdx());
+	List<quizTestDTO> result2=new ArrayList<>();
+	String ques=result.getQuestion();
+	int num=0;
+	String[] question=ques.split("::");
+	String[] example1=result.getExample1().split("::");
+	String[] example2=result.getExample2().split("::");
+	String[] example3=result.getExample3().split("::");
+	String[] example4=result.getExample4().split("::");
+	System.out.println("한번만실행");
+	for(int i=0; i<question.length;i++ ){
+	    	System.out.println("반복실행");
+	    	//select quiz
+		quizTestDTO dto2= new quizTestDTO(i+1, "", 0, null, "", "", "", question[i],"", example1[i], example2[i], example3[i], example4[i]);
+	    	result2.add(dto2);			
+		
+	}
+	System.out.println("마지막실행");
+	ModelAndView mav=new ModelAndView();
+	mav.addObject("result",result);
+	mav.addObject("result2",result2);
+	mav.setViewName("quiz/quizLoadView");
 	return mav;
 }
 

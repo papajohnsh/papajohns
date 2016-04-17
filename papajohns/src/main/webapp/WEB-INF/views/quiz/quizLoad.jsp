@@ -7,26 +7,37 @@
 <head>
 <meta charset="utf-8">
 <script>
-	$('#exam').on('click',function(){
-		var answer=null;
-		for(var i=1;i<=$('#length').val();i++){
-			if($(':radio[name='+i+']:checked').val()==undefined){
-				window.alert("선택하지 않은 항목이 있습니다");
-				return;
-			}else{
-				
-				answer=answer+$(':radio[name='+i+']:checked').val()+",";
-				
-			}
-		}
-		$('#quiz_answer').val(answer);
-		fm.submit();
-		
-		
-	});
-/* 	$('#page').on('click',function(){
-		window.showModalDialog="quizTest.do";
-	}); */
+function gogo(){
+	 var answer=null;
+	 for(var i=1;i<=$('#length').val();i++){
+	 	if($(':radio[name='+i+']:checked').val()==undefined){
+	 		window.alert("선택하지 않은 항목이 있습니다");
+	 		return;
+	 	}else{
+	 		
+	 		answer=answer+$(':radio[name='+i+']:checked').val()+"::";
+	 		
+	 	}
+	 }
+	 $('#quiz_answer').val(answer);
+	 fm.submit(); 
+}
+	$('.page').on('click',function(){
+
+		var idx=$(this).attr('id');
+			window.alert(idx);
+			params='idx='+idx;
+            sendRequest('quizTestList.do', params, showResult, 'GET'); 
+
+   function showResult() {
+      if (XHR.readyState == 4) {
+         if (XHR.status == 200) {
+        	 window.alert('진입');
+            document.getElementById('content').innerHTML=XHR.responseText;
+         }
+      }
+   } 
+	}); 
 	
 </script>
 </head>
@@ -40,34 +51,34 @@
 </div>
 <!-- body -->
 <div class="modal-body">
-<iframe src="quizTest.do">
-
-</iframe>
-
-
-<table style="width: 500px;height: 300px; margin:0;auto;" >
-
-   <c:if test="${empty result }">
-		등록된 시험이 없습니다.
-	</c:if>
-						
-	<c:forEach var="dto" items="${result }">
-		<tr style="background-color:">
-			<td>${dto.subject}</td>
-			<td>2016-04-15</td>
-			<td style="vertical-align:middle; text-align: center;">
- 			<input style="width:40px;height: 40px" name="radio" value="${dto.idx }" id="${dto.idx }" type="radio" >
-   			</td>
-   			<td>
-   				<form action="quizTest.do">
-   				<input type="submit" value="페이지전환" id="page">
-   				</form>
-   			</td>
-		</tr>
-		
-	</c:forEach>
-</table>
-<input type="hidden" id="length" value="${fn:length(result2) }">
+<div>
+	<table style="width: 500px;height: 300px; margin:0;auto;" >
+	
+	   <c:if test="${empty result }">
+			등록된 시험이 없습니다.
+		</c:if>
+							
+		<c:forEach var="dto" items="${result }">
+			<tr style="background-color:">
+				<td>${dto.subject}</td>
+				<td>2016-04-15</td>
+				<td style="vertical-align:middle; text-align: center;">
+	 			<input style="width:40px;height: 40px" name="radio" value="${dto.idx }" id="${dto.idx }" type="radio" >
+	   			</td>
+	   			<td>
+	   				<form action="quizTest.do">
+	   				<input type="button" value="시험보기" id="${dto.idx }" class="page">
+	   				
+	   				</form>
+	   			</td>
+			</tr>
+			
+		</c:forEach>
+	</table>
+</div>
+<div id="content">
+</div>
+<%-- <input type="hidden" id="length" value="${fn:length(result2) }">
 
 <div style="display: none">
 
@@ -84,7 +95,7 @@
 	<input type="hidden" name="paper_idx" value="1">
 	<input type="button" id="exam" value="시험 보기">
 	</form>
-</div>
+</div> --%>
 <div>
 </div>
 

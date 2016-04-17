@@ -9,5 +9,5 @@ public interface quizTestDAO {
 	public List<quizTestDTO> quizTestList();
 	public int quizTestUpdate(quizTestDTO dto);
 	public List<quizTestDTO> quizList2(int idx);
-
+	public quizTestDTO quizTestList2(int idx);
 }

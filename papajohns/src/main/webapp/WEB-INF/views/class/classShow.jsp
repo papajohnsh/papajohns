@@ -69,7 +69,7 @@ $(function(){
                 <li><a href="classPlan.do" ><i class="fa fa-circle-o"></i> 강의스케줄</a></li>
                 <li><a data-toggle="modal" href="quizTestForm.do" data-target="#myModal2"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
                 <li><a data-toggle="modal" href="quizList.do" data-target="#myModal3"><i class="fa fa-circle-o"></i> 문제 수정하기</a></li>
-                <li><a data-toggle="modal" href="quizTest.do" data-target="#myModal4"><i class="fa fa-circle-o"></i>시험출제하기</a></li>
+                <li><a data-toggle="modal" href="#" data-target="#myModal4"><i class="fa fa-circle-o"></i>쪽지시험결과</a></li>
                 <li><a data-toggle="modal" href="quizTestLoad.do" data-target="#myModal5"><i class="fa fa-circle-o"></i>쪽지시험보기</a></li>
                 <li><a href="showMessage.do"><i class="fa fa-circle-o"></i> 메세지 보기</a></li>
                 <li><a href="classBbs.do"><i class="fa fa-circle-o"></i> 수업게시판</a></li>

@@ -11,20 +11,22 @@ public class quizTestDTO {
 	private String quiz_num;
 	private String writer;
 	private String question;
-	private int answer;
+	private String answer;
 	private String example1;
 	private String example2;
 	private String example3;
 	private String example4;
-	
-	public quizTestDTO(int idx, String subject, int class_idx, String quiz_content, String quiz_num,
-			String writer, String question, int answer, String example1, String example2, String example3,
+	public quizTestDTO() {
+		super();
+	}
+	public quizTestDTO(int idx, String subject, int class_idx, Date quiz_date, String quiz_content, String quiz_num,
+			String writer, String question, String answer, String example1, String example2, String example3,
 			String example4) {
 		super();
 		this.idx = idx;
 		this.subject = subject;
 		this.class_idx = class_idx;
-
+		this.quiz_date = quiz_date;
 		this.quiz_content = quiz_content;
 		this.quiz_num = quiz_num;
 		this.writer = writer;
@@ -83,10 +85,10 @@ public class quizTestDTO {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	public int getAnswer() {
+	public String getAnswer() {
 		return answer;
 	}
-	public void setAnswer(int answer) {
+	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
 	public String getExample1() {
@@ -113,8 +115,6 @@ public class quizTestDTO {
 	public void setExample4(String example4) {
 		this.example4 = example4;
 	}
-	public quizTestDTO() {
-		super();
-	}
+	
 	
 }

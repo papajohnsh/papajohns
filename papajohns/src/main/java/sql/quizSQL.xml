@@ -11,7 +11,7 @@
 		select * from quiz_storage
 	</select>
 	  <select id="quizList2" resultType="papa.quiztest.model.quizTestDTO">
-		select subject,writer,question,example1,example2,example3,example4 
+		select idx,subject,writer,question,example1,example2,example3,example4 
 		from quiz where class_idx=#{class_idx}
 	</select>
 	<update id="quizUpdate" parameterType="papa.quiz.model.quizDTO">
@@ -26,6 +26,9 @@
 	<select id="quizTestList" resultType="papa.quiztest.model.quizTestDTO">
 		select * from quiz
 	</select>
+	<select id="quizTestList2" resultType="papa.quiztest.model.quizTestDTO">
+		select * from quiz where idx=#{idx}
+	</select>
 	<select id="quizTestUpdate" parameterType="Map" resultType="papa.quiz.model.quizDTO">
 		select * from quiz_storage where idx=#{quiz_num}
 	</select>
@@ -38,5 +41,10 @@
 		example3=concat(example3,#{example3}"::"),
 		example4=concat(example4,#{example4}"::")
 		where idx=#{idx}
- </update>
+ 	</update>
+ 	<insert id="quizAnswer" parameterType="papa.quizAnswer.model.quizAnswerDTO">
+ 		insert into quiz_answer(subject, class_idx,member_id, paper_idx, ox, answer_num, quiz_answer) 
+ 		values(#{subject},#{class_idx},#{member_id},#{paper_idx},#{ox},#{answer_num},#{quiz_answer})
+ 	</insert>
+ 
   </mapper>

@@ -89,6 +89,11 @@ public class quizTestDAOImple implements quizTestDAO {
 			return list;
 
 	}
+	@Override
+	public quizTestDTO quizTestList2(int idx) {
+		quizTestDTO result=sqlMap.selectOne("quizTestList2",idx);
+		return result;
+	}
 
 }
 
