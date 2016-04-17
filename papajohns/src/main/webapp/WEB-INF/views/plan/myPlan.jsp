@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,22 +10,17 @@
 <script src="js/plan/dhtmlxscheduler_serialize.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="css/plan/dhtmlxscheduler.css" type="text/css" title="no title" charset="utf-8">
 <style type="text/css" media="screen">
-	html, body{
+		html, body{
 		margin:0px;
 		padding:0px;
 		height:100%;
 		overflow:hidden;
 	}	
-	.dhx_cal_navline input{
-		width:80px;
-		position:absolute;
-		top:1px;
-		font-family:Tahoma;
-		font-weight:8pt;
-	}
 </style>
 <script type="text/javascript" charset="utf-8">
 	function init() {
+		window.alert("${sid}");
+		window.alert("${msg}");
 		scheduler.config.details_on_dblclick = true
 		scheduler.config.api_date="%Y-%m-%d %H:%i";
 		scheduler.config.xml_date="%Y-%m-%d %H:%i";
@@ -34,19 +30,11 @@
 		
 		scheduler.init('scheduler_here',new Date(2015,0,20),"month");
 		
-		var jso = [{ id:"2" , start_date:"2014-05-24 00:00" , end_date:"2014-06-08 00:00" , text:"French Open" , details:"Philippe-Chatrier Court Paris, FRA" },
-		            { id:"3" , start_date:"2014-06-10 00:00" , end_date:"2014-06-13 00:00" , text:"Aegon Championship" , details:"The Queens Club London, ENG" },
-		            { id:"4" , start_date:"2014-06-21 00:00" , end_date:"2014-07-05 00:00" , text:"Wimbledon" , details:"WimbledonJune 21, 2009 - July 5, 2009" }]
-		/*
-		scheduler.addEvent({
-		    start_date: jso[0].start_date,
-		    end_date:   jso[0].end_date,
-		    text:   jso[0].text,
-		    hoder: "서명원"
-		});
-		*/
-//		scheduler.setCurrentView();
-		var obj = JSON.parse(scheduler.toJSON());
+		var jso = [{ id:"2" , start_date:"2014-05-24 00:00" , end_date:"2014-06-08 00:00" , text:"French Open"},
+		            { id:"3" , start_date:"2014-06-10 00:00" , end_date:"2014-06-13 00:00" , text:"Aegon Championship"},
+		            { id:"4" , start_date:"2014-06-21 00:00" , end_date:"2014-07-05 00:00" , text:"Wimbledon"}]
+	
+		
 		scheduler.load("resource/data/data.json","json");
 	}
 	
@@ -54,33 +42,20 @@
 	function show() {
 	}
 	
-	//파일 만드는 함수--------------------------------------------------
 	function save()
 	{
-		
 		 console.log(scheduler.toJSON());
 	}
 	
 	function log()
 	{
-	
+		var obj = JSON.parse(scheduler.toJSON());
 		window.alert(obj[0].text);
-		
 	}
-	/*
-	function save() {
-		var form = document.forms[0];
-		form.action = "resource/data/json_writer.php";
-		form.elements.data.value = scheduler.toJSON();
-		form.submit();
-	}
-	*/
 	function download() {
-		var form = document.forms[0];
-		form.action = "resource/data/json_download.php";
-		form.elements.data.value = scheduler.toJSON();
-		form.submit();
+
 	}
+	
 </script>
 
 </head>
@@ -91,10 +66,8 @@
 		<input type="button" name="save" value="Save" onclick="save()" style="right:300px;" />
 		<input type="button" name="log" value="log" onclick="log()" style="right:200px;"/>
 	</div>
-	<form action="./php/json_writer.php" method="post" target="hidden_frame" accept-charset="utf-8">
-		<input type="hidden" name="data" value="" id="data">
-	</form>
-	<iframe src='about:blank' frameborder="0" style="width:0px; height:0px;" id="hidden_frame" name="hidden_frame"></iframe>
+	<br>
+
 	<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100%;'>
 		<div class="dhx_cal_navline">
 			<div class="dhx_cal_prev_button">&nbsp;</div>
@@ -105,10 +78,8 @@
 			<div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
 			<div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>
 		</div>
-		<div class="dhx_cal_header">
-		</div>
-		<div class="dhx_cal_data">
-		</div>		
+		<div class="dhx_cal_header"></div>
+		<div class="dhx_cal_data"></div>		
 	</div>
 </body>
 </html>

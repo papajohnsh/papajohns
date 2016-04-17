@@ -5,8 +5,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
 <title>Insert title here</title>
 </head>
 
@@ -14,9 +12,6 @@
     function show(){
     	location.reload();
     }
-    
-    
-
     </script>
     
 <style>
@@ -81,7 +76,7 @@ width: 100px;
               </a>
             </li>
             <li>
-              <a href="myPlan.do">
+              <a href="myInfoPlan.do">
                 <i class="fa fa-circle-o text-aqua"></i><span>스케줄</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
