@@ -59,7 +59,7 @@ width: 100px;
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left" id="av" >
-              <img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" id="userImage">${snickname}
+              <img src="resource/data/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" id="userImage">${snickname}
                
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -100,7 +100,7 @@ width: 100px;
                      
                           
     <div class="action" style=text-align:center >
-     <img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" height="300px" width="300px" class="img-circle" >
+     <img src="resource/data/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" height="300px" width="300px" class="img-circle" >
     <form name="fileupload1" action="fileupload1.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="id" value=${sid }>
 <div class="filebox">

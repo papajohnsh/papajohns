@@ -75,11 +75,11 @@ try {
 	@RequestMapping("/fileupload1.do")
 	public String fileUpload1(@RequestParam("upload") MultipartFile upload,@RequestParam("id") String id, HttpServletRequest request) {
 		String account=id;
-		String path=request.getSession().getServletContext().getRealPath("/resource/data/"+account+"/img");
+		String path=request.getSession().getServletContext().getRealPath("/resource/data/"+account);
 		System.out.println(path);
 		System.out.println(account);
-		File temp=new File(request.getSession().getServletContext().getRealPath("/resource/data/"+account));
-		temp.mkdir();
+		//File temp=new File(request.getSession().getServletContext().getRealPath("/resource/data/"+account));
+		//temp.mkdir();
 		File dir=new File(path);
 		dir.mkdir();
 		if(!dir.exists()){

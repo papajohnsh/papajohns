@@ -19,8 +19,8 @@
 </style>
 <script type="text/javascript" charset="utf-8">
 	function init() {
-		window.alert("${sid}");
-		window.alert("${msg}");
+		//window.alert("${sid}");
+		//window.alert("${msg}");
 		scheduler.config.details_on_dblclick = true
 		scheduler.config.api_date="%Y-%m-%d %H:%i";
 		scheduler.config.xml_date="%Y-%m-%d %H:%i";
@@ -30,21 +30,19 @@
 		
 		scheduler.init('scheduler_here',new Date(2015,0,20),"month");
 		
-		var jso = [{ id:"2" , start_date:"2014-05-24 00:00" , end_date:"2014-06-08 00:00" , text:"French Open"},
-		            { id:"3" , start_date:"2014-06-10 00:00" , end_date:"2014-06-13 00:00" , text:"Aegon Championship"},
-		            { id:"4" , start_date:"2014-06-21 00:00" , end_date:"2014-07-05 00:00" , text:"Wimbledon"}]
-	
+
 		
-		scheduler.load("resource/data/data.json","json");
+		scheduler.load("resource/data/smwfifa/data.json","json");
 	}
 	
 	
 	function show() {
+		console.log(scheduler.toJSON());
 	}
 	
 	function save()
 	{
-		 console.log(scheduler.toJSON());
+		 
 	}
 	
 	function log()
@@ -56,16 +54,25 @@
 
 	}
 	
+	
+	function save(){ 
+		document.json.json.value=scheduler.toJSON();
+		document.json.submit(); 
+	} 
 </script>
 
 </head>
 <body onload="init();">
 	<div style='height:20px; padding:5px 10px;'>
-		<input type="button" name="download" value="Download" onclick="download()" style="right:500px;" />
-		<input type="button" name="show" value="Show" onclick="show()" style="right:400px;" />
-		<input type="button" name="save" value="Save" onclick="save()" style="right:300px;" />
-		<input type="button" name="log" value="log" onclick="log()" style="right:200px;"/>
+		<input type="button" name="download" value="Download" onclick="download()" style="right:500px;">
+		<input type="button" name="show" value="Show" onclick="show()" style="right:400px;">
+		<input type="button" name="log" value="log" onclick="log()" style="right:300px;">
+		<form name="json" method="post" action="planSave.do">
+			<input type="hidden" name="json">
+			<input type="button" value="Save" onclick="save()" style="right:200px;">
+		</form>
 	</div>
+	
 	<br>
 
 	<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100%;'>
