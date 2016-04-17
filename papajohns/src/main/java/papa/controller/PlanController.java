@@ -61,7 +61,6 @@ public class PlanController {
 	@RequestMapping("/planSave.do")
 	public ModelAndView planSave(HttpSession session, HttpServletRequest request, @RequestParam(value = "json", required = false, defaultValue = "") String json)
 	{
-			//System.out.println(json);
 		System.out.println(json);
 		String account=(String)session.getAttribute("sid");
 		String path=request.getSession().getServletContext().getRealPath("/resource/data/"+account);

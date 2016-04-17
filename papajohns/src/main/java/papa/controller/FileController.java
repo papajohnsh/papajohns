@@ -76,6 +76,7 @@ try {
 	public String fileUpload1(@RequestParam("upload") MultipartFile upload,@RequestParam("id") String id, HttpServletRequest request) {
 		String account=id;
 		String path=request.getSession().getServletContext().getRealPath("/resource/data/"+account);
+		System.out.println(System.getProperty("user.dir"));
 		System.out.println(path);
 		System.out.println(account);
 		//File temp=new File(request.getSession().getServletContext().getRealPath("/resource/data/"+account));

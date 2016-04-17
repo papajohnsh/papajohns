@@ -64,11 +64,12 @@
 </head>
 <body onload="init();">
 	<div style='height:20px; padding:5px 10px;'>
-		<input type="button" name="download" value="Download" onclick="download()" style="right:500px;">
-		<input type="button" name="show" value="Show" onclick="show()" style="right:400px;">
-		<input type="button" name="log" value="log" onclick="log()" style="right:300px;">
+		
 		<form name="json" method="post" action="planSave.do">
 			<input type="hidden" name="json">
+			<input type="button" name="download" value="Download" onclick="download()" style="right:500px;">
+			<input type="button" name="show" value="Show" onclick="show()" style="right:400px;">
+			<input type="button" name="log" value="log" onclick="log()" style="right:300px;">
 			<input type="button" value="Save" onclick="save()" style="right:200px;">
 		</form>
 	</div>
