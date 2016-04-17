@@ -30,7 +30,7 @@
 
        <c:if test="${!empty sid}">
          <div class="pull-left image">
-           <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
+     <img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" id="userImage">
          </div>
 
         </c:if>
@@ -97,8 +97,12 @@
                <div class="box-tools">
                  <div class="input-group" style="width: 150px;">
                  <form name="search" action="bbsFind.do" method="post">
-                 	제목:<input type="text" name="subject" required="required" class="form-control input-sm pull-right" placeholder="Search">     		
-      					<input type="submit" class="btn btn-sm btn-default" value="검색">
+					<select name="fkey">
+                 		<option value="writer">작성자</option>
+                 		<option value="subject">제목</option>     		
+                 	</select>
+                 	<input type="text" name="fvalue" required="required" class="form-control input-sm pull-right" placeholder="Search">
+      				<input type="submit" class="btn btn-sm btn-default" value="검색">
 					</form>
                  </div>
                </div>
@@ -114,7 +118,6 @@
                        <th>조회수</th>
                      </tr>
                    </thead>
-
                  <tbody>
                    	<c:set var="freebbsList" value="${list}"></c:set>
                    	<c:if test="${empty freebbsList}">
@@ -135,34 +138,20 @@
                      </c:forEach>
                    </tbody>
                </table>
+               <div align="center">${pageStr}</div><!-- 페이징 영역 -->
+				<br>
+				<!-- 파일올리기 영역 -->
 				<form name="fileupload2" action="fileUpload2.do" method="post" enctype="multipart/form-data">
-					파일 <input type="file" name="upload"><br>
-					<input type="submit" value="보내기">
+					<div align="center">
+						<input type="file" name="upload"><br>
+						<input type="submit" value="파일올리기">
+					</div>
 				</form>
-				<h2>다운로드 파일 목록보기</h2>
-				   <c:set var="filelist" value="${files}" />
-				   <c:if test="${empty filelist }">
-				      <h3 style="color: blue;">등록된 파일이 없습니다.</h3>
-				   </c:if>
-				   <ul>
-				      <c:forEach var="file" items="${filelist}">
-				         <c:url var="downUrl" value="down2.do">
-				            <c:param name="filename">${file.name}</c:param>
-				         </c:url>
-				         <li><a href="${downUrl}"> ${file.name}</a></li>
-				      </c:forEach>
-				   </ul>
                <div class="box-footer clearfix" align="center">
-
+				
                <a href="bbsWriteAdd.do" class="btn btn-sm btn-info btn-flat pull-right">글쓰기</a>
-
-           <ul class="pagination pagination-sm no-margin pull-center">
-                 <li><a href="#">&laquo;</a></li>
-                 <li><a href="#">1</a></li>
-                 <li><a href="#">2</a></li>
-                 <li><a href="#">3</a></li>
-                 <li><a href="#">&raquo;</a></li>
-               </ul>
+				<a href="bbsFileList.do" class="btn btn-sm btn-default btn-flat pull-right">파일리스트</a>
+          
              </div><!-- /.box-body -->
            </div><!-- /.box -->
          </div>

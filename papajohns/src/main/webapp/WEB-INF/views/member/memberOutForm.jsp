@@ -24,7 +24,7 @@
 
        <c:if test="${!empty sid}">
          <div class="pull-left image">
-           <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
+      <img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" id="userImage">
          </div>
 
         </c:if>

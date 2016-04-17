@@ -5,11 +5,55 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
 <title>Insert title here</title>
 </head>
 
+ <script>
+    function show(){
+    	location.reload();
+    }
+    
+    
 
+    </script>
+    
+<style>
+#av{
+height: 100px;
+width: 100px;	
+	
+}
+#userImage{
+height: 100px;
+width: 100px;	
+}
+.filebox label {
+  display: inline-block;
+  padding: .5em .75em;
+  color: #999;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border: 1px solid #ebebeb;
+  border-bottom-color: #e2e2e2;
+  border-radius: .25em;
+}
+.filebox input[type="file"] {  /* 파일 필드 숨기기 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
 
+</style>
 <body class="hold-transition skin-blue sidebar-mini">
 <%@ include file="../header.jsp" %>
      
@@ -19,13 +63,12 @@
         <section class="sidebar">
           <!-- Sidebar user panel -->
           <div class="user-panel">
-            <div class="pull-left image">
-              <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
-            </div>
-            <div class="pull-left info">
-              <p>${snickname}</p>
+            <div class="pull-left" id="av" >
+              <img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" id="userImage">${snickname}
+               
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
+            
           </div>
           
           <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -59,11 +102,24 @@
                 <div class="box-body">
            
                     <!-- text input -->
-             <div style="width:200">
-       <%@ include file="javascript/a.jsp" %>
+                     
+                          
+    <div class="action" style=text-align:center >
+     <img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" height="300px" width="300px" class="img-circle" >
+    <form name="fileupload1" action="fileupload1.do" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="id" value=${sid }>
+<div class="filebox">
+  <label for="ex_file">사진변경</label>
+  <input type="file" id="ex_file" name="upload"> 
+</div>
+        
+        
+  <input type="submit" value="등록하기"onclick="show()" class="btn btn-default pull-center">
+             
+     </form>
+     
    
 </div>
-
        <form role="form" name="infoMod" action="myInfo.do">
                     <div class="form-group">
                       <label for="name">이름</label>

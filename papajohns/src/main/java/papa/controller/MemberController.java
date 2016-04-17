@@ -44,7 +44,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/login.do")//login 처리 페이지
-	public ModelAndView loginOk(@RequestParam("id") String id,@RequestParam("pwd") String pwd,
+	public ModelAndView loginOk(@RequestParam(value="id") String id,@RequestParam("pwd") String pwd,
 			HttpSession session,HttpServletResponse resp,@RequestParam(value="saveid",defaultValue="")String saveid){
 
 		//saveid
@@ -248,6 +248,8 @@ public class MemberController {
 		System.out.println("count:"+count);
 		String msg=count>0?"수정성공!":"수정실패!";
 		ModelAndView mav=new ModelAndView();
+		String url="myInfoForm.do";
+		mav.addObject("url",url);
 		mav.addObject("msg", msg);
 		mav.setViewName("member/myInfoMsg");
 		return mav;

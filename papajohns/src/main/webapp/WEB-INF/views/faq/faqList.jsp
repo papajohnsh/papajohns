@@ -30,7 +30,7 @@
 
        <c:if test="${!empty sid}">
          <div class="pull-left image">
-           <img src="img/강동원.jpg" class="img-circle" style="width: 40px" alt="User Image">
+       <img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" id="userImage">
          </div>
 
         </c:if>
@@ -120,7 +120,7 @@
                    			<c:forEach var="dto" items="${list}">
 		                     <tr>
 		                       <td>${dto.idx}</td>
-		                       <td><a href="faqContent.do?idx=${dto.idx}">${dto.subject}</a></td>
+		                       <td><a href="faqContent.do?idx=${dto.idx}&nickname=${snickname}">${dto.subject}</a></td>
 		                       <td>${dto.writer}</td>
 		                       <td><span class="badge bg-red">${dto.readnum}</span></td>
 		                     </tr>

@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,21 +36,38 @@ public class FreeBbsController {
 		this.freebbsDao = freebbsDao;
 	}
 
-	@RequestMapping("/bbsListForm.do")//게시판Form 이동,list 보여주기
-	public ModelAndView bbsListForm(
-			@RequestParam("filename")String filename){
-		
-		File f=new File("C:/Users/user1/git/papajohns/papajohns/src/main/webapp/file");
-		File files[]=f.listFiles();
-		ModelAndView mav=new ModelAndView();
-		mav.addObject("files",files);
-		
-		List<FreeBbsDTO> list=freebbsDao.freeBbsList();		
-		
-		mav.addObject("list", list);
-		mav.setViewName("freebbs/bbsListForm");
-		return mav;
-	}		
+	@RequestMapping("/bbsListForm.do")
+	   public ModelAndView bbsListForm(HttpServletRequest req){
+	      
+		int totalCnt=freebbsDao.getTotalCnt();//총게시물 수 가져오기
+		System.out.println("1: "+totalCnt);  
+		totalCnt=totalCnt==0?1:totalCnt;      //전체 게시물 수
+		System.out.println("2: "+totalCnt);
+	      int listSize=5;                     //페이지에 출력할 게시물 수
+	      int pageSize=5;                     //페이지 출력 수
+	   
+	      String cp_s=req.getParameter("cp");
+	      if(cp_s==null||cp_s.equals("")){
+	         cp_s="1";
+	      }
+	      int cp=Integer.parseInt(cp_s);
+	      
+	      String pageStr=papa.page.PageMaker.goPage("bbsListForm.do", totalCnt, listSize, pageSize, cp);
+	      	      
+	      int startNum=(cp-1)*listSize+1;
+	     int endNum=cp*listSize;
+	      
+	      Map map=new HashMap();
+	      map.put("startNum", startNum);
+	      map.put("endNum", endNum);
+	      
+	      List<FreeBbsDTO> list=freebbsDao.freeBbsList(map);
+	      ModelAndView mav=new ModelAndView();
+	      mav.addObject("list", list);
+	      mav.addObject("pageStr", pageStr);
+	      mav.setViewName("freebbs/bbsListForm");
+	      return mav;
+	   }
 	
 	
 	@RequestMapping("/bbsWriteAdd.do")//게시판 글쓰기 폼
@@ -112,35 +131,20 @@ public class FreeBbsController {
 	}
 	
 	@RequestMapping("/bbsFind.do")
-	public ModelAndView bbsFind(@RequestParam(value="subject",required=false) String subject){
-		//System.out.println("작성자"+writer);
-		System.out.println(subject);
-		//FreeBbsDTO getName=freebbsDao.bbsFindName(writer);
-		List<FreeBbsDTO> getSubject=freebbsDao.bbsFindSubject(subject);
-		
-		ModelAndView mav=new ModelAndView();
-		//mav.addObject("getName", getName);
-		mav.addObject("getSubject", getSubject);
-		mav.setViewName("freebbs/bbsFind");
-		return mav;
-	}
-	
-	/*@RequestMapping(value="/bbsFind.do",method=RequestMethod.POST)
-	public ModelAndView bbsFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
+	public ModelAndView freeBbsFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
 		
 		Map<String, String> map=new HashMap();
 		map.put("fkey", fkey);
 		map.put("fvalue", fvalue);
 		
-		List<FreeBbsDTO> list=freebbsDao.bbsFind(map);
+		System.out.println(fkey+"/"+fvalue);
 		
-		System.out.println(fkey);
-		System.out.println(fvalue);
+		List<FreeBbsDTO> list3=freebbsDao.freeBbsFind(map);
 		
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("list", list);
+		mav.addObject("list3", list3);
 		mav.setViewName("freebbs/bbsFind");
 		return mav;
-	}*/
+	}
 	
 }
