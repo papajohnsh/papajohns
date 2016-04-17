@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import papa.member.model.MemberDTO;
 import papa.quiz.model.quizDAO;
 import papa.quiz.model.quizDTO;
+import papa.quizAnswer.model.quizAnswerDTO;
 import papa.quiztest.model.*;
 @Controller
 public class quizController {
@@ -143,10 +144,19 @@ public ModelAndView QuizTestLoad(){
 	return mav;
 	
 }
-/*@RequestMapping("/quizTestAnswer")
-public ModelAndView quizTestAnswer(){
+@RequestMapping("/quizTestAnswer")
+public ModelAndView quizTestAnswer(quizAnswerDTO dto){
 	
-}*/
+	
+	dto.setQuiz_answer(dto.getQuiz_answer().substring(4));
+	
+	System.out.println(dto.getPaper_idx());
+	System.out.println(dto.getQuiz_answer());
+	
+	ModelAndView mav=new ModelAndView();
+	mav.setViewName("class/classShow");
+	return mav;
+}
 
 }
 

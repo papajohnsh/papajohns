@@ -24,6 +24,9 @@
 		
 		
 	});
+/* 	$('#page').on('click',function(){
+		window.showModalDialog="quizTest.do";
+	}); */
 	
 </script>
 </head>
@@ -37,7 +40,9 @@
 </div>
 <!-- body -->
 <div class="modal-body">
+<iframe src="quizTest.do">
 
+</iframe>
 
 
 <table style="width: 500px;height: 300px; margin:0;auto;" >
@@ -46,34 +51,42 @@
 		등록된 시험이 없습니다.
 	</c:if>
 						
-<%-- 	<c:forEach var="dto" items="${result }">
+	<c:forEach var="dto" items="${result }">
 		<tr style="background-color:">
 			<td>${dto.subject}</td>
 			<td>2016-04-15</td>
 			<td style="vertical-align:middle; text-align: center;">
  			<input style="width:40px;height: 40px" name="radio" value="${dto.idx }" id="${dto.idx }" type="radio" >
    			</td>
+   			<td>
+   				<form action="quizTest.do">
+   				<input type="submit" value="페이지전환" id="page">
+   				</form>
+   			</td>
 		</tr>
-	</c:forEach> --%>
+		
+	</c:forEach>
 </table>
 <input type="hidden" id="length" value="${fn:length(result2) }">
 
-<div>
+<div style="display: none">
 
-<c:forEach var="dto2" items="${result2 }" >
-	${dto2.idx}.&nbsp;&nbsp;&nbsp; ${dto2.question }<br>
-	<input type="radio" name="${dto2.idx }" value="1">①&nbsp;&nbsp;&nbsp; ${dto2.example1 }<br>
-	<input type="radio" name="${dto2.idx }" value="2">②&nbsp;&nbsp;&nbsp; ${dto2.example2 }<br>
-	<input type="radio" name="${dto2.idx }" value="3">③&nbsp;&nbsp;&nbsp; ${dto2.example3 }<br>
-	<input type="radio" name="${dto2.idx }" value="4">④&nbsp;&nbsp;&nbsp; ${dto2.example4 }<br><br>
-</c:forEach>
+	<c:forEach var="dto2" items="${result2 }" >
+		${dto2.idx}.&nbsp;&nbsp;&nbsp; ${dto2.question }<br>
+		<input type="radio" name="${dto2.idx }" value="1">①&nbsp;&nbsp;&nbsp; ${dto2.example1 }<br>
+		<input type="radio" name="${dto2.idx }" value="2">②&nbsp;&nbsp;&nbsp; ${dto2.example2 }<br>
+		<input type="radio" name="${dto2.idx }" value="3">③&nbsp;&nbsp;&nbsp; ${dto2.example3 }<br>
+		<input type="radio" name="${dto2.idx }" value="4">④&nbsp;&nbsp;&nbsp; ${dto2.example4 }<br><br>
+	</c:forEach>
+	
+	<form name="fm" action="quizTestAnswer.do" method="post">
+	<input type="hidden" name="quiz_answer" id="quiz_answer" value="">
+	<input type="hidden" name="paper_idx" value="1">
+	<input type="button" id="exam" value="시험 보기">
+	</form>
 </div>
-<form name="fm" action="quizTestAnswer.do">
-<input type="hidden" name="quiz_answer" value="">
-<input type="hidden" name="paper_idx" value="1">
-<input type="button" id="exam" value="시험 보기">
-</form>
-
+<div>
+</div>
 
 </div>
 <!-- Footer -->
