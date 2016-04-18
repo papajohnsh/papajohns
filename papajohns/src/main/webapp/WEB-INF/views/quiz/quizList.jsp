@@ -19,7 +19,7 @@
 	   }else{
 	   	$('#quiz_num').val(quiz_num);
 
-	 document.registration.submit(); 
+	  document.registration.submit();  
 	   } 
 
    });
@@ -66,7 +66,8 @@
 <form name="registration" action="quizTestSave.do" method="post">
    시 험 명:<input type="text" name="subject" ><br><br>
   시험내용:<textarea rows="3" name="quiz_content" cols="30"></textarea><br>
-  반IDX:<input type="text" name="class_idx"><br>
+
+<input type="hidden" name="class_idx" value="${class_idx }"><br>
   시험날짜:<input name="start_date" type="date">
   		<input name="start_time" type="time">
   <input type="hidden" name="writer" value="${sname }">
