@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,20 +32,32 @@ public class FaqController {
 	}
 
 	@RequestMapping("/faqList.do")//faq 리스트 보기
-	public ModelAndView faqList(@RequestParam(value="cp",defaultValue="1") int cp){
+	public ModelAndView faqList(HttpServletRequest req){
 		
-		/*int totalCnt=faqDao.getTotalCnt();//총게시물 수 가져오기
+		int totalCnt=faqDao.getTotalCnt();//총게시물 수 가져오기
+		totalCnt=totalCnt==0?1:totalCnt;      //전체 게시물 수
 		int listSize=5;//보여줄 리스트 수
 		int pageSize=5;//보여줄 페이지 수
 		
-		List<FaqDTO> list=faqDao.faqList(cp, listSize);
-		String pageStr=papa.page.PageMaker.goPage("faqList.do", totalCnt, listSize, pageSize, cp);*/
-		
-		List<FaqDTO> list=faqDao.faqList();
-		
+		String cp_s=req.getParameter("cp");
+	      if(cp_s==null||cp_s.equals("")){
+	         cp_s="1";
+	      }
+	      int cp=Integer.parseInt(cp_s);
+	      
+	     String pageStr=papa.page.PageMaker.goPage("faqList.do", totalCnt, listSize, pageSize, cp);
+	     
+	     int startNum=(cp-1)*listSize;
+	     int endNum=cp*listSize;
+	     
+	     Map map=new HashMap();
+	      map.put("startNum", startNum);
+	      map.put("endNum", endNum);
+	      
+		List<FaqDTO> list=faqDao.faqList(map);		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list", list);
-		//mav.addObject("pageStr", pageStr);
+		mav.addObject("pageStr", pageStr);
 		mav.setViewName("faq/faqList");
 		return mav;
 	}

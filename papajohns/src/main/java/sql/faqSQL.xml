@@ -8,7 +8,7 @@
   		values(#{writer},#{subject},#{content},now(),0)
   	</insert>
   	<select id="faqList" resultType="papa.faq.model.FaqDTO">
-  		select * from faq_bbs
+  		select * from faq_bbs order by idx desc limit #{startNum}, #{endNum}
   	</select>
   	<select id="faqContent" parameterType="int" resultType="papa.faq.model.FaqDTO">
   		select * from faq_bbs where idx=#{idx}

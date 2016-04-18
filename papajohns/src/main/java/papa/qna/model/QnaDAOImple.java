@@ -1,6 +1,7 @@
 package papa.qna.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
@@ -24,8 +25,8 @@ public class QnaDAOImple implements QnaDAO {
 		return list;
 	}
 
-	public List<QnaDTO> qnaList() {//qna 리스트 보기
-		List<QnaDTO> list=sqlMap.selectList("qnaList");
+	public List<QnaDTO> qnaList(Map<String, Integer> map) {//qna 게시판 리스트
+		List<QnaDTO> list=sqlMap.selectList("qnaList", map);
 		return list;
 	}
 	
@@ -61,6 +62,16 @@ public class QnaDAOImple implements QnaDAO {
 
 	public List<QnaReDTO> qnaReList(int idx) {//qna 리스트 보기
 		List<QnaReDTO> list=sqlMap.selectList("qnaReList", idx);
+		return list;
+	}
+
+	public int getTotalCnt() {//총게시물 수 가져오기
+		int count=sqlMap.selectOne("qnaTotalCnt");
+		return count;
+	}
+
+	public List<QnaDTO> qnaFind(Map<String, String> map) {//qna 검색
+		List<QnaDTO> list=sqlMap.selectList("qnaFind", map);
 		return list;
 	}
 }

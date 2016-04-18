@@ -21,7 +21,7 @@ public class FreeBbsDAOImple implements FreeBbsDAO {
 		return result;
 	}
 
-	public List<FreeBbsDTO> freeBbsList(Map<String, Integer> map) {
+	public List<FreeBbsDTO> freeBbsList(Map<String, Integer> map) {//게시판 리스트
 		List<FreeBbsDTO> list=sqlMap.selectList("bbsList", map);
 		return list;
 	}

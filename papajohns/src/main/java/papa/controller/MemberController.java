@@ -121,10 +121,10 @@ public class MemberController {
 		if(memberDao.idCheck(id)==null){
 			int result=memberDao.memberAdd(dto);
 			if(result>0){
-				msg="성공";
+				msg="회원가입을 축하드립니다!";
 				url="index.do";
 			}else{
-				msg="실패";
+				msg="회원가입에 실패했습니다";
 				url="loginForm.do";
 			}
 			
@@ -247,6 +247,7 @@ public class MemberController {
 		int count=memberDao.infoMod(dto);
 		System.out.println("count:"+count);
 		String msg=count>0?"수정성공!":"수정실패!";
+
 		ModelAndView mav=new ModelAndView();
 		String url="myInfoForm.do";
 		mav.addObject("url",url);
