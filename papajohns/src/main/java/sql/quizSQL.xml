@@ -11,7 +11,7 @@
 		select * from quiz_storage
 	</select>
 	  <select id="quizList2" resultType="papa.quiztest.model.quizTestDTO">
-		select idx,subject,writer,question,example1,example2,example3,example4 
+		select *
 		from quiz where class_idx=#{class_idx}
 	</select>
 	<update id="quizUpdate" parameterType="papa.quiz.model.quizDTO">
@@ -20,8 +20,8 @@
 		where idx=#{idx}
 	</update>
 	<insert id="quizTestSave" parameterType="papa.quiztest.model.quizTestDTO" useGeneratedKeys="true" keyProperty="idx">
-		insert into quiz(subject,quiz_content,class_idx,quiz_num,writer,question,answer,example1,example2,example3,example4) 
-		values(#{subject},#{quiz_content},#{class_idx},#{quiz_num},#{writer},"","","","","","")
+		insert into quiz(subject,quiz_content,class_idx,start_date,start_time,quiz_num,writer,question,answer,example1,example2,example3,example4) 
+		values(#{subject},#{quiz_content},#{class_idx},#{start_date},#{start_time},#{quiz_num},#{writer},"","","","","","")
 	</insert>
 	<select id="quizTestList" resultType="papa.quiztest.model.quizTestDTO">
 		select * from quiz

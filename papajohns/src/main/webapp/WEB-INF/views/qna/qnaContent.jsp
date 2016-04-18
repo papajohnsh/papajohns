@@ -1,4 +1,4 @@
-​<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-<%@ include file="../header.jsp" %>
+<%@include file="../header.jsp" %>
 <!-- Left side column. contains the logo and sidebar -->
    <aside class="main-sidebar">
 
@@ -34,6 +34,7 @@
               <p>${snickname}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
+
 
         </c:if>
 
@@ -64,7 +65,7 @@
          </li>
          <li>
            <a href="qnaList.do">
-            <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span>
+            <i class="fa fa-circle-o text-aqua"></i><span>Q&A</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -73,36 +74,30 @@
      </section>
      <!-- /.sidebar -->
    </aside>
-
-  <!-- Content Wrapper. Contains page content -->
+   
+      <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-
-<!-- Main content -->
-   <c:set var="dto" value="${list}"></c:set>
-   <c:choose>
-   <c:when test="${empty dto}">
-
-    <tr>
-     <td colspan="5" align="center">
-      	잘못된 접근입니다.
-     </td>
-    </tr>
-   </c:when>
-   <c:otherwise>  
-
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            <strong>본문내용 보기</strong>
-          </h1>
-        </section>
-
+      
         <!-- Main content -->
+        <c:set var="dto" value="${list}"></c:set>
+		   <c:choose>
+		   <c:when test="${empty dto}">
+		
+		    <tr>
+		     <td colspan="5" align="center">
+		      	잘못된 접근입니다.
+		     </td>
+		    </tr>
+		   </c:when>
+		   <c:otherwise>  
+        
+        <section class="content">
           <div class="row">
-            <div class="col-xs-12">
-              <div class="box">
-                <div class="box-header">
-                  <h4 class="box-title"></h4>
+            
+            <div class="col-md-12">
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">본문내용보기</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table id="example2" class="table table-bordered">
@@ -118,24 +113,25 @@
                 		<td>조회수</td>
                 		<td><span class="badge bg-red">${dto.readnum}</span></td>
                 	</tr>
-					<tr>
+                	<tr>
 						<td align="center" colspan="4">
 						${dto.content }
 						</td>
 					</tr>
                   </table>
                   <div align="center">
-                  <span><a href="qnaReWriteForm.do?idx=${dto.idx }&subject=${dto.subject}" class="btn btn-sm btn-danger btn-flat pull-center"> 댓글작성</a></span>
-                  <span><a href="qnaList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a></span>
-                  </div>
+		            <span><a href="qnaReWriteForm.do?idx=${dto.idx }&subject=${dto.subject}" class="btn btn-sm btn-danger btn-flat pull-center"> 댓글작성</a></span>
+		            <span><a href="qnaList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a></span>
+        		</div>
                 </div><!-- /.box-body -->
-              </div><!-- /.box -->
-              </div>
-              </div>
-              </c:otherwise>
-           </c:choose>
-           
-            <!-- Chat box -->
+              </div><!-- /. box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+        </c:otherwise>
+     </c:choose>
+     
+     <!-- Chat box -->
               <div class="box box-success">
                 <div class="box-header">
                   <i class="fa fa-comments-o"></i>
@@ -163,11 +159,10 @@
                   <!-- chat item -->
                 </div><!-- /.chat -->
               </div><!-- /.box (chat box) -->
-             </div>
-            </div>
-
-            <%@ include file="../footer.jsp" %>
-    		<%@ include file="../controllSide.jsp" %>
-
+     
+      </div><!-- /.content-wrapper -->
+      <%@ include file="../footer.jsp" %>
+    <%@ include file="../controllSide.jsp" %>
+	 
 </body>
 </html>

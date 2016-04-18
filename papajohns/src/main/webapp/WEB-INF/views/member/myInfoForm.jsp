@@ -136,24 +136,7 @@
                       <label for="phonenumber">핸드폰번호</label>
                       <input type="text" name="phonenumber" class="form-control" value="${sphone}">
                     </div>
-                   
-                    <!-- checkbox -->
-                     <div class="form-group">
-                     <label>정보수신</label>
-                      <div class="checkbox">
-                       <span>
-                        <label>
-                          <input type="checkbox">
-                           mailing
-                        </label>
-                        </span>
-                        <span>
-                        <label>
-                          <input type="checkbox">
-                           SNS
-                        </label>
-                        </span>
-                      </div>
+                   </div>
                     </div>
                    <div align="center">
                    <input type="submit" class="btn btn-success pull-center" value="수정하기">

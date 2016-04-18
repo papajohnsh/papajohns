@@ -48,17 +48,18 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">Menu</li>
-            <li>
-              <a href="supportForm.do">
-                <i class="fa fa-circle-o text-red"></i> <span>FAQ</span>
-                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-              </a>
-            </li>
-            <li>
-              <a href="faqForm.do">
-                <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span></a>
-                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-            </li>
+              <li>
+	          <a href="faqList.do">
+	             <i class="fa fa-circle-o text-red"></i><span>FAQ</span>
+	             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+	           </a>
+	         </li>
+	         <li>
+	           <a href="qnaList.do">
+	            <i class="fa fa-circle-o text-aqua"></i><span>Q&A</span>
+	             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+	           </a>
+         </li>
           </ul>
            <ul class="sidebar-menu"></ul>
         </section>
@@ -67,101 +68,49 @@
 
 
  <!-- Content Wrapper. Contains page content -->
-     
-       <!-- Content Wrapper. Contains page content -->
    		<div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <h3 align="center">FAQ 글쓰기</h3>
-        <section class="content-header">
-
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Forms</a></li>
-            <li class="active">Editors</li>
-          </ol>
-        </section>
-
-        <!-- Main content -->
-       
-  			<div class="box box-info">
-                 <form name="faqWrite" action="faqWrite.do" method="post">
+       		<form name="faqWrite" action="faqWrite.do" method="post">
+             <div class="box">
+                <div class="box-header" align="center">
+                  <h3 class="box-title">FAQ 글쓰기</h3>
+                  <!-- tools box -->
+                  <div class="pull-right box-tools">
+                    <button class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+                  </div><!-- /. tools -->
+                </div><!-- /.box-header -->
                  <table class="table table-bordered">
                  
                   <tr>
 					<th>작성자</th>
-        			<td><input type="text" name="writer" value="${snickname}"></td>
-        			<th>조회수</th>
-        			<td><span class="badge bg-red">0</span></td>
+        			<td><input type="text" name="writer" readonly="readonly" value="${snickname}"></td>
                   </tr>
         			<tr>
         				<th>제목</th>
         				<td><input type="text" name="subject" placeholder="subject"></td>
-        				<th>추천하기</th>
-        				<td><a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up"></span>Like</a></td>
         			</tr>
  				</table>
                 <div class="box-body pad">
-                  
-                    <textarea id="content" name="content" rows="10" cols="80"></textarea>
-                  <br>
+                  <fieldset>
+                    <textarea name="content" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                  </fieldset>
+                 </div> 
                   <!-- writeAdd button -->
                   <div>
                 	<input type="submit" class="btn btn-primary pull-right" value="글올리기">
 				  </div>
-				  <!-- file -->
-                	<div class="form-group" align="center">
-          				<span><input type="file" id="exampleInputFile"></span>
-      				</div>
-             	</div>
-             	</form>
-           </div>
-
-      <!-- TABLE: LATEST ORDERS -->
- 			<div class="box-header with-border"></div><!-- /.box-header -->
-                <div class="box-body">
-                  <div class="table-responsive">
-                    <table class="table no-margin">
-                      <thead>
-                        <tr>
-                          <th>번호</th>
-                          <th>제목</th>
-                          <th>작성자</th>
-                          <th>조회수</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      <c:set var="dto" value="${list}"></c:set>
-				      	<c:if test="${empty dto}">
-				      		<tr>
-				      			<td colspan="5" align="center">
-				      				등록된 게시글이 없습니다.
-				      			</td>
-				      		</tr>
-				      	</c:if>
-                      <c:forEach var="dto" items="${list}">
-                        <tr>
-                          <td>${dto.idx}</td>
-                          <td>${dto.subject}</td>
-                          <td>${dto.writer}</td>
-                          <td><span class="badge bg-red">${dto.readnum}</span></td>
-                        </tr>
-                      </c:forEach>
-                      </tbody>
-                    </table>
-                  </div><!-- /.table-responsive -->
-
-                <div class="box-footer clearfix" align="center">
-    				<ul class="pagination pagination-sm no-margin pull-center">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div><!-- /.box-footer -->
-              </div><!-- /.box -->
-            <!-- search form -->
-       </div><!-- container -->  
+				  </form>
+				  <br>
+                  <!-- 파일올리기 영역 -->
+				<form name="fileupload2" action="fileUpload2.do" method="post" enctype="multipart/form-data">
+					<div align="center">
+						<input type="file" name="upload"><br>
+						<input type="submit" value="파일올리기">
+					</div>
+					<a href="bbsFileList.do" class="btn btn-sm btn-default btn-flat pull-right">파일리스트</a>
+				</form>
+                </div>
+       		</div><!-- container --> 
        
       <%@include file="../footer.jsp" %>
     <%@ include file="../controllSide.jsp" %>  

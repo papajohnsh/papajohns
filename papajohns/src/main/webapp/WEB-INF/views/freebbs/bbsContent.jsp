@@ -52,14 +52,8 @@
        <ul class="sidebar-menu">
          <li class="header">Menu</li>
          <li>
-          <a href="faqList.do">
-             <i class="fa fa-circle-o text-red"></i> <span>FAQ</span>
-             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-           </a>
-         </li>
-         <li>
-           <a href="qnaList.do">
-            <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span>
+          <a href="bbsListForm.do">
+             <i class="fa fa-circle-o text-red"></i> <span>자유게시판</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -113,6 +107,10 @@
 						</td>
 					</tr>
                   </table>
+                  <div align="center">
+		            <span><a href="bbsReWriteAdd.do?idx=${dto.idx }&subject=${dto.subject}" class="btn btn-sm btn-danger btn-flat pull-center"> 댓글작성</a></span>
+		            <span><a href="bbsListForm.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a></span>
+        		</div>
                 </div><!-- /.box-body -->
               </div><!-- /. box -->
             </div><!-- /.col -->

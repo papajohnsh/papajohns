@@ -32,6 +32,7 @@
             <div class="pull-left image">
             <img src="resource/data/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" height="300px" width="300px" class="img-circle" >
             </div>
+
             <div class="pull-left info">
               <p>${snickname}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
@@ -60,13 +61,13 @@
          <li class="header">Menu</li>
          <li>
           <a href="faqList.do">
-             <i class="fa fa-circle-o text-red"></i> <span>FAQ</span>
+             <i class="fa fa-circle-o text-red"></i><span>FAQ</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
          <li>
            <a href="qnaList.do">
-            <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span>
+            <i class="fa fa-circle-o text-aqua"></i><span>Q&A</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -87,13 +88,13 @@
                <h3 class="box-title">질문게시판</h3>
                <div class="box-tools">
                  <div class="input-group" style="width: 150px;">
-                 <form name="search" action="#" method="post">
-                 <input type="text" name="subject" required="required" class="form-control input-sm pull-right" placeholder="Search">
-                 	<select name="writer">
-                 		<option value="subject">제목</option>
-                 		<option value="writer">작성자</option>     		
+                 <form name="search" action="qnaFind.do" method="post">
+					<select name="fkey">
+                 		<option value="writer">작성자</option>
+                 		<option value="subject">제목</option>     		
                  	</select>
-      					<input type="submit" class="btn btn-sm btn-default" value="검색">
+                 	<input type="text" name="fvalue" required="required" class="form-control input-sm pull-right" placeholder="Search">
+      				<input type="submit" class="btn btn-sm btn-default" value="검색">
 					</form>
                  </div>
                </div>
@@ -130,18 +131,13 @@
                      </c:forEach>
                    </tbody>
                </table>
+                <div align="center">${pageStr}</div><!-- 페이징 영역 -->
+				<br>
 
                <div class="box-footer clearfix" align="center">
 
                <a href="qnaWriteForm.do" class="btn btn-sm btn-info btn-flat pull-right">글쓰기</a>
 
-           <ul class="pagination pagination-sm no-margin pull-center">
-                 <li><a href="#">&laquo;</a></li>
-                 <li><a href="#">1</a></li>
-                 <li><a href="#">2</a></li>
-                 <li><a href="#">3</a></li>
-                 <li><a href="#">&raquo;</a></li>
-               </ul>
              </div><!-- /.box-body -->
            </div><!-- /.box -->
          </div>

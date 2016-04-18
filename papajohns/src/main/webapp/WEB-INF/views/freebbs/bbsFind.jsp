@@ -51,13 +51,13 @@
             <li class="header">Menu</li>
             <li>
              <a href="faqList.do">
-                <i class="fa fa-circle-o text-red"></i> <span>FAQ</span>
+                <i class="fa fa-circle-o text-red"></i><span>FAQ</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
             <li>
               <a href="qnaList.do">
-               <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span>
+               <i class="fa fa-circle-o text-aqua"></i><span>Q&A</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>

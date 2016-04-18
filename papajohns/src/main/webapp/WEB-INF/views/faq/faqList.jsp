@@ -62,7 +62,7 @@
          </li>
          <li>
            <a href="qnaList.do">
-            <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span>
+            <i class="fa fa-circle-o text-aqua"></i><span>Q&A</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -132,18 +132,13 @@
                    	</c:choose>
                    </tbody>
                </table>
+               <div align="center">${pageStr}</div><!-- 페이징 영역 -->
+				<br>
 
                <div class="box-footer clearfix" align="center">
 
                <a href="faqWriteForm.do" class="btn btn-sm btn-info btn-flat pull-right">글쓰기</a>
 
-           <ul class="pagination pagination-sm no-margin pull-center">
-                 <li><a href="#">&laquo;</a></li>
-                 <li><a href="#">1</a></li>
-                 <li><a href="#">2</a></li>
-                 <li><a href="#">3</a></li>
-                 <li><a href="#">&raquo;</a></li>
-               </ul>
              </div><!-- /.box-body -->
            </div><!-- /.box -->
          </div>

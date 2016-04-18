@@ -107,6 +107,19 @@
 	                   	</td>
                       <!-- <td><input type="text" name="class_date" class="form-control"></td> -->
 					</tr>
+					<tr>
+					<th>날짜</th>
+					<td>
+					<input type="checkbox" name="day" value="1">월
+					<input type="checkbox" name="day" value="2">화
+					<input type="checkbox" name="day" value="3">수
+					<input type="checkbox" name="day" value="4">목
+					<input type="checkbox" name="day" value="5">금
+					<input type="checkbox" name="day" value="6">토
+					<input type="checkbox" name="day" value="0">일
+					
+					</td>
+					</tr>
                     <tr>
                       <td colspan="4">
                       <textarea rows="20" cols="180" id="content" name="explanation" class="form-control"></textarea>
