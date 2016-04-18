@@ -56,7 +56,7 @@
          <li class="header">Menu</li>
          <li>
           <a href="faqList.do">
-             <i class="fa fa-circle-o text-red"></i> <span>FAQ</span>
+             <i class="fa fa-circle-o text-red"></i><span>FAQ</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -84,7 +84,7 @@
                <h3 class="box-title">FAQ</h3>
                <div class="box-tools">
                  <div class="input-group" style="width: 150px;">
-                 <form name="search" action="faqFind.do" method="post">
+                  <form name="search" action="faqFind.do" method="post">
 					<select name="fkey">
                  		<option value="writer">작성자</option>
                  		<option value="subject">제목</option>     		
@@ -109,7 +109,7 @@
 
                  <tbody>
                    	<c:choose>
-                   		<c:when test="${empty list }">
+                   		<c:when test="${empty list}">
                    			<tr>
 	                   			<td colspan="4" align="center">
 	                   			 	등록된 게시글이 없습니다.

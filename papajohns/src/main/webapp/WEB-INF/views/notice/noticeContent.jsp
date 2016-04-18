@@ -56,14 +56,14 @@
        <ul class="sidebar-menu">
          <li class="header">Menu</li>
          <li>
-          <a href="faqList.do">
-             <i class="fa fa-circle-o text-red"></i> <span>FAQ</span>
+          <a href="bbsListForm.do">
+             <i class="fa fa-circle-o text-red"></i><span>자유게시판</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
          <li>
-           <a href="qnaList.do">
-            <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span>
+          <a href="noticeList.do">
+             <i class="fa fa-circle-o text-red"></i><span>공지사항</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -117,6 +117,9 @@
 						</td>
 					</tr>
                   </table>
+                   <div align="center">
+		            <a href="noticeList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a>
+        		</div>
                 </div><!-- /.box-body -->
               </div><!-- /. box -->
             </div><!-- /.col -->
@@ -124,36 +127,6 @@
         </section><!-- /.content -->
         </c:otherwise>
      </c:choose>
-     
-     <!-- Chat box -->
-              <div class="box box-success">
-                <div class="box-header">
-                  <i class="fa fa-comments-o"></i>
-                  <h3 class="box-title">Chat</h3>
-                </div>
-                <div class="box-body chat" id="chat-box">
-                  <!-- chat item -->
-                  <c:set var="noticeReList" value="${reList}"></c:set>
-                  <c:if test="${empty noticeReList}">
-                  	등록된 댓글이 없습니다.
-                  </c:if>
-                  <c:forEach var="dto" items="${noticeReList}">
-                  <div class="item">
-                    <img src="img/송중기.jpg" alt="user image" class="online">
-                    <p class="message">
-                      <a href="#" class="name">
-                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i>${dto.write_date}</small>
-                        	${dto.writer}
-                      </a>
-                      		${dto.content}
-                    </p>
-                    
-                  </div><!-- /.item -->
-                  </c:forEach>
-                  <!-- chat item -->
-                </div><!-- /.chat -->
-              </div><!-- /.box (chat box) -->
-     
       </div><!-- /.content-wrapper -->
       <%@ include file="../footer.jsp" %>
     <%@ include file="../controllSide.jsp" %>

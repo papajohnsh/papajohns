@@ -1,6 +1,10 @@
 package papa.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,12 +47,34 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("/noticeList.do")//공지사항 리스트 보기
-	public ModelAndView noticeList(){
+	public ModelAndView noticeList(HttpServletRequest req){
 		
-		List<NoticeDTO> list=noticeDao.noticeList();
+		int totalCnt=noticeDao.getTotalCnt();//총게시물 수 가져오기
+		//System.out.println("1: "+totalCnt);  
+		totalCnt=totalCnt==0?1:totalCnt;      //전체 게시물 수
+		//System.out.println("2: "+totalCnt);
+	      int listSize=5;                     //페이지에 출력할 게시물 수
+	      int pageSize=5;                     //페이지 출력 수
+	   
+	      String cp_s=req.getParameter("cp");
+	      if(cp_s==null||cp_s.equals("")){
+	         cp_s="1";
+	      }
+	      int cp=Integer.parseInt(cp_s);
+	      
+	      String pageStr=papa.page.PageMaker.goPage("noticeList.do", totalCnt, listSize, pageSize, cp);
+	      
+	      int startNum=(cp-1)*listSize;
+		  int endNum=cp*listSize;
+		      
+	      Map map=new HashMap();
+	      map.put("startNum", startNum);
+	      map.put("endNum", endNum);
 		
+		List<NoticeDTO> list=noticeDao.noticeList(map);		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list", list);
+		mav.addObject("pageStr", pageStr);
 		mav.setViewName("notice/noticeList");
 		return mav;
 	}
@@ -63,6 +89,23 @@ public class NoticeController {
 		mav.addObject("list", list);
 		mav.addObject("count", count);
 		mav.setViewName("notice/noticeContent");
+		return mav;
+	}
+	
+	@RequestMapping("/noticeFind.do")//공지사항 검색
+	public ModelAndView noticeFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
+		
+		Map<String, String> map=new HashMap();
+		map.put("fkey", fkey);
+		map.put("fvalue", fvalue);
+		
+		System.out.println("fkey="+fkey+"/"+"fvalue="+fvalue);
+		
+		List<NoticeDTO> list=noticeDao.noticeFind(map);
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("notice/noticeFind");
 		return mav;
 	}
 

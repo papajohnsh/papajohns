@@ -8,7 +8,7 @@
 		qna_bbs(writer,subject,content,write_date,readnum,ref,lev,sunbun)
 		values(#{writer},#{subject},#{content},now(),0,0,0,0)
 	</insert>
-	<select id="qnaList" resultType="papa.qna.model.QnaDTO">
+	<select id="qnaList" parameterType="Map" resultType="papa.qna.model.QnaDTO">
 		select * from qna_bbs order by idx desc limit #{startNum}, #{endNum}
 	</select>
 	<select id="qnaContent" parameterType="int" resultType="papa.qna.model.QnaDTO">
@@ -21,7 +21,7 @@
 		select idx from qna_bbs where idx=#{idx}
 	</select>
 	<select id="qnaFind" parameterType="Map" resultType="papa.qna.model.QnaDTO">
- 		select * from free_bbs where
+ 		select * from qna_bbs where
  		<choose>
  			<when test="fkey=='writer'">
  				writer LIKE CONCAT('%',#{fvalue},'%')
@@ -36,7 +36,7 @@
 		update qna_bbs set readnum=readnum+1 where idx=#{idx}
 	</update>
 	<select id="qnaTotalCnt" resultType="int">
- 		select count(*) from free_bbs
+ 		select count(*) from qna_bbs
  	</select>
 
 	<select id="qnaFindName" parameterType="String" resultType="papa.qna.model.QnaDTO">

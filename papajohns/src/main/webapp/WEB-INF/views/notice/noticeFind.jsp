@@ -26,7 +26,7 @@
 
           <c:if test="${!empty sid}">
             <div class="pull-left image">
-          <img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" id="userImage">
+         <img src="resource/data/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" height="300px" width="300px" class="img-circle" >
             </div>
            </c:if>
 
@@ -50,17 +50,17 @@
           <ul class="sidebar-menu">
             <li class="header">Menu</li>
             <li>
-             <a href="faqList.do">
-                <i class="fa fa-circle-o text-red"></i><span>FAQ</span>
-                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-              </a>
-            </li>
-            <li>
-              <a href="qnaList.do">
-               <i class="fa fa-circle-o text-aqua"></i><span>Q&A</span>
-                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-              </a>
-            </li>
+	          <a href="bbsListForm.do">
+	             <i class="fa fa-circle-o text-red"></i><span>자유게시판</span>
+	             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+	           </a>
+         	</li>
+        	 <li>
+	          <a href="noticeList.do">
+	             <i class="fa fa-circle-o text-red"></i><span>공지사항</span>
+	             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+	           </a>
+         	</li>
           </ul>
            <ul class="sidebar-menu"></ul>
         </section>

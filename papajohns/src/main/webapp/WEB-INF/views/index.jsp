@@ -44,10 +44,9 @@
         </section>
         <!-- /.sidebar -->
       </aside>
-		
-		  <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
 
+	<!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
 		<!-- Small boxes (Stat box) -->
           <div class="row">
             <div class="col-lg-3 col-xs-6">
@@ -141,21 +140,12 @@
                       </c:forEach>  
                       </tbody>
                   </table>
+                  <div align="center">${pageStr}</div><!-- 페이징 영역 -->
                 </div><!-- /.box-body -->
-                <div class="box-footer clearfix">
-                  <ul class="pagination pagination-sm no-margin pull-right">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
                 </div>
-                </div>
-               </div> 
+			</div>
               </div><!-- /.box -->
- 
-				<div class="row">
+ 			<div class="row">
             <div class="col-md-12">
               <div class="box">
                 <div class="box-header with-border" align="center">
@@ -203,9 +193,9 @@
                     <li><a href="#">&raquo;</a></li>
                   </ul>
                 </div>
-              </div><!-- /.box -->
-			</div>
-			</div>
+              </div><!-- /.box -->	
+			</div>	
+	</div>
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
  	<%@ include file="footer.jsp" %>
