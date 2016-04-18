@@ -7,6 +7,7 @@ import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -84,17 +85,19 @@ public ModelAndView quizUpdate(quizDTO dto){
 
 
 @RequestMapping("/quizList.do")
-public ModelAndView QuizList(){
+public ModelAndView QuizList(@RequestParam(value="idx") int idx){
 	
 	List<quizDTO> result= quizDao.quizList();
 		
 	ModelAndView mav=new ModelAndView();
+	mav.addObject("class_idx",idx);
 	mav.addObject("result",result);
 	mav.setViewName("quiz/quizList");
 	return mav;
 }
 @RequestMapping("/quizTestSave.do")
 public ModelAndView QuizTestSave(quizTestDTO dto){
+	System.out.println("클래스반번호"+dto.getClass_idx());
 	dto.setQuiz_num(dto.getQuiz_num().substring(4));
 	System.out.println(dto.getQuiz_num());
 	int result=quizTestDao.quizTestSave(dto);
@@ -105,7 +108,7 @@ public ModelAndView QuizTestSave(quizTestDTO dto){
 	
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("msg", msg);
-	mav.addObject("url","classShow.do");
+	mav.addObject("url","classShow.do?idx="+dto.getClass_idx());
 	mav.setViewName("quiz/quizMsg");
 	return mav;
 	
@@ -213,12 +216,14 @@ public ModelAndView QuizTestList(quizTestDTO dto) throws ParseException{
 		mav.addObject("msg",msg);
 		mav.setViewName("quiz/quizUpdateMsg");
 		return mav;
-	}
-	if(beginDate.getTime()/1000/60/60>endDate.getTime()/1000/60/60+1){
-		
-	}
-	System.out.println("시간"+beginDate.getTime()/1000/60/60);
-	System.out.println("시간"+endDate.getTime()/1000/60/60+1);
+	}else if(beginDate.getTime()>endDate.getTime()+((long)1000*60*60)){
+		ModelAndView mav=new ModelAndView();
+		String msg="이미 시험이 종료되었습니다.";
+		mav.addObject("msg",msg);
+		mav.setViewName("quiz/quizUpdateMsg");
+		return mav;
+	}else{
+
 	List<quizTestDTO> result2=new ArrayList<>();
 	String ques=result.getQuestion();
 	String[] question=ques.split("::");
@@ -240,6 +245,7 @@ public ModelAndView QuizTestList(quizTestDTO dto) throws ParseException{
 	mav.addObject("result2",result2);
 	mav.setViewName("quiz/quizLoadView");
 	return mav;
+	}
 }
 
 }

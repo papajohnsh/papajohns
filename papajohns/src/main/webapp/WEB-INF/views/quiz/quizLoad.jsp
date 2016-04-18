@@ -45,7 +45,7 @@ function gogo(){
 <div class="modal-header" >
 
     <!-- 닫기(x) 버튼 -->
-  <button type="button" class="close" data-dismiss="modal">×</button>
+  <button type="button" class="close" data-dismiss="modal" >×</button>
   <!-- header title -->
   <h4 class="modal-title" style="background-color:#3c8dbc; color: white; text-align: center;">문제 리스트</h4>
 </div>
