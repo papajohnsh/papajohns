@@ -327,6 +327,39 @@ public class MemberController {
 			return mav;
 		}
 	}
+	@RequestMapping("/JLogin.do")
+	public ModelAndView JLogin(MemberDTO dto, HttpSession session){
+		MemberDTO result=memberDao.facebookLogin(dto);
+		ModelAndView mav=new ModelAndView();
+		String msg="";
+		String url="";
+		if(result!=null){
+			if(result.getNickname()!=null&&result.getNickname()!=""){
+				msg="로그인 성공!";
+				url="index.do";
+				session.setAttribute("sid", result.getId());
+				session.setAttribute("sname", result.getName());
+				session.setAttribute("snickname", result.getNickname());
+				mav.addObject("msg", msg);
+				mav.addObject("url", url);
+				mav.setViewName("member/memberMsg");
+				return mav;
+			}else{
+				session.setAttribute("sid", dto.getId());
+				session.setAttribute("sname", dto.getName());
+				mav.setViewName("member/nickname");
+				return mav;
+			}
+		}else{
+			int fbJoin=memberDao.fbJoin(dto);
+			if(fbJoin>0){
+				session.setAttribute("sid", dto.getId());
+				session.setAttribute("sname", dto.getName());
+				mav.setViewName("member/nickname");
+			}
+			return mav;
+		}
+	}
 /*	@RequestMapping("/nickUpdate.do")
 	public ModelAndView nickUpdate(@RequestParam("nickname") String nickname){
 		int result=

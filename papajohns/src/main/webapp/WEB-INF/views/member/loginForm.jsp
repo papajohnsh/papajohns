@@ -121,6 +121,9 @@ var date = now.getDate();
   <div align="center">
  <%@ include file="kakaLogin.jsp" %>
  </div>
+   <div align="center">
+ <%@ include file="googleLogin.jsp" %>
+ </div>
 <br>
 
 <div class="container">
