@@ -17,6 +17,7 @@ public class classDTO {
 	private Date write_date;
 	private String explanation;
 	private String reidx;
+	private String day;
 	
 
 	public classDTO() {
@@ -25,7 +26,7 @@ public class classDTO {
 
 
 	public classDTO(int idx, String name, String subject, String start_time, String end_time, String institut,
-			String start_date, String end_date, Date write_date, String explanation, String reidx) {
+			String start_date, String end_date, Date write_date, String explanation, String reidx, String day) {
 		super();
 		this.idx = idx;
 		this.name = name;
@@ -38,6 +39,7 @@ public class classDTO {
 		this.write_date = write_date;
 		this.explanation = explanation;
 		this.reidx = reidx;
+		this.day = day;
 	}
 
 
@@ -150,5 +152,17 @@ public class classDTO {
 		this.reidx = reidx;
 	}
 
+
+	public String getDay() {
+		return day;
+	}
+
+
+	public void setDay(String day) {
+		this.day = day;
+	}
+
+
+	
 	
 }
