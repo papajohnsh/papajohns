@@ -20,16 +20,9 @@ public class FaqDAOImple implements FaqDAO {
 		return count;
 	}
 
-	public List<FaqDTO> faqList() {//faq 리스트 보기
+	public List<FaqDTO> faqList(Map<String, Integer> map) {//faq 리스트 보기
 		
-		/*int startNum=(cp-1)*ls+1;
-		int endNum=cp*ls;
-		
-		Map map=new HashMap();
-		map.put("startNum", startNum);
-		map.put("endNum", endNum);*/
-		
-		List<FaqDTO> list=sqlMap.selectList("faqList");
+		List<FaqDTO> list=sqlMap.selectList("faqList", map);
 		return list;
 	}
 

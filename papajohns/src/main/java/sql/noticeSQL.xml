@@ -7,8 +7,8 @@
  		insert into notice(writer,subject,content,write_date,readnum)
  		values(#{writer},#{subject},#{content},now(),0)
  	</insert>
- 	<select id="noticeList" resultType="papa.notice.model.NoticeDTO">
- 		select * from notice
+ 	<select id="noticeList" parameterType="Map" resultType="papa.notice.model.NoticeDTO">
+ 		select * from notice order by idx desc limit #{startNum}, #{endNum}
  	</select>
  	<select id="noticeContent" parameterType="int" resultType="papa.notice.model.NoticeDTO">
  		select * from notice where idx=#{idx}
@@ -16,4 +16,20 @@
  	<update id="noticeNum" parameterType="int">
  		update notice set readnum=readnum+1 where idx=#{idx}
  	</update>
+ 	
+ 	<select id="noticeTotal" resultType="int">
+ 		select count(*) from notice
+ 	</select>
+ 	
+ 	<select id="noticeFind" parameterType="Map" resultType="papa.notice.model.NoticeDTO">
+ 		select * from notice where
+ 		<choose>
+ 			<when test="fkey=='writer'">
+ 				writer LIKE CONCAT('%',#{fvalue},'%')
+ 			</when>
+ 			<otherwise>
+ 				subject LIKE CONCAT('%',#{fvalue},'%')
+ 			</otherwise>
+ 		</choose>
+ 	</select>
  </mapper>

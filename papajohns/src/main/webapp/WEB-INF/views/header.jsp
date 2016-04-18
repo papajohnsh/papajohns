@@ -78,7 +78,7 @@
 					<li class="bbs-menu"><a href="bbsListForm.do"><span>Bbs</span></a>
 					</li>
 					<!-- support-menu -->
-					<li class="support-menu"><a href="supportForm.do"><span>Support</span></a>
+					<li class="support-menu"><a href="faqList.do"><span>Support</span></a>
 					</li>
 					<!-- Control Sidebar Toggle Button -->
 					<li><a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a></li>

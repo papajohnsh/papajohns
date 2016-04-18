@@ -19,32 +19,44 @@
 
        <!-- Sidebar user panel -->
 
-       <div class="user-panel">
-       <c:if test="${empty sid}">
-       <div class="pull-left image">
-       	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-       </div>
-       </c:if>
+        <div class="user-panel">
+          <c:if test="${empty sid}">
+          <div class="pull-left image">
+          	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+          </div>
+          </c:if>
+          <c:if test="${!empty sid}">
+        <div class="pull-left image" style="height: 100px; width: 80px;">
 
-       <c:if test="${!empty sid}">
-         <div class="pull-left image"><img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" id="userImage">
-         </div>
-        </c:if>
+					<img src="resource/data/${sid }/profile.jpg"
+						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
+						class="img-circle"
+						style="max-width: 80px; height: 80px; width: 80px; margin-top: 10px;">
+				</div>
+				<div style="margin-left: 85px; margin-top: -5px;">
+					<a href="myInfoForm.do"><font size="2">내정보</a>&nbsp;
+					&nbsp; <a href="logout.do"><font size="2">로그아웃</a>
+				</div>
+				<br>
+				<br>
+				<div style="margin-top: -20px;">
+					<font size="2" color="white">&nbsp;&nbsp;&nbsp;${snickname}</font>
+				</div>
+				<div style="margin-left: 120; margin-top: 8px;">
+					&nbsp;&nbsp;&nbsp;<a href="#"><i
+						class="fa fa-circle text-success"></i><font color="white">&nbsp;&nbsp;Online</font>
+					</a>
+				</div>
 
-         <div class="pull-left info">
-            <c:if test="${empty sid}">
-           	<script type="text/javascript">
-          		window.alert('로그인 후 이용 가능한 서비스입니다.');
-           		location.href="index.do";
-           	</script>
-           	</c:if>
-
-           <c:if test="${!empty sid}">
-           	<p>${snickname}</p>
-           	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-           	</c:if>
-         </div>
-       </div>
+           </c:if>
+            <div class="pull-left info">
+              <c:if test="${empty sid}">
+              <p>로그인 해주세요</p>
+              <a href="#"><i class="fa fa-circle text-danger"></i> Offline</a>
+              </c:if>
+            
+            </div>
+          </div>
 
        <!-- sidebar menu: : style can be found in sidebar.less -->
 
@@ -110,8 +122,11 @@
 						<td align="center" colspan="4">
 						${dto.content }
 						</td>
-					</tr>
+					</tr>					
                   </table>
+                  <div align="center">
+		            <a href="faqList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a>
+        		</div>
                 </div><!-- /.box-body -->
               </div><!-- /. box -->
             </div><!-- /.col -->
@@ -119,35 +134,6 @@
         </section><!-- /.content -->
         </c:otherwise>
      </c:choose>
-     
-     <!-- Chat box -->
-              <div class="box box-success">
-                <div class="box-header">
-                  <i class="fa fa-comments-o"></i>
-                  <h3 class="box-title">Chat</h3>
-                </div>
-                <div class="box-body chat" id="chat-box">
-                  <!-- chat item -->
-                  <c:set var="faqReList" value="${reList}"></c:set>
-                  <c:if test="${empty bbsReList}">
-                  	등록된 댓글이 없습니다.
-                  </c:if>
-                  <c:forEach var="dto" items="${faqReList}">
-                  <div class="item">
-                    <img src="img/송중기.jpg" alt="user image" class="online">
-                    <p class="message">
-                      <a href="#" class="name">
-                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i>${dto.write_date}</small>
-                        	${dto.writer}
-                      </a>
-                      		${dto.content}
-                    </p>
-                    
-                  </div><!-- /.item -->
-                  </c:forEach>
-                  <!-- chat item -->
-                </div><!-- /.chat -->
-              </div><!-- /.box (chat box) -->
      
       </div><!-- /.content-wrapper -->
       <%@ include file="../footer.jsp" %>

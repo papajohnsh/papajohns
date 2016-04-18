@@ -2,15 +2,7 @@
    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="js/src/jquery.accordion.js"></script>
-<link href="http://www.jqueryscript.net/css/jquerysctipttop.css"
-   rel="stylesheet" type="text/css">
-
-<link rel="stylesheet"
-   href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="js/styles/style.css">
-
 <script>
 
    $('#exam').on('click',function(){
@@ -27,7 +19,7 @@
 	   }else{
 	   	$('#quiz_num').val(quiz_num);
 
-	 document.registration.submit(); 
+	  document.registration.submit();  
 	   } 
 
    });
@@ -61,8 +53,8 @@
    }
 
    $(function() {
-
       $('.example2').accordion();
+
 
    });
 </script>
@@ -74,10 +66,11 @@
 <form name="registration" action="quizTestSave.do" method="post">
    시 험 명:<input type="text" name="subject" ><br><br>
   시험내용:<textarea rows="3" name="quiz_content" cols="30"></textarea><br>
-  반IDX:<input type="text" name="class_idx"><br>
-  시험날짜:<br>
+
+<input type="hidden" name="class_idx" value="${class_idx }"><br>
+  시험날짜:<input name="start_date" type="date">
+  		<input name="start_time" type="time">
   <input type="hidden" name="writer" value="${sname }">
-  
   	
 	<input type="hidden" name="quiz_num" id="quiz_num">
 	<input id="exam" type="button" value="시험 등록하기">

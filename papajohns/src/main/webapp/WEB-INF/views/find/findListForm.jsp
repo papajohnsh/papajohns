@@ -7,35 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
- <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="css/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="css/dist/css/skins/_all-skins.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="css/plugins/iCheck/flat/blue.css">
-    <!-- Morris chart -->
-    <link rel="stylesheet" href="css/plugins/morris/morris.css">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="css/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-    <!-- Date Picker -->
-    <link rel="stylesheet" href="css/plugins/datepicker/datepicker3.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="css/plugins/daterangepicker/daterangepicker-bs3.css">
-    <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-    
+
 <script type="text/javascript" src="js/httpRequest.js"></script>
 </head>
 
@@ -51,32 +23,41 @@
         <section class="sidebar">
           <!-- Sidebar user panel -->
           <div class="user-panel">
-            <div class="user-panel">
           <c:if test="${empty sid}">
           <div class="pull-left image">
           	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
           </div>
           </c:if>
           <c:if test="${!empty sid}">
-             <div class="pull-left image">
-          <img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" id="userImage">
-            </div>
-            <div class="pull-left info">
-              <p>${snickname}</p>
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
+        <div class="pull-left image" style="height: 100px; width: 80px;">
+
+					<img src="resource/data/${sid }/profile.jpg"
+						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
+						class="img-circle"
+						style="max-width: 80px; height: 80px; width: 80px; margin-top: 10px;">
+				</div>
+				<div style="margin-left: 85px; margin-top: -5px;">
+					<a href="myInfoForm.do"><font size="2">내정보</a>&nbsp;
+					&nbsp; <a href="logout.do"><font size="2">로그아웃</a>
+				</div>
+				<br>
+				<br>
+				<div style="margin-top: -20px;">
+					<font size="2" color="white">&nbsp;&nbsp;&nbsp;${snickname}</font>
+				</div>
+				<div style="margin-left: 120; margin-top: 8px;">
+					&nbsp;&nbsp;&nbsp;<a href="#"><i
+						class="fa fa-circle text-success"></i><font color="white">&nbsp;&nbsp;Online</font>
+					</a>
+				</div>
+
            </c:if>
             <div class="pull-left info">
               <c:if test="${empty sid}">
-              	<script type="text/javascript">
-              		window.alert('로그인 후 이용 가능한 서비스입니다.');
-              		location.href="index.do";
-              	</script>
-              	</c:if>
-              <c:if test="${!empty sid}">
-              	<p>${sname}</p>
-              	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-              	</c:if>
+              <p>로그인 해주세요</p>
+              <a href="#"><i class="fa fa-circle text-danger"></i> Offline</a>
+              </c:if>
+            
             </div>
           </div>
           
@@ -273,8 +254,7 @@
                   </table>
                   </form>
                   </c:if>
-                  
-    
+
              <%@ include file="../footer.jsp" %>
     		<%@ include file="../controllSide.jsp" %>          
   

@@ -40,9 +40,9 @@ public class FreeBbsController {
 	   public ModelAndView bbsListForm(HttpServletRequest req){
 	      
 		int totalCnt=freebbsDao.getTotalCnt();//총게시물 수 가져오기
-		System.out.println("1: "+totalCnt);  
+		//System.out.println("1: "+totalCnt);  
 		totalCnt=totalCnt==0?1:totalCnt;      //전체 게시물 수
-		System.out.println("2: "+totalCnt);
+		//System.out.println("2: "+totalCnt);
 	      int listSize=5;                     //페이지에 출력할 게시물 수
 	      int pageSize=5;                     //페이지 출력 수
 	   
@@ -54,7 +54,7 @@ public class FreeBbsController {
 	      
 	      String pageStr=papa.page.PageMaker.goPage("bbsListForm.do", totalCnt, listSize, pageSize, cp);
 	      	      
-	      int startNum=(cp-1)*listSize+1;
+	      int startNum=(cp-1)*listSize;
 	     int endNum=cp*listSize;
 	      
 	      Map map=new HashMap();
@@ -130,7 +130,7 @@ public class FreeBbsController {
 		return mav;
 	}
 	
-	@RequestMapping("/bbsFind.do")
+	@RequestMapping("/bbsFind.do")//게시판 검색
 	public ModelAndView freeBbsFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
 		
 		Map<String, String> map=new HashMap();

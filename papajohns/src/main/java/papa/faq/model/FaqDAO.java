@@ -6,7 +6,7 @@ import java.util.Map;
 public interface FaqDAO {
 	
 	public int faqWrite(FaqDTO dto);
-	public List<FaqDTO> faqList();
+	public List<FaqDTO> faqList(Map<String, Integer> map);
 	public FaqDTO faqContent(int idx);
 	public int faqNum(int idx);
 	
