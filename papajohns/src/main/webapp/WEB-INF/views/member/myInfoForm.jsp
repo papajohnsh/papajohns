@@ -10,20 +10,12 @@
 
  <script>
     function show(){
-    	location.reload();
+       location.reload();
     }
     </script>
     
 <style>
-#av{
-height: 100px;
-width: 100px;	
-	
-}
-#userImage{
-height: 100px;
-width: 100px;	
-}
+
 .filebox label {
   display: inline-block;
   padding: .5em .75em;
@@ -54,14 +46,22 @@ width: 100px;
      
      <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
+ 
         <section class="sidebar">
+         
           <!-- Sidebar user panel -->
+        
           <div class="user-panel">
-            <div class="pull-left" id="av" >
-              <img src="resource/data/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" id="userImage">${snickname}
-               
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+           
+            <div class="pull-left image" style="height:100px; width: 100px; font:white;" >
+        
+             <img src="resource/data/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" 
+                id="userImage" style="max-width: 80px; height: 100px; width: 100px;">
+         </div>
+         <div style=" margin-left:30px;  height: 50px,width: 50px; " >
+      <p style="font: red"><a href="myInfoForm.do" ><font color="white" size="3em">내정보</font></a>&nbsp; &nbsp; <a href="logout.do"><font color="white" size="2em">로그아웃</font>ㄹ</a></p>
+     <br><span style="font: white"><a href="#"><i class="fa fa-circle text-success"></i>&nbsp; &nbsp; ${snickname}</a> </span>
+         
             </div>
             
           </div>
@@ -89,7 +89,7 @@ width: 100px;
       <!-- general form elements disabled -->
     
              <<!-- Content Wrapper. Contains page content -->
-   			<div class="content-wrapper">
+            <div class="content-wrapper">
               <div class="box box-warning">
                 <div class="box-header with-border">
                   <h3 class="box-title">내정보수정</h3>
@@ -100,9 +100,9 @@ width: 100px;
                      
                           
     <div class="action" style=text-align:center >
-     <img src="resource/data/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" height="300px" width="300px" class="img-circle" >
+     <img src="resource/data/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" height="200px" width="200px" class="img-circle" >
     <form name="fileupload1" action="fileupload1.do" method="post" enctype="multipart/form-data">
-	<input type="hidden" name="id" value=${sid }>
+   <input type="hidden" name="id" value=${sid }>
 <div class="filebox">
   <label for="ex_file">사진변경</label>
   <input type="file" id="ex_file" name="upload"> 
@@ -159,7 +159,7 @@ width: 100px;
                    <input type="submit" class="btn btn-success pull-center" value="수정하기">
                   </div>
                   <div>
-                  	<input type="button" class="btn btn-default pull-right" value="탈퇴하기" onclick="location.href='memberOutForm.do'">
+                     <input type="button" class="btn btn-default pull-right" value="탈퇴하기" onclick="location.href='memberOutForm.do'">
                   </div>
                 
          </form>

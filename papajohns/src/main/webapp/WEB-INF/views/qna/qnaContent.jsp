@@ -28,7 +28,7 @@
 
        <c:if test="${!empty sid}">
             <div class="pull-left image">
-             <img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" id="userImage">
+             <img src="resource/data/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" height="300px" width="300px" class="img-circle" >
             </div>
             <div class="pull-left info">
               <p>${snickname}</p>
