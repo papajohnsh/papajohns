@@ -15,17 +15,14 @@
         <section class="sidebar">
            <!-- Sidebar user panel -->
 
-       <div class="user-panel">
-       <c:if test="${empty sid}">
-       <div class="pull-left image">
-       	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-       </div>
-       </c:if>
-
-       <c:if test="${!empty sid}">
-       <div class="user-panel">
-
-				<div class="pull-left image" style="height: 100px; width: 80px;">
+    <div class="user-panel">
+          <c:if test="${empty sid}">
+          <div class="pull-left image">
+          	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+          </div>
+          </c:if>
+          <c:if test="${!empty sid}">
+        <div class="pull-left image" style="height: 100px; width: 80px;">
 
 					<img src="resource/data/${sid }/profile.jpg"
 						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
@@ -47,24 +44,15 @@
 					</a>
 				</div>
 
-			</div>
-
-        </c:if>
-        
-         <div class="pull-left info">
-          <c:if test="${empty sid}">
-           	<script type="text/javascript">
-          		window.alert('로그인 후 이용 가능한 서비스입니다.');
-           		location.href="index.do";
-           	</script>
-           	</c:if>
-
-           <c:if test="${!empty sid}">
-           	<p>${snickname}</p>
-           	<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-           	</c:if>
-         </div>
-       </div>
+           </c:if>
+            <div class="pull-left info">
+              <c:if test="${empty sid}">
+              <p>로그인 해주세요</p>
+              <a href="#"><i class="fa fa-circle text-danger"></i> Offline</a>
+              </c:if>
+            
+            </div>
+          </div>
           
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
@@ -81,6 +69,11 @@
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
+            	<li><a href="memberOutForm.do"> <i
+						class="fa fa-circle-o text-yellow"></i><span>회원탈퇴</span> <span
+						class="pull-right"><i
+							class="glyphicon glyphicon-chevron-right"></i></span>
+				</a></li>
           </ul>
            <ul class="sidebar-menu"></ul>
         </section>

@@ -89,6 +89,11 @@
 						class="pull-right"><i
 							class="glyphicon glyphicon-chevron-right"></i></span>
 				</a></li>
+					<li><a href="memberOutForm.do"> <i
+						class="fa fa-circle-o text-yellow"></i><span>회원탈퇴</span> <span
+						class="pull-right"><i
+							class="glyphicon glyphicon-chevron-right"></i></span>
+				</a></li>
 			</ul>
 			<ul class="sidebar-menu"></ul>
 		</section>
@@ -100,8 +105,8 @@
 	<!-- Content Wrapper. Contains page content -->
 	<div class="content-wrapper">
 		<div class="box box-warning">
-			<div class="box-header with-border">
-				<h3 class="box-title">내정보수정</h3>
+			<div class="box-header with-border"  align="center">
+				<h3 class="box-title"> 정 보 수 정</h3>
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body">
@@ -129,42 +134,38 @@
 
 
 				</div>
-				<form role="form" name="infoMod" action="myInfo.do">
-					<div class="form-group">
-						<label for="name">이름</label> <input type="text"
+				<br>
+				<div align="center" >
+				<form role="form" name="infoMod" action="myInfo.do" >
+					<div class="form-group"  >
+						<label for="name" style="margin-right: 450px;">이름</label> <input type="text"
 							class="form-control" name="name" value="${sname}"
-							readonly="readonly">
+							readonly="readonly" style="width:500px;">
 					</div>
 					<div class="form-group">
-						<label for="nickname">닉네임</label> <input type="text"
-							class="form-control" name="nickname" value="${snickname}">
+						<label for="nickname" style="margin-right: 450px;">닉네임</label> <input type="text"
+							class="form-control" name="nickname" value="${snickname}" style="width:500px;">
 					</div>
 					<div class="form-group">
-						<label for="pwd">비밀번호</label> <input type="password" name="pwd"
-							class="form-control" value="${spwd}">
+						<label for="pwd" style="margin-right: 450px;">비밀번호</label> <input type="password" name="pwd"
+							class="form-control" value="${spwd}" style="width:500px;">
 					</div>
 					<div class="form-group">
-						<label for="email">이메일</label> <input type="text" name="email"
-							class="form-control" value="${semail}">
+						<label for="email" style="margin-right: 450px;">이메일</label> <input type="text" name="email"
+							class="form-control" value="${semail}" style="width:500px;">
 					</div>
 					<div class="form-group">
-						<label for="phonenumber">핸드폰번호</label> <input type="text"
-							name="phonenumber" class="form-control" value="${sphone}">
+						<label for="phonenumber" style="margin-right: 430px;">핸드폰번호</label> <input type="text"
+							name="phonenumber" class="form-control" value="${sphone}" style="width:500px;">
 					</div>
+						<input type="submit" class="btn btn-success pull-center" value="수정하기">
 			</div>
-		</div>
-		<div align="center">
-			<input type="submit" class="btn btn-success pull-center" value="수정하기">
-		</div>
-		<div>
-			<input type="button" class="btn btn-default pull-right" value="탈퇴하기"
-				onclick="location.href='memberOutForm.do'">
+			</div>
 		</div>
 
 		</form>
 	</div>
-	</div>
-	</div>
+	
 	<!-- container -->
 
 
