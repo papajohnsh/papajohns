@@ -84,28 +84,17 @@
                         </tr>
                       </thead>
                       <tbody>
+                          <c:forEach var="dto" items="${list }">
                         <tr>
                         <td><input type="checkbox"></td>   
                           <td>1.</td>
-                          <td><a href="classShow.do">Java basic</a></td>
-                          <td>2014.05.05</td>
-                          <td>2014.010.06</td>
+                          <td><a href="myClassRoom.do?idx=${dto.idx }">${dto.subject }</a></td>
+                          <td>${dto.start_date }</td>
+                          <td>${dto.end_date }</td>
+                          
+                          
                         </tr>
-                        <tr>
-                        <td><input type="checkbox"></td> 
-                          <td>2.</td>
-                          <td><a href="#">Java 열혈 강의</a></td>
-                          <td>2015.01.10</td>
-                          <td>2015.07.12</td>
-                        </tr>
-                        <tr>
-                          <td><input type="checkbox"></td> 
-                          <td>3.</td>
-                          <td><a href="#">Hello Java</a></td>
-                       	  <td>2016.03.06</td>
-                       	  <td>2016.09.07</td>
-                        </tr>
-                        <tr>
+                     </c:forEach>
                       </tbody>
                     </table>
                     <div class="box-footer clearfix" align="center">
@@ -143,25 +132,17 @@
                           <th>강의종료일</th>
                       </thead>
                       <tbody>
+                         <c:forEach var="dto" items="${list4 }">
                         <tr>
+                        <td><input type="checkbox"></td>   
                           <td>1.</td>
-                          <td><a href="#">정보보안</a></td>
-                          <td>2016.01.03</td>
-                          <td>2016.06.10</td>
+                          <td><a href="classShow.do?idx=${dto.idx }">${dto.subject }</a></td>
+                          <td>${dto.start_date }</td>
+                          <td>${dto.end_date }</td>
+                          
+                          
                         </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td><a href="#">C언어 정복하기</a></td>
-                          <td>2016.02.15</td>
-                          <td>2016.08.20</td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td><a href="#">Java 열혈 강의</a></td>
-                          <td>2015.01.10</td>
-                          <td>2015.07.12</td>
-                        </tr>
-                        <tr>
+                     </c:forEach>
                       </tbody>
                     </table>
                      <div class="box-footer clearfix" align="center">

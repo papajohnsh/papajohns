@@ -81,5 +81,11 @@ public class classDAOImple implements classDAO {
 				String list=sqlMap.selectOne("reidxList",idx);
 				return list;
 			}
+		@Override
+			public classDTO joinClass(int idx) {
+				classDTO list= sqlMap.selectOne("joinClass",idx);
+				System.out.println(list);
+				return list;
+			}
 
 }

@@ -54,27 +54,9 @@
 
        <ul class="sidebar-menu">
          <li class="header">Menu</li>
-         <li>
-          <a href="faqList.do">
-             <i class="fa fa-circle-o text-red"></i> <span>FAQ</span>
-             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-           </a>
-         </li>
-         <li>
-           <a href="qnaList.do">
-            <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span>
-             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-           </a>
-         </li>
-         <li>
-           <a href="designList.do">
-            <i class="fa fa-circle-o text-yellow"></i><span>디자인게시판</span>
-             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-           </a>
-         </li>
-         <li>
-           <a href="noticeList.do">
-            <i class="fa fa-circle-o text-red"></i><span>공지사항</span>
+          <li>
+          <a href="bbsListForm.do">
+             <i class="fa fa-circle-o text-red"></i> <span>자유게시판</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -140,17 +122,10 @@
                </table>
                <div align="center">${pageStr}</div><!-- 페이징 영역 -->
 				<br>
-				<!-- 파일올리기 영역 -->
-				<form name="fileupload2" action="fileUpload2.do" method="post" enctype="multipart/form-data">
-					<div align="center">
-						<input type="file" name="upload"><br>
-						<input type="submit" value="파일올리기">
-					</div>
-				</form>
+				
                <div class="box-footer clearfix" align="center">
 				
                <a href="bbsWriteAdd.do" class="btn btn-sm btn-info btn-flat pull-right">글쓰기</a>
-				<a href="bbsFileList.do" class="btn btn-sm btn-default btn-flat pull-right">파일리스트</a>
           
              </div><!-- /.box-body -->
            </div><!-- /.box -->

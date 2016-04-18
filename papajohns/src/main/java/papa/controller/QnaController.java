@@ -1,6 +1,10 @@
 package papa.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import papa.freebbs.model.FreeBbsDTO;
 import papa.qna.model.QnaDAO;
 import papa.qna.model.QnaDTO;
 import papa.qna.model.QnaReDTO;
@@ -24,12 +29,34 @@ public class QnaController {
 	}
 
 	@RequestMapping("/qnaList.do")//qna 리스트 보기
-	public ModelAndView qnaList(){
+	public ModelAndView qnaList(HttpServletRequest req){
 		
-		List<QnaDTO> list=qnaDao.qnaList();
+		int totalCnt=qnaDao.getTotalCnt();//총게시물 수 가져오기
+		//System.out.println("1: "+totalCnt);  
+		totalCnt=totalCnt==0?1:totalCnt;      //전체 게시물 수
+		//System.out.println("2: "+totalCnt);
+	      int listSize=5;                     //페이지에 출력할 게시물 수
+	      int pageSize=5;                     //페이지 출력 수
+	   
+	      String cp_s=req.getParameter("cp");
+	      if(cp_s==null||cp_s.equals("")){
+	         cp_s="1";
+	      }
+	      int cp=Integer.parseInt(cp_s);
+	      
+	      String pageStr=papa.page.PageMaker.goPage("qnaList.do", totalCnt, listSize, pageSize, cp);
+	      
+	      int startNum=(cp-1)*listSize;
+		  int endNum=cp*listSize;
+		     
+	     Map map=new HashMap();
+	     map.put("startNum", startNum);
+	     map.put("endNum", endNum);   
 		
+		List<QnaDTO> list=qnaDao.qnaList(map);		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list", list);
+		mav.addObject("pageStr", pageStr);
 		mav.setViewName("qna/qnaList");
 		return mav;
 		
@@ -88,9 +115,24 @@ public class QnaController {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("msg", msg);
 		mav.setViewName("qna/qnaMsg");
-		return mav;
-		
-		
+		return mav;		
 	}
+	
+	@RequestMapping("/qnaFind.do")
+	public ModelAndView freeBbsFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
+		
+		Map<String, String> map=new HashMap();
+		map.put("fkey", fkey);
+		map.put("fvalue", fvalue);
+		
+		System.out.println(fkey+"/"+fvalue);
+		
+		List<QnaDTO> list=qnaDao.qnaFind(map);
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("qna/qnaFind");
+		return mav;
+	} 
 	
 }

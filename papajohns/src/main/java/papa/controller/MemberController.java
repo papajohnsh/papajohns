@@ -121,10 +121,10 @@ public class MemberController {
 		if(memberDao.idCheck(id)==null){
 			int result=memberDao.memberAdd(dto);
 			if(result>0){
-				msg="성공";
+				msg="회원가입을 축하드립니다!";
 				url="index.do";
 			}else{
-				msg="실패";
+				msg="회원가입에 실패했습니다";
 				url="loginForm.do";
 			}
 			
@@ -247,6 +247,7 @@ public class MemberController {
 		int count=memberDao.infoMod(dto);
 		System.out.println("count:"+count);
 		String msg=count>0?"수정성공!":"수정실패!";
+
 		ModelAndView mav=new ModelAndView();
 		String url="myInfoForm.do";
 		mav.addObject("url",url);
@@ -296,6 +297,39 @@ public class MemberController {
 	}
 	@RequestMapping("/facebookLogin.do")
 	public ModelAndView facebookLogin(MemberDTO dto, HttpSession session){
+		MemberDTO result=memberDao.facebookLogin(dto);
+		ModelAndView mav=new ModelAndView();
+		String msg="";
+		String url="";
+		if(result!=null){
+			if(result.getNickname()!=null&&result.getNickname()!=""){
+				msg="로그인 성공!";
+				url="index.do";
+				session.setAttribute("sid", result.getId());
+				session.setAttribute("sname", result.getName());
+				session.setAttribute("snickname", result.getNickname());
+				mav.addObject("msg", msg);
+				mav.addObject("url", url);
+				mav.setViewName("member/memberMsg");
+				return mav;
+			}else{
+				session.setAttribute("sid", dto.getId());
+				session.setAttribute("sname", dto.getName());
+				mav.setViewName("member/nickname");
+				return mav;
+			}
+		}else{
+			int fbJoin=memberDao.fbJoin(dto);
+			if(fbJoin>0){
+				session.setAttribute("sid", dto.getId());
+				session.setAttribute("sname", dto.getName());
+				mav.setViewName("member/nickname");
+			}
+			return mav;
+		}
+	}
+	@RequestMapping("/JLogin.do")
+	public ModelAndView JLogin(MemberDTO dto, HttpSession session){
 		MemberDTO result=memberDao.facebookLogin(dto);
 		ModelAndView mav=new ModelAndView();
 		String msg="";
