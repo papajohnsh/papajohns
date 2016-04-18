@@ -61,7 +61,6 @@
 
 	
 	function testcallback()
-
 	{
 		
 		var email=naver_id_login.getProfileData('email');
