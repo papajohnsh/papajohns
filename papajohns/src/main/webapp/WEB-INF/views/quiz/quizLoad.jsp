@@ -61,7 +61,7 @@ function gogo(){
 		<c:forEach var="dto" items="${result }">
 			<tr style="background-color:">
 				<td>${dto.subject}</td>
-				<td>2016-04-15</td>
+				<td>${dto.start_date }&nbsp;&nbsp;${dto.start_time }</td>
 				<td style="vertical-align:middle; text-align: center;">
 	 			<input style="width:40px;height: 40px" name="radio" value="${dto.idx }" id="${dto.idx }" type="radio" >
 	   			</td>
