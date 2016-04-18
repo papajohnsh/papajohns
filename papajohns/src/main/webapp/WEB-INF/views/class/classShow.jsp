@@ -248,9 +248,11 @@ top:${y30}px;
         </section>
         <!-- /.sidebar -->
       </aside>
+      
       <c:forEach var="dto" items="${list }">
 <img src="${dto.idx }.jpg" id="img${dto.idx }" width="50px" height="50px">
-</c:forEach> 
+</c:forEach>
+ 
 
 <%--         <iframe style="float: right;" src="http://192.33.33.26:8081?student=${sname }&classRoom=자바" width="550" height="550">
  		</iframe> --%>
