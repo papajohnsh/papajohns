@@ -130,7 +130,7 @@ public class FreeBbsController {
 		return mav;
 	}
 	
-	@RequestMapping("/bbsFind.do")
+	@RequestMapping("/bbsFind.do")//게시판 검색
 	public ModelAndView freeBbsFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
 		
 		Map<String, String> map=new HashMap();

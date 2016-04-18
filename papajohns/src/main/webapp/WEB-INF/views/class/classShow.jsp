@@ -187,15 +187,31 @@ top:${y30}px;
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- Sidebar user panel -->
-          <div class="user-panel">
-              <div class="pull-left image">
-           <img src="img/${sid }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" class="img-circle" id="userImage">
-            </div>
-            <div class="pull-left info">
-              <p>${snickname}</p>
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
-          </div>
+       <div class="user-panel">
+
+				<div class="pull-left image" style="height: 100px; width: 80px;">
+
+					<img src="resource/data/${sid }/profile.jpg"
+						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
+						class="img-circle"
+						style="max-width: 80px; height: 80px; width: 80px; margin-top: 10px;">
+				</div>
+				<div style="margin-left: 85px; margin-top: -5px;">
+					<a href="myInfoForm.do"><font size="2">내정보</a>&nbsp;
+					&nbsp; <a href="logout.do"><font size="2">로그아웃</a>
+				</div>
+				<br>
+				<br>
+				<div style="margin-top: -20px;">
+					<font size="2" color="white">&nbsp;&nbsp;&nbsp;${snickname}</font>
+				</div>
+				<div style="margin-left: 120; margin-top: 8px;">
+					&nbsp;&nbsp;&nbsp;<a href="#"><i
+						class="fa fa-circle text-success"></i><font color="white">&nbsp;&nbsp;Online</font>
+					</a>
+				</div>
+
+			</div>
           
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
