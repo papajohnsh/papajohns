@@ -37,4 +37,7 @@ select * from member where reidx LIKE CONCAT('%',#{idx},'%')
 <select id="reidxList" parameterType="int" resultType="String">
 select reidx from member where idx=#{idx}
 </select>
+<select id="joinClass" parameterType="int" resultType="papa.class_.model.classDTO">
+select * from class_info where idx=#{idx}
+</select>
 </mapper>

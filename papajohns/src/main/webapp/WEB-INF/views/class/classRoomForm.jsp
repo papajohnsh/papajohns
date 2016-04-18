@@ -173,7 +173,8 @@
                         <td><input type="checkbox"></td>   
                           <td>1.</td>
                           <td><a href="myClassRoom.do?idx=${dto.idx }">${dto.subject }</a></td>
-                          <td>${dto.idx }</td>
+                          <td>${dto.start_date }</td>
+                          <td>${dto.end_date }</td>
                           
                           
                         </tr>
