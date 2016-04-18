@@ -66,7 +66,13 @@
          <li class="header">Menu</li>
           <li>
           <a href="bbsListForm.do">
-             <i class="fa fa-circle-o text-red"></i> <span>자유게시판</span>
+             <i class="fa fa-circle-o text-red"></i><span>자유게시판</span>
+             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+           </a>
+         </li>
+         <li>
+          <a href="noticeList.do">
+             <i class="fa fa-circle-o text-red"></i><span>공지사항</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>

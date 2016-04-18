@@ -60,18 +60,12 @@
 
           <ul class="sidebar-menu">
             <li class="header">Menu</li>
-            <li>
-             <a href="faqList.do">
-                <i class="fa fa-circle-o text-red"></i><span>FAQ</span>
-                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-              </a>
-            </li>
-            <li>
-              <a href="qnaList.do">
-               <i class="fa fa-circle-o text-aqua"></i><span>Q&A</span>
-                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-              </a>
-            </li>
+             <li>
+	          <a href="bbsListForm.do">
+	             <i class="fa fa-circle-o text-red"></i><span>자유게시판</span>
+	             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+	           </a>
+         	</li>
           </ul>
            <ul class="sidebar-menu"></ul>
         </section>
@@ -126,20 +120,9 @@
                         </c:choose>
                       </tbody>
                   </table>
-
-                  <div class="box-footer clearfix" align="center">
-
-	             <ul class="pagination pagination-sm no-margin pull-center">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div>
-		</div>
 		</div>
       </div><!-- /.content-wrapper -->
    

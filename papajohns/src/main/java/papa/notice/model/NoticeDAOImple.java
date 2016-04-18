@@ -1,6 +1,7 @@
 package papa.notice.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
@@ -19,8 +20,8 @@ public class NoticeDAOImple implements NoticeDAO {
 		return count;
 	}
 
-	public List<NoticeDTO> noticeList() {//공지사항 리스트 보기
-		List<NoticeDTO> list=sqlMap.selectList("noticeList");
+	public List<NoticeDTO> noticeList(Map<String, Integer> map) {//공지사항 리스트
+		List<NoticeDTO> list=sqlMap.selectList("noticeList", map);
 		return list;
 	}
 
@@ -32,5 +33,15 @@ public class NoticeDAOImple implements NoticeDAO {
 	public int noticeNum(int idx) {//조회수
 		int count=sqlMap.update("noticeNum", idx);
 		return count;
+	}
+	
+	public int getTotalCnt() {//총게시물 수
+		int count=sqlMap.selectOne("noticeTotal");
+		return count;
+	}
+
+	public List<NoticeDTO> noticeFind(Map<String, String> map) {//공지사항 검색
+		List<NoticeDTO> list=sqlMap.selectList("noticeFind", map);
+		return list;
 	}
 }

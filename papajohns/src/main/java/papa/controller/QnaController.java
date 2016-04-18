@@ -119,7 +119,7 @@ public class QnaController {
 	}
 	
 	@RequestMapping("/qnaFind.do")
-	public ModelAndView freeBbsFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
+	public ModelAndView qnaFind(@RequestParam("fkey") String fkey, @RequestParam("fvalue") String fvalue){
 		
 		Map<String, String> map=new HashMap();
 		map.put("fkey", fkey);
