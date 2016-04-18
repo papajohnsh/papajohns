@@ -26,8 +26,8 @@
         alert("ID Token: " + id_token);
         
         
-	    window.location.href="JLogin.do?email="+email+
-		"&id="+id+"&pwd=1&name="+name+"&birthday=1&gender=1&phonenumber=1"; 
+	    window.location.href="JLogin.do?email="+profile.getEmail()+
+		"&id="+profile.getId()+"&name="+profile.getName(); 
         
         
       };
