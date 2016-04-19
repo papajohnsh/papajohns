@@ -247,7 +247,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/myInfo.do")//내정보 수정하기
-	public ModelAndView myInfo( @RequestParam("upload") MultipartFile upload,@RequestParam("id") String id, HttpServletRequest request,MemberDTO dto ){
+	public ModelAndView myInfo( @RequestParam("upload") MultipartFile upload,@RequestParam("id") String id, HttpServletRequest request,MemberDTO dto,HttpSession session ){
 		
 		String account=id;
 		String path=request.getSession().getServletContext().getRealPath("/resource/data/"+account);
@@ -264,14 +264,28 @@ public class MemberController {
 			copyInto(upload, account, path);
 		}
 		
-		
-		
 		int count=memberDao.infoMod(dto);
 		System.out.println("count:"+count);
-		String msg=count>0?"수정성공!":"수정실패!";
+		//String msg=count>0?"수정성공!":"수정실패!";
+		
+		String msg="";
+		String url="";
+		
+			if(count>0){
+				msg="수정성공";
+				url="myInfoForm.do";
+				session.setAttribute("sname", dto.getName());			
+				session.setAttribute("spwd", dto.getPwd());
+				session.setAttribute("semail", dto.getEmail());
+				session.setAttribute("sphone", dto.getPhonenumber());
+				session.setAttribute("snickname", dto.getNickname());
+				
+			}else{
+			msg="수정실패";
+			url="myInfoForm.do";
+		}
 
 		ModelAndView mav=new ModelAndView();
-		String url="myInfoForm.do";
 		mav.addObject("url",url);
 		mav.addObject("msg", msg);
 		mav.setViewName("member/myInfoMsg");
@@ -339,7 +353,8 @@ public class MemberController {
 	}
 	@RequestMapping("/facebookLogin.do")
 	public ModelAndView facebookLogin(MemberDTO dto, HttpSession session){
-		MemberDTO result=memberDao.facebookLogin(dto);
+		MemberDTO result=dto;
+		memberDao.facebookLogin(dto);
 		ModelAndView mav=new ModelAndView();
 		String msg="";
 		String url="";
@@ -403,9 +418,19 @@ public class MemberController {
 			return mav;
 		}
 	}
-/*	@RequestMapping("/nickUpdate.do")
-	public ModelAndView nickUpdate(@RequestParam("nickname") String nickname){
-		int result=
-	}*/
+//	@RequestMapping("/nickUpdate.do")
+//	public ModelAndView nickUpdate(@RequestParam("nickname") String nickname ){
+//		String url="index.do";
+//		ModelAndView mav = null;
+//		//memberDao.nickUpdate(nickname);
+//		mav.addObject("msg", "nickname완료:");
+//		mav.addObject("url", url);
+//		mav.setViewName("member/memberMsg");
+//		
+//		return mav;
+//	
+//	}
 
+				
+				
 }

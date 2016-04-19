@@ -70,11 +70,11 @@
 		var divTag=document.getElementById('email');
 		divTag.innerHTML=email;
 		
-	    var name=naver_id_login.getProfileData('nickname');
+	    // name=naver_id_login.getProfileData('nickname');
 	    alert(name);
 	    var id=naver_id_login.getProfileData('id');
-	    window.location.href="naverLogin.do?email="+email+
-	    		"&id="+id+"&pwd=1&name="+name+"&birthday=1&gender=1&phonenumber=1"; 
+	    window.location.href="JLogin.do?email="+email+
+		"&id="+id; 
 
 	}
 

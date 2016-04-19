@@ -26,15 +26,15 @@ public class DesignController {
 		this.designDao = designDao;
 	}
 	@RequestMapping("/designAdd.do")
-	public ModelAndView designAdd(@RequestParam(value="a1",defaultValue="-1")int a1,@RequestParam(value="a2",defaultValue="-1")int a2,
-			@RequestParam(value="a3",defaultValue="-1")int a3,@RequestParam(value="a4",defaultValue="-1")int a4,
-			@RequestParam(value="a5",defaultValue="-1")int a5,@RequestParam(value="a6",defaultValue="-1")int a6,
-			@RequestParam(value="a7",defaultValue="-1")int a7,@RequestParam(value="a8",defaultValue="-1")int a8,
-			@RequestParam(value="a9",defaultValue="-1")int a9,@RequestParam(value="a10",defaultValue="-1")int a10,
-			@RequestParam(value="a11",defaultValue="-1")int a11,@RequestParam(value="a12",defaultValue="-1")int a12,
-			@RequestParam(value="a13",defaultValue="-1")int a13,@RequestParam(value="a14",defaultValue="-1")int a14,
-			@RequestParam(value="a15",defaultValue="-1")int a15,@RequestParam(value="a16",defaultValue="-1")int a16,
-			@RequestParam(value="a17",defaultValue="-1")int a17,@RequestParam(value="a18",defaultValue="-1")int a18,
+	public ModelAndView designAdd(@RequestParam(value="a1",defaultValue="-1")String a1,@RequestParam(value="a2",defaultValue="-1")String a2,
+			@RequestParam(value="a3",defaultValue="-1")String a3,@RequestParam(value="a4",defaultValue="-1")String a4,
+			@RequestParam(value="a5",defaultValue="-1")String a5,@RequestParam(value="a6",defaultValue="-1")String a6,
+			@RequestParam(value="a7",defaultValue="-1")String a7,@RequestParam(value="a8",defaultValue="-1")String a8,
+			@RequestParam(value="a9",defaultValue="-1")String a9,@RequestParam(value="a10",defaultValue="-1")String a10,
+			@RequestParam(value="a11",defaultValue="-1")String a11,@RequestParam(value="a12",defaultValue="-1")String a12,
+			@RequestParam(value="a13",defaultValue="-1")String a13,@RequestParam(value="a14",defaultValue="-1")String a14,
+			@RequestParam(value="a15",defaultValue="-1")String a15,@RequestParam(value="a16",defaultValue="-1")String a16,
+			@RequestParam(value="a17",defaultValue="-1")String a17,@RequestParam(value="a18",defaultValue="-1")String a18,
 			@RequestParam(value="x1",defaultValue="-1")int x1,@RequestParam(value="x2",defaultValue="-1")int x2,
 			@RequestParam(value="x3",defaultValue="-1")int x3,@RequestParam(value="x4",defaultValue="-1")int x4,
 			@RequestParam(value="x5",defaultValue="-1")int x5,@RequestParam(value="x6",defaultValue="-1")int x6,
@@ -65,76 +65,79 @@ public class DesignController {
 			@RequestParam(value="y25",defaultValue="-1")int y25,@RequestParam(value="y26",defaultValue="-1")int y26,
 			@RequestParam(value="y27",defaultValue="-1")int y27,@RequestParam(value="y28",defaultValue="-1")int y28,
 			@RequestParam(value="y29",defaultValue="-1")int y29,@RequestParam(value="y30",defaultValue="-1")int y30,
-			@RequestParam(value="a20",defaultValue="-1")int a20,@RequestParam(value="a21",defaultValue="-1")int a21,
-			@RequestParam(value="a22",defaultValue="-1")int a22,@RequestParam(value="a23",defaultValue="-1")int a23,
-			@RequestParam(value="a24",defaultValue="-1")int a24,@RequestParam(value="a25",defaultValue="-1")int a25,
-			@RequestParam(value="a26",defaultValue="-1")int a26,@RequestParam(value="a27",defaultValue="-1")int a27,
-			@RequestParam(value="a28",defaultValue="-1")int a28,@RequestParam(value="a29",defaultValue="-1")int a29,
-			@RequestParam(value="a30",defaultValue="-1")int a30,@RequestParam(value="a19",defaultValue="-1")int a19,
+			@RequestParam(value="a20",defaultValue="-1")String a20,@RequestParam(value="a21",defaultValue="-1")String a21,
+			@RequestParam(value="a22",defaultValue="-1")String a22,@RequestParam(value="a23",defaultValue="-1")String a23,
+			@RequestParam(value="a24",defaultValue="-1")String a24,@RequestParam(value="a25",defaultValue="-1")String a25,
+			@RequestParam(value="a26",defaultValue="-1")String a26,@RequestParam(value="a27",defaultValue="-1")String a27,
+			@RequestParam(value="a28",defaultValue="-1")String a28,@RequestParam(value="a29",defaultValue="-1")String a29,
+			@RequestParam(value="a30",defaultValue="-1")String a30,@RequestParam(value="a19",defaultValue="-1")String a19,
 			@RequestParam(value="reidx",defaultValue="-1")int reidx){
 		String send="";
-		String s_a1=Integer.toString(a1);
-		String s_a2=Integer.toString(a2);
-		String s_a3=Integer.toString(a3);
-		String s_a4=Integer.toString(a4);
-		String s_a5=Integer.toString(a5);
-		String s_a6=Integer.toString(a6);
-		String s_a7=Integer.toString(a7);
-		String s_a8=Integer.toString(a8);
-		String s_a9=Integer.toString(a9);
-		String s_a10=Integer.toString(a10);
-		String s_a11=Integer.toString(a11);
-		String s_a12=Integer.toString(a12);
-		String s_a13=Integer.toString(a13);
-		String s_a14=Integer.toString(a14);
-		String s_a15=Integer.toString(a15);
-		String s_a16=Integer.toString(a16);
-		String s_a17=Integer.toString(a17);
-		String s_a18=Integer.toString(a18);
-		String s_a19=Integer.toString(a19);
-		String s_a20=Integer.toString(a20);
-		String s_a21=Integer.toString(a21);
-		String s_a22=Integer.toString(a22);
-		String s_a23=Integer.toString(a23);
-		String s_a24=Integer.toString(a24);
-		String s_a25=Integer.toString(a25);
-		String s_a26=Integer.toString(a26);
-		String s_a27=Integer.toString(a27);
-		String s_a28=Integer.toString(a28);
-		String s_a29=Integer.toString(a29);
-		String s_a30=Integer.toString(a30);
+		
+		
+		a1=a1.replaceAll("ui-draggable ui-droppable","");
+		
+		a2=a2.replace("ui-draggable ui-droppable","");
+		a3=a3.replace("ui-draggable","");
+		a4=a4.replace("ui-draggable","");
+		a5=a5.replace("ui-draggable","");
+		a6=a6.replace("ui-draggable","");
+		a7=a7.replace("ui-draggable","");
+		a8=a8.replace("ui-draggable","");
+		a9=a9.replace("ui-draggable","");
+		a10=a10.replace("ui-draggable","");
+		a11=a11.replace("ui-draggable","");
+		a12=a12.replace("ui-draggable","");
+		a13=a13.replace("ui-draggable","");
+		a14=a14.replace("ui-draggable","");
+		a15=a15.replace("ui-draggable","");
+		a16=a16.replace("ui-draggable","");
+		a17=a17.replace("ui-draggable","");
+		a18=a18.replace("ui-draggable","");
+		a19=a19.replace("ui-draggable","");
+		a20=a20.replace("ui-draggable","");
+		a21=a21.replace("ui-draggable","");
+		a22=a22.replace("ui-draggable","");
+		a23=a23.replace("ui-draggable","");
+		a24=a24.replace("ui-draggable","");
+		a25=a25.replace("ui-draggable","");
+		a26=a26.replace("ui-draggable","");
+		a27=a27.replace("ui-draggable","");
+		a28=a28.replace("ui-draggable","");
+		a29=a29.replace("ui-draggable","");
+		a30=a30.replace("ui-draggable","");
 		
 		send+=",";
-		send+=s_a1;send+=",";
-		send+=s_a2;send+=",";
-		send+=s_a3;send+=",";
-		send+=s_a4;send+=",";
-		send+=s_a5;send+=",";
-		send+=s_a6;send+=",";
-		send+=s_a7;send+=",";
-		send+=s_a8;send+=",";
-		send+=s_a9;send+=",";
-		send+=s_a10;send+=",";
-		send+=s_a11;send+=",";
-		send+=s_a12;send+=",";
-		send+=s_a13;send+=",";
-		send+=s_a14;send+=",";
-		send+=s_a15;send+=",";
-		send+=s_a16;send+=",";
-		send+=s_a17;send+=",";
-		send+=s_a18;send+=",";
-		send+=s_a19;send+=",";
-		send+=s_a20;send+=",";
-		send+=s_a21;send+=",";
-		send+=s_a22;send+=",";
-		send+=s_a23;send+=",";
-		send+=s_a24;send+=",";
-		send+=s_a25;send+=",";
-		send+=s_a26;send+=",";
-		send+=s_a27;send+=",";
-		send+=s_a28;send+=",";
-		send+=s_a29;send+=",";
-		send+=s_a30;
+		send+=a1;send+=",";
+		send+=a2;send+=",";
+		send+=a3;send+=",";
+		send+=a4;send+=",";
+		send+=a5;send+=",";
+		send+=a6;send+=",";
+		send+=a7;send+=",";
+		send+=a8;send+=",";
+		send+=a9;send+=",";
+		send+=a10;send+=",";
+		send+=a11;send+=",";
+		send+=a12;send+=",";
+		send+=a13;send+=",";
+		send+=a14;send+=",";
+		send+=a15;send+=",";
+		send+=a16;send+=",";
+		send+=a17;send+=",";
+		send+=a18;send+=",";
+		send+=a19;send+=",";
+		send+=a20;send+=",";
+		send+=a21;send+=",";
+		send+=a22;send+=",";
+		send+=a23;send+=",";
+		send+=a24;send+=",";
+		send+=a25;send+=",";
+		send+=a26;send+=",";
+		send+=a27;send+=",";
+		send+=a28;send+=",";
+		send+=a29;send+=",";
+		send+=a30;
 		
 		
 		String s_x1=Integer.toString(x1);

@@ -48,7 +48,7 @@
 		<input type="text" id="nickname">
 	<input type="submit" value="확인">
 	</form>
-	</div>
+	</div> 
  	<%@ include file="../footer.jsp" %>
     <%@ include file="../controllSide.jsp" %>
 
