@@ -297,7 +297,8 @@ public class MemberController {
 	}
 	@RequestMapping("/facebookLogin.do")
 	public ModelAndView facebookLogin(MemberDTO dto, HttpSession session){
-		MemberDTO result=memberDao.facebookLogin(dto);
+		MemberDTO result=dto;
+		memberDao.facebookLogin(dto);
 		ModelAndView mav=new ModelAndView();
 		String msg="";
 		String url="";
@@ -361,9 +362,18 @@ public class MemberController {
 			return mav;
 		}
 	}
-/*	@RequestMapping("/nickUpdate.do")
-	public ModelAndView nickUpdate(@RequestParam("nickname") String nickname){
-		int result=
-	}*/
+	@RequestMapping("/nickUpdate.do")
+	public ModelAndView nickUpdate(@RequestParam("nickname") String nickname ){
+		url="index.do";
+		//memberDao.nickUpdate(nickname);
+		mav.addObject("msg", "nickname완료:");
+		mav.addObject("url", url);
+		mav.setViewName("member/memberMsg");
+		
+		return mav;
+	
+	}
 
+				
+				
 }

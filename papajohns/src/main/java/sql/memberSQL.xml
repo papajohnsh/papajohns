@@ -60,6 +60,9 @@
 	<insert id="fbJoin" parameterType="papa.member.model.MemberDTO">
 		insert into member(id, name) values(#{id}, #{name})
 	</insert>
+	<insert id="nickUpdate" parameterType="String">
+		insert into member(nickname) values(#{nickname})
+	</insert>
 	<select id="nvCheck" parameterType="papa.member.model.MemberDTO" resultType="papa.member.model.MemberDTO">
 		select * from member where id=#{id}
 	</select>
