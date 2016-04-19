@@ -25,6 +25,6 @@ public interface MemberDAO {
 	
 	public void updateSun(int ref,int sunbun);
 	
-	public void nickUpdate(String nickName);
+	//public int nickUpdate(String nickName);
 
 }
