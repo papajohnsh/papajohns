@@ -381,7 +381,7 @@ public class MemberController {
 	@RequestMapping("/nickUpdate.do")
 	public ModelAndView nickUpdate(MemberDTO dto){
 		String url="index.do";
-		ModelAndView mav = null;
+		ModelAndView mav = new ModelAndView();
 		memberDao.nickUpdate(dto);
 		mav.addObject("msg", "nickname완료:");
 		mav.addObject("url", url);
