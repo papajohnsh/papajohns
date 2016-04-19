@@ -8,7 +8,7 @@
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
 <title>Login </title>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 </head>
 <body>
 <a id="kakao-login-btn"></a>
@@ -27,6 +27,12 @@
           url: '/v1/user/me',
           success: function(res) {
             alert(JSON.stringify(res));
+            alert(JSON.stringify(res.id));
+            alert(JSON.stringify(res.properties.nickname));
+            var id=JSON.stringify(res.id);
+            var nickname=JSON.stringify(res.properties.nickname);
+            window.location.href="JLogin.do?id="+id; 
+
           },
           fail: function(error) {
             alert(JSON.stringify(error));
@@ -36,7 +42,12 @@
       fail: function(err) {
         alert(JSON.stringify(err));
       }
+
+      
+      
     });
+    
+
  
 
 </script>

@@ -104,5 +104,12 @@ public class MemberDAOImple implements MemberDAO {
 		int result=sqlMap.insert("fbJoin", dto);
 		return result;
 	}
+	
+	public void nickUpdate(MemberDTO dto){
+		
+		System.out.println("nickname="+dto.getNickname());
+		System.out.println("id="+dto.getId());
+		sqlMap.update("nickUpdate", dto);
+	}
 
 }

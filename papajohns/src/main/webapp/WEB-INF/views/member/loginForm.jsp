@@ -77,6 +77,17 @@ function pwdCheck(){//비밀번호 확인
 	}
 }
 
+function chgdomain3(){
+	var f =document.loginForm;
+	if(f.edomain.value==""){
+		f.email2.value="";
+		f.email2.focus();
+	}else{
+		selectedIndex = f.edomain.options.selectedIndex;
+		f.email2.value = f.edomain.options[selectedIndex].value;
+	}
+}
+
 </script>
 <script type="text/javascript">
 var now=new Date();
@@ -204,9 +215,10 @@ var date = now.getDate();
 		   </div>
 		   <div class="form-group">
 		     <label for="email">email:</label>
-		     <input type="text" name="email"  id="email" placeholder="Enter email">
-		     <select style="width: 30%" name="email">
-		     	<option value="">직접입력</option>
+		     <input type="text" name="email"  id="email1" maxlength="25" placeholder="Enter email">
+		     <input type="text" name="email" id="email2" maxlength="25">
+		     <select style="width: 30%" name="edomain" id="sel_mail" onchange="chgdomain3()">
+		     	<option value="" selected="selected">직접입력</option>
 		     	<option value="@naver.com">@naver.com</option>
 		     	<option value="@daum.net">@daum.net</option>
 		     	<option value="@gmail.com">@gmail.com</option>
@@ -214,7 +226,12 @@ var date = now.getDate();
 		   </div>
 		   <div class="form-group">
 		<label for="phone">핸드폰 번호:</label><br>
-		     <input type="text" required="required" name="phonenumber" id="phonenumber" placeholder="010"maxlength="3">-<input type="text" name="phonenumber" maxlength="4">-<input type="text" name="phonenumber" maxlength="4">
+		     <select style="width: 20%" name="phonenumber">
+		     	<option value="010" selected="selected">010</option>
+		     	<option value="011">011</option>
+		     	<option value="016">016</option>
+		     </select>	
+		   	 -<input type="text" name="phonenumber" maxlength="4">-<input type="text" name="phonenumber" maxlength="4">
 		     
 		   </div>
         </div>

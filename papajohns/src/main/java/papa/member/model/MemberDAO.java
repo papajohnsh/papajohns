@@ -24,5 +24,7 @@ public interface MemberDAO {
 	public int fbJoin(MemberDTO dto);
 	
 	public void updateSun(int ref,int sunbun);
+	
+	public void nickUpdate(MemberDTO dto);
 
 }

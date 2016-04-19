@@ -259,7 +259,7 @@ top:${y30}px;
       </aside>
       
       <c:forEach var="dto" items="${list }">
-<img src="${dto.idx }.jpg" id="img${dto.idx }" width="50px" height="50px">
+<img src="${dto.id }.jpg" id="img${dto.idx }" width="50px" height="50px">
 </c:forEach>
  
 

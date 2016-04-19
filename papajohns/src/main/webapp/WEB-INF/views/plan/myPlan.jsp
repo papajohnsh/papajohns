@@ -19,8 +19,6 @@
 </style>
 <script type="text/javascript" charset="utf-8">
 	function init() {
-		//window.alert("${sid}");
-		//window.alert("${msg}");
 		scheduler.config.details_on_dblclick = true
 		scheduler.config.api_date="%Y-%m-%d %H:%i";
 		scheduler.config.xml_date="%Y-%m-%d %H:%i";
@@ -35,7 +33,7 @@
 		
 
 		
-		scheduler.load("resource/data/smwfifa/data.json","json");
+		scheduler.load("resource/data/${sid}/data.json","json");
 	}
 	
 	
@@ -43,18 +41,28 @@
 		console.log(scheduler.toJSON());
 	}
 	
-	function save()
-	{
-		 
-	}
 	
 	function log()
 	{
 		var obj = JSON.parse(scheduler.toJSON());
 		window.alert(obj[0].text);
 	}
-	function download() {
-
+	
+	function download(){
+		/*
+		//var day = '';
+		var day_arr = new Array("3","4","5");
+		window.alert(day_arr);
+		//window.alert(day);
+		for (var i=0; i<day_arr.length; i++){
+			console.log(day_arr[i]);
+		} 
+		*/
+		var day="3,4,5";
+		var day_arr = day.split(",");
+		for (var i=0; i<day_arr.length; i++){
+			console.log(day_arr[i]);
+		} 
 	}
 	
 	
@@ -70,13 +78,12 @@
 		
 		<form name="json" method="post" action="planSave.do">
 			<input type="hidden" name="json">
-			<input type="button" name="download" value="Download" onclick="download()" style="right:500px;">
-			<input type="button" name="show" value="Show" onclick="show()" style="right:400px;">
-			<input type="button" name="log" value="log" onclick="log()" style="right:300px;">
-			<input type="button" value="Save" onclick="save()" style="right:200px;">
+			<input type="button" value="Save" onclick="save()" style="right:200px;"><br>
 		</form>
 	</div>
-	
+	<input type="button" name="download" value="Download" onclick="download()" style="right:500px;">
+			<input type="button" name="show" value="Show" onclick="show()" style="right:400px;">
+			<input type="button" name="log" value="log" onclick="log()" style="right:300px;">
 	<br>
 
 	<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100%;'>

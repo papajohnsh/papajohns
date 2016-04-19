@@ -108,68 +108,98 @@ ul li {
    function testfunc(test) {
       var a = document.getElementById(test.getAttribute('id')).getAttribute(
             'id');
-     
+      var class_by_id = $('#'+a).attr('class');
+      var class_by_id2 = $('#'+a).attr('class');
+      var class_by_id3 = $('#'+a).attr('class');
+      var class_by_id4 = $('#'+a).attr('class');
+      var class_by_id5 = $('#'+a).attr('class');
+      var class_by_id6 = $('#'+a).attr('class');
+      var class_by_id7 = $('#'+a).attr('class');
+      var class_by_id8 = $('#'+a).attr('class');
+      var class_by_id9 = $('#'+a).attr('class');
+      var class_by_id10 = $('#'+a).attr('class');
+      var class_by_id11 = $('#'+a).attr('class');
+      var class_by_id12 = $('#'+a).attr('class');
+      var class_by_id13 = $('#'+a).attr('class');
+      var class_by_id14 = $('#'+a).attr('class');
+      var class_by_id15 = $('#'+a).attr('class');
+      var class_by_id16 = $('#'+a).attr('class');
+      var class_by_id17 = $('#'+a).attr('class');
+      var class_by_id18 = $('#'+a).attr('class');
+      var class_by_id19 = $('#'+a).attr('class');
+      var class_by_id20 = $('#'+a).attr('class');
+      var class_by_id21 = $('#'+a).attr('class');
+      var class_by_id22 = $('#'+a).attr('class');
+      var class_by_id23 = $('#'+a).attr('class');
+      var class_by_id24 = $('#'+a).attr('class');
+      var class_by_id25 = $('#'+a).attr('class');
+      var class_by_id26 = $('#'+a).attr('class');
+      var class_by_id27 = $('#'+a).attr('class');
+      var class_by_id28 = $('#'+a).attr('class');
+      var class_by_id29 = $('#'+a).attr('class');
+      var class_by_id30 = $('#'+a).attr('class');
+    
       
       if(a==1){
-    	  document.f.a1.value = a;
+    	  document.f.a1.value = class_by_id;
       }else if(a==2){
-    	  document.f.a2.value = a;
+    	  document.f.a2.value = class_by_id2;
       }else if(a==3){
-    	  document.f.a3.value = a;
+    	  document.f.a3.value = class_by_id3;
       }else if(a==4){
-    	  document.f.a4.value = a;
+    	  document.f.a4.value = class_by_id4;
       }else if(a==5){
-    	  document.f.a5.value = a;
+    	  document.f.a5.value = class_by_id5;
       }else if(a==6){
-    	  document.f.a6.value = a;
+    	  document.f.a6.value = class_by_id6;
       }else if(a==7){
-    	  document.f.a7.value = a;
+    	  document.f.a7.value = class_by_id7;
       }else if(a==8){
-    	  document.f.a8.value = a;
+    	  document.f.a8.value = class_by_id8;
       }else if(a==9){
-    	  document.f.a9.value = a;
+    	  document.f.a9.value = class_by_id9;
       }else if(a==10){
-    	  document.f.a10.value = a;
+    	  document.f.a10.value = class_by_id10;
       }else if(a==11){
-    	  document.f.a11.value = a;
+    	  document.f.a11.value = class_by_id11;
       }else if(a==12){
-    	  document.f.a12.value = a;
+    	  document.f.a12.value = class_by_id12;
       }else if(a==13){
-    	  document.f.a13.value = a;
+    	  document.f.a13.value = class_by_id13;
       }else if(a==14){
-    	  document.f.a14.value = a;
+    	  document.f.a14.value = class_by_id14;
       }else if(a==15){
-    	  document.f.a15.value = a;
+    	  document.f.a15.value = class_by_id15;
       }else if(a==16){
-    	  document.f.a16.value = a;
+    	  document.f.a16.value = class_by_id16;
       }else if(a==17){
-    	  document.f.a17.value = a;
+    	  document.f.a17.value = class_by_id17;
       }else if(a==18){
-    	  document.f.a18.value = a;
+    	  document.f.a18.value = class_by_id18;
       }else if(a==19){
-    	  document.f.a19.value = a;
+    	  document.f.a19.value = class_by_id19;
       }else if(a==20){
-    	  document.f.a20.value = a;
+    	  document.f.a20.value = class_by_id20;
       }else if(a==21){
-    	  document.f.a21.value = a;
+    	  document.f.a21.value = class_by_id21;
       }else if(a==22){
-    	  document.f.a22.value = a;
+    	  document.f.a22.value = class_by_id22;
       }else if(a==23){
-    	  document.f.a23.value = a;
+    	  document.f.a23.value = class_by_id23;
       }else if(a==24){
-    	  document.f.a24.value = a;
+    	  document.f.a24.value = class_by_id24;
       }else if(a==25){
-    	  document.f.a25.value = a;
+    	  document.f.a25.value = class_by_id25;
       }else if(a==26){
-    	  document.f.a26.value = a;
+    	  document.f.a26.value = class_by_id26;
       }else if(a==27){
-    	  document.f.a27.value = a;
+    	  document.f.a27.value = class_by_id27;
       }else if(a==28){
-    	  document.f.a28.value = a;
+    	  document.f.a28.value = class_by_id28;
       }else if(a==29){
-    	  document.f.a29.value = a;
+    	  document.f.a29.value = class_by_id29;
       }else if(a==30){
-    	  document.f.a30.value = a;
+    	  document.f.a30.value = class_by_id30;
       }
      
       
@@ -566,8 +596,9 @@ ul li {
 
 	   }
    window.onload = function() {
+	   var a = $(this).attr('id');
       var x = null;
-      
+   
       //Make element draggable
       $("#1").draggable({
          helper : 'original',
@@ -1325,14 +1356,15 @@ ul li {
 
    }//]]>
    $(function() {
-	    $(".a").draggable({
+	   
+	    $("#1").draggable({
 	        grid: [20, 1]
 	    });
-	    $(".a").draggable({
+	    $("#1").draggable({
 	        grid: [20, 1],
 	        helper:"clone"
 	    });
-	    $(".a").droppable({
+	    $("#1").droppable({
 	        accept: ".a"
 	    });
 	});
@@ -1346,9 +1378,9 @@ ul li {
          <div id="drag-list" class="drag-list">
             <ul>
             <c:forEach var="dto" items="${list }">
-               <li><span id="${dto.idx }" class="a" onclick='testfunc(this)'>
+               <li><span id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)'>
                      <img src="${dto.idx }.jpg" width="50px" height="50px"class="drag2" id="myImg" class="drag2"><br>
-                     <span id="r">${dto.name }</span>
+                     <span id="r">${dto.id }</span>
                </span></li>
                </c:forEach>
              </ul>				
@@ -1361,7 +1393,7 @@ ul li {
    <input type="hidden" name="reidx" value="${idx }">
    <c:forEach var="dto" items="${list }">
    
-      <input type="hidden" name="a${dto.idx}">
+      <input type="text" name="a${dto.idx}">
        <input type="hidden" name="x${dto.idx}">
       <input type="hidden" name="y${dto.idx}">
      </c:forEach>
