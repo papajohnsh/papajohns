@@ -47,10 +47,10 @@
  		values(#{subject},#{class_idx},#{member_id},#{paper_idx},#{ox},#{answer_num},#{quiz_answer})
  	</insert>
  	<select id="quizResult" resultType="papa.quizAnswer.model.quizAnswerDTO">
- 		select * from quiz_answer where class_idx=#{idx}
+ 		select * from quiz_answer where class_idx=#{idx} and paper_idx=#{paper_idx}
  	</select>
- 	<select id="quizIdx">
- 		select idx from quiz where class_idx=#{class_idx}
+ 	<select id="quizIdx" resultType="papa.quiztest.model.quizTestDTO">
+ 		select idx,subject from quiz where class_idx=#{class_idx}
  	</select>
  	<select id="quizJoin" resultType="String"  parameterType="Map">
  		select member_id from quiz_answer where paper_idx=#{idx} and member_id=#{id} 

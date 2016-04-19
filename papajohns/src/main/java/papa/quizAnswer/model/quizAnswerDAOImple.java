@@ -20,10 +20,12 @@ public class quizAnswerDAOImple implements quizAnswerDAO {
 		return result;
 	}
 	@Override
-	public List<quizAnswerDTO> quizResult(int idx) {
+	public List<quizAnswerDTO> quizResult(int idx, int paper_idx) {
 		
-		
-		List<quizAnswerDTO> result=sqlMap.selectList("quizResult", idx);
+		Map map=new HashMap<>();
+		map.put("idx", idx);
+		map.put("paper_idx", paper_idx);
+		List<quizAnswerDTO> result=sqlMap.selectList("quizResult", map);
 		
 		return result;
 	}

@@ -260,36 +260,30 @@ public ModelAndView QuizTestList(@RequestParam(value="idx") int idx, @RequestPar
 	}
 }
 //쪽지시험 결과보기
-/*@RequestMapping("/quizResult.do")
+@RequestMapping("/quizResult.do")
 public ModelAndView quizResult(@RequestParam(value="idx") int idx){
 	
 	List<quizTestDTO> num= quizTestDao.quizNum(idx);
-	num.size();
-	String[] result=new String[num.size()];
-	
-	for(int i;i<num.size();i++){
-		result[i]=dao.getQ[num.get(i).getIdx()];
+	System.out.println("시험지 갯수 : "+num.size());
+
+	List<quizAnswerDTO> result[]=new ArrayList[num.size()];
+	for(int i=0;i<num.size();i++){
+		result[i]=quizAnswerDao.quizResult(idx, num.get(i).getIdx());
 	}
 	
-	for(int i;i<num.size();i++){
-		for(int j;j<result[i].length();j++){
-			 result[i].getinx();
+	for(int i=0;i<num.size();i++){
+		
+		for(int j=0;j<result[i].size();j++){
+			 System.out.println("i="+i+"j="+j+"시험 제목 : "+result[i].get(j).getSubject());
 		}
 	}
-	
-//	List<quizAnswerDTO> list= quizAnswerDao.quizResult(idx);
-//	for(int i=0; i<num.size();i++){
-//		for(int j=0; j<list.size();j++){
-//			if(num.get(i).getIdx()==list.get(j).getClass_idx()){
-//				
-//			}
-//		}
-//	}
+
 	ModelAndView mav=new ModelAndView();
-	mav.addObject("list", list);
+	mav.addObject("subject",num);
+	mav.addObject("result", result);
 	mav.setViewName("quiz/quizResult");
 	return mav;
-}*/
+}
 
 }
 
