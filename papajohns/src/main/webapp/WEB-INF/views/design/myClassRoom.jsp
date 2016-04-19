@@ -269,12 +269,13 @@ top:${y30}px;
 		<div style="border: 1px solid; width:600px; height:700px; background:skyblue;'" >
 			<c:forEach var="dto" items="${list }">
 				<div id="img${dto.idx }" style="position: relative;">
-					<img src="${dto.idx }.jpg" width="50px" height="50px">
+					<img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
+						class="img-circle" width="50px" height="50px">
 				</div>
 			</c:forEach>
 		</div>
 	</div>
-	<!-- 
+<!-- 
 <%--         <iframe style="float: right;" src="http://192.33.33.26:8081?student=${sname }&classRoom=자바" width="550" height="550">
  		</iframe> --%>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
