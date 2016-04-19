@@ -242,14 +242,30 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/myInfo.do")//내정보 수정하기
-	public ModelAndView myInfo(MemberDTO dto){
+	public ModelAndView myInfo(MemberDTO dto,HttpSession session){
 		
 		int count=memberDao.infoMod(dto);
 		System.out.println("count:"+count);
-		String msg=count>0?"수정성공!":"수정실패!";
+		//String msg=count>0?"수정성공!":"수정실패!";
+		
+		String msg="";
+		String url="";
+		
+			if(count>0){
+				msg="수정성공";
+				url="myInfoForm.do";
+				session.setAttribute("sname", dto.getName());			
+				session.setAttribute("spwd", dto.getPwd());
+				session.setAttribute("semail", dto.getEmail());
+				session.setAttribute("sphone", dto.getPhonenumber());
+				session.setAttribute("snickname", dto.getNickname());
+				
+			}else{
+			msg="수정실패";
+			url="myInfoForm.do";
+		}
 
 		ModelAndView mav=new ModelAndView();
-		String url="myInfoForm.do";
 		mav.addObject("url",url);
 		mav.addObject("msg", msg);
 		mav.setViewName("member/myInfoMsg");

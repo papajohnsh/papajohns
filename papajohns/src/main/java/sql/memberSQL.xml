@@ -42,7 +42,7 @@
 	</select>
 	
 	<update id="infoMod" parameterType="papa.member.model.MemberDTO">
-		update member set pwd=#{pwd},email=#{email},phonenumber=#{phonenumber} where name=#{name}
+		update member set pwd=#{pwd},nickname=#{nickname},email=#{email},phonenumber=#{phonenumber} where name=#{name}
 	</update>
 	
 	<delete id="memberOut" parameterType="papa.member.model.MemberDTO">
