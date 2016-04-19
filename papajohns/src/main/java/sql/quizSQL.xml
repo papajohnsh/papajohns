@@ -46,5 +46,8 @@
  		insert into quiz_answer(subject, class_idx,member_id, paper_idx, ox, answer_num, quiz_answer) 
  		values(#{subject},#{class_idx},#{member_id},#{paper_idx},#{ox},#{answer_num},#{quiz_answer})
  	</insert>
+ 	<select id="quizResult" resultType="papa.quizAnswer.model.quizAnswerDTO">
+ 		select * from quiz_answer where class_idx={#idx}
+ 	</select>
  
   </mapper>
