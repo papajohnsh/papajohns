@@ -247,6 +247,15 @@ public ModelAndView QuizTestList(quizTestDTO dto) throws ParseException{
 	return mav;
 	}
 }
+//쪽지시험 결과보기
+@RequestMapping("/quizResult.do")
+public ModelAndView quizResult(@RequestParam(value="idx") int idx){
+	List<quizAnswerDTO> list= quizAnswerDao.quizResult(idx);
+	ModelAndView mav=new ModelAndView();
+	mav.addObject("list", list);
+	mav.setViewName("quiz/quizResult");
+	return mav;
+}
 
 }
 
