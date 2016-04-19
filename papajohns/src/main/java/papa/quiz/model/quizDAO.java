@@ -9,4 +9,5 @@ public interface quizDAO {
 	public int quizUpdate(quizDTO dto);
 	public List<quizDTO> quizList();
 	
+	
 }

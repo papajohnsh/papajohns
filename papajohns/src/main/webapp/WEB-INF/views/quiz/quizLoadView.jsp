@@ -26,14 +26,21 @@
 	
 	
 }); */
+
+
+
 </script>
 </head>
 <body>
 
  <input type="hidden" id="length" value="${fn:length(result2) }">
-
+ 
+ <form name='timer'> 
+  <input name="limitTime"type="hidden" value='${limitTime }' id="limitTime">
+  
+  </form>
 <div>
-
+	<input type=text value='${limitTime }' name='counter' readonly="readonly" id='counter'><br>
 	<c:forEach var="dto2" items="${result2 }" >
 		${dto2.idx}.&nbsp;&nbsp;&nbsp; ${dto2.question }<br>
 		<input type="radio" name="${dto2.idx }" value="1">①&nbsp;&nbsp;&nbsp; ${dto2.example1 }<br>
@@ -46,7 +53,7 @@
 	<input type="hidden" name="quiz_answer" id="quiz_answer" value="">
 	<input type="hidden" name="paper_idx" value="${result.idx}">
 	<input type="hidden" name="subject" value="${result.subject }">
-	<input type="hidden" name="class_idx" value="${result.class_idx }">
+	<input type="hidden" name="class_idx" id="class_idx" value="${result.class_idx }">
 	<input type="hidden" name="member_id" value="${sid }">
 	<input type="hidden" name="start_date" value="${dto2.start_date }">
 	<input type="hidden" name="start_time" value="${dto2.start_time }">
