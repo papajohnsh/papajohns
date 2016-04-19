@@ -378,18 +378,18 @@ public class MemberController {
 			return mav;
 		}
 	}
-//	@RequestMapping("/nickUpdate.do")
-//	public ModelAndView nickUpdate(@RequestParam("nickname") String nickname ){
-//		String url="index.do";
-//		ModelAndView mav = null;
-//		//memberDao.nickUpdate(nickname);
-//		mav.addObject("msg", "nickname완료:");
-//		mav.addObject("url", url);
-//		mav.setViewName("member/memberMsg");
-//		
-//		return mav;
-//	
-//	}
+	@RequestMapping("/nickUpdate.do")
+	public ModelAndView nickUpdate(MemberDTO dto){
+		String url="index.do";
+		ModelAndView mav = null;
+		memberDao.nickUpdate(dto);
+		mav.addObject("msg", "nickname완료:");
+		mav.addObject("url", url);
+		mav.setViewName("index");
+		System.out.println("/nickUpdate.do완료");
+		return mav;
+	
+	}
 
 				
 				
