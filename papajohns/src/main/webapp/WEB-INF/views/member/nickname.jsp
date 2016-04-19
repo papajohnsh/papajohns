@@ -45,7 +45,8 @@
       <form name="nickfm" action="nickUpdate.do">
       		<h3>닉네임 설정</h3>
 		사용하고자 하는 닉네임을 입력해주세요.<br>
-		<input type="text" id="nickname">
+		<input type="text" name="nickname">
+		<input type="hidden" name="id" value="${sid}">
 	<input type="submit" value="확인">
 	</form>
 	</div> 
