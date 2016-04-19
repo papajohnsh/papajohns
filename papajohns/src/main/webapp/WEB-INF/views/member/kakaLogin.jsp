@@ -27,6 +27,7 @@
           url: '/v1/user/me',
           success: function(res) {
             alert(JSON.stringify(res));
+            
           },
           fail: function(error) {
             alert(JSON.stringify(error));
