@@ -15,39 +15,50 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- Sidebar user panel -->
-          <div class="user-panel">
+        <div class="user-panel">
           <c:if test="${empty sid}">
           <div class="pull-left image">
           	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
           </div>
           </c:if>
           <c:if test="${!empty sid}">
-               <div class="pull-left image">
-              <img src="img/${sid }/profile.jpg"  onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"  class="img-circle" style="width: 40px" alt="User Image">
-            </div>
-            <div class="pull-left info">
-              <p>${snickname}</p>
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
+        <div class="pull-left image" style="height: 100px; width: 80px;">
+
+					<img src="resource/data/${sid }/profile.jpg"
+						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
+						class="img-circle"
+						style="max-width: 80px; height: 80px; width: 80px; margin-top: 10px;">
+				</div>
+				<div style="margin-left: 85px; margin-top: -5px;">
+					<a href="myInfoForm.do"><font size="2">내정보</a>&nbsp;
+					&nbsp; <a href="logout.do"><font size="2">로그아웃</a>
+				</div>
+				<br>
+				<br>
+				<div style="margin-top: -20px;">
+					<font size="2" color="white">&nbsp;&nbsp;&nbsp;${snickname}</font>
+				</div>
+				<div style="margin-left: 120; margin-top: 8px;">
+					&nbsp;&nbsp;&nbsp;<a href="#"><i
+						class="fa fa-circle text-success"></i><font color="white">&nbsp;&nbsp;Online</font>
+					</a>
+				</div>
+
            </c:if>
             <div class="pull-left info">
               <c:if test="${empty sid}">
               <p>로그인 해주세요</p>
               <a href="#"><i class="fa fa-circle text-danger"></i> Offline</a>
               </c:if>
-              <c:if test="${!empty sid}">
-              <p>${snickname}</p>
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-              </c:if>
+            
             </div>
           </div>
         </section>
         <!-- /.sidebar -->
       </aside>
-		
-		  <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
 
+	<!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
 		<!-- Small boxes (Stat box) -->
           <div class="row">
             <div class="col-lg-3 col-xs-6">
@@ -141,21 +152,12 @@
                       </c:forEach>  
                       </tbody>
                   </table>
+                  <div align="center">${pageStr}</div><!-- 페이징 영역 -->
                 </div><!-- /.box-body -->
-                <div class="box-footer clearfix">
-                  <ul class="pagination pagination-sm no-margin pull-right">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
                 </div>
-                </div>
-               </div> 
+			</div>
               </div><!-- /.box -->
- 
-				<div class="row">
+ 			<div class="row">
             <div class="col-md-12">
               <div class="box">
                 <div class="box-header with-border" align="center">
@@ -203,9 +205,9 @@
                     <li><a href="#">&raquo;</a></li>
                   </ul>
                 </div>
-              </div><!-- /.box -->
-			</div>
-			</div>
+              </div><!-- /.box -->	
+			</div>	
+	</div>
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
  	<%@ include file="footer.jsp" %>

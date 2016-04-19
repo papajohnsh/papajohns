@@ -11,7 +11,7 @@
  		select count(*) from free_bbs
  	</select>
  	<select id="bbsList" parameterType="Map" resultType="papa.freebbs.model.FreeBbsDTO">
- 		select * from free_bbs limit #{startNum}, #{endNum}
+ 		select * from free_bbs order by idx desc limit #{startNum}, #{endNum}
  	</select>
  	<select id="bbsContent" parameterType="int" resultType="papa.freebbs.model.FreeBbsDTO">
  		select * from free_bbs where idx=#{idx} 

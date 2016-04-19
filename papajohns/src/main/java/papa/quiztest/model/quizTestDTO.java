@@ -1,12 +1,13 @@
 package papa.quiztest.model;
 
-import java.sql.Date;
+import java.util.*;
 
 public class quizTestDTO {
 	private int idx;
 	private String subject;
 	private int class_idx;
-	private Date quiz_date;
+	private String start_date;
+	private String start_time;
 	private String quiz_content;
 	private String quiz_num;
 	private String writer;
@@ -19,14 +20,15 @@ public class quizTestDTO {
 	public quizTestDTO() {
 		super();
 	}
-	public quizTestDTO(int idx, String subject, int class_idx, Date quiz_date, String quiz_content, String quiz_num,
-			String writer, String question, String answer, String example1, String example2, String example3,
-			String example4) {
+	public quizTestDTO(int idx, String subject, int class_idx, String start_date, String start_time,
+			String quiz_content, String quiz_num, String writer, String question, String answer, String example1,
+			String example2, String example3, String example4) {
 		super();
 		this.idx = idx;
 		this.subject = subject;
 		this.class_idx = class_idx;
-		this.quiz_date = quiz_date;
+		this.start_date = start_date;
+		this.start_time = start_time;
 		this.quiz_content = quiz_content;
 		this.quiz_num = quiz_num;
 		this.writer = writer;
@@ -55,11 +57,17 @@ public class quizTestDTO {
 	public void setClass_idx(int class_idx) {
 		this.class_idx = class_idx;
 	}
-	public Date getQuiz_date() {
-		return quiz_date;
+	public String getStart_date() {
+		return start_date;
 	}
-	public void setQuiz_date(Date quiz_date) {
-		this.quiz_date = quiz_date;
+	public void setStart_date(String start_date) {
+		this.start_date = start_date;
+	}
+	public String getStart_time() {
+		return start_time;
+	}
+	public void setStart_time(String start_time) {
+		this.start_time = start_time;
 	}
 	public String getQuiz_content() {
 		return quiz_content;
@@ -115,6 +123,6 @@ public class quizTestDTO {
 	public void setExample4(String example4) {
 		this.example4 = example4;
 	}
-	
+
 	
 }

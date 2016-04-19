@@ -48,6 +48,8 @@
 	<input type="hidden" name="subject" value="${result.subject }">
 	<input type="hidden" name="class_idx" value="${result.class_idx }">
 	<input type="hidden" name="member_id" value="${sid }">
+	<input type="hidden" name="start_date" value="${dto2.start_date }">
+	<input type="hidden" name="start_time" value="${dto2.start_time }">
 	<input type="button" id="exam" value="시험 보기" onclick="gogo()">
 	</form>
 </div> 

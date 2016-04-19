@@ -62,13 +62,13 @@
             <li class="header">Menu</li>
             <li>
              <a href="faqList.do">
-                <i class="fa fa-circle-o text-red"></i> <span>FAQ</span>
+                <i class="fa fa-circle-o text-red"></i><span>FAQ</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
             <li>
               <a href="qnaList.do">
-               <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span>
+               <i class="fa fa-circle-o text-aqua"></i><span>Q&A</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
               </a>
             </li>
@@ -106,25 +106,25 @@
 
                     <tbody>
                       	<c:choose>
-                      		<c:when test="${empty list2 }">
+                      		<c:when test="${empty list}">
                       			<tr>
-	                      			<td colspan="4" align="center">
-	                      			 	해당 게시글이 없습니다.
-	                      			</td>
-	                      		</tr>
+                      				<td colspan="4" align="center">
+                      					해당 게시글이 없습니다.
+                      				</td>
+                      			</tr>
                       		</c:when>
-                      		<c:otherwise>
-                      			<c:forEach var="dto" items="${list2}">
-		                        <tr>
-		                          <td>${dto.idx}</td>
-						          <td>${dto.subject}</td>
-		                          <td>${dto.writer}</td>
-							     <td><span class="badge bg-yellow">${dto.readnum}</span></td>	
-		                        </tr>
-		                        </c:forEach>
-                      		</c:otherwise>
-                      	</c:choose>
-                    </tbody>
+                        <c:otherwise>
+                        	<c:forEach var="dto" items="${list}">
+                        	<tr>
+                        		<td>${dto.idx}</td>
+                        		<td>${dto.subject}</td>
+                        		<td>${dto.writer}</td>
+                        		<td><span class="badge bg-red">${dto.readnum}</span></td>
+                        	</tr>
+                        	</c:forEach>
+                        </c:otherwise>
+                        </c:choose>
+                      </tbody>
                   </table>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
