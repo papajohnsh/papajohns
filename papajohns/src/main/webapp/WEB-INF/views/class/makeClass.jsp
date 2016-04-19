@@ -10,8 +10,8 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-		<script type="text/javascript" src="https://rawgit.com/FezVrasta/bootstrap-material-design/master/dist/js/material.min.js"></script>
-		<script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
+		<script type="text/javascript" src="js/datepicker/material.min.js"></script>
+		<script type="text/javascript" src="js/datepicker/moment-with-locales.min.js"></script>
 		<script type="text/javascript" src="js/datepicker/bootstrap-material-datetimepicker.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
