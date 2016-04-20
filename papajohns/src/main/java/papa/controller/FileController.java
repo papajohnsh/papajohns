@@ -41,34 +41,46 @@ public class FileController {
 		File f=new File("C:/Users/kyu/git/papajohns/papajohns/src/main/webapp/img/"+filename);
 		
 		ModelAndView mav= new ModelAndView("download","downloadFile",f);
-		return mav;
+		return mav;	
 	}
 
-	@RequestMapping("/fileUpload2.do")
-	public String fileUpload2(@RequestParam("upload") MultipartFile upload){
+	@RequestMapping("/fileupload2.do")
+	public String fileUpload2(@RequestParam("upload") MultipartFile upload,@RequestParam("id") String id, HttpServletRequest request) {
+		String account=id;
+		String path=request.getSession().getServletContext().getRealPath("/resource/data/"+account);
+		System.out.println(System.getProperty("user.dir"));
+		System.out.println(path);
+		System.out.println(account);
+		//File temp=new File(request.getSession().getServletContext().getRealPath("/resource/data/"+account));
+		//temp.mkdir();
+		File dir=new File(path);
+		dir.mkdir();
+		if(!dir.exists()){
+			copyInto2(upload, account, path);
+		}else{
+			copyInto2(upload, account, path);
+		}
 		
-		copyInto2(upload);
-		
+
 		return "file/fileOK";
-	}	
-	
-
-private void copyInto2(MultipartFile upload){
-	
-System.out.println("올린파일명"+upload.getOriginalFilename());
-
-try {
-	byte bytes[]=upload.getBytes();
-	File newFile= new File("C:/Users/user1/git/papajohns/papajohns/src/main/webapp/file/"+upload.getOriginalFilename());
-	FileOutputStream fos=new FileOutputStream(newFile);
-	fos.write(bytes);//copy 행위
-		fos.close();
-	} catch (IOException e) {
-		
-		e.printStackTrace();
 	}
-}	
+	
 
+	
+	private void copyInto2(MultipartFile upload, String account, String path) {
+		System.out.println("올린파일명" + upload.getOriginalFilename());
+
+		try {
+			byte bytes[] = upload.getBytes();
+			File newFile = new File(path+"/"+upload.getOriginalFilename());
+			FileOutputStream fos = new FileOutputStream(newFile);
+			fos.write(bytes);// copy 행위
+			fos.close();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
 	
 
 	// 업로드
@@ -113,7 +125,7 @@ try {
 //파일 다운로드 리스트
 @RequestMapping("/bbsFileList.do")
 public ModelAndView fileList2(){
-	File f=new File("C:/Users/user1/git/papajohns/papajohns/src/main/webapp/file");
+	File f=new File("E:/joo/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/papajohns/resource/data");
 	File files[]=f.listFiles();
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("files",files);
@@ -126,7 +138,7 @@ public ModelAndView fileList2(){
 public ModelAndView download2(
 		@RequestParam("filename")String filename){
 	
-	File f=new File("C:/Users/user1/git/papajohns/papajohns/src/main/webapp/file/"+filename);
+	File f=new File("E:/joo/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/papajohns/resource/data"+filename);
 	
 	ModelAndView mav= new ModelAndView("download","downloadFile",f);
 	return mav;
