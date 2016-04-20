@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import papa.email.model.Email;
+import papa.email.model.EmailSender;
 import papa.member.model.MemberDAO;
 import papa.member.model.MemberDTO;
 
@@ -38,6 +40,67 @@ public class MemberController {
 	public void setMemberDao(MemberDAO memberDao) {
 		this.memberDao = memberDao;
 	}
+	
+	@Autowired
+	   private EmailSender emailSender;
+	   @Autowired
+	   private Email email;
+
+	    public ModelAndView sendEmailAction (@RequestParam("id") String id) throws Exception {//회원가입 인증 이메일 발송
+	        
+	    	ModelAndView mav=new ModelAndView();
+	    	
+	    		MemberDTO dto=memberDao.getUserInfo(id);
+	            email.setContent("http://localhost:9090/papajohns/loginConfirm.do?id="+id);	            
+	            email.setReceiver(dto.getEmail());
+	            email.setSubject(dto.getNickname()+"님 인증 메일입니다.");
+	            emailSender.SendEmail(email);
+	            
+	            return mav;
+	    }
+	    
+	    public ModelAndView idFindEmail(@RequestParam("id") String id)throws Exception{//아이디 이메일 발송
+	    	
+	    	ModelAndView mav=new ModelAndView();
+	    	
+	    	MemberDTO dto=memberDao.getUserInfo(id);
+	    	
+	    	email.setContent(dto.getNickname()+"님의 아이디는"+id+"입니다.");
+	    	email.setReceiver(dto.getEmail());
+	    	email.setSubject(dto.getNickname()+"님의 아이디를 알려드립니다.");
+	    	emailSender.SendEmail(email);
+	    	
+	    	return mav;
+	    }
+	    
+	    public ModelAndView pwdFindEmail(@RequestParam("id") String id) throws Exception{//비밀번호 이메일 발송
+	    	
+	    	ModelAndView mav=new ModelAndView();
+	    	
+	    	MemberDTO dto=memberDao.getUserInfo(id);
+	    	
+	    	email.setContent(dto.getNickname()+"님의 비밀번호는"+dto.getPwd()+"입니다.");
+	    	email.setReceiver(dto.getEmail());
+	    	email.setSubject(dto.getNickname()+"님의 비밀번호를 알려드립니다.");
+	    	emailSender.SendEmail(email);
+	    	
+	    	return mav;
+	    }
+	    
+	    @RequestMapping("/loginConfirm.do")//회원가입 승인 처리
+	    public ModelAndView loginConfirm(MemberDTO dto){
+	      	
+	    	memberDao.loginUpdate(dto);//interlock +1일때 회원가입 승인
+	    	
+	    	String url="index.do";
+	    	
+	    	ModelAndView mav=new ModelAndView();
+	    	mav.addObject("msg", "회원가입 승인완료");
+	    	mav.addObject("url", url);
+	    	mav.setViewName("member/loginConfirm");
+	    	return mav;
+	    }
+	
 	
 	@RequestMapping("/loginForm.do")//loginForm으로 이동
 	public ModelAndView loginForm(@CookieValue(value="saveid",required=false,defaultValue="NoId")String saveid){
@@ -72,9 +135,14 @@ public class MemberController {
 		String getId=memberDao.loginOk(id);
 		System.out.println("getId:"+getId);
 		System.out.println("id:"+id);
-	
 		
-		if(getId==null){
+		String result=memberDao.getInterLock(id);
+		System.out.println("result"+result);
+		
+		if(result==null){
+			msg="인증메일을 확인해주세요";
+			url="loginForm.do";
+		}else if(getId==null){
 			msg="아이디를 확인해주세요.";
 			url="loginForm.do";
 		}else if(getId.equals(id)){//아이디가 맞으면
@@ -116,7 +184,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/memberAdd.do")//회원가입
-	public ModelAndView memberAdd(MemberDTO dto,@RequestParam("id") String id){
+	public ModelAndView memberAdd(MemberDTO dto,@RequestParam("id") String id) throws Exception{
 		
 		String msg="";
 		String url="";
@@ -126,8 +194,9 @@ public class MemberController {
 		if(memberDao.idCheck(id)==null){
 			int result=memberDao.memberAdd(dto);
 			if(result>0){
-				msg="회원가입을 축하드립니다!";
-				url="index.do";
+				msg="메일로 인증메일을 보냈으니 확인해주세요!";
+				url="loginForm.do";
+				sendEmailAction(id);//해당 아이디로 메일 발송
 			}else{
 				msg="회원가입에 실패했습니다";
 				url="loginForm.do";
@@ -176,7 +245,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/idFind.do")//아이디 찾기 로직
-	public ModelAndView idFind(@RequestParam("name") String name, @RequestParam("email") String email){
+	public ModelAndView idFind(@RequestParam("name") String name, @RequestParam("email") String email) throws Exception{
 	
 		Map<String, String> map=new HashMap<String, String>();
 		map.put("name", name);
@@ -189,12 +258,13 @@ public class MemberController {
 		String url="";
 		
 		if(result>0){
+			
 			String getId=memberDao.emailFind(email);
-			msg="당신의 아이디는"+getId+"입니다.";
+			msg="메일이 발송되었습니다.";
 			url="index.do";
 			mav.addObject("msg", msg);
 			mav.addObject("url", url);
-			mav.addObject("getId", getId);
+			idFindEmail(getId);
 		}else{
 			msg="가입된 회원이 아닙니다.";
 			url="idFindForm.do";
@@ -212,7 +282,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/pwdFind.do")//비밀번호 찾기 로직
-	public ModelAndView pwdFind(@RequestParam("id") String id, @RequestParam("email") String email){
+	public ModelAndView pwdFind(@RequestParam("id") String id, @RequestParam("email") String email) throws Exception{
 	
 		Map<String, String> map=new HashMap<String, String>();
 		map.put("id", id);
@@ -225,12 +295,13 @@ public class MemberController {
 		String url="";
 		
 		if(result>0){
+			
 			String getPwd=memberDao.emailFind2(email);
-			msg="당신의 비밀번호는"+getPwd+"입니다.";
+			msg="메일을 발송하였습니다.";
 			url="index.do";
 			mav.addObject("msg", msg);
 			mav.addObject("url", url);
-			mav.addObject("getPwd", getPwd);
+			pwdFindEmail(id);
 		}else{
 			msg="가입된 회원이 없습니다.";
 			url="idFindForm.do";
