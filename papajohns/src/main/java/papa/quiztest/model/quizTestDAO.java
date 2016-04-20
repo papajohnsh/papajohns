@@ -10,4 +10,5 @@ public interface quizTestDAO {
 	public int quizTestUpdate(quizTestDTO dto);
 	public List<quizTestDTO> quizList2(int idx);
 	public quizTestDTO quizTestList2(int idx);
+	public List<quizTestDTO> quizNum(int class_idx);
 }

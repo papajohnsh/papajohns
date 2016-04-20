@@ -31,8 +31,8 @@
             alert(JSON.stringify(res.properties.nickname));
             var id=JSON.stringify(res.id);
             var nickname=JSON.stringify(res.properties.nickname);
-    	    window.location.href="facebookLogin.do?nickname="+nickname+
-    		"&id="+id; 
+            window.location.href="JLogin.do?id="+id; 
+
           },
           fail: function(error) {
             alert(JSON.stringify(error));

@@ -147,7 +147,7 @@ public ModelAndView QuizTestLoad(){
 	return mav;
 	
 }
-@RequestMapping("/quizTestAnswer")
+@RequestMapping("/quizTestAnswer.do")
 public ModelAndView quizTestAnswer(quizAnswerDTO dto){
 	
 	System.out.println(dto.getPaper_idx());
@@ -176,14 +176,16 @@ public ModelAndView quizTestAnswer(quizAnswerDTO dto){
 
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("msg", msg);
-	mav.addObject("url","classShow.do");
+	mav.addObject("url","classShow.do?idx="+dto.getClass_idx());
 	mav.setViewName("quiz/quizMsg");
 	return mav;
 }
+
+//쪽지시험 보기
 @RequestMapping("/quizTestList.do")
-public ModelAndView QuizTestList(quizTestDTO dto) throws ParseException{
+public ModelAndView QuizTestList(@RequestParam(value="idx") int idx, @RequestParam(value="id") String id) throws ParseException{
 	
-	quizTestDTO result=quizTestDao.quizTestList2(dto.getIdx());
+	quizTestDTO result=quizTestDao.quizTestList2(idx);
 	
 	int nYear;
     int nMonth;
@@ -206,7 +208,8 @@ public ModelAndView QuizTestList(quizTestDTO dto) throws ParseException{
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     Date beginDate = formatter.parse(start);
     Date endDate = formatter.parse(result.getStart_date()+" "+result.getStart_time());
-
+    String quizJoin = quizAnswerDao.quizJoin(idx, id);
+    System.out.println("시험지목록에 있는지 확인!!"+quizJoin);
     System.out.println(beginDate+"///"+endDate);
 	if(beginDate.getTime()<endDate.getTime()){
 		System.out.println(beginDate.getTime());
@@ -222,8 +225,16 @@ public ModelAndView QuizTestList(quizTestDTO dto) throws ParseException{
 		mav.addObject("msg",msg);
 		mav.setViewName("quiz/quizUpdateMsg");
 		return mav;
+	}else if(quizJoin != null){
+		ModelAndView mav=new ModelAndView();
+		String msg="이미 참여하였습니다.";
+		mav.addObject("msg",msg);
+		mav.setViewName("quiz/quizUpdateMsg");
+		return mav;
+		
 	}else{
-
+	long limit=(endDate.getTime()+((long)1000*60*60)-beginDate.getTime())/((long)1000);
+	System.out.println("남은 시간:"+ limit);
 	List<quizTestDTO> result2=new ArrayList<>();
 	String ques=result.getQuestion();
 	String[] question=ques.split("::");
@@ -243,6 +254,7 @@ public ModelAndView QuizTestList(quizTestDTO dto) throws ParseException{
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("result",result);
 	mav.addObject("result2",result2);
+	mav.addObject("limitTime", limit);
 	mav.setViewName("quiz/quizLoadView");
 	return mav;
 	}
@@ -250,15 +262,27 @@ public ModelAndView QuizTestList(quizTestDTO dto) throws ParseException{
 //쪽지시험 결과보기
 @RequestMapping("/quizResult.do")
 public ModelAndView quizResult(@RequestParam(value="idx") int idx){
-	List<quizAnswerDTO> list= quizAnswerDao.quizResult(idx);
+	
+	List<quizTestDTO> num= quizTestDao.quizNum(idx);
+	System.out.println("시험지 갯수 : "+num.size());
+
+	List<quizAnswerDTO> result[]=new ArrayList[num.size()];
+	for(int i=0;i<num.size();i++){
+		result[i]=quizAnswerDao.quizResult(idx, num.get(i).getIdx());
+	}
+	
+	for(int i=0;i<num.size();i++){
+		
+		for(int j=0;j<result[i].size();j++){
+			 System.out.println("i="+i+"j="+j+"시험 제목 : "+result[i].get(j).getSubject());
+		}
+	}
+
 	ModelAndView mav=new ModelAndView();
-	mav.addObject("list", list);
+	mav.addObject("subject",num);
+	mav.addObject("result", result);
 	mav.setViewName("quiz/quizResult");
 	return mav;
 }
 
 }
-
-
-
-
