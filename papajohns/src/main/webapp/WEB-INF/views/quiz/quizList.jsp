@@ -62,7 +62,7 @@
 
 
 
-<h1 style="text-align: center;">문제 수정 및 시험등록</h1>
+<h1 style="text-align: center;">시험 등록하기</h1>
 <form name="registration" action="quizTestSave.do" method="post">
    시 험 명:<input type="text" name="subject" ><br><br>
   시험내용:<textarea rows="3" name="quiz_content" cols="30"></textarea><br>
@@ -80,7 +80,7 @@
       </c:if>
 
    <div class="example2">
-	<table style="width: 600px;height: 300px; margin:0;auto;" >
+	<table style="width: 600px;height: 300px;" >
 	<tr style="background-color:#3c8dbc; color: white; text-align: center;">
 		<th style="text-align: center;">문제</th>
 		<th style="text-align: center;">출제할 항목</th>
