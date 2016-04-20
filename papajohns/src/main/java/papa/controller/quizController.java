@@ -1,3 +1,4 @@
+
 package papa.controller;
 
 import java.text.ParseException;
@@ -136,7 +137,7 @@ public String Quiztest2(quizTestDTO dto){
 }
 @RequestMapping("/quizTestLoad.do")
 public ModelAndView QuizTestLoad(){
-	int class_idx=2;
+	int class_idx=1;
 	List<quizTestDTO> result=quizTestDao.quizList2(class_idx);
 	System.out.println(result.get(0).getStart_date());
 	System.out.println(result.get(0).getStart_time());
@@ -284,5 +285,6 @@ public ModelAndView quizResult(@RequestParam(value="idx") int idx){
 	mav.setViewName("quiz/quizResult");
 	return mav;
 }
+
 
 }

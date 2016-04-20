@@ -54,10 +54,18 @@
       repeat 0px 0px;
 }
 
+.col drag{
+   float: center;
+   padding: 5px 5px 5px 5px;
+   margin: 5px 5px 5px 5px;
+   background: #FFF url("http://threedubmedia.com/inc/img/grid20.gif")
+      repeat 0px 0px;
+}
+
 #col1 {
-   width: 200px;
+   width: 100px;
    height: auto;
-   border: 1px solid black;
+   
 }
 
 img.drag {
@@ -67,9 +75,8 @@ img.drag {
 }
 
 #droppable {
-   width: 600px;
-   height: 600px;
-   border: 1px solid black;
+   width: 1100px;
+   height: 700px;
 }
 
 .right {
@@ -89,7 +96,7 @@ ul li {
 }
 
 .drag-list img {
-   width: 80px;
+   //width: 80px;
    vertical-align: middle;
    cursor: move;
 }
@@ -127,6 +134,27 @@ ul li {
 .tip {
    font-size: 12px;
    clear: both;
+}
+
+.frame2{
+border-color:#000000 #4785F8;
+border-image:none;
+border-radius: 0 0 0 0;
+-moz-border-radius:0 0 0 0;
+-webkit-border-radius:0 0 0 0;
+border-style:solid;
+border-width:15px;
+
+}
+
+.frame3{
+border-color:rgb(62, 255, 157) #4785F8;
+border-image:none;
+border-radius: 50px 0 50px 0;
+-moz-border-radius:50px 0 50px 0;
+-webkit-border-radius:50px 0 50px 0;
+border-style:solid;
+border-width:5px;
 }
 </style>
 
@@ -1471,44 +1499,53 @@ ul li {
       </aside>	
 	
 	
-<div class="content-wrapper"
-		style="background: white; min-height: 800px;">
-	<div class="col" id="droppable"  style="left:300px;">
-      <div class="col" id="col1">
-         <div id="drag-list" class="drag-list">
-            <ul>
-            <c:forEach var="dto" items="${list }">
+<div class="content-wrapper" style="background: white; min-height: 800px;">
+ <div class="col frame2" id="droppable" style="width: 1050px; background:rgb(185, 205, 214);">
+  <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left;">
+  </div>
+  <div class="col frame3" id="col1" style="float:left; width: 250px; height:650px; background:yellow;">
 
-            
-             <c:forEach var="num" begin="1" end="30" step="1">
-             <c:if test="${dto.idx==num }">
-               <li><span id="${num }" class="${dto.id}" onclick='testfunc(this)'>
-                     <img src="${dto.idx }.jpg" width="50px" height="50px"class="drag2" id="myImg" class="drag2"><br>
-
-               <li><span id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)'>
-                     <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="50px" height="50px"class="drag2" id="myImg" class="drag2"><br>
-
-                     <span id="r">${dto.id }</span>
-               </span></li>
-               </c:if>
-               </c:forEach>
-               </c:forEach>
-             </ul>				
-         </div>
-      </div>
-   </div>
-      <form name="f" action="designAdd.do">
    
+   <div id="drag-list" class="drag-list">
+    <c:forEach var="dto" items="${list }" varStatus="num">
+    <c:choose>
+    	<c:when test="${(num.count%3)==1 }">
+    	<div id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left;">
+          <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
+          <span id="r">${dto.id }(${num.count})</span>
+          
+          </div>
+    	</c:when>
+    	
+    	<c:when test="${(num.count%3)==2 }">
+    	<div id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left;">
+          <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
+          <span id="r">${dto.id }(${num.count})</span>
+          </div>
+    	</c:when>
+    	<c:when test="${(num.count%3)==3 }">
+    	<div id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)'>
+          <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
+          <span id="r">${dto.id }(${num.count})</span>
+          </div>
+    	</c:when>
+    </c:choose>
+  
+    </c:forEach>
+   </div>
+  </div>
+
+</div>
+            <form name="f" action="designAdd.do">
    <input type="hidden" name="reidx" value="${idx }">
    <c:forEach var="dto" items="${list }">
-   
       <input type="hidden" name="a${dto.idx}">
        <input type="hidden" name="x${dto.idx}">
       <input type="hidden" name="y${dto.idx}">
      </c:forEach>
       <input type="submit" value="등록">
    </form>
-   </div>
+  </div>
    
 
   </body>
