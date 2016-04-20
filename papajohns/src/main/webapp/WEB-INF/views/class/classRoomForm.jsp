@@ -142,10 +142,10 @@
                       <c:forEach var="dto" items="${list }">
                         <tr>
                         <td><input type="checkbox"></td>   
-                          <td>1.</td>
+                          <td>${dto.idx }</td>
                           <td><a href="myClassRoom.do?idx=${dto.idx }">${dto.subject }</a></td>
-                          <td>${dto.start_date }</td>
-                          <td>${dto.end_date }</td>
+                          <td>${dto.name }</td>
+                          <td>${dto.start_time }~${dto.end_time }</td>
                           
                           
                         </tr>

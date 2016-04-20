@@ -68,18 +68,19 @@
                           <th></th>
                           <th>번호</th>
                           <th>강의명</th>
-                          <th>강의시작일</th>
-                          <th>강의종료일</th>
+                          <th>강사명</th>
+                          
+                          <th>강의시간</th>
                         </tr>
                       </thead>
                       <tbody>
-                          <c:forEach var="dto" items="${list }">
+                      <c:forEach var="dto" items="${list }">
                         <tr>
                         <td><input type="checkbox"></td>   
-                          <td>1.</td>
+                          <td>${dto.idx }</td>
                           <td><a href="myClassRoom.do?idx=${dto.idx }">${dto.subject }</a></td>
-                          <td>${dto.start_date }</td>
-                          <td>${dto.end_date }</td>
+                          <td>${dto.name }</td>
+                          <td>${dto.start_time }~${dto.end_time }</td>
                           
                           
                         </tr>
@@ -115,19 +116,22 @@
                     <table class="table no-margin">
                       <thead>
                         <tr>
+                          <th></th>
                           <th>번호</th>
                           <th>강의명</th>
-                          <th>강의시작일</th>
-                          <th>강의종료일</th>
+                          <th>강사명</th>
+                          
+                          <th>강의시간</th>
+                        </tr>
                       </thead>
                       <tbody>
-                         <c:forEach var="dto" items="${list4 }">
+                      <c:forEach var="dto" items="${list4 }">
                         <tr>
                         <td><input type="checkbox"></td>   
-                          <td>1.</td>
+                          <td>${dto.idx }</td>
                           <td><a href="classShow.do?idx=${dto.idx }">${dto.subject }</a></td>
-                          <td>${dto.start_date }</td>
-                          <td>${dto.end_date }</td>
+                          <td>${dto.name }</td>
+                          <td>${dto.start_time }~${dto.end_time }</td>
                           
                           
                         </tr>

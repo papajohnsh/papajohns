@@ -46,7 +46,8 @@
 	배너 및 버튼 높이 : 사용자 지정값 */
 
 	
-	naver_id_login.setButton("img/naver.PNG", 2.40);
+	naver_id_login.setButton("white", 3, 48);
+	//naver_id_login.setButton("img/naver.PNG", 2.40);
 
 	naver_id_login.setDomain(".service.com");
 
