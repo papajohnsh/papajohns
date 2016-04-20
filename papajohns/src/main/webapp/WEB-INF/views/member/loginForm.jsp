@@ -126,12 +126,13 @@ var date = now.getDate();
 <div align="center">
   <%@ include file="naverLogin.jsp" %>
   </div>
+  <img alt="" src="distance.png">
  <div align="center">
  <%@ include file="facebookLogin.jsp" %>
- </div>
+ </div><img alt="" src="distance.png">
   <div align="center">
  <%@ include file="kakaLogin.jsp" %>
- </div>
+ </div><img alt="" src="distance.png">
    <div align="center">
  <%@ include file="googleLogin.jsp" %>
  </div>

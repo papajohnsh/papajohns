@@ -9,16 +9,17 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <%@ include file="header.jsp" %>
-	
-	 <!-- Left side column. contains the logo and sidebar -->
+   
+    <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
+       <section class="sidebar">
           <!-- Sidebar user panel -->
         <div class="user-panel">
           <c:if test="${empty sid}">
           <div class="pull-left image">
-          	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+         <br>
+          	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"   style="height: 80px; max-width: 80px; width: 80px;">
           </div>
           </c:if>
           <c:if test="${!empty sid}">
@@ -45,10 +46,10 @@
 				</div>
 
            </c:if>
-            <div class="pull-left info">
+            <div class="pull-left info" style="margin-left: 40px; margin-top:30px;">
               <c:if test="${empty sid}">
-              <p>로그인 해주세요</p>
-              <a href="#"><i class="fa fa-circle text-danger"></i> Offline</a>
+              <p><font size="2">로그인 해주세요</font></p>
+              <a href="#"><i class="fa fa-circle text-danger"></i><font size="2"> Offline </font></a>
               </c:if>
             
             </div>
@@ -57,9 +58,9 @@
         <!-- /.sidebar -->
       </aside>
 
-	<!-- Content Wrapper. Contains page content -->
+   <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-		<!-- Small boxes (Stat box) -->
+      <!-- Small boxes (Stat box) -->
           <div class="row">
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
@@ -136,11 +137,11 @@
                     <tbody>
                     <c:set var="noticeList" value="${list}"></c:set>
                     <c:if test="${empty noticeList}">
-                    	<tr>
-                    		<td colspan="4" align="center">
-                    			등록된 공지사항이 없습니다.
-                    		</td>
-                    	</tr>
+                       <tr>
+                          <td colspan="4" align="center">
+                             등록된 공지사항이 없습니다.
+                          </td>
+                       </tr>
                     </c:if>
                     <c:forEach var="dto" items="${noticeList}">
                         <tr>
@@ -155,9 +156,9 @@
                   <div align="center">${pageStr}</div><!-- 페이징 영역 -->
                 </div><!-- /.box-body -->
                 </div>
-			</div>
+         </div>
               </div><!-- /.box -->
- 			<div class="row">
+          <div class="row">
             <div class="col-md-12">
               <div class="box">
                 <div class="box-header with-border" align="center">
@@ -189,8 +190,8 @@
                         <tr>
                           <td>3.</td>
                           <td><a href="#">Hello Java</a></td>
-                       	  <td>2016.03.06</td>
-                       	  <td>2016.09.07</td>
+                            <td>2016.03.06</td>
+                            <td>2016.09.07</td>
                         </tr>
                         <tr>
                       </tbody>
@@ -205,12 +206,12 @@
                     <li><a href="#">&raquo;</a></li>
                   </ul>
                 </div>
-              </div><!-- /.box -->	
-			</div>	
-	</div>
+              </div><!-- /.box -->   
+         </div>   
+   </div>
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
- 	<%@ include file="footer.jsp" %>
+    <%@ include file="footer.jsp" %>
     <%@ include file="controllSide.jsp" %>
 
  
