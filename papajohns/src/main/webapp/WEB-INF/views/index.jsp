@@ -59,7 +59,21 @@
       </aside>
 
    <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
+   
+
+        <!-- Main content -->
+        <section class="content">
+        
+                
+              </div><!-- /.box -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header with-border" align="center">
+                  <h3 class="box-title">내강의실</h3>
+                  <br><br><br>
+                </div><!-- /.box-header -->
+                   <div class="content-wrapper">
       <!-- Small boxes (Stat box) -->
           <div class="row">
             <div class="col-lg-3 col-xs-6">
@@ -127,100 +141,9 @@
               </div>
             </div><!-- ./col -->
           </div><!-- /.row -->
-
-        <!-- Main content -->
-        <section class="content">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="box">
-                <div class="box-header with-border" align="center">
-                  <h3 class="box-title">공지사항</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <table class="table table-bordered">
-                     <thead>
-                        <tr>
-                          <th>번호</th>
-                          <th>제목</th>
-                          <th>작성자</th>
-                          <th>조회수</th>
-                        </tr>
-                      </thead>
-                    <tbody>
-                    <c:set var="noticeList" value="${list}"></c:set>
-                    <c:if test="${empty noticeList}">
-                       <tr>
-                          <td colspan="4" align="center">
-                             등록된 공지사항이 없습니다.
-                          </td>
-                       </tr>
-                    </c:if>
-                    <c:forEach var="dto" items="${noticeList}">
-                        <tr>
-                          <td>${dto.idx}</td>
-                          <td><a href="noticeContent.do?idx=${dto.idx}">${dto.subject}</a></td>
-                          <td>${dto.writer}</td>
-                          <td><span class="badge bg-blue">${dto.readnum}</span></td>
-                        </tr>
-                      </c:forEach>  
-                      </tbody>
-                  </table>
-                  <div align="center">${pageStr}</div><!-- 페이징 영역 -->
-                </div><!-- /.box-body -->
-                </div>
-         </div>
-              </div><!-- /.box -->
-          <div class="row">
-            <div class="col-md-12">
-              <div class="box">
-                <div class="box-header with-border" align="center">
-                  <h3 class="box-title">내강의실</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <table class="table table-bordered">
-                     <thead>
-                        <tr>
-                          <th>번호</th>
-                          <th>강의명</th>
-                          <th>강의시작일</th>
-                          <th>강의종료일</th>
-                        </tr>
-                      </thead>
-                     <tbody>
-                        <tr>  
-                          <td>1.</td>
-                          <td><a href="classShow.do">Java basic</a></td>
-                          <td>2014.05.05</td>
-                          <td>2014.010.06</td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td><a href="#">Java 열혈 강의</a></td>
-                          <td>2015.01.10</td>
-                          <td>2015.07.12</td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td><a href="#">Hello Java</a></td>
-                            <td>2016.03.06</td>
-                            <td>2016.09.07</td>
-                        </tr>
-                        <tr>
-                      </tbody>
-                  </table>
-                </div><!-- /.box-body -->
-                <div class="box-footer clearfix">
-                  <ul class="pagination pagination-sm no-margin pull-right">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-              </div><!-- /.box -->   
-         </div>   
-   </div>
+          <div class="box-header with-border" align="center">
+                  <h3 class="box-title">강의실 찾기</h3>
+                
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
     <%@ include file="footer.jsp" %>
