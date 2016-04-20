@@ -12,6 +12,82 @@
 	function show() {
 		location.reload();
 	}
+//사진미리보기	
+	
+	function previewImage(targetObj, View_area) {
+	
+	
+	var preview = document.getElementById(View_area); //div id
+	var ua = window.navigator.userAgent;
+	document.getElementById('qwe').style.display='none';
+  //ie일때(IE8 이하에서만 작동)
+	if (ua.indexOf("MSIE") > -1) {
+		targetObj.select();
+		try {
+			var src = document.selection.createRange().text; // get file full path(IE9, IE10에서 사용 불가)
+			var ie_preview_error = document.getElementById("ie_preview_error_" + View_area);
+
+
+			if (ie_preview_error) {
+				preview.removeChild(ie_preview_error); //error가 있으면 delete
+			}
+
+			var img = document.getElementById(View_area); //이미지가 뿌려질 곳
+
+			//이미지 로딩, sizingMethod는 div에 맞춰서 사이즈를 자동조절 하는 역할
+		
+		} catch (e) {
+			if (!document.getElementById("ie_preview_error_" + View_area)) {
+				var info = document.createElement("<p>");
+				info.id = "ie_preview_error_" + View_area;
+				info.innerHTML = e.name;
+				preview.insertBefore(info, null);
+			}
+		}
+  //ie가 아닐때(크롬, 사파리, FF)
+	} else {
+		var files = targetObj.files;
+		for ( var i = 0; i < files.length; i++) {
+			var file = files[i];
+			var imageType = /image.*/; //이미지 파일일경우만.. 뿌려준다.
+			if (!file.type.match(imageType))
+				continue;
+			var prevImg = document.getElementById("prev_" + View_area); //이전에 미리보기가 있다면 삭제
+			if (prevImg) {
+				preview.removeChild(prevImg);
+			}
+			
+			var img = document.createElement("img"); 
+			img.id = "prev_" + View_area;
+			img.classList.add("img-circle");
+			img.file = file;
+			img.style.width = '200px'; 
+			img.style.height = '200px';
+			
+			preview.appendChild(img);
+			if (window.FileReader) { // FireFox, Chrome, Opera 확인.
+				var reader = new FileReader();
+				reader.onloadend = (function(aImg) {
+					return function(e) {
+						aImg.src = e.target.result;
+					};
+				})(img);
+				reader.readAsDataURL(file);
+			} else { // safari is not supported FileReader
+				//alert('not supported FileReader');
+				if (!document.getElementById("sfr_preview_error_"
+						+ View_area)) {
+					var info = document.createElement("p");
+					info.id = "sfr_preview_error_" + View_area;
+					info.innerHTML = "not supported FileReader";
+					preview.insertBefore(info, null);
+				}
+			}
+		}
+	}
+}
+	
+	
 </script>
 
 <style>
@@ -46,35 +122,7 @@
 	<!-- Left side column. contains the logo and sidebar -->
 	<aside class="main-sidebar">
 
-		<section class="sidebar">
-
-			<!-- Sidebar user panel -->
-
-			<div class="user-panel">
-
-				<div class="pull-left image" style="height: 100px; width: 80px;">
-
-					<img src="resource/data/${sid }/profile.jpg"
-						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
-						class="img-circle"
-						style="max-width: 80px; height: 80px; width: 80px; margin-top: 10px;">
-				</div>
-				<div style="margin-left: 85px; margin-top: -5px;">
-					<a href="myInfoForm.do"><font size="2">내정보</a>&nbsp;
-					&nbsp; <a href="logout.do"><font size="2">로그아웃</a>
-				</div>
-				<br>
-				<br>
-				<div style="margin-top: -20px;">
-					<font size="2" color="white">&nbsp;&nbsp;&nbsp;${snickname}</font>
-				</div>
-				<div style="margin-left: 120; margin-top: 8px;">
-					&nbsp;&nbsp;&nbsp;<a href="#"><i
-						class="fa fa-circle text-success"></i><font color="white">&nbsp;&nbsp;Online</font>
-					</a>
-				</div>
-
-			</div>
+	<%@ include file="../side.jsp" %>
 
 			<!-- sidebar menu: : style can be found in sidebar.less -->
 			<ul class="sidebar-menu">
@@ -114,29 +162,30 @@
 				<!-- text input -->
 
 
-				<div class="action" style="text-align: center">
+						<form role="form" name="infoMod" action="myInfo.do" action="fileupload1.do" method="post"
+						enctype="multipart/form-data" >
+				<div class="action" style="text-align: center" >
+				<div id='View_area' class="img-circle" ></div>
 					<img src="resource/data/${sid }/profile.jpg"
 						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
-						height="200px" width="200px" class="img-circle">
-					<form name="fileupload1" action="fileupload1.do" method="post"
-						enctype="multipart/form-data">
-						<input type="hidden" name="id" value=${sid }>
+						height="200px" width="200px" class="img-circle" id="qwe" >
 						<div class="filebox">
+					
+						<input type="hidden" name="id" value=${sid }>
+						
+						
 							<label for="ex_file">사진변경</label> <input type="file" id="ex_file"
-								name="upload">
-						</div>
+								name="upload" onchange="previewImage(this,'View_area')">
+						
+</div>	
 
-
-						<input type="submit" value="등록하기" onclick="show()"
-							class="btn btn-default pull-center">
-
-					</form>
+					
 
 
 				</div>
 				<br>
 				<div align="center" >
-				<form role="form" name="infoMod" action="myInfo.do" >
+				
 					<div class="form-group"  >
 						<label for="name" style="margin-right: 450px;">이름</label> <input type="text"
 							class="form-control" name="name" value="${sname}"

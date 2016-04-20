@@ -1,10 +1,14 @@
 package papa.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.jws.WebParam.Mode;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +18,7 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import papa.member.model.MemberDAO;
@@ -242,7 +247,22 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/myInfo.do")//내정보 수정하기
-	public ModelAndView myInfo(MemberDTO dto,HttpSession session){
+	public ModelAndView myInfo( @RequestParam("upload") MultipartFile upload,@RequestParam("id") String id, HttpServletRequest request,MemberDTO dto,HttpSession session ){
+		
+		String account=id;
+		String path=request.getSession().getServletContext().getRealPath("/resource/data/"+account);
+		System.out.println(System.getProperty("user.dir"));
+		System.out.println(path);
+		System.out.println(account);
+		//File temp=new File(request.getSession().getServletContext().getRealPath("/resource/data/"+account));
+		//temp.mkdir();
+		File dir=new File(path);
+		dir.mkdir();
+		if(!dir.exists()){
+			copyInto(upload, account, path);
+		}else{
+			copyInto(upload, account, path);
+		}
 		
 		int count=memberDao.infoMod(dto);
 		System.out.println("count:"+count);
@@ -271,6 +291,26 @@ public class MemberController {
 		mav.setViewName("member/myInfoMsg");
 		return mav;
 	}
+	
+	// 업로드
+	
+	
+	private void copyInto(MultipartFile upload, String account, String path) {
+		System.out.println("올린파일명" + upload.getOriginalFilename());
+
+		try {
+			byte bytes[] = upload.getBytes();
+			File newFile = new File(path+"/profile.jpg");
+			FileOutputStream fos = new FileOutputStream(newFile);
+			fos.write(bytes);// copy 행위
+			fos.close();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+	
 	
 	@RequestMapping("/memberOutForm.do")//회원탈퇴 폼
 	public String memberOutForm(){
@@ -378,18 +418,18 @@ public class MemberController {
 			return mav;
 		}
 	}
-//	@RequestMapping("/nickUpdate.do")
-//	public ModelAndView nickUpdate(@RequestParam("nickname") String nickname ){
-//		String url="index.do";
-//		ModelAndView mav = null;
-//		//memberDao.nickUpdate(nickname);
-//		mav.addObject("msg", "nickname완료:");
-//		mav.addObject("url", url);
-//		mav.setViewName("member/memberMsg");
-//		
-//		return mav;
-//	
-//	}
+	@RequestMapping("/nickUpdate.do")
+	public ModelAndView nickUpdate(MemberDTO dto){
+		String url="index.do";
+		ModelAndView mav = new ModelAndView();
+		memberDao.nickUpdate(dto);
+		mav.addObject("msg", "nickname완료:");
+		mav.addObject("url", url);
+		mav.setViewName("index");
+		System.out.println("/nickUpdate.do완료");
+		return mav;
+	
+	}
 
 				
 				

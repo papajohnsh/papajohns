@@ -22,23 +22,39 @@ function gogo(){
 	 $('#quiz_answer').val(answer);
 	 fm.submit(); 
 }
+function timeLeft(){ 
+
+	  var count= $('#limitTime').val()-1;
+
+	  	$('#limitTime').val(count);
+
+		$('#counter').val('남은시간 : '+parseInt(count/60)+'분'+(count%60)+'초');
+
+	  window.setTimeout("timeLeft()",1000);
+	  if(count<=0){
+		  location.href='classShow.do?idx='+$('#class_idx').val();
+	  }
+	} 
+	
 	$('.page').on('click',function(){
 
 		var idx=$(this).attr('id');
-			window.alert(idx);
-			params='idx='+idx;
+		var id=$('#id').val();
+			
+			params='idx='+idx+'&id='+id;
             sendRequest('quizTestList.do', params, showResult, 'GET'); 
 
    function showResult() {
       if (XHR.readyState == 4) {
          if (XHR.status == 200) {
-        	 window.alert('진입');
+        	
             document.getElementById('content').innerHTML=XHR.responseText;
+            timeLeft();
          }
       }
    } 
 	}); 
-	
+
 </script>
 </head>
 <body>
@@ -68,7 +84,7 @@ function gogo(){
 	   			<td>
 	   				<form action="quizTest.do">
 	   				<input type="button" value="시험보기" id="${dto.idx }" class="page">
-	   				
+	   				<input type="hidden" value="${sid }" id="id">
 	   				</form>
 	   			</td>
 			</tr>

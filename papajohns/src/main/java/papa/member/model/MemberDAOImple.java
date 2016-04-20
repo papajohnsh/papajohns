@@ -105,9 +105,11 @@ public class MemberDAOImple implements MemberDAO {
 		return result;
 	}
 	
-//	public int nickUpdate(String nickName){
-//		int result=sqlMap.insert("nickUpdate", nickName);
-//		return result;
-//	}
+	public void nickUpdate(MemberDTO dto){
+		
+		System.out.println("nickname="+dto.getNickname());
+		System.out.println("id="+dto.getId());
+		sqlMap.update("nickUpdate", dto);
+	}
 
 }
