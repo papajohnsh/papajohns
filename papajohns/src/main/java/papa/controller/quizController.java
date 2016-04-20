@@ -136,7 +136,7 @@ public String Quiztest2(quizTestDTO dto){
 }
 @RequestMapping("/quizTestLoad.do")
 public ModelAndView QuizTestLoad(){
-	int class_idx=1;
+	int class_idx=2;
 	List<quizTestDTO> result=quizTestDao.quizList2(class_idx);
 	System.out.println(result.get(0).getStart_date());
 	System.out.println(result.get(0).getStart_time());
