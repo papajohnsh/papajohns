@@ -13,7 +13,7 @@
 <body>
 <a id="kakao-login-btn"></a>
 <a href="http://alpha-developers.kakao.com/logout"></a>
-<a href="http://alpha-developers.kakao.com/logout">로그아웃</a>
+<!-- <a href="http://alpha-developers.kakao.com/logout">로그아웃</a> -->
 <script type='text/javascript'>
   //<![CDATA[
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
