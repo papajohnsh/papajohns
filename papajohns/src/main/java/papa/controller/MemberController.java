@@ -258,6 +258,8 @@ public class MemberController {
 		//temp.mkdir();
 		File dir=new File(path);
 		dir.mkdir();
+		
+		
 		if(!dir.exists()){
 			copyInto(upload, account, path);
 		}else{
@@ -299,6 +301,7 @@ public class MemberController {
 		System.out.println("올린파일명" + upload.getOriginalFilename());
 
 		try {
+		
 			byte bytes[] = upload.getBytes();
 			File newFile = new File(path+"/profile.jpg");
 			FileOutputStream fos = new FileOutputStream(newFile);
