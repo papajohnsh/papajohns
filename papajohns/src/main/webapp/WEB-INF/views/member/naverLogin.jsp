@@ -66,13 +66,13 @@
 		
 		var email=naver_id_login.getProfileData('email');
 		
-		alert(email);
+		//alert(email);
 		
 		var divTag=document.getElementById('email');
 		divTag.innerHTML=email;
 		
 	    // name=naver_id_login.getProfileData('nickname');
-	    alert(name);
+	   // alert(name);
 	    var id=naver_id_login.getProfileData('id');
 	    window.location.href="facebookLogin.do?id="+id; 
 

@@ -19,11 +19,12 @@ public class designDAOImple implements designDAO {
 
 
 	@Override
-	public int designAdd(String send,int reidx) {
+	public int designUpdate(String send,int reidx,int idx) {
 		Map map=new HashMap();
 		map.put("send",send);
 		map.put("reidx",reidx);
-		int result=sqlMap.insert("designAdd",map);
+		map.put("idx", idx);
+		int result=sqlMap.insert("designUpdate",map);
 		return result;
 	}
 	

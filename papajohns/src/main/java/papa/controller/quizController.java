@@ -1,3 +1,4 @@
+
 package papa.controller;
 
 import java.text.ParseException;
@@ -284,5 +285,6 @@ public ModelAndView quizResult(@RequestParam(value="idx") int idx){
 	mav.setViewName("quiz/quizResult");
 	return mav;
 }
+
 
 }

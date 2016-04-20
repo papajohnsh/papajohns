@@ -112,4 +112,16 @@ public class MemberDAOImple implements MemberDAO {
 		sqlMap.update("nickUpdate", dto);
 	}
 
+	public void loginUpdate(MemberDTO dto) {//로그인 업데이트
+		
+		sqlMap.update("loginUpdate", dto);
+		
+	}
+	
+	
+	public String getInterLock(String id) {
+		String result=sqlMap.selectOne("getInterLock", id);
+		return result;
+	}
+
 }

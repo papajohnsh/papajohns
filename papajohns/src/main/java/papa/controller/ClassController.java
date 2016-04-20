@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import papa.class_.model.classDAO;
 import papa.class_.model.classDTO;
+import papa.design.model.designDTO;
 import papa.member.model.MemberDTO;
 @Controller
 public class ClassController {
@@ -36,8 +37,15 @@ public class ClassController {
 	@RequestMapping("/makeClassAdd.do")
 	public ModelAndView makeClass(classDTO dto){
 		System.out.println("컨롤러진입");
-		
+		designDTO design_dto=new designDTO();
 		int result=classDao.makeClassAdd(dto);
+		int reidx=dto.getIdx();
+		design_dto.setSend(",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,");
+		design_dto.setReidx(reidx);
+		int a = classDao.classDesignAdd(design_dto);
+		System.out.println(result);
+		System.out.println(reidx);
+		
 		ModelAndView mav=new ModelAndView();
 		String msg=result>0?"수업생성성공":"실패";
 		mav.addObject("msg",msg);
@@ -116,8 +124,10 @@ public class ClassController {
 		mav.setViewName("class/classDesign");
 		return mav;
 	}
+	
 	@RequestMapping("/designJoin.do")
 	public ModelAndView designJoin(int idx){
+		System.out.println(idx);
 		String list=classDao.reidxList(idx);
 		if(list==null){
 			list="0";
@@ -131,7 +141,7 @@ public class ClassController {
 				String idx2 = Integer.toString(idx);
 				List<MemberDTO>list3=classDao.designJoin(idx2);
 				mav.addObject("list",list3);
-				mav.addObject("idx",idx);
+				mav.addObject("reidx",idx);
 				mav.setViewName("class/designJoin");
 				
 			}

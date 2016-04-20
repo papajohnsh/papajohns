@@ -60,11 +60,18 @@
 	<insert id="fbJoin" parameterType="papa.member.model.MemberDTO">
 		insert into member(id, name, interlock) values(#{id}, #{name}, #{interlock})
 	</insert>
-<update id="nickUpdate" parameterType="papa.member.model.MemberDTO">
+	<update id="nickUpdate" parameterType="papa.member.model.MemberDTO">
 		update member set nickname = #{nickname} where id=#{id}
 	</update>
 	<select id="nvCheck" parameterType="papa.member.model.MemberDTO" resultType="papa.member.model.MemberDTO">
 		select * from member where id=#{id}
+	</select>
+	
+	<update id="loginUpdate" parameterType="String">
+		update member set interlock="1" where id=#{id}
+	</update>
+	<select id="getInterLock" parameterType="String" resultType="String">
+		select interlock from member where id=#{id};
 	</select>
   </mapper>
 
