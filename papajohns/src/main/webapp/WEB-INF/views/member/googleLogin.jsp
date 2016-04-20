@@ -26,7 +26,7 @@
         alert("ID Token: " + id_token);
         
         
-	    window.location.href="facebookLogin.do?email=id="+profile.getId()+"&name="+profile.getName(); 
+	    window.location.href="facebookLogin.do?id="+profile.getId()+"&name="+profile.getName(); 
               }
       function onFailure(error) {
         console.log(error);
