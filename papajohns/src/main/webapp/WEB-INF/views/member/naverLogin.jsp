@@ -74,8 +74,7 @@
 	    // name=naver_id_login.getProfileData('nickname');
 	    alert(name);
 	    var id=naver_id_login.getProfileData('id');
-	    window.location.href="JLogin.do?email="+email+
-		"&id="+id; 
+	    window.location.href="facebookLogin.do?id="+id; 
 
 	}
 
