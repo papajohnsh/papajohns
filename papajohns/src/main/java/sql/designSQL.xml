@@ -3,8 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="designSQL">
-  <insert id="designAdd" parameterType="papa.design.model.designDTO">
-  insert into class_design(send,reidx) values(#{send},#{reidx})
+  <insert id="designUpdate" parameterType="papa.design.model.designDTO">
+  update class_design set send=#{send} where reidx=#{reidx}
   </insert>
   <select id="myClassRoom" resultType="papa.member.model.MemberDTO" parameterType="int" >
   select * from member where reidx=#{idx}

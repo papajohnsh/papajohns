@@ -1507,37 +1507,46 @@ border-width:5px;
 
    
    <div id="drag-list" class="drag-list">
+    <table>
     <c:forEach var="dto" items="${list }" varStatus="num">
     <c:choose>
     	<c:when test="${(num.count%3)==1 }">
-    	<div id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left;">
+    	<tr>
+    	<td style="width:75px;">
+    	<div id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px;">
           <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
-          <span id="r">${dto.id }(${num.count})</span>
-          
-          </div>
+          <span id="r">${dto.id }</span>
+         </div>
+         </td>
     	</c:when>
     	
     	<c:when test="${(num.count%3)==2 }">
-    	<div id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left;">
+    	<td style="width:75px;">
+    	<div id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px;">
           <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
-          <span id="r">${dto.id }(${num.count})</span>
+          <span id="r">${dto.id }</span>
           </div>
+          </td>
     	</c:when>
-    	<c:when test="${(num.count%3)==3 }">
-    	<div id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)'>
+    	<c:otherwise>
+    	<td style="width:75px;">
+    	<div id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px;">
           <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
-          <span id="r">${dto.id }(${num.count})</span>
+          <span id="r">${dto.id }</span>
           </div>
-    	</c:when>
+          </td>
+         </tr>
+    	</c:otherwise>
     </c:choose>
   
     </c:forEach>
+    </table>
    </div>
   </div>
 
 </div>
-            <form name="f" action="designAdd.do">
-   <input type="hidden" name="reidx" value="${idx }">
+            <form name="f" action="designUpdate.do">
+   <input type="hidden" name="reidx" value="${reidx }">
    <c:forEach var="dto" items="${list }">
       <input type="hidden" name="a${dto.idx}">
        <input type="hidden" name="x${dto.idx}">
