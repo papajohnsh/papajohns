@@ -286,7 +286,3 @@ public ModelAndView quizResult(@RequestParam(value="idx") int idx){
 }
 
 }
-
-
-
-
