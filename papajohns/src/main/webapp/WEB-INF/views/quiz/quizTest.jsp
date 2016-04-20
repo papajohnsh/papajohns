@@ -52,7 +52,7 @@ $(function() {
          등록된 시험이 없습니다.
       </c:if>
 
-   <div class="example2">
+   <div class="example2"align="center" >
 	<table style="width: 600px;height: 300px; margin:0;auto;" >
 	<tr style="background-color:#3c8dbc; color: white; text-align: center;">
 		<th style="text-align: center;">시험</th>

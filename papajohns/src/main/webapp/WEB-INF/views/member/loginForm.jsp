@@ -99,23 +99,25 @@ var date = now.getDate();
 <body class="hold-transition skin-blue sidebar-mini">
  <%@include file="../header.jsp" %>
  
-<div class="container" style="width: 500px">
+<div class="container" style="width: 500px;margin-top:100px; ">
 
   <h2>ClassRoom</h2>
+  <br>  <br>
   <form role="form" name="login" action="login.do">
     <div class="form-group">
-      <label for="id">ID:</label>
+      <label for="id"><font size="4em">ID:</font></label>
       <input type="text" class="form-control" name="id" id="id" value="${cookie.saveid.value==null?'':cookie.saveid.value}" placeholder="Enter id">
     </div>
+    <br>
     <div class="form-group">
-      <label for="pwd">Password:</label>
+      <label for="pwd"><font size="4em">Password:</font></label>
       <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter password">
     </div>
     <div class="checkbox">
       <label><input type="checkbox" name="saveid" value="on" ${cookie.saveid.value==null?"":"checked"}> Remember me</label>
-    </div>
-     <input type="submit" class="btn btn-default" value="login">
-    <button type="button" class="btn btn-info btn-default" data-toggle="modal" data-target="#myModal">회원가입</button>
+    </div><br><br>
+   <div style="margin-left:180px;"><input type="submit" class="btn btn-success pull-center" value="login">
+    <button type="button" class="btn btn-success pull-center" data-toggle="modal" data-target="#myModal"><font color="white">회원가입</font></button></div>  
   </form>
   <br>
  <div align="right">
@@ -123,18 +125,20 @@ var date = now.getDate();
  	<span><a href="pwdFindForm.do">비밀번호 찾기</a></span>
  </div>
 </div>
-<div align="center">
+<div style="margin-top:80px;">
+<div align="center" style="margin-top:50px;">
   <%@ include file="naverLogin.jsp" %>
   </div>
   <img alt="" src="distance.png">
- <div align="center">
+<div align="center" style="margin-top:10px;">
  <%@ include file="facebookLogin.jsp" %>
  </div><img alt="" src="distance.png">
-  <div align="center">
+<div align="center" style="margin-top:10px;">
  <%@ include file="kakaLogin.jsp" %>
  </div><img alt="" src="distance.png">
-   <div align="center">
+ <div align="center" style="margin-top:10px;">
  <%@ include file="googleLogin.jsp" %>
+ </div>
  </div>
 <br>
 

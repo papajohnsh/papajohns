@@ -32,29 +32,29 @@ function showResult(){
     <!-- 닫기(x) 버튼 -->
   <button type="button" class="close" data-dismiss="modal">×</button>
   <!-- header title -->
-  <h4 class="modal-title" style="text-align: center;">쪽지 시험 등록</h4>
+  
 </div>
 <!-- body -->
 <div class="modal-body">
 <form action="quizTestSave1.do">
 		
-		
-			<div class="input-group"  >
+		<h2 style="background-color:#3c8dbc; color: white; text-align: center; height:40px;">문제 만들기</h2>
+			<div class="input-group" style="margin-left: 120px;margin-top: 50px;" >
 			<input type="hidden" value="${sid }" name="writer" id="writer">
-				<h3>문제 입력 하세요</h3><br />
-				<textarea rows="4" cols="50"name="question" id="question" required="required" class="textarea wysihtml5-editor"></textarea><br />
-				
-				<input type="radio" name="Answer" value="1" checked="checked"/>1.<input required="required" type="text" id="example1" class="form-control" name="example1" size="20"/><br />
+			<font size="5em;"b;b;> <b>문 제:</b> </font> <br>
+				<textarea rows="8" cols="50"name="question" id="question" required="required" class="textarea wysihtml5-editor"></textarea><br />
+				 <br>
+				<input type="radio" name="Answer" value="1" checked="checked"/>	<font size="5em;"b;b;> <b>1.</b> </font> <input required="required" type="text" id="example1" class="form-control" name="example1" size="20"/><br />
 			
 				
-				<input type="radio"name="Answer" value="2" />2.<input type="text" required="required" id="example2" class="form-control" name="example2" /><br />
+				<input type="radio"name="Answer" value="2" /><font size="5em;"b;b;> <b>2.</b> </font> <input type="text" required="required" id="example2" class="form-control" name="example2" /><br />
 				
-				<input type="radio" name="Answer" value="3"/>3.<input type="text" required="required" id="example3" class="form-control" name="example3" /><br />
+				<input type="radio" name="Answer" value="3"/><font size="5em;"b;b;> <b>3.</b> </font> <input type="text" required="required" id="example3" class="form-control" name="example3" /><br />
 			
-				<input type="radio"name="Answer"  value="4"/>4.<input type="text" required="required" id="example4" class="form-control" name="example4" /><br />
-			<input type="button" id="join" class="btn btn-default pull-right" value="등록"/>
+				<input type="radio"name="Answer"  value="4"/><font size="5em;"b;b;> <b>4.</b> </font> <input type="text" required="required" id="example4" class="form-control" name="example4" /><br /><br>
+		<br><br>	<input type="button" id="join" class="btn btn-success pull-right" value="등록"/>
 			</div>
-		
+		<br><br><br><br><br><br><br>
 </form>
 </div>
 
