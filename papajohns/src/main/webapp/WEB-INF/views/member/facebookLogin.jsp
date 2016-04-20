@@ -15,6 +15,33 @@
 </form>
 
 <script>
+function statusChangeCallback(response) {
+	  console.log('statusChangeCallback');
+	  console.log(response);
+		
+	  FB.login(function(response) {
+		    if (response.authResponse) {
+		     console.log('Welcome!  Fetching your information.... ');
+		     FB.api('/me', function(response) {
+		    	 console.log('Successful login for: ' + response.name);	      
+		          document.getElementById('fbname').value=response.name;
+				  document.getElementById('fbid').value=response.id;
+
+		          document.FBlogin.submit(); 
+		       
+		     });
+		    } else {
+		     console.log('User cancelled login or did not fully authorize.');
+		    }
+		});
+	}
+
+
+	function checkLoginState() {
+	  FB.getLoginStatus(function(response) {
+	    statusChangeCallback(response);
+	  });
+	}
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '632534183551089',
@@ -31,18 +58,9 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-<img src="image.png" onclick="FB.login()" />
+<img src="image.png" onclick="checkLoginState()" />
 <script>
-FB.login(function(response) {
-    if (response.authResponse) {
-     console.log('Welcome!  Fetching your information.... ');
-     FB.api('/me', function(response) {
-       console.log('Good to see you, ' + response.name + '.');
-     });
-    } else {
-     console.log('User cancelled login or did not fully authorize.');
-    }
-});
+
 </script>
 <!-- <script>
 var oneClick = true; //중복호출 방지용 상태변수

@@ -356,8 +356,11 @@ public class MemberController {
 	}
 	@RequestMapping("/facebookLogin.do")
 	public ModelAndView facebookLogin(MemberDTO dto, HttpSession session){
-		MemberDTO result=dto;
-		memberDao.facebookLogin(dto);
+		System.out.println(dto.getId());
+		System.out.println(dto.getName());
+
+		MemberDTO result=memberDao.facebookLogin(dto);
+		
 		ModelAndView mav=new ModelAndView();
 		String msg="";
 		String url="";
