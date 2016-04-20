@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
+import papa.design.model.designDTO;
 import papa.member.model.MemberDTO;
 
 public class classDAOImple implements classDAO {
@@ -22,7 +23,7 @@ public class classDAOImple implements classDAO {
 
    public int makeClassAdd(classDTO dto) {
 		int result=sqlMap.insert("classAdd",dto);
-	   
+		//System.out.println(result);
 		return result;
 	}
    @Override
@@ -87,5 +88,12 @@ public class classDAOImple implements classDAO {
 				System.out.println(list);
 				return list;
 			}
+
+		@Override
+		public int classDesignAdd(designDTO dto) {
+			int result=sqlMap.insert("classDesignAdd",dto);
+			return result;
+			
+		}
 
 }

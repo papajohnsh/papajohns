@@ -2,6 +2,7 @@ package papa.class_.model;
 
 import java.util.List;
 
+import papa.design.model.designDTO;
 import papa.member.model.MemberDTO;
 
 public interface classDAO {
@@ -18,5 +19,6 @@ public interface classDAO {
 	public List<MemberDTO> designJoin(String idx);
 	public String reidxList(int idx);
 	public classDTO joinClass(int idx);
+	public int classDesignAdd(designDTO dto);
 
 }
