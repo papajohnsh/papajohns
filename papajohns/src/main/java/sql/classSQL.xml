@@ -3,9 +3,15 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="classSQL">
-<insert id="classAdd" parameterType="papa.class_.model.classDTO" >
+<insert id="classAdd" parameterType="papa.class_.model.classDTO"  useGeneratedKeys="true" keyProperty="idx"  keyColumn="idx">
 insert into class_info(name,subject,start_time,end_time,institut,start_date,end_date,write_date,explanation,reidx,day) 
 values(#{name},#{subject},#{start_time},#{end_time},#{institut},#{start_date},#{end_date},now(),#{explanation},#{reidx},#{day})
+        <selectKey keyProperty="idx" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID();
+        </selectKey>
+</insert>
+<insert id="classDesignAdd" parameterType="papa.design.model.designDTO">
+insert into class_design(send,reidx) values(#{send},#{reidx})
 </insert>
 <select id="classRoomNameSearch" parameterType="String" resultType="papa.class_.model.classDTO">
 select * from class_info where subject LIKE CONCAT('%',#{subject},'%')

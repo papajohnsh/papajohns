@@ -6,7 +6,7 @@ import papa.member.model.MemberDTO;
 
 public interface designDAO {
 	
-	public int designAdd(String send,int reidx);
+	public int designUpdate(String send,int reidx,int idx);
 	public List<designDTO> myClassRoom(int idx);
 	public String send(int idx);
 	public List<MemberDTO> designJoin(String idx);

@@ -13,6 +13,7 @@
 
 <%@ include file="../header.jsp" %>
 <div class="container" style="width: 500px">
+
 <h3>비밀번호 찾기</h3>
   <form role="form" name="pwdFindForm" action="pwdFind.do">
     <div class="form-group" align="center">
@@ -26,7 +27,7 @@
      <input type="submit" class="btn btn-default" value="pwd찾기">
   </form>
  </div> 
-  
+ 
   		<%@ include file="../footer.jsp" %>
         <%@ include file="../controllSide.jsp" %>
 
