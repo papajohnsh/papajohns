@@ -13,12 +13,12 @@
 
     function onSuccess(googleUser) {
         var profile = googleUser.getBasicProfile();
-        alert("ID: " + profile.getId()); // Don't send this directly to your server!
+/*         alert("ID: " + profile.getId()); // Don't send this directly to your server!
         alert('Full Name: ' + profile.getName());
         alert('Given Name: ' + profile.getGivenName());
         alert('Family Name: ' + profile.getFamilyName());
         alert("Image URL: " + profile.getImageUrl());
-        alert("Email: " + profile.getEmail());
+        alert("Email: " + profile.getEmail()); */
         
 
         // The ID token you need to pass to your backend:
