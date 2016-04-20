@@ -140,8 +140,6 @@ ul li {
             'id');
       var class_by_id = $('#'+a).attr('class');
       
-    
-      
       if(a==1){
     	  document.f.a1.value = class_by_id;
       }else if(a==2){
@@ -1482,10 +1480,9 @@ ul li {
             
              <c:forEach var="num" begin="1" end="30" step="1">
              <c:if test="${dto.idx==num }">
-               <li><span id="${num }" class="${dto.id}" onclick='testfunc(this)'>
-                     <img src="${dto.idx }.jpg" width="50px" height="50px"class="drag2" id="myImg" class="drag2"><br>
+               
 
-               <li><span id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)'>
+               <li><span id="${num }" class="${dto.id}" onclick='testfunc(this)'>
                      <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="50px" height="50px"class="drag2" id="myImg" class="drag2"><br>
 
                      <span id="r">${dto.id }</span>
