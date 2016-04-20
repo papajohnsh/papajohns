@@ -106,12 +106,12 @@
                   <div class="table-responsive">
                     <table class="table no-margin">
                       <thead>
-                        <tr>
+                       <tr>
                           <th></th>
                           <th>번호</th>
                           <th>강의명</th>
                           <th>강사명</th>
-                         
+                          
                           <th>강의시간</th>
                         </tr>
                       </thead>
@@ -122,8 +122,9 @@
                           <td>${dto.idx }</td>
                           <td><a href="designJoin.do?idx=${dto.idx }">${dto.subject }</a></td>
                           <td>${dto.name }</td>
+                          <td>${dto.start_time }~${dto.end_time }</td>
                           
-                         
+                          
                         </tr>
                         </c:forEach>
                        </tbody>
