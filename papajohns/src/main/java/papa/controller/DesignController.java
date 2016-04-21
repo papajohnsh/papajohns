@@ -25,7 +25,7 @@ public class DesignController {
 	public void setDesignDao(designDAO designDao) {
 		this.designDao = designDao;
 	}
-	@RequestMapping("/designAdd.do")
+	@RequestMapping("/designUpdate.do")
 	public ModelAndView designAdd(@RequestParam(value="a1",defaultValue="-1")String a1,@RequestParam(value="a2",defaultValue="-1")String a2,
 			@RequestParam(value="a3",defaultValue="-1")String a3,@RequestParam(value="a4",defaultValue="-1")String a4,
 			@RequestParam(value="a5",defaultValue="-1")String a5,@RequestParam(value="a6",defaultValue="-1")String a6,
@@ -71,13 +71,13 @@ public class DesignController {
 			@RequestParam(value="a26",defaultValue="-1")String a26,@RequestParam(value="a27",defaultValue="-1")String a27,
 			@RequestParam(value="a28",defaultValue="-1")String a28,@RequestParam(value="a29",defaultValue="-1")String a29,
 			@RequestParam(value="a30",defaultValue="-1")String a30,@RequestParam(value="a19",defaultValue="-1")String a19,
-			@RequestParam(value="reidx",defaultValue="-1")int reidx){
+			@RequestParam(value="reidx",defaultValue="-1")int reidx,@RequestParam(value="idx",defaultValue="-1")int idx){
 		String send="";
 		
 		
 		a1=a1.replaceAll("ui-draggable ui-droppable","");
 		
-		a2=a2.replace("ui-draggable ui-droppable","");
+		a2=a2.replace("ui-draggable","");
 		a3=a3.replace("ui-draggable","");
 		a4=a4.replace("ui-draggable","");
 		a5=a5.replace("ui-draggable","");
@@ -269,7 +269,7 @@ public class DesignController {
 		
 		send+=",";
 		
-		int result=designDao.designAdd(send,reidx);
+		int result=designDao.designUpdate(send,reidx,idx);
 		
 		String msg=result>0?"등록성공":"실패";
 		ModelAndView mav=new ModelAndView();

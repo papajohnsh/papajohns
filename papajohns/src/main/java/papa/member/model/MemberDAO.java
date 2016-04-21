@@ -26,5 +26,9 @@ public interface MemberDAO {
 	public void updateSun(int ref,int sunbun);
 	
 	public void nickUpdate(MemberDTO dto);
+	
+	public void loginUpdate(MemberDTO dto);
+	//public String memberId(MemberDTO dto);
+	public String getInterLock(String id);
 
 }

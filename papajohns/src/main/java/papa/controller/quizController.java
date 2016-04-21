@@ -1,3 +1,4 @@
+
 package papa.controller;
 
 import java.text.ParseException;
@@ -83,12 +84,12 @@ public ModelAndView quizUpdate(quizDTO dto){
 	return mav;
 }
 
-
+//quiz update
 @RequestMapping("/quizList.do")
 public ModelAndView QuizList(@RequestParam(value="idx") int idx){
-	
+	System.out.println("퀴즈 수정 진입");
 	List<quizDTO> result= quizDao.quizList();
-		
+	System.out.println("퀴즈 수정 데이터 입력");
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("class_idx",idx);
 	mav.addObject("result",result);
@@ -108,7 +109,7 @@ public ModelAndView QuizTestSave(quizTestDTO dto){
 	
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("msg", msg);
-	mav.addObject("url","classShow.do?idx="+dto.getClass_idx());
+	mav.addObject("url","myClassRoom.do?idx="+dto.getClass_idx());
 	mav.setViewName("quiz/quizMsg");
 	return mav;
 	
@@ -135,11 +136,10 @@ public String Quiztest2(quizTestDTO dto){
 	return "class/classShow";
 }
 @RequestMapping("/quizTestLoad.do")
-public ModelAndView QuizTestLoad(){
-	int class_idx=1;
-	List<quizTestDTO> result=quizTestDao.quizList2(class_idx);
-	System.out.println(result.get(0).getStart_date());
-	System.out.println(result.get(0).getStart_time());
+public ModelAndView QuizTestLoad(@RequestParam(value="idx") int idx){
+	System.out.println("문제불러올때 반 IDX:"+idx);
+	List<quizTestDTO> result=quizTestDao.quizList2(idx);
+	System.out.println("문제불러올때 값 List"+result);
 	
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("result",result);
@@ -284,5 +284,6 @@ public ModelAndView quizResult(@RequestParam(value="idx") int idx){
 	mav.setViewName("quiz/quizResult");
 	return mav;
 }
+
 
 }
