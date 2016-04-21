@@ -192,7 +192,7 @@ public class MemberController {
 			System.out.println("pwd:"+pwd);
 			if(getPw.equals(pwd)){//비밀번호가 맞으면
 				msg="로그인 성공!";
-				url="login_index.do";
+				url="index.do";
 				MemberDTO dto=memberDao.getUserInfo(id);
 				session.setAttribute("sid", id);
 				session.setAttribute("sname", dto.getName());
