@@ -6,7 +6,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+<script type="text/javascript" src="se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script>
+function submitContents(elClickedObj) {
+    // 에디터의 내용이 textarea에 적용된다.
+    oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+ 
+    // 에디터의 내용에 대한 값 검증은 이곳에서
+    document.getElementById("ir1").value; 
+  
+ 
+    try {
+        elClickedObj.form.submit();
+    } catch(e) {}
+}
+</script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <%@include file="../header.jsp" %>
@@ -56,14 +70,24 @@
         				<td><input type="text" name="subject" placeholder="subject"></td>
         			</tr>
  				</table>
-                <div class="box-body pad">
+                <div class="box-body pad" style="width: 1550px; height:400px; margin-left:30px;">
                   <fieldset>
-                    <textarea name="content" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                    <textarea name="content" id="ir1" rows="15" cols="200"></textarea>
+<script type="text/javascript">
+var oEditors = [];
+nhn.husky.EZCreator.createInIFrame({
+    oAppRef: oEditors,
+    elPlaceHolder: "ir1",
+    sSkinURI: "se2/SmartEditor2Skin.html",
+    fCreator: "createSEditor2"
+});
+</script>
+
                   </fieldset>
                  </div> 
                   <!-- writeAdd button -->
                   <div>
-                	<input type="submit" class="btn btn-primary pull-right" value="글올리기">
+                	<input type="submit" class="btn btn-primary pull-right" value="글올리기" onclick="submitContents();">
 				  </div>
 				  </form> 
 				  <br>
