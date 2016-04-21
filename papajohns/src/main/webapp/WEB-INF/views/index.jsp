@@ -20,9 +20,9 @@
         
                 
              
-          <div class="row" >
-            <div class="col-md-12">
-              <div class="box" style="margin:0px auto;">
+
+              <%-- <div class="box">
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
                 <div class="box-header with-border" align="center">
                   <h3 class="box-title">내강의실</h3>
                   <br><br><br>
@@ -97,53 +97,99 @@
               </div>
             </div><!-- ./col -->
           </div><!-- /.row -->
-       
-          </div>
-          <br>
-    
-    
-    
-            
-          <div  >
-            <div class="col-md-12">
-              <div class="box" style="margin:0px auto;">
-                <div class="box-header with-border" align="center">
-                  <h3 class="box-title">내강의실</h3>
-                  <br><br><br>
-                </div><!-- /.box-header -->
-                   </div>
-                   </div>
-      <!-- Small boxes (Stat box) -->
-      <div  style="margin-left: 200px;">
+<<<<<<< HEAD
+=======
+          
+          </div> --%>
+          
+          
+          
+          
+       	 <!-- TABLE: LATEST ORDERS -->
 
-            <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
+
+          
+
+
+      <!-- Small boxes (Stat box) -->
+      <div style="margin: 0px auto; margin-left:150px; margin-right:150px;" >
+ <div class="box">
+             <div class="box-header with-border" align="center">
+                  <div  style="height:50px;"><h2 class="box-title"><font size="5em;"><b>내가만든 강의</b></font></h2></div>
+            
+                   
+
+           
+                   <c:forEach var="dto" items="${list }">
+
+      <!-- Small boxes (Stat box) -->
+  
+       
+            <div class="col-lg-3 col-xs-6"  >
               <!-- small box -->
-                <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
-              <!-- small box -->
-              <div class="small-box bg-green">
+              <div class="small-box bg-green" style="width:300px; height: 300; background-image: url('구름.jpg'); ">
+ 
                 <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
-                  <p>Bounce Rate</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
- <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
-              <!-- small box -->
-              <div class="small-box bg-red">
-                <div class="inner">
-                  <h3>65</h3>
-                  <p>Unique Visitors</p>
+                  <h3> ${dto.name }</h3>
+                  <p>${dto.start_time }~${dto.end_time }</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="myClassRoom.do?idx=${dto.idx }" class="small-box-footer">${dto.subject } <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
+
+
+
+          </c:forEach>
+          
+          </div>
+              </div><!-- /.box-header -->
+         <br> <br> <br> 
+         <div class="box">
+                <div class="box-header with-border" align="center" style="margin-top: 10px;">
+                  <h3 class="box-title"><font size="5em;"><b>내수업</b></font></h3>
+                </div><!-- /.box-header -->
+                   
+
+                 </div>
+         <div style="margin: 0px auto; " >
+      
+                   
+                   <c:forEach var="dto" items="${list4 }">
+
+      <!-- Small boxes (Stat box) -->
+      <div style="margin: 0px auto;">
+       
+            <div class="col-lg-3 col-xs-6"   >
+              <!-- small box -->
+              <div class="small-box bg-aqua" style="width:300px; height: 300; ">
+ 
+                <div class="inner">
+                  <h3> ${dto.name }</h3>
+                  <p>${dto.start_time }~${dto.end_time }</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="classShow.do?idx=${dto.idx }" class="small-box-footer">${dto.subject } <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+
+
+
+          </div><!-- /.row -->
+          </c:forEach>
+          
+          </div>
+    </div>
+
+    
+    
+    
+            
+ 
  
   </body>
 </html>
