@@ -131,19 +131,20 @@ public class MemberController {
 		if(session.getAttribute("sidx")!=null){
 		int idx=(int) session.getAttribute("sidx");
 		String list1=classDao.reidxList(idx);
-		List<classDTO> list5=new ArrayList<>();
-
-		String list2=list1.substring(2);
-		System.out.println(list2);
-	    String[] list3=list2.split(",");
-	    for(int i=0; i<list3.length;i++){
-	    	int idx2=Integer.parseInt(list3[i]);
-	    	classDTO list4= classDao.joinClass(idx2);
-	    	list5.add(list4);
-	    	System.out.println(list5);
-	    	;
-	    	mav.addObject("list4",list5);
-	    }
+		if(list1!=null){
+			List<classDTO> list5=new ArrayList<>();
+			String list2=list1.substring(2);
+			System.out.println(list2);
+		    String[] list3=list2.split(",");
+		    for(int i=0; i<list3.length;i++){
+		    	int idx2=Integer.parseInt(list3[i]);
+		    	classDTO list4= classDao.joinClass(idx2);
+		    	list5.add(list4);
+		    	System.out.println(list5);
+		    	;
+		    	mav.addObject("list4",list5);
+		    }
+		}
 		List<classDTO> list=classDao.classDesign(idx);
 		
 		mav.addObject("list",list);
@@ -191,7 +192,7 @@ public class MemberController {
 			System.out.println("pwd:"+pwd);
 			if(getPw.equals(pwd)){//비밀번호가 맞으면
 				msg="로그인 성공!";
-				url="index.do";
+				url="login_index.do";
 				MemberDTO dto=memberDao.getUserInfo(id);
 				session.setAttribute("sid", id);
 				session.setAttribute("sname", dto.getName());
