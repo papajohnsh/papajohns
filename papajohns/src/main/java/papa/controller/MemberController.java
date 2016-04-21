@@ -258,6 +258,8 @@ public class MemberController {
 		//temp.mkdir();
 		File dir=new File(path);
 		dir.mkdir();
+		
+		
 		if(!dir.exists()){
 			copyInto(upload, account, path);
 		}else{
@@ -299,6 +301,7 @@ public class MemberController {
 		System.out.println("올린파일명" + upload.getOriginalFilename());
 
 		try {
+		
 			byte bytes[] = upload.getBytes();
 			File newFile = new File(path+"/profile.jpg");
 			FileOutputStream fos = new FileOutputStream(newFile);
@@ -353,8 +356,11 @@ public class MemberController {
 	}
 	@RequestMapping("/facebookLogin.do")
 	public ModelAndView facebookLogin(MemberDTO dto, HttpSession session){
-		MemberDTO result=dto;
-		memberDao.facebookLogin(dto);
+		System.out.println(dto.getId());
+		System.out.println(dto.getName());
+
+		MemberDTO result=memberDao.facebookLogin(dto);
+		
 		ModelAndView mav=new ModelAndView();
 		String msg="";
 		String url="";

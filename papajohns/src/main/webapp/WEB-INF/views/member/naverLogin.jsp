@@ -46,7 +46,8 @@
 	배너 및 버튼 높이 : 사용자 지정값 */
 
 	
-	naver_id_login.setButton("img/naver.PNG", 2.40);
+	naver_id_login.setButton("white", 3, 48);
+	//naver_id_login.setButton("img/naver.PNG", 2.40);
 
 	naver_id_login.setDomain(".service.com");
 
@@ -65,16 +66,15 @@
 		
 		var email=naver_id_login.getProfileData('email');
 		
-		alert(email);
+		//alert(email);
 		
 		var divTag=document.getElementById('email');
 		divTag.innerHTML=email;
 		
 	    // name=naver_id_login.getProfileData('nickname');
-	    alert(name);
+	   // alert(name);
 	    var id=naver_id_login.getProfileData('id');
-	    window.location.href="JLogin.do?email="+email+
-		"&id="+id; 
+	    window.location.href="facebookLogin.do?id="+id; 
 
 	}
 

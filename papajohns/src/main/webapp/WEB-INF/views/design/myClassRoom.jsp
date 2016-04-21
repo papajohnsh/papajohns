@@ -236,7 +236,7 @@ top:${y30}px;
               <ul class="treeview-menu">
                 <li><a href="#" id="studentList"><i class="fa fa-circle-o" ></i> 학생리스트</a></li>
                 <li><a href="classPlan.do" ><i class="fa fa-circle-o"></i> 강의스케줄</a></li>
-                <li><a data-toggle="modal" href="quizTestForm.do" data-target="#myModal2"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
+                <li><a data-toggle="modal" href="quizTestForm.do?idx=${param.idx }" data-target="#myModal2"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
                 <li><a data-toggle="modal" href="quizList.do?idx=${param.idx }" data-target="#myModal3"><i class="fa fa-circle-o"></i> 문제 수정하기</a></li>
                 <li><a data-toggle="modal" href="quizResult.do?idx=${param.idx }" data-target="#myModal4"><i class="fa fa-circle-o"></i>쪽지시험결과</a></li>
 <!--                 <li><a data-toggle="modal" href="quizTestLoad.do" data-target="#myModal5" data-backdrop="static"><i class="fa fa-circle-o"></i>쪽지시험보기</a></li> -->

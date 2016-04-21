@@ -80,7 +80,7 @@ public class FreeBbsController {
 		
 		int result=freebbsDao.bbsWriteAdd(dto);
 		String msg=result>0?"글쓰기 성공":"글쓰기 실패";
-		
+		System.out.println("글쓰기내용"+dto.getContent());
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("msg", msg);
 		mav.setViewName("freebbs/bbsMsg");

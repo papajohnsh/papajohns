@@ -52,22 +52,22 @@ public quizAnswerDAO getQuizAnswerDao() {
 public void setQuizAnswerDao(quizAnswerDAO quizAnswerDao) {
 	this.quizAnswerDao = quizAnswerDao;
 }
-
+//quiz upload Form
 @RequestMapping("/quizTestForm.do")
 public String classQuiz(){
 	return "quiz/quizTestForm";
 }
-
+//quiz upload
 @RequestMapping("/quizTestSave1.do")//퀴즈
 public ModelAndView quizAdd(quizDTO dto){
 	System.out.println("퀴즈저장 진입");
+	System.out.println(dto.getWriter());
 	int result=quizDao.quizAdd(dto);
-	String msg=result>0?"성공":"실패";
+	String msg=result>0?"문제가 등록되었습니다":"실패";
 
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("msg", msg);
-	mav.addObject("url", "classShow.do");
-	mav.setViewName("quiz/quizMsg");
+	mav.setViewName("quiz/quizUpdateMsg");
 	return mav;
 }
 

@@ -132,6 +132,26 @@
 	</bean> 
 	<!-- controller -->
 	
+	<!-- gmail -->
+    <bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
+        <property name="host" value="smtp.gmail.com" />
+        <property name="port" value="587" />
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="username" value="" />
+        <property name="password" value="" />
+       
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.auth">true</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="email" class="papa.email.model.Email"/>
+    <bean id="emailSender" class="papa.email.model.EmailSender"/>
+	
+	
+	
 	<!-- view -->
 		
 	<bean id="download" class="papa.view.DownloadView" />
