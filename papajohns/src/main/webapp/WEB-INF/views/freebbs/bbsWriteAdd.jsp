@@ -97,7 +97,6 @@ nhn.husky.EZCreator.createInIFrame({
 						<input type="file" name="upload"><br>
 						<input type="submit" value="파일올리기">
 					</div>
-					<a href="bbsFileList.do" class="btn btn-sm btn-default btn-flat pull-right">파일리스트</a>
 				</form>
                 </div> 
        </div><!-- container -->  

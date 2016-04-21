@@ -11,7 +11,7 @@
 <%@ include file="header.jsp" %>
    
     <!-- Left side column. contains the logo and sidebar -->
-   
+
    <!-- Content Wrapper. Contains page content -->
    
 <div><img src="copy.jpg" style="width:100%;  height:300px; margin:0px auto; opacity:0.5" ></div>
