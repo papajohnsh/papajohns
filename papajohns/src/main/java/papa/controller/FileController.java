@@ -44,7 +44,7 @@ public class FileController {
 		return mav;	
 	}
 
-	@RequestMapping("/fileupload2.do")
+	@RequestMapping("/fileUpload2.do")
 	public String fileUpload2(@RequestParam("upload") MultipartFile upload,@RequestParam("id") String id, HttpServletRequest request) {
 		String account=id;
 		String path=request.getSession().getServletContext().getRealPath("/resource/data/"+account);
@@ -129,7 +129,7 @@ public ModelAndView fileList2(){
 	File files[]=f.listFiles();
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("files",files);
-	mav.setViewName("freebbs/bbsFileList");
+	mav.setViewName("freebbs/bbsListForm");
 	return mav;
 }
 

@@ -27,7 +27,31 @@ $(function(){
 })
 </script>
 <style>
+.frame2{
+border-color:#000000 #4785F8;
+border-image:none;
+border-radius: 0 0 0 0;
+-moz-border-radius:0 0 0 0;
+-webkit-border-radius:0 0 0 0;
+border-style:solid;
+border-width:15px;
 
+}
+
+.frame3{
+border-color:rgb(62, 255, 157) #4785F8;
+border-image:none;
+border-radius: 50px 0 50px 0;
+-moz-border-radius:50px 0 50px 0;
+-webkit-border-radius:50px 0 50px 0;
+border-style:solid;
+border-width:5px;
+}
+.col {
+   float: center;
+   padding: 5px 5px 5px 5px;
+   margin: 5px 5px 5px 5px;
+}
 #img1{
  
 left:${x1}px;
@@ -259,17 +283,19 @@ top:${y30}px;
         </section>
         <!-- /.sidebar -->
       </aside>
-	<div class="content-wrapper"
-		style="background: white; min-height: 900px;">
-		<div style="border: 1px solid; width:600px; height:700px; background:skyblue;'" >
-			<c:forEach var="dto" items="${list }">
-				<div id="img${dto.idx }" style="position: relative;">
-					<img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
-						class="img-circle" width="50px" height="50px">
+<div class="content-wrapper" style="background: white; min-height: 800px;">
+ <div class="col frame2" id="droppable" style="width: 1050px; height: 700px; background:rgb(185, 205, 214); padding: 5px 5px 5px 5px;" >
+  <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left; padding:5px 5px 5px 5px; background:#E6A323;">
+  <c:forEach var="dto" items="${list }">
+				<div id="img${dto.idx }" style="position: absolute; text-align: center;">
+				<img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
+          		<span id="r">${dto.id }</span>
 				</div>
-			</c:forEach>
-		</div>
-	</div>
+ </c:forEach>
+  </div>
+			
+ </div>
+</div>
 
 <%--         <iframe style="float: right;" src="http://192.33.33.26:8081?student=${sname }&classRoom=자바" width="550" height="550">
  		</iframe> --%>

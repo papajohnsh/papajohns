@@ -11,75 +11,30 @@
 <%@ include file="header.jsp" %>
    
     <!-- Left side column. contains the logo and sidebar -->
-      <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-       <section class="sidebar">
-          <!-- Sidebar user panel -->
-        <div class="user-panel">
-          <c:if test="${empty sid}">
-          <div class="pull-left image">
-         <br>
-          	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"   style="height: 80px; max-width: 80px; width: 80px;">
-          </div>
-          </c:if>
-          <c:if test="${!empty sid}">
-        <div class="pull-left image" style="height: 100px; width: 80px;">
-
-					<img src="resource/data/${sid }/profile.jpg"
-						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
-						class="img-circle"
-						style="max-width: 80px; height: 80px; width: 80px; margin-top: 10px;">
-				</div>
-				<div style="margin-left: 85px; margin-top: -5px;">
-					<a href="myInfoForm.do"><font size="2">내정보</a>&nbsp;
-					&nbsp; <a href="logout.do"><font size="2">로그아웃</a>
-				</div>
-				<br>
-				<br>
-				<div style="margin-top: -20px;">
-					<font size="2" color="white">&nbsp;&nbsp;&nbsp;${snickname}</font>
-				</div>
-				<div style="margin-left: 120; margin-top: 8px;">
-					&nbsp;&nbsp;&nbsp;<a href="#"><i
-						class="fa fa-circle text-success"></i><font color="white">&nbsp;&nbsp;Online</font>
-					</a>
-				</div>
-
-           </c:if>
-            <div class="pull-left info" style="margin-left: 40px; margin-top:30px;">
-              <c:if test="${empty sid}">
-              <p><font size="2">로그인 해주세요</font></p>
-              <a href="#"><i class="fa fa-circle text-danger"></i><font size="2"> Offline </font></a>
-              </c:if>
-            
-            </div>
-          </div>
-        </section>
-        <!-- /.sidebar -->
-      </aside>
 
    <!-- Content Wrapper. Contains page content -->
    
-
+<div><img src="copy.jpg" style="width:100%;  height:300px; margin:0px auto; opacity:0.5" ></div>
         <!-- Main content -->
-        <section class="content">
+     
         
                 
               </div><!-- /.box -->
-          <div class="row">
+          <div class="row" >
             <div class="col-md-12">
               <div class="box">
                 <div class="box-header with-border" align="center">
                   <h3 class="box-title">내강의실</h3>
                   <br><br><br>
                 </div><!-- /.box-header -->
-                   <div class="content-wrapper">
+                   
       <!-- Small boxes (Stat box) -->
-          <div class="row">
-            <div class="col-lg-3 col-xs-6">
+      <div style="margin: 0px auto;">
+       
+            <div class="col-lg-3 col-xs-6" >
               <!-- small box -->
               <div class="small-box bg-aqua">
-              
+ 
                 <div class="inner">
                   <h3>내수업</h3>
                   <p>ㅋㅋㅋ</p>
@@ -101,7 +56,7 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-3 col-xs-6" style="width:100px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
@@ -141,13 +96,11 @@
               </div>
             </div><!-- ./col -->
           </div><!-- /.row -->
-          <div class="box-header with-border" align="center">
-                  <h3 class="box-title">강의실 찾기</h3>
-                
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
-    <%@ include file="footer.jsp" %>
-    <%@ include file="controllSide.jsp" %>
+          
+          </div>
+       
+    
+   
 
  
   </body>
