@@ -42,7 +42,7 @@
 <body>
 	<header class="main-header">
 		<!-- Logo -->
-		<a href="index.do" class="logo" style="height:56px;">
+		<a href="login_index.do" class="logo" style="height:56px;">
 			<!-- index로 이동 --> <!-- mini logo for sidebar mini 50x50 pixels --> <span
 			class="logo-mini"><b>C</b>RM</span> <!-- logo for regular state and mobile devices -->
 			<span class="logo-lg" ><b>Class</b>Room</span>

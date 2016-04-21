@@ -22,7 +22,7 @@
               </div><!-- /.box -->
           <div class="row" >
             <div class="col-md-12">
-              <div class="box">
+              <%-- <div class="box">
                 <div class="box-header with-border" align="center">
                   <h3 class="box-title">내강의실</h3>
                   <br><br><br>
@@ -97,8 +97,80 @@
             </div><!-- ./col -->
           </div><!-- /.row -->
           
-          </div>
+          </div> --%>
+          
+          
+          
+          
+       	 <!-- TABLE: LATEST ORDERS -->
+
+<div class="box">
+                <div class="box-header with-border" align="center">
+                  <h3 class="box-title">내가만든 강의</h3>
+                </div><!-- /.box-header -->
+                   
+
+                   <c:forEach var="dto" items="${list }">
+
+      <!-- Small boxes (Stat box) -->
+      <div style="margin: 0px auto;">
        
+            <div class="col-lg-3 col-xs-6" >
+              <!-- small box -->
+              <div class="small-box bg-aqua">
+ 
+                <div class="inner">
+                  <h3> ${dto.name }</h3>
+                  <p>${dto.start_time }~${dto.end_time }</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <a href="classShow.do?idx=${dto.idx }" class="small-box-footer">${dto.subject } <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+
+
+
+          </div><!-- /.row -->
+          </c:forEach>
+          
+          </div>
+         
+          <div class="box">
+                <div class="box-header with-border" align="center">
+                  <h3 class="box-title">내가 참여한 강의</h3>
+                  
+                </div><!-- /.box-header -->
+                   
+                   
+                   <c:forEach var="dto" items="${list4 }">
+
+      <!-- Small boxes (Stat box) -->
+      <div style="margin: 0px auto;">
+       
+            <div class="col-lg-3 col-xs-6" >
+              <!-- small box -->
+              <div class="small-box bg-aqua">
+ 
+                <div class="inner">
+                  <h3> ${dto.name }</h3>
+                  <p>${dto.start_time }~${dto.end_time }</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <a href="classShow.do?idx=${dto.idx }" class="small-box-footer">${dto.subject } <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+
+
+
+          </div><!-- /.row -->
+          </c:forEach>
+          
+          </div>
+    
     
    
 
