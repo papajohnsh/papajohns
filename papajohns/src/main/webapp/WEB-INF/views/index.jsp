@@ -19,19 +19,20 @@
      
         
                 
-              </div><!-- /.box -->
+             
           <div class="row" >
             <div class="col-md-12">
-              <div class="box">
+              <div class="box" style="margin:0px auto;">
                 <div class="box-header with-border" align="center">
                   <h3 class="box-title">내강의실</h3>
                   <br><br><br>
                 </div><!-- /.box-header -->
-                   
+                   </div>
+                   </div>
       <!-- Small boxes (Stat box) -->
-      <div style="margin: 0px auto;">
-       
-            <div class="col-lg-3 col-xs-6" >
+      <div class="row" style="margin-left: 200px;">
+
+            <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-aqua">
  
@@ -56,7 +57,7 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6" style="width:100px;height: 140;">
+            <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
@@ -69,7 +70,7 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
@@ -82,7 +83,7 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
@@ -96,12 +97,53 @@
               </div>
             </div><!-- ./col -->
           </div><!-- /.row -->
-          
-          </div>
        
+          </div>
+          <br>
     
-   
+    
+    
+            
+          <div  >
+            <div class="col-md-12">
+              <div class="box" style="margin:0px auto;">
+                <div class="box-header with-border" align="center">
+                  <h3 class="box-title">내강의실</h3>
+                  <br><br><br>
+                </div><!-- /.box-header -->
+                   </div>
+                   </div>
+      <!-- Small boxes (Stat box) -->
+      <div  style="margin-left: 200px;">
 
+            <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
+              <!-- small box -->
+                <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3>53<sup style="font-size: 20px">%</sup></h3>
+                  <p>Bounce Rate</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+ <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
+              <!-- small box -->
+              <div class="small-box bg-red">
+                <div class="inner">
+                  <h3>65</h3>
+                  <p>Unique Visitors</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
  
   </body>
 </html>
