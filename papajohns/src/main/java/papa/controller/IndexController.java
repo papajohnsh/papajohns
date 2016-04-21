@@ -1,16 +1,20 @@
 package papa.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import papa.class_.model.classDAO;
+import papa.class_.model.classDTO;
 import papa.notice.model.NoticeDAO;
 import papa.notice.model.NoticeDTO;
 
@@ -18,8 +22,19 @@ import papa.notice.model.NoticeDTO;
 public class IndexController {
 	@Autowired
 	private NoticeDAO noticeDao;
+	@Autowired
+	private classDAO classDao;
 	
-	
+		public classDAO getClassDao() {
+		return classDao;
+	}
+
+
+	public void setClassDao(classDAO classDao) {
+		this.classDao = classDao;
+	}
+
+
 		public NoticeDAO getNoticeDao() {
 		return noticeDao;
 	}
@@ -30,8 +45,33 @@ public class IndexController {
 	}
 
 		@RequestMapping("/index.do")
-		public ModelAndView index(HttpServletRequest req){
+		public ModelAndView index(HttpServletRequest req, HttpSession session){
+			ModelAndView mav=new ModelAndView();
+			if(session.getAttribute("sidx")!=null){
+			int idx=(int) session.getAttribute("sidx");
+			String list1=classDao.reidxList(idx);
+			if(list1!=null){
+				List<classDTO> list5=new ArrayList<>();
+				String list2=list1.substring(2);
+				System.out.println(list2);
+			    String[] list3=list2.split(",");
+			    for(int i=0; i<list3.length;i++){
+			    	int idx2=Integer.parseInt(list3[i]);
+			    	classDTO list4= classDao.joinClass(idx2);
+			    	list5.add(list4);
+			    	System.out.println(list5);
+			    	;
+			    	mav.addObject("list4",list5);
+			    }
+			}
+			List<classDTO> list=classDao.classDesign(idx);
 			
+			mav.addObject("list",list);
+			}
+			mav.setViewName("index");
+			return mav;
+			
+			/*
 			int totalCnt=noticeDao.getTotalCnt();//총게시물 수 가져오기
 			//System.out.println("1: "+totalCnt);  
 			totalCnt=totalCnt==0?1:totalCnt;      //전체 게시물 수
@@ -61,6 +101,6 @@ public class IndexController {
 			mav.addObject("list", list);
 			mav.addObject("pageStr", pageStr);
 			mav.setViewName("index");			
-			return mav;
+			return mav;*/
 		}
 }
