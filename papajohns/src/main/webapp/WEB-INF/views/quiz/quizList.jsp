@@ -24,11 +24,12 @@
 
    });
 	   
-   $('.update').on(
+   $('#update').on(
          'click',
          function() {
 
-            var sunbun = $(this).attr('id');
+            var sunbun = $(this).attr('name');
+
             var idx = $('#idx' + sunbun).val();
             var question = $('#question' + sunbun).val();
             var Answer = $(":radio[id='Answer" + sunbun + "']:checked").val();
@@ -57,10 +58,11 @@
 
 
    });
+
 </script>
 
 <br>
-<h2 style="text-align: center;">문제 수정 및 시험등록</h1>
+<h2 style="text-align: center;">문제 수정 및 시험등록</h2>
 <br>
 
 
@@ -89,7 +91,8 @@
 				<input type="radio"name="Answer" id="Answer${dto.idx }" value="2" /><font size="3em;"> <b>2.</b> </font><input type="text" id="example2${dto.idx }" value="${dto.example2}" class="form-control" name="example2" /><br />
 				<input type="radio" name="Answer" id="Answer${dto.idx }"  value="3"/><font size="3em;"> <b>3.</b> </font><input type="text" id="example3${dto.idx }" value="${dto.example3}" class="form-control" name="example3" /><br />
 				<input type="radio"name="Answer" id="Answer${dto.idx }" value="4"/><font size="3em;"> <b>4.</b> </font><input type="text" id="example4${dto.idx }"  value="${dto.example4}" class="form-control" name="example4" /><br />
-				<input type="button"  class="btn btn-default pull-center" id="${dto.idx }" value="수정하기"><input type="button"  class="btn btn-default pull-center" value="삭제">
+				<input type="button"  class="btn btn-default pull-center" id="update" name="${dto.idx}" value="수정하기"><input type="button"  class="btn btn-default pull-center"  value="삭제">
+   			   	<input type="hidden" id="ans${dto.idx }" name="" value="${dto.answer }">
    			   </div>
    			</div>
    			</td>

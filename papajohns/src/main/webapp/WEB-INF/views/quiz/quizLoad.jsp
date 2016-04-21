@@ -22,19 +22,6 @@ function gogo(){
 	 $('#quiz_answer').val(answer);
 	 fm.submit(); 
 }
-function timeLeft(){ 
-
-	  var count= $('#limitTime').val()-1;
-
-	  	$('#limitTime').val(count);
-
-		$('#counter').val('남은시간 : '+parseInt(count/60)+'분'+(count%60)+'초');
-
-	  window.setTimeout("timeLeft()",1000);
-	  if(count<=0){
-		  location.href='classShow.do?idx='+$('#class_idx').val();
-	  }
-	} 
 	
 	$('.page').on('click',function(){
 
@@ -49,10 +36,26 @@ function timeLeft(){
          if (XHR.status == 200) {
         	
             document.getElementById('content').innerHTML=XHR.responseText;
-            timeLeft();
+            realtime();
          }
       }
    } 
+   function realtime(){
+       var endtime=$('#endtime').val();
+       var params='endtime='+endtime;
+       sendRequest('quizTime.do', params, time, 'POST');
+   }
+   function time(){
+	      if (XHR.readyState == 4) {
+	          if (XHR.status == 200) {
+	         	
+	             var text=XHR.responseText;
+	             $('#helftime').val(text);
+	             setTimeout(realtime(), 1000);
+
+	          }
+	       }
+   }
 	}); 
 
 </script>
