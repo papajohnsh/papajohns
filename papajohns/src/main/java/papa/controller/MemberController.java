@@ -126,26 +126,29 @@ public class MemberController {
 	}
 	@RequestMapping("/login_index.do")
 	public ModelAndView login_index(HttpSession session){
+		
 		ModelAndView mav=new ModelAndView();
+		if(session.getAttribute("sidx")!=null){
 		int idx=(int) session.getAttribute("sidx");
 		String list1=classDao.reidxList(idx);
-		List<classDTO> list5=new ArrayList<>();
-
-		String list2=list1.substring(2);
-		System.out.println(list2);
-	    String[] list3=list2.split(",");
-	    for(int i=0; i<list3.length;i++){
-	    	int idx2=Integer.parseInt(list3[i]);
-	    	classDTO list4= classDao.joinClass(idx2);
-	    	list5.add(list4);
-	    	System.out.println(list5);
-	    	;
-	    	mav.addObject("list4",list5);
-	    }
+		if(list1!=null){
+			List<classDTO> list5=new ArrayList<>();
+			String list2=list1.substring(2);
+			System.out.println(list2);
+		    String[] list3=list2.split(",");
+		    for(int i=0; i<list3.length;i++){
+		    	int idx2=Integer.parseInt(list3[i]);
+		    	classDTO list4= classDao.joinClass(idx2);
+		    	list5.add(list4);
+		    	System.out.println(list5);
+		    	;
+		    	mav.addObject("list4",list5);
+		    }
+		}
 		List<classDTO> list=classDao.classDesign(idx);
 		
 		mav.addObject("list",list);
-		
+		}
 		mav.setViewName("index");
 		return mav;
 	}
@@ -200,24 +203,6 @@ public class MemberController {
 				session.setAttribute("sreidx", dto.getReidx());
 				session.setAttribute("snickname", dto.getNickname());
 				
-				
-					int idx=(int) session.getAttribute("sidx");
-					String list1=classDao.reidxList(idx);
-					List<classDTO> list5=new ArrayList<>();
-
-					String list2=list1.substring(2);
-					System.out.println(list2);
-				    String[] list3=list2.split(",");
-				    for(int i=0; i<list3.length;i++){
-				    	int idx2=Integer.parseInt(list3[i]);
-				    	classDTO list4= classDao.joinClass(idx2);
-				    	list5.add(list4);
-				    	System.out.println(list5);
-				    	;
-				    	mav.addObject("list4",list5);
-				    }
-					List<classDTO> list=classDao.classDesign(idx);
-
 					
 
 
@@ -235,7 +220,7 @@ public class MemberController {
 
 		mav.addObject("msg", msg);
 		mav.addObject("url", url);
-		mav.setViewName("index");
+		mav.setViewName("member/memberMsg");
 		return mav;
 	}
 

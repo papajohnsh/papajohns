@@ -148,7 +148,7 @@
 		
 		function connect() {	
 			wsocket = new WebSocket(
-					"ws://192.168.56.1:9090/papajohns/chat-ws");
+					"ws://localhost:9090/papajohns/chat-ws");
 			wsocket.onopen = onOpen;
 			wsocket.onmessage = onMessage;
 			wsocket.onclose = onClose;
