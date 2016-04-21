@@ -77,7 +77,7 @@ public class DesignController {
 		
 		a1=a1.replaceAll("ui-draggable ui-droppable","");
 		
-		a2=a2.replace("ui-draggable ui-droppable","");
+		a2=a2.replace("ui-draggable","");
 		a3=a3.replace("ui-draggable","");
 		a4=a4.replace("ui-draggable","");
 		a5=a5.replace("ui-draggable","");

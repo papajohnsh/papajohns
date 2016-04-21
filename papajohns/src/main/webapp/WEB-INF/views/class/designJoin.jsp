@@ -75,7 +75,6 @@ img.drag {
 }
 
 #droppable {
-   width: 1100px;
    height: 700px;
 }
 
@@ -135,6 +134,367 @@ ul li {
    font-size: 12px;
    clear: both;
 }
+.img1{
+<c:choose>
+	    	<c:when test="${x1 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose> 
+left:${x1}px;
+top:${y1}px;
+}
+.img2{
+ <c:choose>
+	    	<c:when test="${x2 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose> 
+left:${x2}px;
+top:${y2}px;
+}
+.img3{
+ <c:choose>
+	    	<c:when test="${x3 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose> 
+left:${x3}px;
+top:${y3}px;
+}
+.img4{
+ <c:choose>
+	    	<c:when test="${x4 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose> 
+left:${x4}px;
+top:${y4}px;
+}
+.img5{
+ <c:choose>
+	    	<c:when test="${x5 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose> 
+left:${x5}px;
+top:${y5}px;
+}
+.img6{
+  <c:choose>
+	    	<c:when test="${x6 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x6}px;
+top:${y6}px;
+}
+.img7{
+  <c:choose>
+	    	<c:when test="${x7 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x7}px;
+top:${y7}px;
+}
+.img8{
+  <c:choose>
+	    	<c:when test="${x8 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x8}px;
+top:${y8}px;
+}
+.img9{
+  <c:choose>
+	    	<c:when test="${x9 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x9}px;
+top:${y9}px;
+}
+.img10{
+  <c:choose>
+	    	<c:when test="${x10 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x10}px;
+top:${y10}px;
+}
+.img11{
+  <c:choose>
+	    	<c:when test="${x11 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x11}px;
+top:${y11}px;
+}
+.img12{
+  <c:choose>
+	    	<c:when test="${x12 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x12}px;
+top:${y12}px;
+}
+.img13{
+  <c:choose>
+	    	<c:when test="${x13 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x13}px;
+top:${y13}px;
+}
+.img14{
+  <c:choose>
+	    	<c:when test="${x14 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x14}px;
+top:${y14}px;
+}
+.img15{
+  <c:choose>
+	    	<c:when test="${x15 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x15}px;
+top:${y15}px;
+}
+.img16{
+  <c:choose>
+	    	<c:when test="${x16 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x16}px;
+top:${y16}px;
+}
+.img17{
+  <c:choose>
+	    	<c:when test="${x17 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x17}px;
+top:${y17}px;
+}
+.img18{
+  <c:choose>
+	    	<c:when test="${x18 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x18}px;
+top:${y18}px;
+}
+.img19{
+  <c:choose>
+	    	<c:when test="${x19 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x19}px;
+top:${y19}px;
+}
+.img20{
+  <c:choose>
+	    	<c:when test="${x20 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x20}px;
+top:${y20}px;
+}
+.img21{
+  <c:choose>
+	    	<c:when test="${x21 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x21}px;
+top:${y21}px;
+}
+.img22{
+  <c:choose>
+	    	<c:when test="${x22 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x22}px;
+top:${y22}px;
+}
+.img23{
+  <c:choose>
+	    	<c:when test="${x23 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x23}px;
+top:${y23}px;
+}
+.img24{
+  <c:choose>
+	    	<c:when test="${x24 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x24}px;
+top:${y24}px;
+}
+.img25{
+  <c:choose>
+	    	<c:when test="${x25 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x25}px;
+top:${y25}px;
+}
+.img26{
+  <c:choose>
+	    	<c:when test="${x26 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x26}px;
+top:${y26}px;
+}
+.img27{
+  <c:choose>
+	    	<c:when test="${x27 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x27}px;
+top:${y27}px;
+}
+.img28{
+  <c:choose>
+	    	<c:when test="${x28 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x28}px;
+top:${y28}px;
+}
+.img29{
+  <c:choose>
+	    	<c:when test="${x29 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x29}px;
+top:${y29}px;
+}
+.img30{
+  <c:choose>
+	    	<c:when test="${x30 eq '-1'}">
+	    	position:relative;
+	      	</c:when>
+	      	<c:otherwise>
+	      	position:absolute;
+	      	</c:otherwise>
+</c:choose>
+left:${x30}px;
+top:${y30}px;
+}
+
 
 .frame2{
 border-color:#000000 #4785F8;
@@ -684,7 +1044,6 @@ border-width:5px;
        });
       $("#3").draggable({
           helper : 'original',
-
           stop : handleDragStop3,
           containment: '#droppable',
           drop : function(e, ui) {
@@ -1512,25 +1871,25 @@ border-width:5px;
     <c:choose>
     	<c:when test="${(num.count%3)==1 }">
     	<tr>
-    	<td style="width:75px;">
-    	<div id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px;">
+    	<td style="width:75px; height:75px;">
+    	<div id="${dto.idx }" class="img${dto.idx}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px;">
           <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
           <span id="r">${dto.id }</span>
          </div>
          </td>
-    	</c:when>
+      	</c:when>
     	
     	<c:when test="${(num.count%3)==2 }">
-    	<td style="width:75px;">
-    	<div id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px;">
+    	<td style="width:75px;  height:75px;">
+    	<div id="${dto.idx }" class="img${dto.idx}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px;">
           <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
           <span id="r">${dto.id }</span>
           </div>
           </td>
     	</c:when>
     	<c:otherwise>
-    	<td style="width:75px;">
-    	<div id="${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px;">
+    	<td style="width:75px;  height:75px;">
+    	<div id="${dto.idx }" class="img${dto.idx}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px;">
           <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
           <span id="r">${dto.id }</span>
           </div>
@@ -1543,9 +1902,11 @@ border-width:5px;
     </table>
    </div>
   </div>
-
 </div>
-            <form name="f" action="designUpdate.do">
+
+
+
+   <form name="f" action="designUpdate.do">
    <input type="hidden" name="reidx" value="${reidx }">
    <c:forEach var="dto" items="${list }">
       <input type="hidden" name="a${dto.idx}">
