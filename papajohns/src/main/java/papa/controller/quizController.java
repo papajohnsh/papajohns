@@ -55,8 +55,11 @@ public void setQuizAnswerDao(quizAnswerDAO quizAnswerDao) {
 }
 //quiz upload Form
 @RequestMapping("/quizTestForm.do")
-public String classQuiz(){
-	return "quiz/quizTestForm";
+public ModelAndView classQuiz(@RequestParam(value="idx") int idx){
+	ModelAndView mav=new ModelAndView();
+	mav.addObject("idx",idx);
+	mav.setViewName("quiz/quizTestForm");
+	return mav;
 }
 //quiz upload
 @RequestMapping("/quizTestSave1.do")//퀴즈
@@ -250,11 +253,13 @@ public ModelAndView QuizTestList(@RequestParam(value="idx") int idx, @RequestPar
 	    	result2.add(dto2);			
 		
 	}
+
 	System.out.println("마지막실행");
 	ModelAndView mav=new ModelAndView();
 	mav.addObject("result",result);
 	mav.addObject("result2",result2);
 	mav.addObject("limitTime", limit);
+	mav.addObject("endtime",endDate.getTime()+((long)1000*60*60) );
 	mav.setViewName("quiz/quizLoadView");
 	return mav;
 	}
@@ -282,6 +287,38 @@ public ModelAndView quizResult(@RequestParam(value="idx") int idx){
 	mav.addObject("subject",num);
 	mav.addObject("result", result);
 	mav.setViewName("quiz/quizResult");
+	return mav;
+}
+@RequestMapping("/quizTime.do")
+public ModelAndView quizTime(@RequestParam(value="endtime") long end_time) throws ParseException{
+	int nYear;
+    int nMonth;
+    int nDay;
+    int nHour;
+    int nMinute;
+    int ns;
+ 
+    // 현재 날짜 구하기 
+    Calendar calendar = new GregorianCalendar(Locale.KOREA);
+	nYear = calendar.get(Calendar.YEAR);
+    nMonth = calendar.get(Calendar.MONTH) + 1;
+    nDay = calendar.get(Calendar.DAY_OF_MONTH);
+    nHour = calendar.get(Calendar.HOUR_OF_DAY);
+    nMinute = calendar.get(Calendar.MINUTE);
+    ns= calendar.get(Calendar.SECOND);
+    String start=nYear+"-"+nMonth+"-"+nDay+" "+nHour+":"+nMinute+":"+ns;
+  
+    
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    Date beginDate = formatter.parse(start);
+    long limit=(end_time-beginDate.getTime())/((long)1000);
+    long minutes=limit/60;
+    long seconds=limit%60;
+    ModelAndView mav = new ModelAndView();
+    mav.addObject("m", minutes);
+    mav.addObject("s", seconds);
+    mav.addObject("now", beginDate);
+    mav.setViewName("quiz/quizTime");
 	return mav;
 }
 

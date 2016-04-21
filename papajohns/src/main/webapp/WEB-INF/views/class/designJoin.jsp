@@ -526,8 +526,8 @@ border-width:5px;
    function testfunc(test) {
       var a = document.getElementById(test.getAttribute('id')).getAttribute('id');
       var class_by_id = $('#'+a).attr('class');
- 
  	  eval("document.f.a"+a.substring(3)+".value = class_by_id;");     
+
    }
    
    function handleDragStop1(event, ui) {
@@ -1793,6 +1793,7 @@ border-width:5px;
   </div>
   <div class="col frame3" id="col1" style="float:left; width: 250px; height:650px; background:yellow;">
 
+
    
    <div id="drag-list" class="drag-list">
     <table>
@@ -1804,6 +1805,7 @@ border-width:5px;
     	<div id="img${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px; text-align:center;">
           <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
           <span id="r">${dto.id }</span>
+
          </div>
          </td>
       	</c:when>

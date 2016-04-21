@@ -24,11 +24,11 @@
 
    });
 	   
-   $('.update').on(
+   $('#update').on(
          'click',
          function() {
 
-            var sunbun = $(this).attr('id');
+            var sunbun = $(this).attr('name');
             var idx = $('#idx' + sunbun).val();
             var question = $('#question' + sunbun).val();
             var Answer = $(":radio[id='Answer" + sunbun + "']:checked").val();
@@ -57,10 +57,11 @@
 
 
    });
+
 </script>
 
 <br>
-<h2 style="text-align: center;">문제 수정 및 시험등록</h1>
+<h2 style="text-align: center;">문제 수정 및 시험등록</h2>
 <br>
 
 
@@ -70,27 +71,29 @@
    <div class="example2">
 
 	<table style="width: 600px;height: 300px;" >
-	<tr style="background-color:#3c8dbc; color: white; text-align: center;">
+	<tr style="background-color:#3c8dbc; color: white; text-align: center; height:30px;" >
 		<th style="text-align: center;">문제</th>
 		<th style="text-align: center;">출제할 항목</th>
 
 	</tr>
       <c:forEach var="dto" items="${result }">
 		<tr>
-           <td style="width:400px;"> <div class="panel panel-default" style="width:400px;">
+           <td style="width:400px;"> <div class="panel panel-primary" style="width:500px;">
                
-               <div class="panel-heading"  data-acc-link="${dto.idx }">${dto.question }</div>
+               <div class="panel-heading"  data-acc-link="${dto.idx }" align="center">${dto.question }</div>
                
                <div class="panel-body" data-acc-content="${dto.idx }">
                	<input type="hidden" id="idx${dto.idx }" name="idx" value="${dto.idx }">
                	<h3>문제:<br></h3>
-				<textarea rows="4" cols="50" id="question${dto.idx }" name="question" class="textarea wysihtml5-editor" value="${dto.question }"></textarea><br />	
+				<textarea rows="6" cols="74" id="question${dto.idx }" name="question" class="textarea wysihtml5-editor" value="${dto.question }"></textarea><br />	
 				<input type="radio" name="Answer" id="Answer${dto.idx }" value="1" /><font size="3em;"> <b>1.</b> </font><input type="text" id="example1${dto.idx }" value="${dto.example1}" class="form-control" name="example1" size="20"/><br />
 				<input type="radio"name="Answer" id="Answer${dto.idx }" value="2" /><font size="3em;"> <b>2.</b> </font><input type="text" id="example2${dto.idx }" value="${dto.example2}" class="form-control" name="example2" /><br />
 				<input type="radio" name="Answer" id="Answer${dto.idx }"  value="3"/><font size="3em;"> <b>3.</b> </font><input type="text" id="example3${dto.idx }" value="${dto.example3}" class="form-control" name="example3" /><br />
 				<input type="radio"name="Answer" id="Answer${dto.idx }" value="4"/><font size="3em;"> <b>4.</b> </font><input type="text" id="example4${dto.idx }"  value="${dto.example4}" class="form-control" name="example4" /><br />
-				<input type="button"  class="btn btn-default pull-center" id="${dto.idx }" value="수정하기"><input type="button"  class="btn btn-default pull-center" value="삭제">
-   			   </div>
+
+			<div style="margin-left:190px;">	<input type="button"  class="btn btn-success pull-center"  id="update" name="${dto.idx}" value="수정하기">
+   			  </div> </div>
+
    			</div>
    			</td>
    			<td style="vertical-align: top; text-align: center;">

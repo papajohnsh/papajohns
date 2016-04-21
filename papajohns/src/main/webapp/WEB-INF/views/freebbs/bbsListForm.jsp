@@ -101,12 +101,14 @@
 				
                <a href="bbsWriteAdd.do" class="btn btn-sm btn-info btn-flat pull-right">글쓰기</a>
           
+          <div>
+           </div>
              </div><!-- /.box-body -->
            </div><!-- /.box -->
          </div>
        </div>
      </section><!-- /.content -->
-
+     
 </div>
      </div><!-- /.content-wrapper -->
 
