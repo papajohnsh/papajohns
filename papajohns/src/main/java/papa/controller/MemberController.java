@@ -507,7 +507,9 @@ public class MemberController {
 		return mav;
 	
 	}
-
-				
+@RequestMapping("/face.do")
+	public String face(){
+	return ("member/facebookLogin");
+}
 				
 }
