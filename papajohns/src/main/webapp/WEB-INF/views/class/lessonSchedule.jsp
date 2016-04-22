@@ -11,7 +11,7 @@
 		$('#mytable > tbody:last').append("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>");
   		for(var j=0;j<days.length;j++){
  			if(days[j]=='1'){
-				$("#mytable tr:eq("+int(i+2)+") td:eq("+int(j+1)+")").css("background","#efefef");
+				$('#mytable tr:eq(1) td:eq(0)').css("background","#efefef");
 			}else if(days[j]=='2'){
 
 			}else if(days[j]=='3'){
