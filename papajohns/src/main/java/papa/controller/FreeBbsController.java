@@ -38,9 +38,6 @@ public class FreeBbsController {
 
 	@RequestMapping("/bbsListForm.do")
 	   public ModelAndView bbsListForm(HttpServletRequest req){
-		
-		File f=new File("E:/joo/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/papajohns/resource/data");
-		File files[]=f.listFiles();
 	      
 		int totalCnt=freebbsDao.getTotalCnt();//총게시물 수 가져오기
 		//System.out.println("1: "+totalCnt);  
@@ -68,7 +65,6 @@ public class FreeBbsController {
 	      ModelAndView mav=new ModelAndView();
 	      mav.addObject("list", list);
 	      mav.addObject("pageStr", pageStr);
-	      mav.addObject("files",files);
 	      mav.setViewName("freebbs/bbsListForm");
 	      return mav;
 	   }
@@ -119,7 +115,6 @@ public class FreeBbsController {
 	
 	@RequestMapping("/bbsContent.do")//게시판 본문내용보기
 	public ModelAndView bbsContent(@RequestParam("idx") int idx){
-	
 		
 		int count= freebbsDao.readNum(idx);//조회수
 		
