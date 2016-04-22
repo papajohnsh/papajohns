@@ -14,24 +14,25 @@
 
    <!-- Content Wrapper. Contains page content -->
    
-<div><img src="copy.jpg" style="width:100%;  height:300px; margin:0px auto; opacity:0.5" ></div>
+<div ><img src="img/class2.jpg" style="width:100%;  height:450px; margin: 0px auto; opacity:0.6" ></div>
         <!-- Main content -->
      
         
                 
-              </div><!-- /.box -->
-          <div class="row" >
-            <div class="col-md-12">
+             
+
               <%-- <div class="box">
+>>>>>>> branch 'master' of https:/ /github.com/papajohnsh/papajohns.git
                 <div class="box-header with-border" align="center">
                   <h3 class="box-title">내강의실</h3>
                   <br><br><br>
                 </div><!-- /.box-header -->
-                   
+                   </div>
+                   </div>
       <!-- Small boxes (Stat box) -->
-      <div style="margin: 0px auto;">
-       
-            <div class="col-lg-3 col-xs-6" >
+      <div class="row" style="margin-left: 200px;">
+
+            <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-aqua">
  
@@ -56,7 +57,7 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6" style="width:100px;height: 140;">
+            <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
@@ -69,7 +70,7 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
@@ -82,7 +83,7 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
@@ -96,6 +97,8 @@
               </div>
             </div><!-- ./col -->
           </div><!-- /.row -->
+<<<<<<< HEAD
+=======
           
           </div> --%>
           
@@ -104,63 +107,73 @@
           
        	 <!-- TABLE: LATEST ORDERS -->
 
-<div class="box">
-                <div class="box-header with-border" align="center">
-                  <h3 class="box-title">내가만든 강의</h3>
-                </div><!-- /.box-header -->
+
+          
+
+
+      <!-- Small boxes (Stat box) --> 
+      <div style="margin: 0px auto;width:70%;" >
+ <div class="box">
+             <div class="box-header with-border" >
+                  <div  style="height:50px;"  align="center"><h2 class="box-title"><font size="5em;"><b>내가만든 강의</b></font></h2></div>
+            
                    
 
+           
                    <c:forEach var="dto" items="${list }">
 
       <!-- Small boxes (Stat box) -->
-      <div style="margin: 0px auto;">
+  
        
-            <div class="col-lg-3 col-xs-6" >
+            <div class="col-lg-3 col-xs-6"  >
               <!-- small box -->
-              <div class="small-box bg-aqua">
+              <div class="small-box bg-green" style="width:70%; height:30%; background-image: url('img/벽지초.jpg'); ">
  
                 <div class="inner">
-                  <h3> ${dto.name }</h3>
+                  <h3>  ${dto.subject }</h3>
                   <p>${dto.start_time }~${dto.end_time }</p>
                 </div>
-                <div class="icon">
-                  <i class="ion ion-bag"></i>
-                </div>
-                <a href="myClassRoom.do?idx=${dto.idx }" class="small-box-footer">${dto.subject } <i class="fa fa-arrow-circle-right"></i></a>
+             
+                <a href="myClassRoom.do?idx=${dto.idx }" class="small-box-footer">${dto.name } <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
 
 
 
-          </div><!-- /.row -->
           </c:forEach>
           
           </div>
-         
-          <div class="box">
-                <div class="box-header with-border" align="center">
-                  <h3 class="box-title">내가 참여한 강의</h3>
-                  
+          
+              </div><!-- /.box-header -->
+              
+         <br> <br> <br> 
+         <div class="box">
+                <div class="box-header with-border" align="center" style="margin-top: 10px;">
+                  <h3 class="box-title"><font size="5em;"><b>내수업</b></font></h3>
                 </div><!-- /.box-header -->
                    
+
+                 </div>
+         <div style="margin: 0px auto; " >
+      
                    
                    <c:forEach var="dto" items="${list4 }">
 
       <!-- Small boxes (Stat box) -->
       <div style="margin: 0px auto;">
        
-            <div class="col-lg-3 col-xs-6" >
+            <div class="col-lg-3 col-xs-6"   >
               <!-- small box -->
-              <div class="small-box bg-aqua">
+              <div class="small-box bg-green" style="width:70%; height:30%;background-image: url('img/벽지보.jpg'); ">
  
                 <div class="inner">
-                  <h3> ${dto.name }</h3>
+                  <h3> ${dto.subject }</h3>
                   <p>${dto.start_time }~${dto.end_time }</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-bag"></i>
+                  <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="classShow.do?idx=${dto.idx }" class="small-box-footer">${dto.subject } <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="classShow.do?idx=${dto.idx }" class="small-box-footer">${dto.name }<i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
 
@@ -170,10 +183,13 @@
           </c:forEach>
           
           </div>
-    
-    
-   
+    </div>
 
+    
+    
+    
+            
+ 
  
   </body>
 </html>

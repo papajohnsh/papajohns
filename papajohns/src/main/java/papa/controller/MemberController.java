@@ -3,9 +3,7 @@ package papa.controller;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.jws.WebParam.Mode;
@@ -23,8 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import papa.class_.model.classDAO;
-import papa.class_.model.classDTO;
 import papa.email.model.Email;
 import papa.email.model.EmailSender;
 import papa.member.model.MemberDAO;
@@ -32,16 +28,6 @@ import papa.member.model.MemberDTO;
 
 @Controller
 public class MemberController {
-	@Autowired
-	private classDAO classDao;
-	
-	public classDAO getClassDao() {
-		return classDao;
-	}
-
-	public void setClassDao(classDAO classDao) {
-		this.classDao = classDao;
-	}
 
 	@Autowired
 	private MemberDAO memberDao;
@@ -124,34 +110,7 @@ public class MemberController {
 		mav.setViewName("member/loginForm");
 		return mav;
 	}
-	@RequestMapping("/login_index.do")
-	public ModelAndView login_index(HttpSession session){
-		
-		ModelAndView mav=new ModelAndView();
-		if(session.getAttribute("sidx")!=null){
-		int idx=(int) session.getAttribute("sidx");
-		String list1=classDao.reidxList(idx);
-		if(list1!=null){
-			List<classDTO> list5=new ArrayList<>();
-			String list2=list1.substring(2);
-			System.out.println(list2);
-		    String[] list3=list2.split(",");
-		    for(int i=0; i<list3.length;i++){
-		    	int idx2=Integer.parseInt(list3[i]);
-		    	classDTO list4= classDao.joinClass(idx2);
-		    	list5.add(list4);
-		    	System.out.println(list5);
-		    	;
-		    	mav.addObject("list4",list5);
-		    }
-		}
-		List<classDTO> list=classDao.classDesign(idx);
-		
-		mav.addObject("list",list);
-		}
-		mav.setViewName("index");
-		return mav;
-	}
+	
 	@RequestMapping("/login.do")//login 처리 페이지
 	public ModelAndView loginOk(@RequestParam(value="id") String id,@RequestParam("pwd") String pwd,
 			HttpSession session,HttpServletResponse resp,@RequestParam(value="saveid",defaultValue="")String saveid){
@@ -202,12 +161,6 @@ public class MemberController {
 				session.setAttribute("sidx", dto.getIdx());
 				session.setAttribute("sreidx", dto.getReidx());
 				session.setAttribute("snickname", dto.getNickname());
-				
-					
-
-
-				
-				
 			}else{//비밀번호가 틀리면
 				msg="비밀번호를 확인해주세요.";
 				url="loginForm.do";
@@ -554,7 +507,9 @@ public class MemberController {
 		return mav;
 	
 	}
-
-				
+@RequestMapping("/face.do")
+	public String face(){
+	return ("member/facebookLogin");
+}
 				
 }
