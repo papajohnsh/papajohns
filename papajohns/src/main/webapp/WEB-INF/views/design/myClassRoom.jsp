@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.net.InetAddress" %>
+<%
+// 요거이 그겁니다. 서버 ip
+InetAddress inet= InetAddress.getLocalHost();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -357,7 +362,9 @@ top:${y30}px;
 	var wsocket;
 	
 	function connect() {
-		var url="ws://localhost:9090/papajohns/echo-ws";
+		var url1="ws://<%=inet.getHostAddress()%>:<%=request.getServerPort()%>/papajohns/echo-ws?idx=${idx}&teacher=${teacher}&user=${sid}";
+		var url="ws://localhost:<%=request.getServerPort()%>/papajohns/echo-ws?idx=${idx}&teacher=${teacher}&user=${sid}";
+		console.log(url1);
 		wsocket = new WebSocket(url);
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;
@@ -365,11 +372,18 @@ top:${y30}px;
 	}
 	
 	function onOpen(evt) {
-		window.alert('연결되었습니다.');
+		wsocket.send("loginCheck");
+		//window.alert('연결되었습니다.');
 	}
 	
 	function onMessage(evt) {
 		var data = evt.data;
+		if(!(data.indexOf("loginOn")==-1)){
+			var onId = data.substring(8);
+			console.log(onId);
+		}else if(data=="loginCheck"){
+			wsocket.send("loginOn:${sid}");
+		}
 		tab.style.backgroundColor = data;
 	}
 	
@@ -412,7 +426,6 @@ top:${y30}px;
 	</td>
 	</tr>
 	</table>
-	
 	</article>
 	</section>
 
