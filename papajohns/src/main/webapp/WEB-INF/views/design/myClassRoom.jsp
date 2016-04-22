@@ -45,6 +45,8 @@ border-width:5px;
    padding: 5px 5px 5px 5px;
    margin: 5px 5px 5px 5px;
 }
+
+
 #img1{
  
 left:${x1}px;
@@ -339,7 +341,81 @@ top:${y30}px;
   </div>
 </div>
 
-<!--      jQuery 2.1.4
+<script type="text/javascript">
+<%
+	
+	String idx = request.getParameter("idx");
+%>
+	$(document).ready(function() {
+		$('#sendBtn').click(function() { connect()});
+		$('#wsBtn1').click(function() { sendMessage("red"); })
+		$('#wsBtn2').click(function() { sendMessage("blue"); })
+		$('#wsBtn3').click(function() { sendMessage("yellow"); })
+		$('#dbSend').click(function() { dbSend($("message").val());})
+	});
+	
+	var wsocket;
+	
+	function connect() {
+		var url="ws://localhost:9090/papajohns/echo-ws";
+		wsocket = new WebSocket(url);
+		wsocket.onopen = onOpen;
+		wsocket.onmessage = onMessage;
+		wsocket.onclose = onClose;
+	}
+	
+	function onOpen(evt) {
+		window.alert('연결되었습니다.');
+	}
+	
+	function onMessage(evt) {
+		var data = evt.data;
+		tab.style.backgroundColor = data;
+	}
+	
+	function onClose(evt) {
+		wsocket.close();
+		alert("연결 끊김");
+	}
+	
+	function sendMessage(color){
+		//window.alert('확인을 누르면 '+color+' 메세지가 전달됩니다.');
+		wsocket.send(color);
+	}
+	
+	function dbSend(message){
+		
+		
+	}
+</script>
+	<section>
+	<article>
+	<table style="margin:0px auto; background-color:red;" id="tab" width="200" border="1" cellspacing="0" cellpadding="0">
+	<tr>
+	<td style="color:black">테스트입니다.</td>
+	</tr>
+	<tr>
+	<td>
+	<input type="button" id="wsBtn1" value="빨강">
+	<input type="button" id="wsBtn2" value="파랑">
+	<input type="button" id="wsBtn3" value="노랑">
+	
+	
+	</td>
+	</tr>
+	<tr>
+	<td>
+
+    <input type="text" id="message">
+    <input type="button" id="sendBtn" value="연결" onclick="sendBtn()">
+    <input type="button" id="dbSend" value="DB저장">
+	</td>
+	</tr>
+	</table>
+	
+	</article>
+	</section>
+
     <script src="css/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     jQuery UI 1.11.4
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>

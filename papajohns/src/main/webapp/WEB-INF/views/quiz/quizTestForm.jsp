@@ -24,18 +24,9 @@ function showResult(){
         if (XHR.status == 200) {
            var text = XHR.responseText;
            window.alert(text);
-           $('#question').val('');
-           $('#example1').val('');
-           $('#example2').val('');
-           $('#example3').val('');
-           $('#example4').val('');
         }
      }	
 };
-$('#close').on('click',function(){
-	var idx=$('#idx').val();
-	location.href='myClassRoom.do?idx='+idx;
-});
 </script>
 <div class="modal-header">
     <!-- 닫기(x) 버튼 -->
@@ -62,8 +53,6 @@ $('#close').on('click',function(){
 			
 				<input type="radio"name="Answer"  value="4"/><font size="5em;"b;b;> <b>4.</b> </font> <input type="text" required="required" id="example4" class="form-control" name="example4" /><br /><br>
 		<br><br>	<input type="button" id="join" class="btn btn-success pull-right" value="등록"/>
-					<input type="button" id="close" class="btn btn-success pull-right" value="닫기"/>
-					<input type="hidden" id="idx" value="${idx }">
 			</div>
 		<br><br><br><br><br><br><br>
 </form>

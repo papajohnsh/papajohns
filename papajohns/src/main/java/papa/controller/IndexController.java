@@ -70,7 +70,7 @@ public class IndexController {
 			}
 			mav.setViewName("index");
 			return mav;
-			
+		
 			/*
 			int totalCnt=noticeDao.getTotalCnt();//총게시물 수 가져오기
 			//System.out.println("1: "+totalCnt);  
@@ -103,4 +103,10 @@ public class IndexController {
 			mav.setViewName("index");			
 			return mav;*/
 		}
+		
+		@RequestMapping("/main.do")
+		public String main(){
+				return "main";
+		}
+			
 }
