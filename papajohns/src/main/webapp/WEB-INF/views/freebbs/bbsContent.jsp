@@ -54,14 +54,14 @@
           <div class="row">
             
             <div class="col-md-12">
-              <div class="box box-primary" >
+              <div class="box box-primary">
                 <div class="box-header with-border">
                   <h3 class="box-title">본문내용보기</h3>
                 </div><!-- /.box-header -->
-                <div class="box-body">
+                <div class="box-body" >
                   <table id="example2" class="table table-bordered">
                   <tr>
-                		<td>번호</td>
+                		<td style="width: 50px;">번호</td>
                 		<td>${dto.idx}</td>
                 		<td>작성자</td>
                 		<td>${dto.writer}</td>
@@ -72,18 +72,52 @@
                 		<td>조회수</td>
                 		<td><span class="badge bg-red">${dto.readnum}</span></td>
                 	</tr>
-                	<tr>
+                	<tr style="height: 163px;">
 						<td colspan="4">
 						${dto.content }
 						</td>
 					</tr>
                   </table>
-                  <div align="center">
-		            <span><a href="bbsReWriteAdd.do?idx=${dto.idx }&subject=${dto.subject}" class="btn btn-sm btn-danger btn-flat pull-center"> 댓글작성</a></span>
-		            <span><a href="bbsListForm.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a></span>
-        		</div>
-                </div><!-- /.box-body -->
+                 
+		          
+        		
+             
+                       <c:set var="bbsReList" value="${reList}"></c:set>
+          
+                  <table class="table table-striped">
+                 
+                      <c:if test="${empty bbsReList}">
+                       <tr>
+                  <td>
+                     등록된 댓글이 없습니다.
+                     </td>
+                  </tr>
+                  </c:if>
+                  
+                  <c:forEach var="dto" items="${bbsReList}">
+                 <tr>
+                  <td>
+                    <img src="resource/data/${sid }/profile.jpg"
+						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
+						class="img-circle" alt="user image" class="online" width="30px;" height="30px;">
+						${dto.writer}/ ${dto.write_date}  <br>
+						${dto.content}
+						</td>
+					
+                   
+                 
+                  </c:forEach>
+                  <c:set var="dto" value="${list}"></c:set>
+                 <tr>
+                  <td align="right">
+                    <a href="bbsReWriteAdd.do?idx=${dto.idx }&subject=${dto.subject}" class="btn btn-sm btn-danger btn-flat pull-center"> 댓글작성</a>
+		            <a href="bbsListForm.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a>
+                  </td>
+                  </tr>
+                  </table>
+                     </div><!-- /.box-body -->
               </div><!-- /. box -->
+             
             </div><!-- /.col -->
           </div><!-- /.row -->
         </section><!-- /.content -->
@@ -91,38 +125,10 @@
      </c:choose>
      
      <!-- Chat box -->
-              <div class="box box-success">
-                <div class="box-header">
-                  <i class="fa fa-comments-o"></i>
-                  <h3 class="box-title">Chat</h3>
-                </div>
-                <div class="box-body chat" id="chat-box">
-                  <!-- chat item -->
-                  <c:set var="bbsReList" value="${reList}"></c:set>
-                  <c:if test="${empty bbsReList}">
-                     등록된 댓글이 없습니다.
-                  </c:if>
-                  <c:forEach var="dto" items="${bbsReList}">
-                  <div class="item">
-                    <img src="resource/data/${sid }/profile.jpg"
-						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
-						class="img-circle" alt="user image" class="online">
-                    <p class="message">
-                      <a href="#" class="name">
-                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i>${dto.write_date}</small>
-                           ${dto.writer}
-                      </a>
-                            ${dto.content}
-                    </p>
-                    
-                  </div><!-- /.item -->
-                  </c:forEach>
-                  <!-- chat item -->
-                </div><!-- /.chat -->
-              </div><!-- /.box (chat box) -->
+            
      
       </div><!-- /.content-wrapper -->
-      <%@ include file="../footer.jsp" %>
+      
     <%@ include file="../controllSide.jsp" %>
 	 
 </body>

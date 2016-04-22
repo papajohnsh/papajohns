@@ -88,6 +88,7 @@ public class FileController {
 	public String fileUpload1(@RequestParam("upload") MultipartFile upload,@RequestParam("id") String id, HttpServletRequest request) {
 		String account=id;
 		String path=request.getSession().getServletContext().getRealPath("/resource/data/"+account);
+		System.out.println("파일 업로드 주소"+path);
 		System.out.println(System.getProperty("user.dir"));
 		System.out.println(path);
 		System.out.println(account);
@@ -152,7 +153,7 @@ private void copyInto(MultipartFile upload){
 	
 	try {
 		byte bytes[]=upload.getBytes();
-		File newFile= new File("C:/Users/kyu/git/papajohns/papajohns/src/main/webapp/img/"+upload.getOriginalFilename());
+		File newFile= new File("C:/Users/Jo HH/Pictures/Saved Pictures/"+upload.getOriginalFilename());
 		FileOutputStream fos=new FileOutputStream(newFile);
 		fos.write(bytes);//copy 행위
 		fos.close();

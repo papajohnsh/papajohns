@@ -49,7 +49,8 @@ function submitContents(elClickedObj) {
      
        <!-- Content Wrapper. Contains page content -->
    		<div class="content-wrapper">
-       		<form name="bbsWrite" action="bbsWrite.do" method="post">
+       		<form name="bbsWrite" action="bbsWrite.do" method="post"
+						enctype="multipart/form-data">
              <div class="box">
                 <div class="box-header" align="center">
                   <h3 class="box-title">자유게시판 글쓰기</h3>
@@ -63,7 +64,10 @@ function submitContents(elClickedObj) {
                  
                   <tr>
 					<th>작성자</th>
-        			<td><input type="text" name="writer" readonly="readonly" value="${snickname}"></td>
+        			<td><input type="text" name="writer" readonly="readonly" value="${snickname}">
+        			<input type="text" name="id" value="${sid }">
+        				<input type="file" name="upload">
+        			</td>
                   </tr>
         			<tr>
         				<th>제목</th>
@@ -86,18 +90,19 @@ nhn.husky.EZCreator.createInIFrame({
                   </fieldset>
                  </div> 
                   <!-- writeAdd button -->
-                  <div>
-                	<input type="submit" class="btn btn-primary pull-right" value="글올리기" onclick="submitContents();">
-				  </div>
-				  </form> 
+                  
+				 
 				  <br>
                   <!-- 파일올리기 영역 -->
-				<form name="fileupload2" action="fileUpload2.do" method="post" enctype="multipart/form-data">
-					<div align="center">
-						<input type="file" name="upload"><br>
-						<input type="submit" value="파일올리기">
-					</div>
-					<a href="bbsFileList.do" class="btn btn-sm btn-default btn-flat pull-right">파일리스트</a>
+			
+					
+					
+						
+					
+				
+					<div>
+                	<input type="submit" class="btn btn-primary pull-right" value="글올리기" onclick="submitContents();">
+				  </div>
 				</form>
                 </div> 
        </div><!-- container -->  

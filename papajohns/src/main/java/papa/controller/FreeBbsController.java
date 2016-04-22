@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import papa.freebbs.model.FreeBbsDAO;
@@ -75,8 +76,8 @@ public class FreeBbsController {
 		return "freebbs/bbsWriteAdd";
 	}
 	
-	@RequestMapping(value="/bbsWrite.do",method=RequestMethod.POST)//게시판 글쓰기 등록
-	public ModelAndView bbsWrite(FreeBbsDTO dto){
+	@RequestMapping("/bbsWrite.do")//게시판 글쓰기 등록
+	public ModelAndView bbsWrite(FreeBbsDTO dto,@RequestParam("upload") MultipartFile upload,@RequestParam("id") String id, HttpServletRequest request){
 		
 		int result=freebbsDao.bbsWriteAdd(dto);
 		String msg=result>0?"글쓰기 성공":"글쓰기 실패";
@@ -84,9 +85,43 @@ public class FreeBbsController {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("msg", msg);
 		mav.setViewName("freebbs/bbsMsg");
+		
+		
+		
+		
+		String account=id;
+		String path=request.getSession().getServletContext().getRealPath("/resource/data/"+account);
+		System.out.println("파일 업로드 주소"+path);
+		System.out.println(System.getProperty("user.dir"));
+		System.out.println(path);
+		System.out.println(account);
+		//File temp=new File(request.getSession().getServletContext().getRealPath("/resource/data/"+account));
+		//temp.mkdir();
+		File dir=new File(path);
+		dir.mkdir();
+		if(!dir.exists()){
+			copyInto(upload, account, path);
+		}else{
+			copyInto(upload, account, path);
+		}
 		return mav;
 		
 	}
+	private void copyInto(MultipartFile upload, String account, String path) {
+		System.out.println("올린파일명" + upload.getOriginalFilename());
+
+		try {
+			byte bytes[] = upload.getBytes();
+			File newFile = new File(path+"/profile.jpg");
+			FileOutputStream fos = new FileOutputStream(newFile);
+			fos.write(bytes);// copy 행위
+			fos.close();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
 	
 	@RequestMapping("/bbsReWriteAdd.do")//게시판 댓글 쓰기 폼
 	public ModelAndView bbsReWriteAdd(@RequestParam(value="idx",required=false) int re_idx){
