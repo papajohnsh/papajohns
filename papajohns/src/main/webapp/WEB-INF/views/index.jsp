@@ -111,8 +111,8 @@
           
 
 
-      <!-- Small boxes (Stat box) -->
-      <div style="margin: 0px auto; margin-left:200px; margin-right:200px;" >
+      <!-- Small boxes (Stat box) --> 
+      <div style="margin: 0px auto;width:80%;" >
  <div class="box">
              <div class="box-header with-border" >
                   <div  style="height:50px;"  align="center"><h2 class="box-title"><font size="5em;"><b>내가만든 강의</b></font></h2></div>
