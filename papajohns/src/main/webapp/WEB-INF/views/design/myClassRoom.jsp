@@ -7,24 +7,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
- <!-- Tell the browser to be responsive to screen width -->
+ Tell the browser to be responsive to screen width
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
+    Bootstrap 3.3.5 -->
 
 <script type="text/javascript" src="js/httpRequest.js"></script>
 <script>
-$(function(){
-    $("#studentList").on('click', function(){
-        $('#myModal').modal({
-                      remote : 'studentList.do'
-                });
-    })
-      
-})
+
 </script>
 <style>
 .frame2{
@@ -253,8 +246,8 @@ top:${y30}px;
                 <i class="fa fa-files-o"></i> <span>내수업</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#" id="studentList"><i class="fa fa-circle-o" ></i> 학생리스트</a></li>
-                <li><a href="classPlan.do" ><i class="fa fa-circle-o"></i> 강의스케줄</a></li>
+                <li><a data-toggle="modal" data-target="#myModal2" href="studentList.do?idx=${param.idx }" ><i class="fa fa-circle-o" ></i> 학생리스트</a></li>
+                <li><a data-toggle="modal" href="lessonSchedule.do" data-target="#myModal7" ><i class="fa fa-circle-o"></i> 강의스케줄</a></li>
                 <li><a data-toggle="modal" href="quizTestForm.do?idx=${param.idx }" data-target="#myModal2" data-backdrop="static"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
                 <li><a data-toggle="modal" href="quizList.do?idx=${param.idx }" data-target="#myModal3"><i class="fa fa-circle-o"></i> 문제 수정하기</a></li>
                 <li><a data-toggle="modal" href="quizResult.do?idx=${param.idx }" data-target="#myModal4"><i class="fa fa-circle-o"></i>쪽지시험결과</a></li>
@@ -339,33 +332,39 @@ top:${y30}px;
     </div>
   </div>
 </div>
+<div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
 
-     <!-- jQuery 2.1.4 -->
+<!--      jQuery 2.1.4
     <script src="css/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
+    jQuery UI 1.11.4
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    Resolve conflict in jQuery UI tooltip with Bootstrap tooltip
     <script>
       $.widget.bridge('uibutton', $.ui.button);
     </script>
-    <!-- Bootstrap 3.3.5 -->
+    Bootstrap 3.3.5
     <script src="css/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Morris.js charts -->
+    Morris.js charts
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="css/plugins/morris/morris.min.js"></script>
-    <!-- Sparkline -->
+    Sparkline
     <script src="css/plugins/sparkline/jquery.sparkline.min.js"></script>
-    <!-- jvectormap -->
+    jvectormap
     <script src="css/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="css/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <!-- jQuery Knob Chart -->
+    jQuery Knob Chart
     <script src="css/plugins/knob/jquery.knob.js"></script>
-    <!-- daterangepicker -->
+    daterangepicker
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
     <script src="css/plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- datepicker -->
+    datepicker
     <script src="css/plugins/datepicker/bootstrap-datepicker.js"></script>
-    <!-- Bootstrap WYSIHTML5 -->
+    Bootstrap WYSIHTML5 -->
  
 
 </body>

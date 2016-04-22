@@ -2,15 +2,31 @@ package papa.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.*;
+import papa.class_.model.*;
+
+import javax.servlet.http.HttpSession;
+
 import papa.member.model.*;
 @Controller
 public class MyLessonController {
 	@Autowired
 	private MemberDAO dao;
+	@Autowired
+	private classDAO classDao;
 	
+	
+	public classDAO getClassDao() {
+		return classDao;
+	}
+
+	public void setClassDao(classDAO classDao) {
+		this.classDao = classDao;
+	}
+
 	public MemberDAO getDao() {
 		return dao;
 	}
@@ -18,8 +34,8 @@ public class MyLessonController {
 	public void setDao(MemberDAO dao) {
 		this.dao = dao;
 	}
-
-	@RequestMapping("/studentList.do")
+	
+	@RequestMapping("/studentList.do")//학생리스트
 	public ModelAndView studentList(){
 		
 		List<MemberDTO> result= dao.studentList();
@@ -30,6 +46,16 @@ public class MyLessonController {
 		mav.addObject("result",result);
 		mav.setViewName("class/studentList");
 		return mav;
+	}
+	@RequestMapping("/lessonSchedule.do")
+	public ModelAndView lessonSchedule(HttpSession session){
+		int idx=(int)session.getAttribute("sidx");
+		List<classDTO> result= classDao.classDesign(idx);
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("list", result);
+		mav.setViewName("class/lessonSchedule");
+		return mav;
+		
 	}
 	@RequestMapping("/classQuiz.do")
 	public String classQuiz(){
