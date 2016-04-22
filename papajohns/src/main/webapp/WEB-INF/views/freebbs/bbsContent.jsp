@@ -91,7 +91,35 @@
      </c:choose>
      
      <!-- Chat box -->
-            
+              <div class="box box-success">
+                <div class="box-header">
+                  <i class="fa fa-comments-o"></i>
+                  <h3 class="box-title">Chat</h3>
+                </div>
+                <div class="box-body chat" id="chat-box">
+                  <!-- chat item -->
+                  <c:set var="bbsReList" value="${reList}"></c:set>
+                  <c:if test="${empty bbsReList}">
+                     등록된 댓글이 없습니다.
+                  </c:if>
+                  <c:forEach var="dto" items="${bbsReList}">
+                  <div class="item">
+                    <img src="resource/data/${sid }/profile.jpg"
+						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
+						class="img-circle" alt="user image" class="online">
+                    <p class="message">
+                      <a href="#" class="name">
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i>${dto.write_date}</small>
+                           ${dto.writer}
+                      </a>
+                            ${dto.content}
+                    </p>
+                    
+                  </div><!-- /.item -->
+                  </c:forEach>
+                  <!-- chat item -->
+                </div><!-- /.chat -->
+              </div><!-- /.box (chat box) -->
      
       </div><!-- /.content-wrapper -->
       <%@ include file="../footer.jsp" %>

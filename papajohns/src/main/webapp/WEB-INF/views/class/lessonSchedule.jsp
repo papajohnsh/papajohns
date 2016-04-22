@@ -13,17 +13,17 @@
  			if(days[j]=='1'){
 				$("#mytable tr:eq("+(i+1)+") td:eq("+j+")").css("background","#efefef");
 			}else if(days[j]=='2'){
-
+				$("#mytable tr:eq("+(i+1)+") td:eq("+j+")").css("background","#efefef");
 			}else if(days[j]=='3'){
-
+				$("#mytable tr:eq("+(i+1)+") td:eq("+j+")").css("background","#efefef");
 			}else if(days[j]=='4'){
-
+				$("#mytable tr:eq("+(i+1)+") td:eq("+j+")").css("background","#efefef");
 			}else if(days[j]=='5'){
-
+				$("#mytable tr:eq("+(i+1)+") td:eq("+j+")").css("background","#efefef");
 			}else if(days[j]=='6'){
-
+				$("#mytable tr:eq("+(i+1)+") td:eq("+j+")").css("background","#efefef");
 			}else if(days[j]=='0'){
-
+				$("#mytable tr:eq("+(i+1)+") td:eq("+j+")").css("background","#efefef");
 			}  
 		  
 	}    
