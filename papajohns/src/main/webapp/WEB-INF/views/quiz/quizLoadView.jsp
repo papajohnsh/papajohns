@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-
 /* $('#exam').on('click',function(){
 	var answer=null;
 	for(var i=1;i<=$('#length').val();i++){
@@ -40,7 +39,7 @@
   
   </form>
 <div>
-	<input type=text value='${limitTime }' name='counter' readonly="readonly" id='counter'><br>
+	<input type="text" id="helftime"><br>
 	<c:forEach var="dto2" items="${result2 }" >
 		${dto2.idx}.&nbsp;&nbsp;&nbsp; ${dto2.question }<br>
 		<input type="radio" name="${dto2.idx }" value="1">①&nbsp;&nbsp;&nbsp; ${dto2.example1 }<br>
@@ -55,8 +54,9 @@
 	<input type="hidden" name="subject" value="${result.subject }">
 	<input type="hidden" name="class_idx" id="class_idx" value="${result.class_idx }">
 	<input type="hidden" name="member_id" value="${sid }">
-	<input type="hidden" name="start_date" value="${dto2.start_date }">
-	<input type="hidden" name="start_time" value="${dto2.start_time }">
+	<input type="hidden" id="start_date" name="start_date" value="${dto2.start_date }">
+	<input type="hidden" id="start_time" name="start_time" value="${dto2.start_time }">
+	<input type="hidden" id="endtime" value="${endtime }">
 	<input type="button" id="exam" value="시험 보기" onclick="gogo()">
 	</form>
 </div> 

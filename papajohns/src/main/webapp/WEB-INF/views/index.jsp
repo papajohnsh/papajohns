@@ -11,75 +11,31 @@
 <%@ include file="header.jsp" %>
    
     <!-- Left side column. contains the logo and sidebar -->
-      <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-       <section class="sidebar">
-          <!-- Sidebar user panel -->
-        <div class="user-panel">
-          <c:if test="${empty sid}">
-          <div class="pull-left image">
-         <br>
-          	<img id="profile-img" class="img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"   style="height: 80px; max-width: 80px; width: 80px;">
-          </div>
-          </c:if>
-          <c:if test="${!empty sid}">
-        <div class="pull-left image" style="height: 100px; width: 80px;">
-
-					<img src="resource/data/${sid }/profile.jpg"
-						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
-						class="img-circle"
-						style="max-width: 80px; height: 80px; width: 80px; margin-top: 10px;">
-				</div>
-				<div style="margin-left: 85px; margin-top: -5px;">
-					<a href="myInfoForm.do"><font size="2">내정보</a>&nbsp;
-					&nbsp; <a href="logout.do"><font size="2">로그아웃</a>
-				</div>
-				<br>
-				<br>
-				<div style="margin-top: -20px;">
-					<font size="2" color="white">&nbsp;&nbsp;&nbsp;${snickname}</font>
-				</div>
-				<div style="margin-left: 120; margin-top: 8px;">
-					&nbsp;&nbsp;&nbsp;<a href="#"><i
-						class="fa fa-circle text-success"></i><font color="white">&nbsp;&nbsp;Online</font>
-					</a>
-				</div>
-
-           </c:if>
-            <div class="pull-left info" style="margin-left: 40px; margin-top:30px;">
-              <c:if test="${empty sid}">
-              <p><font size="2">로그인 해주세요</font></p>
-              <a href="#"><i class="fa fa-circle text-danger"></i><font size="2"> Offline </font></a>
-              </c:if>
-            
-            </div>
-          </div>
-        </section>
-        <!-- /.sidebar -->
-      </aside>
 
    <!-- Content Wrapper. Contains page content -->
    
-
+<div><img src="copy.jpg" style="width:100%;  height:350px; margin:0px auto; opacity:0.6" ></div>
         <!-- Main content -->
-        <section class="content">
+     
         
                 
-              </div><!-- /.box -->
-          <div class="row">
-            <div class="col-md-12">
-              <div class="box">
+             
+
+              <%-- <div class="box">
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
                 <div class="box-header with-border" align="center">
                   <h3 class="box-title">내강의실</h3>
                   <br><br><br>
                 </div><!-- /.box-header -->
-                   <div class="content-wrapper">
+                   </div>
+                   </div>
       <!-- Small boxes (Stat box) -->
-          <div class="row">
-            <div class="col-lg-3 col-xs-6">
+      <div class="row" style="margin-left: 200px;">
+
+            <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-aqua">
-              
+ 
                 <div class="inner">
                   <h3>내수업</h3>
                   <p>ㅋㅋㅋ</p>
@@ -101,7 +57,7 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
@@ -114,7 +70,7 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
@@ -127,7 +83,7 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
@@ -141,14 +97,101 @@
               </div>
             </div><!-- ./col -->
           </div><!-- /.row -->
-          <div class="box-header with-border" align="center">
-                  <h3 class="box-title">강의실 찾기</h3>
-                
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
-    <%@ include file="footer.jsp" %>
-    <%@ include file="controllSide.jsp" %>
+<<<<<<< HEAD
+=======
+          
+          </div> --%>
+          
+          
+          
+          
+       	 <!-- TABLE: LATEST ORDERS -->
 
+
+          
+
+
+      <!-- Small boxes (Stat box) -->
+      <div style="margin: 0px auto; margin-left:200px; margin-right:200px;" >
+ <div class="box">
+             <div class="box-header with-border" >
+                  <div  style="height:50px;"  align="center"><h2 class="box-title"><font size="5em;"><b>내가만든 강의</b></font></h2></div>
+            
+                   
+
+           
+                   <c:forEach var="dto" items="${list }">
+
+      <!-- Small boxes (Stat box) -->
+  
+       
+            <div class="col-lg-3 col-xs-6"  >
+              <!-- small box -->
+              <div class="small-box bg-green" style="width:300px; height: 300; background-image: url('img/벽지초.jpg'); ">
+ 
+                <div class="inner">
+                  <h3>  ${dto.subject }</h3>
+                  <p>${dto.start_time }~${dto.end_time }</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="myClassRoom.do?idx=${dto.idx }" class="small-box-footer">${dto.name } <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+
+
+
+          </c:forEach>
+          
+          </div>
+          
+              </div><!-- /.box-header -->
+              
+         <br> <br> <br> 
+         <div class="box">
+                <div class="box-header with-border" align="center" style="margin-top: 10px;">
+                  <h3 class="box-title"><font size="5em;"><b>내수업</b></font></h3>
+                </div><!-- /.box-header -->
+                   
+
+                 </div>
+         <div style="margin: 0px auto; " >
+      
+                   
+                   <c:forEach var="dto" items="${list4 }">
+
+      <!-- Small boxes (Stat box) -->
+      <div style="margin: 0px auto;">
+       
+            <div class="col-lg-3 col-xs-6"   >
+              <!-- small box -->
+              <div class="small-box bg-green" style="width:300px; height: 300; background-image: url('img/123.jpg'); ">
+ 
+                <div class="inner">
+                  <h3> ${dto.subject }</h3>
+                  <p>${dto.start_time }~${dto.end_time }</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="classShow.do?idx=${dto.idx }" class="small-box-footer">${dto.name }<i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+
+
+
+          </div><!-- /.row -->
+          </c:forEach>
+          
+          </div>
+    </div>
+
+    
+    
+    
+            
+ 
  
   </body>
 </html>

@@ -23,12 +23,7 @@ $(function(){
                       remote : 'studentList.do'
                 });
     })
-    
-        $("#classQuiz").on('click', function(){
-        $('#myModal2').modal({
-                      remote : 'classQuiz.do'
-                });
-    })   
+      
 })
 </script>
 <style>
@@ -57,6 +52,8 @@ border-width:5px;
    padding: 5px 5px 5px 5px;
    margin: 5px 5px 5px 5px;
 }
+
+
 #img1{
  
 left:${x1}px;
@@ -260,7 +257,7 @@ top:${y30}px;
               <ul class="treeview-menu">
                 <li><a href="#" id="studentList"><i class="fa fa-circle-o" ></i> 학생리스트</a></li>
                 <li><a href="classPlan.do" ><i class="fa fa-circle-o"></i> 강의스케줄</a></li>
-                <li><a data-toggle="modal" href="quizTestForm.do?idx=${param.idx }" data-target="#myModal2"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
+                <li><a data-toggle="modal" href="quizTestForm.do?idx=${param.idx }" data-target="#myModal2" data-backdrop="static"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
                 <li><a data-toggle="modal" href="quizList.do?idx=${param.idx }" data-target="#myModal3"><i class="fa fa-circle-o"></i> 문제 수정하기</a></li>
                 <li><a data-toggle="modal" href="quizResult.do?idx=${param.idx }" data-target="#myModal4"><i class="fa fa-circle-o"></i>쪽지시험결과</a></li>
 <!--                 <li><a data-toggle="modal" href="quizTestLoad.do" data-target="#myModal5" data-backdrop="static"><i class="fa fa-circle-o"></i>쪽지시험보기</a></li> -->
@@ -344,6 +341,81 @@ top:${y30}px;
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+<%
+	
+	String idx = request.getParameter("idx");
+%>
+	$(document).ready(function() {
+		$('#sendBtn').click(function() { connect()});
+		$('#wsBtn1').click(function() { sendMessage("red"); })
+		$('#wsBtn2').click(function() { sendMessage("blue"); })
+		$('#wsBtn3').click(function() { sendMessage("yellow"); })
+		$('#dbSend').click(function() { dbSend($("message").val());})
+	});
+	
+	var wsocket;
+	
+	function connect() {
+		var url="ws://localhost:9090/papajohns/echo-ws";
+		wsocket = new WebSocket(url);
+		wsocket.onopen = onOpen;
+		wsocket.onmessage = onMessage;
+		wsocket.onclose = onClose;
+	}
+	
+	function onOpen(evt) {
+		window.alert('연결되었습니다.');
+	}
+	
+	function onMessage(evt) {
+		var data = evt.data;
+		tab.style.backgroundColor = data;
+	}
+	
+	function onClose(evt) {
+		wsocket.close();
+		alert("연결 끊김");
+	}
+	
+	function sendMessage(color){
+		//window.alert('확인을 누르면 '+color+' 메세지가 전달됩니다.');
+		wsocket.send(color);
+	}
+	
+	function dbSend(message){
+		
+		
+	}
+</script>
+	<section>
+	<article>
+	<table style="margin:0px auto; background-color:red;" id="tab" width="200" border="1" cellspacing="0" cellpadding="0">
+	<tr>
+	<td style="color:black">테스트입니다.</td>
+	</tr>
+	<tr>
+	<td>
+	<input type="button" id="wsBtn1" value="빨강">
+	<input type="button" id="wsBtn2" value="파랑">
+	<input type="button" id="wsBtn3" value="노랑">
+	
+	
+	</td>
+	</tr>
+	<tr>
+	<td>
+
+    <input type="text" id="message">
+    <input type="button" id="sendBtn" value="연결" onclick="sendBtn()">
+    <input type="button" id="dbSend" value="DB저장">
+	</td>
+	</tr>
+	</table>
+	
+	</article>
+	</section>
 
      <!-- jQuery 2.1.4 -->
     <script src="css/plugins/jQuery/jQuery-2.1.4.min.js"></script>
