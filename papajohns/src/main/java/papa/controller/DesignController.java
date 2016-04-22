@@ -513,10 +513,13 @@ public class DesignController {
 					List<MemberDTO>list3=designDao.designJoin(idx2);
 					mav.addObject("list",list3);
 					mav.addObject("idx",idx);
+					
 				}
-		mav.setViewName("design/myClassRoom");
-		
 	}
+		String teacher=designDao.teacher(idx);
+		System.out.println(teacher);
+		mav.addObject("teacher", teacher);
+		mav.setViewName("design/myClassRoom");
 		return mav;
 	}
 	

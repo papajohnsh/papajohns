@@ -54,7 +54,10 @@
 	
 	function connect() {
 		wsocket = new WebSocket("ws://localhost:9090/papajohns/echo-ws");
-		wsocket.onopen = onOpen;
+		wsocket.onopen = onOpen {
+			wsocket.send("Test");
+			
+		};
 		wsocket.onmessage = onMessage;
 		wsocket.onclose = onClose;
 	}
