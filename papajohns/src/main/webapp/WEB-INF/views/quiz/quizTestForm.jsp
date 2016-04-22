@@ -40,7 +40,6 @@ function showResult(){
 </script>
 <div class="modal-header">
     <!-- 닫기(x) 버튼 -->
-  <button type="button" class="close" data-dismiss="modal">×</button>
   <!-- header title -->
   <h4 class="modal-title" style="text-align: center;">문제 작성하기</h4>  
 </div>
