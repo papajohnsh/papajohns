@@ -6,7 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -52,7 +54,7 @@
           <div class="row">
             
             <div class="col-md-12">
-              <div class="box box-primary">
+              <div class="box box-primary" >
                 <div class="box-header with-border">
                   <h3 class="box-title">본문내용보기</h3>
                 </div><!-- /.box-header -->
@@ -71,7 +73,7 @@
                 		<td><span class="badge bg-red">${dto.readnum}</span></td>
                 	</tr>
                 	<tr>
-						<td align="center" colspan="4">
+						<td colspan="4">
 						${dto.content }
 						</td>
 					</tr>
@@ -89,33 +91,7 @@
      </c:choose>
      
      <!-- Chat box -->
-              <div class="box box-success">
-                <div class="box-header">
-                  <i class="fa fa-comments-o"></i>
-                  <h3 class="box-title">Chat</h3>
-                </div>
-                <div class="box-body chat" id="chat-box">
-                  <!-- chat item -->
-                  <c:set var="bbsReList" value="${reList}"></c:set>
-                  <c:if test="${empty bbsReList}">
-                  	등록된 댓글이 없습니다.
-                  </c:if>
-                  <c:forEach var="dto" items="${bbsReList}">
-                  <div class="item">
-                    <img src="img/송중기.jpg" alt="user image" class="online">
-                    <p class="message">
-                      <a href="#" class="name">
-                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i>${dto.write_date}</small>
-                        	${dto.writer}
-                      </a>
-                      		${dto.content}
-                    </p>
-                    
-                  </div><!-- /.item -->
-                  </c:forEach>
-                  <!-- chat item -->
-                </div><!-- /.chat -->
-              </div><!-- /.box (chat box) -->
+            
      
       </div><!-- /.content-wrapper -->
       <%@ include file="../footer.jsp" %>
