@@ -47,7 +47,7 @@
    </style>
    </head>
    <body>
-   <div style=" position:absolute; ">
+   <div style="margin-top:10%; ">
    <font size="50em" ><h4>지금  이순간' <br>ClassRoom</h4></font>
    </div>
    		<div class="container" style="position:absolute; top:30%; left:70%; ">
@@ -68,12 +68,17 @@
    </div>
   </form>  
  
-     <div style="margin-top:40%;">
+     <div style="margin-top:28%;">
  	<label for="id"> &nbsp;<font size="3em"> <a href="loginForm.do" style="color: white;">회원가입</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="idFindForm.do"  style="color: white;"><b>아이디 찾기</b></a></font>|
  	<font size="3em"><a href="pwdFindForm.do"  style="color: white;"><b>비밀번호 찾기</b></a></font></label>
  </div>
-
+<div style="margin-left: 25%;"><a href="facebooklogin.do"><img src=img/카톡.png style="width:8%;"></a> 
+<a href="facebooklogin.jsp"><img src=img/페이스북.png style="width:8%;"></a>
+<a href="googleLoginlogin.do"><img src=img/구글.png style="width:8%;"></a>
+<a href="naverLogin.do"><img src=img/네이버.png style="width:8%;"></a>
+ 
 </div>
+</div> 
 
          <script src="assets/js/main.js"></script>
          
