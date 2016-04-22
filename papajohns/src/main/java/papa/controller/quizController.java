@@ -55,9 +55,13 @@ public void setQuizAnswerDao(quizAnswerDAO quizAnswerDao) {
 }
 //quiz upload Form
 @RequestMapping("/quizTestForm.do")
-public String classQuiz(){
-	return "quiz/quizTestForm";
+public ModelAndView classQuiz(@RequestParam(value="idx") int idx){
+	ModelAndView mav= new ModelAndView();
+	mav.addObject("list", mav);
+	mav.setViewName("quiz/quizTestForm");
+	return mav;
 }
+
 //quiz upload
 @RequestMapping("/quizTestSave1.do")//퀴즈
 public ModelAndView quizAdd(quizDTO dto){
