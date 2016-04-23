@@ -71,7 +71,7 @@
 					</c:if>
 					
 					<!-- Find-menu -->
-					<li class="Find-menu"><a href="findListForm.do"><span>Search</span></a>
+					<li class="Find-menu"><a href="classRoomNameSearchForm.do?num=1"><span>Search</span></a>
 					</li>
 
 					<!-- bbs-menu -->
