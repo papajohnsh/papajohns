@@ -118,9 +118,7 @@ public class ClassController {
 	
 	@RequestMapping("/classAttend.do")
 	public ModelAndView classAttend(HttpSession session,@RequestParam(value="reidx",required=false)String reidx){
-		System.out.println(reidx);
 		int idx=(int) session.getAttribute("sidx");
-		System.out.println(idx);
 		String list=classDao.reidxList(idx);
 		
 		if(list==null){
