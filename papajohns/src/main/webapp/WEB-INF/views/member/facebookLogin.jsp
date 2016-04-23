@@ -61,7 +61,7 @@ function statusChangeCallback(response) {
 <img src="facebook_icon.png" onclick="checkLoginState()" width="48" height="48"/>
 <script>
 
-</script>
+</script> 
 <!-- <script>
 var oneClick = true; //중복호출 방지용 상태변수
 function statusChangeCallback(response) {
