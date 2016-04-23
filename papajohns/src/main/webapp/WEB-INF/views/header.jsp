@@ -34,13 +34,15 @@
     <link rel="stylesheet" href="css/plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
+    
+    <link rel="stylesheet" href="css1/glyphicons.css">
+    
 <script type="text/javascript" src="js/httpRequest.js"></script>
 </head>
 <body>
 	<header class="main-header">
 		<!-- Logo -->
-		<a href="index.do" class="logo">
+		<a href="index.do" class="logo" style="padding-bottom: 30px;">
 			<!-- index로 이동 --> <!-- mini logo for sidebar mini 50x50 pixels --> <span
 			class="logo-mini"><b>C</b>RM</span> <!-- logo for regular state and mobile devices -->
 			<span class="logo-lg"><b>Class</b>Room</span>
@@ -54,34 +56,34 @@
 			<div class="navbar-custom-menu">
 				<ul class="nav navbar-nav">
 
-					<!-- Myclass-menu -->
-					<li class="myclass-menu"><a href="classRoomForm.do"><span>MyClass</span></a>
+						<!-- Myclass-menu -->
+					<li class="myclass-menu"><a href="classRoomForm.do" data-toggle="tooltip" data-placement="bottom" title="강의실" style="padding-right: 20px;"><span class="glyphicons glyphicons-bell"></span></a>
 					</li>
 
 					<!-- login-menu -->
 					<c:if test="${empty sid }">
-						<li class="login-menu"><a href="loginForm.do"><span>login</span></a>
+						<li class="login-menu"><a href="loginForm.do" data-toggle="tooltip" data-placement="bottom" title="로그인" style="padding-right: 20px;"><span class="glyphicons glyphicons-log-in"></span></a>
 						</li>
 					</c:if>
 
 					<c:if test="${!empty sid}">
-						<li class="login-menu"><a href="logout.do">logout</a></li>
-						<li class="Myinfo-menu"><a href="myInfoForm.do"><span>MyInfo</span></a>
+						<li class="login-menu"><a href="logout.do" data-toggle="tooltip" data-placement="bottom" title="로그아웃" style="padding-right: 20px;"><span class="glyphicons glyphicons-log-out"></span></a></li>
+						<li class="Myinfo-menu"><a href="myInfoForm.do" data-toggle="tooltip" data-placement="bottom" title="내정보" style="padding-right: 20px;"><span class="glyphicons glyphicons-info-sign"></span></a>
 						</li>
 					</c:if>
 					
 					<!-- Find-menu -->
-					<li class="Find-menu"><a href="classRoomNameSearchForm.do?num=1"><span>Search</span></a>
+					<li class="Find-menu"><a href="classRoomNameSearchForm.do?num=1" data-toggle="tooltip" data-placement="bottom" title="검색" style="padding-right: 20px;"><span class="glyphicons glyphicons-search"></span></a>
 					</li>
 
 					<!-- bbs-menu -->
-					<li class="bbs-menu"><a href="bbsListForm.do"><span>Bbs</span></a>
+					<li class="bbs-menu"><a href="bbsListForm.do" data-toggle="tooltip" data-placement="bottom" title="게시판" style="padding-right: 20px;"><span class="glyphicons glyphicons-blackboard"></span></a>
 					</li>
 					<!-- support-menu -->
-					<li class="support-menu"><a href="faqList.do"><span>Support</span></a>
+					<li class="support-menu"><a href="faqList.do" data-toggle="tooltip" data-placement="bottom" title="고객지원" style="padding-right: 20px;"><span class="glyphicons glyphicons-family"></span></a>
 					</li>
 					<!-- Control Sidebar Toggle Button -->
-					<li><a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a></li>
+					<li><a href="#" data-toggle="control-sidebar"><i class="fa fa-gears" style="padding-right: 20px;"></i></a></li>
 				</ul>
 			</div>
 		</nav>
