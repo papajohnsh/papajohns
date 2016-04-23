@@ -5,20 +5,203 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="js/plan/dhtmlxscheduler_serialize.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="css/plan/dhtmlxscheduler.css" type="text/css" title="no title" charset="utf-8">
 <title>Insert title here</title>
 </head>
+<style type="text/css" media="screen">
+		html, body{
+		margin:0px;
+		padding:0px;
+		height:100%;
+		overflow:hidden;
+	}	
+</style>
+<script type="text/javascript" charset="utf-8">
+	function init() {
+		scheduler.config.details_on_dblclick = true
+		scheduler.config.api_date="%Y-%m-%d %H:%i";
+		scheduler.config.xml_date="%Y-%m-%d %H:%i";
+		scheduler.config.prevent_cache = true;
+		scheduler.xy.margin_top=30;
+		
+		var now=new Date();
+		var y=now.getFullYear();
+		var m=now.getMonth();
+		var d=now.getDate();
+		scheduler.init('scheduler_here',now,"month");
+		
+
+		
+		scheduler.load("resource/data/${sid}/data.json","json");
+	}
+	
+	
+	function show() {
+		console.log(scheduler.toJSON());
+	}
+	
+	
+	function log()
+	{
+		var obj = JSON.parse(scheduler.toJSON());
+		window.alert(obj[0].text);
+	}
+	
+	function download(){
+		/*
+		//var day = '';
+		var day_arr = new Array("3","4","5");
+		window.alert(day_arr);
+		//window.alert(day);
+		for (var i=0; i<day_arr.length; i++){
+			console.log(day_arr[i]);
+		} 
+		*/
+		var day="3,4,5";
+		var day_arr = day.split(",");
+		for (var i=0; i<day_arr.length; i++){
+			console.log(day_arr[i]);
+		} 
+	}
+	
+	
+	function save(){ 
+		document.json.json.value=scheduler.toJSON();
+		document.json.submit(); 
+	} 
+</script>
+
 <body class="hold-transition skin-blue sidebar-mini">
 <%@ include file="header.jsp" %>
-   
+ 
+  
     <!-- Left side column. contains the logo and sidebar -->
 
    <!-- Content Wrapper. Contains page content -->
    
-<div><img src="copy.jpg" style="width:100%;  height:350px; margin:0px auto; opacity:0.6" ></div>
-        <!-- Main content -->
-     
-        
-                
+
+    <br>    <!-- Main content -->
+     <div>
+              <div class="container" style="width: 35%;margin-left:18%; z-index: auto;  margin-top:1%; ">
+                <div class="box-header with-border" align="center">
+                  <h3 class="box-title">공지사항</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <div class="table-responsive">
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>번호</th>
+                          <th>제목</th>
+                          <th>작성자</th>
+                          <th>조회수</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1.</td>
+                          <td><a href="noticeShow.do">쪽지시험 관련 공지</a></td>
+                          <td>송중기</td>
+                          <td><span class="badge bg-red">50</span></td>
+                        </tr>
+                        <tr>
+                          <td>2.</td>
+                          <td><a href="#">수학 과제 제출 요망</a></td>
+                          <td>송혜교</td>
+                          <td><span class="badge bg-yellow">80</span></td>
+                        </tr>
+                        <tr>
+                          <td>3.</td>
+                          <td><a href="#">수업시간표 변경 관련 사항</a></td>
+                          <td>이진욱</td>
+                          <td><span class="badge bg-blue">20</span></td>
+                        </tr>
+                        <tr>
+                          <td>4.</td>
+                          <td><a href="#">휴강일 공지</a></td>
+                          <td>유해진</td>
+                          <td><span class="badge bg-blue">20</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                     <div class="box-footer clearfix" align="center">
+             		<ul class="pagination pagination-sm no-margin pull-center">
+                    	<li><a href="#">&laquo;</a></li>
+                    	<li><a href="#">&raquo;</a></li>
+                  	</ul>
+                  
+                </div><!-- /.box-footer -->
+                    </div><!-- container -->
+                  </div><!-- /.table-responsive -->
+                 </div><!-- /.box --> 
+                 
+                   <div class="container" style="width: 35%;margin-left:60%;  margin-top: -315px; ">
+                <div class="box-header with-border" align="center">
+                  <h3 class="box-title">자유게시판</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <div class="table-responsive">
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>번호</th>
+                          <th>제목</th>
+                          <th>작성자</th>
+                          <th>조회수</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1.</td>
+                          <td><a href="noticeShow.do">쪽지시험 관련 공지</a></td>
+                          <td>송중기</td>
+                          <td><span class="badge bg-red">50</span></td>
+                        </tr>
+                        <tr>
+                          <td>2.</td>
+                          <td><a href="#">수학 과제 제출 요망</a></td>
+                          <td>송혜교</td>
+                          <td><span class="badge bg-yellow">80</span></td>
+                        </tr>
+                        <tr>
+                          <td>3.</td>
+                          <td><a href="#">수업시간표 변경 관련 사항</a></td>
+                          <td>이진욱</td>
+                          <td><span class="badge bg-blue">20</span></td>
+                        </tr>
+                        <tr>
+                          <td>4.</td>
+                          <td><a href="#">휴강일 공지</a></td>
+                          <td>유해진</td>
+                          <td><span class="badge bg-blue">20</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                     <div class="box-footer clearfix" align="center">
+             		<ul class="pagination pagination-sm no-margin pull-center">
+                    	<li><a href="#">&laquo;</a></li>
+                    	<li><a href="#">&raquo;</a></li>
+                  	</ul>
+                  
+                </div><!-- /.box-footer -->
+                    </div><!-- container -->
+                  </div><!-- /.table-responsive -->
+                 </div><!-- /.box --> 
+                 </div>
+                 
+             
+
+
+                 
              
 
               <%-- <div class="box">
@@ -111,8 +294,10 @@
           
 
 
-      <!-- Small boxes (Stat box) -->
-      <div style="margin: 0px auto; margin-left:200px; margin-right:200px;" >
+      <!-- Small boxes (Stat box) --> <br><br><br>
+      <div style="width: 35%;margin-left:18%; float: left; z-index: auto;" >
+
+  
  <div class="box">
              <div class="box-header with-border" >
                   <div  style="height:50px;"  align="center"><h2 class="box-title"><font size="5em;"><b>내가만든 강의</b></font></h2></div>
@@ -120,75 +305,127 @@
                    
 
            
-                   <c:forEach var="dto" items="${list }">
+                   <c:forEach var="dto" items="${list }"  varStatus="status">
 
       <!-- Small boxes (Stat box) -->
   
        
-            <div class="col-lg-3 col-xs-6"  >
+            <div class="col-lg-3 col-xs-6"  id="test"  style="width:50%;">
               <!-- small box -->
-              <div class="small-box bg-green" style="width:300px; height: 300; background-image: url('img/벽지초.jpg'); ">
+
+              <div class="small-box bg-green" style="width:100%; height:50%; background-image: url('img/벽지초.jpg'); ">
+
  
-                <div class="inner">
+                <div class="inner" style="padding-bottom: 20%;width:100%;">
                   <h3>  ${dto.subject }</h3>
                   <p>${dto.start_time }~${dto.end_time }</p>
                 </div>
+
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="myClassRoom.do?idx=${dto.idx }" class="small-box-footer">${dto.name } <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
 
+                <a href="myClassRoom.do?idx=${dto.idx }" class="small-box-footer">${dto.name } <i class="fa fa-arrow-circle-right"></i></a>
+               <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+              </div>
+            </div>
+			
 
 
           </c:forEach>
+        <c:if test="${empty list }">
+        <div > 	<h2>등록된 강의가 없습니다</h2> </div> 
+          	            <div class="col-lg-3 col-xs-6"    >
+              <!-- small box -->
+              <div class="small-box bg-white" style=" width:100%; height:50%;  ">
+ 		
+                <div class="inner" style="padding-bottom: 20%;">
+                   <a href="makeClass.do?idx=${dto.idx }" class="small-box-footer">  <img src="img/더하기.png" style=" width:70%; height:60%; "></a>
+                  <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                
+              </div>
+            </div><!-- ./col -->
+     
           
           </div>
+          </c:if>
+          
+          
+          </div>
+          </div>
+
           
               </div><!-- /.box-header -->
               
          <br> <br> <br> 
+         <div style="width: 35%; margin-top:-3.2%; float: right; margin-right:10%;z-index: auto;">
          <div class="box">
+         
                 <div class="box-header with-border" align="center" style="margin-top: 10px;">
                   <h3 class="box-title"><font size="5em;"><b>내수업</b></font></h3>
-                </div><!-- /.box-header -->
+               <!-- /.box-header -->
                    
 
                  </div>
-         <div style="margin: 0px auto; " >
+        <c:if test="${empty list4 }">
+        <div ali> 	<h2>등록된 강의가 없습니다</h2> </div> 
+          	            <div class="col-lg-3 col-xs-6"    >
+              <!-- small box -->
+              <div class="small-box bg-white" style=" width:80%; height:50%;  ">
+ 		
+                <div class="inner" style="padding-bottom: 20%; ">
+                   <a href="makeClass.do?idx=${dto.idx }"  style="height:30px;">  <img src="img/더하기.png" style=" width:70%; height:60%; "></a>
+                  <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                
+              </div>
+            </div><!-- ./col -->
+     
+          
+          </div>
+          </c:if>
       
-                   
-                   <c:forEach var="dto" items="${list4 }">
+               <c:forEach var="dto" items="${list4 }"  >
 
       <!-- Small boxes (Stat box) -->
-      <div style="margin: 0px auto;">
+  
        
-            <div class="col-lg-3 col-xs-6"   >
+                <div class="col-lg-3 col-xs-6"  style="margin-left: 5%; margin-right:-100px; width:50%;" >
               <!-- small box -->
-              <div class="small-box bg-green" style="width:300px; height: 300; background-image: url('img/123.jpg'); ">
+
+             <div class="small-box bg-green" style="width:80%; height:50%;background-image: url('img/벽지보.jpg'); ">
+
  
-                <div class="inner">
-                  <h3> ${dto.subject }</h3>
+                <div class="inner" style="padding-bottom: 20%;width:100%;">
+                  <h3>  ${dto.subject }</h3>
                   <p>${dto.start_time }~${dto.end_time }</p>
                 </div>
+
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="classShow.do?idx=${dto.idx }" class="small-box-footer">${dto.name }<i class="fa fa-arrow-circle-right"></i></a>
+
+                <a href="myClassRoom.do?idx=${dto.idx }" class="small-box-footer">${dto.name } <i class="fa fa-arrow-circle-right"></i></a>
+               <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
               </div>
-            </div><!-- ./col -->
+            </div>
+			
 
 
-
-          </div><!-- /.row -->
           </c:forEach>
           
           </div>
-    </div>
+   </div>
 
-    
-    
+    <aside class="main-sidebar">
+      <%@ include file="side.jsp" %>
     
             
  
