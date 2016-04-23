@@ -140,7 +140,7 @@ public class ClassController {
 	}
 	@RequestMapping("/classDesign.do")
 	public ModelAndView classDesign(@RequestParam(value="idx",required=false)int idx){
-		
+		System.out.println(idx);
 		List<classDTO> list=classDao.classDesign(idx);
 		ModelAndView mav=new ModelAndView();
 		

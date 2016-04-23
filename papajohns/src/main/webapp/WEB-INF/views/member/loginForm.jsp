@@ -99,8 +99,8 @@ var date = now.getDate();
 <body class="hold-transition skin-blue sidebar-mini">
  <%@include file="../header.jsp" %>
  
-<div class="container" style="width: 500px;margin-top:80px; ">
-
+<div class="container" style="width: 500px;margin-top:80px;  ">
+<div style="border: ">
   <h2>ClassRoom</h2>
   <br>  <br>
   <form role="form" name="login" action="login.do">
@@ -125,7 +125,7 @@ var date = now.getDate();
   </form>
   <br>
 
-</div>
+
 <div style="margin-top:30px;">
 <div align="center" style="margin-top:50px;">
   <%@ include file="naverLogin.jsp" %>
@@ -139,6 +139,8 @@ var date = now.getDate();
  </div><img alt="" src="distance.png">
  <div align="center" style="margin-top:10px;">
  <%@ include file="googleLogin.jsp" %>
+ </div>
+ </div>
  </div>
  </div>
 <br>

@@ -79,7 +79,7 @@
                       <th>수업기간명</th>
                       <td><input type="text" name="institut" class="form-control"></td>
                       <th>강사명</th>
-                      <td><input type="text" name="name" class="form-control">
+                      <td><input type="text" name="name" class="form-control" value="${sname }">
                       <input type="hidden" name="reidx" value="${sidx }">
                       </td>
                     </tr>
