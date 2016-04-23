@@ -48,9 +48,11 @@ public class ClassController {
 
 
 	@RequestMapping("/makeClassAdd.do")
-	public ModelAndView makeClass(classDTO dto){
+	public ModelAndView makeClass(HttpSession session, classDTO dto){
 		System.out.println("컨롤러진입");
 		designDTO design_dto=new designDTO();
+		String id=(String)session.getAttribute("sid");
+		dto.setId(id);
 		int result=classDao.makeClassAdd(dto);
 		int reidx=dto.getIdx();
 		design_dto.setSend(",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,");
@@ -104,6 +106,16 @@ public class ClassController {
 		mav.setViewName("class/classJoin");
 		return mav;
 	}
+	@RequestMapping("/classView.do")
+	public ModelAndView classview(@RequestParam(value="idx",required=false)String idx){
+		
+		List<classDTO> list=classDao.classJoin(idx);
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("list",list);
+		mav.setViewName("class/classView");
+		return mav;
+	}
+	
 	@RequestMapping("/classAttend.do")
 	public ModelAndView classAttend(HttpSession session,int reidx){
 		
