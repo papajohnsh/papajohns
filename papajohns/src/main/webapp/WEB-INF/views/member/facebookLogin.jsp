@@ -58,7 +58,7 @@ function statusChangeCallback(response) {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-<img src="facebook_icon.png" onclick="checkLoginState()" />
+<img src="facebook_icon.png" onclick="checkLoginState()" width="48" height="48"/>
 <script>
 
 </script>

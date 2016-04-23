@@ -69,11 +69,11 @@
       font-weight: normal;
     }
     span.icon {
-      background: url('google_icon.png') transparent 5px 0% no-repeat;
+      background: url('google_icon.png') transparent 5px 100% no-repeat;
       display: inline-block;
       vertical-align: middle;
-      width: 48px;
-      height: 48px;
+      width: 300px;
+      height: 300px;
     }
     /* span.buttonText {
       display: inline-block;
