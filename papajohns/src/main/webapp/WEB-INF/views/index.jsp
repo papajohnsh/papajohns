@@ -31,7 +31,6 @@
 		var d=now.getDate();
 		scheduler.init('scheduler_here',now,"month");
 		
-
 		
 		scheduler.load("resource/data/${sid}/data.json","json");
 	}
@@ -214,7 +213,6 @@
                    </div>
       <!-- Small boxes (Stat box) -->
       <div class="row" style="margin-left: 200px;">
-
             <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-aqua">

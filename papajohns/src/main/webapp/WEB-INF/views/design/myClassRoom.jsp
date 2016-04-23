@@ -291,7 +291,9 @@ top:${y30}px;
 				<img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
           		<div id="r">${dto.id }</div>
           		<div id="loginCheck_${dto.id }">
+          		<c:if test="${teacher == sid }">
           		<span class="fa fa-circle text-danger"><font color="white">&nbsp;&nbsp;OffLine</font></span>
+          		</c:if>
 				</div>
 				</div>
  </c:forEach>
@@ -376,6 +378,9 @@ top:${y30}px;
 	
 	function onOpen(evt) {
 		wsocket.send("loginOn:${sid}");
+		if("${sid}"=="${teacher}"){
+			wsocket.send("loginCheck");
+		}
 		//window.alert('연결되었습니다.');
 	}
 	
@@ -386,12 +391,9 @@ top:${y30}px;
 			console.log(onId);
 			loginOn(onId);
 		}
-		/*
 		else if(data=="loginCheck"){
 			wsocket.send("loginOn:${sid}");
 		}
-		*/
-		//tab.style.backgroundColor = data;
 	}
 	
 	function loginOn(onId){
@@ -405,7 +407,6 @@ top:${y30}px;
 	}
 	
 	function sendMessage(color){
-		//window.alert('확인을 누르면 '+color+' 메세지가 전달됩니다.');
 		wsocket.send(color);
 	}
 	
