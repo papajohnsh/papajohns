@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import papa.class_.model.classDAO;
+import papa.class_.model.classDTO;
 import papa.design.model.designDAO;
 import papa.design.model.designDTO;
 import papa.member.model.MemberDTO;
@@ -17,7 +19,8 @@ public class DesignController {
 	
 	@Autowired
 	private designDAO designDao;
-
+	@Autowired
+	private classDAO classDao;
 	public designDAO getDesignDao() {
 		return designDao;
 	}
@@ -25,6 +28,15 @@ public class DesignController {
 	public void setDesignDao(designDAO designDao) {
 		this.designDao = designDao;
 	}
+	
+	public classDAO getClassDao() {
+		return classDao;
+	}
+
+	public void setClassDao(classDAO classDao) {
+		this.classDao = classDao;
+	}
+
 	@RequestMapping("/designUpdate.do")
 	public ModelAndView designAdd(@RequestParam(value="a1",defaultValue="-1")String a1,@RequestParam(value="a2",defaultValue="-1")String a2,
 			@RequestParam(value="a3",defaultValue="-1")String a3,@RequestParam(value="a4",defaultValue="-1")String a4,
@@ -498,7 +510,8 @@ public class DesignController {
 		   mav.addObject("y28",y28);
 		   mav.addObject("y29",y29);
 		   mav.addObject("y30",y30);
-		   
+		   classDTO lessonInfo=classDao.joinClass(idx);
+		   mav.addObject("lessonName", lessonInfo.getSubject());
 		   String list=designDao.reidxList(idx);
 			if(list==null){
 				list="0";

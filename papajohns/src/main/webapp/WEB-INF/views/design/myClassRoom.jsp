@@ -298,12 +298,15 @@ top:${y30}px;
 				</div>
  </c:forEach>
   </div>
-			
+	  <div>
+	<iframe src="http://192.168.35.209:8081?student=${sname }&classRoom=${lessonName}" width="350" height="650">
+ 		</iframe> 
+  </div>		
  </div>
 </div>
 
-<%--         <iframe style="float: right;" src="http://192.33.33.26:8081?student=${sname }&classRoom=자바" width="550" height="550">
- 		</iframe> --%>
+      <iframe src="http://192.168.35.209:8081?student=${sname }&classRoom=${lessonName}" width="550" height="550">
+ 		</iframe> 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
