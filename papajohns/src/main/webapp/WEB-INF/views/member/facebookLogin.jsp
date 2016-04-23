@@ -125,7 +125,6 @@ function fblogout(){
   <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
   </fb:login-button>
  -->
-<br>
 
 </body>
 </html>

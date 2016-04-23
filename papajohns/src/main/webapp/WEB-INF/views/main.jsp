@@ -50,10 +50,10 @@
 <a href="facebooklogin.jsp"><img src=img/페이스북.png style="width:8%;"></a>
 <a href="googleLoginlogin.do"><img src=img/구글.png style="width:8%;"></a>
 <a href="naverLogin.do"><img src=img/네이버.png style="width:8%;"></a> -->
-   <%@ include file="./memeber/naverLogin.jsp" %>
- <%@ include file="facebookLogin.jsp" %>
- <%@ include file="kakaLogin.jsp" %>
- <%@ include file="googleLogin.jsp" %>
+   <%@ include file="member/naverLogin.jsp" %>
+ <%@ include file="member/facebookLogin.jsp" %>
+ <%@ include file="member/kakaLogin.jsp" %>
+ <%@ include file="member/googleLogin.jsp" %>
  </div>
 </div>
 </div> 
