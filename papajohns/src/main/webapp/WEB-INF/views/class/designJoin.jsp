@@ -45,7 +45,6 @@
 <script type="text/javascript"
    src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <style type="text/css">
-
 .col {
    float: center;
    padding: 5px 5px 5px 5px;
@@ -53,7 +52,6 @@
    background: #FFF url("http://threedubmedia.com/inc/img/grid20.gif")
       repeat 0px 0px;
 }
-
 .col drag{
    float: center;
    padding: 5px 5px 5px 5px;
@@ -61,58 +59,46 @@
    background: #FFF url("http://threedubmedia.com/inc/img/grid20.gif")
       repeat 0px 0px;
 }
-
 #col1 {
    width: 100px;
    height: auto;
    
 }
-
 img.drag {
    width: 40px;
    height: 40px;
    position: relative;
 }
-
 #droppable {
    height: 700px;
 }
-
 .right {
    float: right;
 }
-
 .left {
    float: left;
 }
-
 .clear {
    clear: both;
 }
-
 ul li {
    list-style: none;
 }
-
 .drag-list img {
    //width: 80px;
    vertical-align: middle;
    cursor: move;
 }
-
 .drag-list ul {
    margin: 0px;
    padding: 0px;
 }
-
 .drag-list li {
    margin-bottom: 5px;
 }
-
 .remove-drag-hover {
    background-color: #ED4949 !important;
 }
-
 .xicon {
    margin-top: 4px;
    position: absolute;
@@ -121,7 +107,6 @@ ul li {
    font: message-box;
    text-decoration: none;
 }
-
 .xicon:hover {
    background-color: #fff;
    color: #000;
@@ -129,12 +114,11 @@ ul li {
    height: 20px;
    text-align: center;
 }
-
 .tip {
    font-size: 12px;
    clear: both;
 }
-.img1{
+#img1{
 <c:choose>
 	    	<c:when test="${x1 eq '-1'}">
 	    	position:relative;
@@ -146,7 +130,7 @@ ul li {
 left:${x1}px;
 top:${y1}px;
 }
-.img2{
+#img2{
  <c:choose>
 	    	<c:when test="${x2 eq '-1'}">
 	    	position:relative;
@@ -158,7 +142,7 @@ top:${y1}px;
 left:${x2}px;
 top:${y2}px;
 }
-.img3{
+#img3{
  <c:choose>
 	    	<c:when test="${x3 eq '-1'}">
 	    	position:relative;
@@ -170,7 +154,7 @@ top:${y2}px;
 left:${x3}px;
 top:${y3}px;
 }
-.img4{
+#img4{
  <c:choose>
 	    	<c:when test="${x4 eq '-1'}">
 	    	position:relative;
@@ -182,7 +166,7 @@ top:${y3}px;
 left:${x4}px;
 top:${y4}px;
 }
-.img5{
+#img5{
  <c:choose>
 	    	<c:when test="${x5 eq '-1'}">
 	    	position:relative;
@@ -194,7 +178,7 @@ top:${y4}px;
 left:${x5}px;
 top:${y5}px;
 }
-.img6{
+#img6{
   <c:choose>
 	    	<c:when test="${x6 eq '-1'}">
 	    	position:relative;
@@ -206,7 +190,7 @@ top:${y5}px;
 left:${x6}px;
 top:${y6}px;
 }
-.img7{
+#img7{
   <c:choose>
 	    	<c:when test="${x7 eq '-1'}">
 	    	position:relative;
@@ -218,7 +202,7 @@ top:${y6}px;
 left:${x7}px;
 top:${y7}px;
 }
-.img8{
+#img8{
   <c:choose>
 	    	<c:when test="${x8 eq '-1'}">
 	    	position:relative;
@@ -230,7 +214,7 @@ top:${y7}px;
 left:${x8}px;
 top:${y8}px;
 }
-.img9{
+#img9{
   <c:choose>
 	    	<c:when test="${x9 eq '-1'}">
 	    	position:relative;
@@ -242,7 +226,7 @@ top:${y8}px;
 left:${x9}px;
 top:${y9}px;
 }
-.img10{
+#img10{
   <c:choose>
 	    	<c:when test="${x10 eq '-1'}">
 	    	position:relative;
@@ -254,7 +238,7 @@ top:${y9}px;
 left:${x10}px;
 top:${y10}px;
 }
-.img11{
+#img11{
   <c:choose>
 	    	<c:when test="${x11 eq '-1'}">
 	    	position:relative;
@@ -266,7 +250,7 @@ top:${y10}px;
 left:${x11}px;
 top:${y11}px;
 }
-.img12{
+#img12{
   <c:choose>
 	    	<c:when test="${x12 eq '-1'}">
 	    	position:relative;
@@ -278,7 +262,7 @@ top:${y11}px;
 left:${x12}px;
 top:${y12}px;
 }
-.img13{
+#img13{
   <c:choose>
 	    	<c:when test="${x13 eq '-1'}">
 	    	position:relative;
@@ -290,7 +274,7 @@ top:${y12}px;
 left:${x13}px;
 top:${y13}px;
 }
-.img14{
+#img14{
   <c:choose>
 	    	<c:when test="${x14 eq '-1'}">
 	    	position:relative;
@@ -302,7 +286,7 @@ top:${y13}px;
 left:${x14}px;
 top:${y14}px;
 }
-.img15{
+#img15{
   <c:choose>
 	    	<c:when test="${x15 eq '-1'}">
 	    	position:relative;
@@ -314,7 +298,7 @@ top:${y14}px;
 left:${x15}px;
 top:${y15}px;
 }
-.img16{
+#img16{
   <c:choose>
 	    	<c:when test="${x16 eq '-1'}">
 	    	position:relative;
@@ -326,7 +310,7 @@ top:${y15}px;
 left:${x16}px;
 top:${y16}px;
 }
-.img17{
+#img17{
   <c:choose>
 	    	<c:when test="${x17 eq '-1'}">
 	    	position:relative;
@@ -338,7 +322,7 @@ top:${y16}px;
 left:${x17}px;
 top:${y17}px;
 }
-.img18{
+#img18{
   <c:choose>
 	    	<c:when test="${x18 eq '-1'}">
 	    	position:relative;
@@ -350,7 +334,7 @@ top:${y17}px;
 left:${x18}px;
 top:${y18}px;
 }
-.img19{
+#img19{
   <c:choose>
 	    	<c:when test="${x19 eq '-1'}">
 	    	position:relative;
@@ -362,7 +346,7 @@ top:${y18}px;
 left:${x19}px;
 top:${y19}px;
 }
-.img20{
+#img20{
   <c:choose>
 	    	<c:when test="${x20 eq '-1'}">
 	    	position:relative;
@@ -374,7 +358,7 @@ top:${y19}px;
 left:${x20}px;
 top:${y20}px;
 }
-.img21{
+#img21{
   <c:choose>
 	    	<c:when test="${x21 eq '-1'}">
 	    	position:relative;
@@ -386,7 +370,7 @@ top:${y20}px;
 left:${x21}px;
 top:${y21}px;
 }
-.img22{
+#img22{
   <c:choose>
 	    	<c:when test="${x22 eq '-1'}">
 	    	position:relative;
@@ -398,7 +382,7 @@ top:${y21}px;
 left:${x22}px;
 top:${y22}px;
 }
-.img23{
+#img23{
   <c:choose>
 	    	<c:when test="${x23 eq '-1'}">
 	    	position:relative;
@@ -410,7 +394,7 @@ top:${y22}px;
 left:${x23}px;
 top:${y23}px;
 }
-.img24{
+#img24{
   <c:choose>
 	    	<c:when test="${x24 eq '-1'}">
 	    	position:relative;
@@ -422,7 +406,7 @@ top:${y23}px;
 left:${x24}px;
 top:${y24}px;
 }
-.img25{
+#img25{
   <c:choose>
 	    	<c:when test="${x25 eq '-1'}">
 	    	position:relative;
@@ -434,7 +418,7 @@ top:${y24}px;
 left:${x25}px;
 top:${y25}px;
 }
-.img26{
+#img26{
   <c:choose>
 	    	<c:when test="${x26 eq '-1'}">
 	    	position:relative;
@@ -446,7 +430,7 @@ top:${y25}px;
 left:${x26}px;
 top:${y26}px;
 }
-.img27{
+#img27{
   <c:choose>
 	    	<c:when test="${x27 eq '-1'}">
 	    	position:relative;
@@ -458,7 +442,7 @@ top:${y26}px;
 left:${x27}px;
 top:${y27}px;
 }
-.img28{
+#img28{
   <c:choose>
 	    	<c:when test="${x28 eq '-1'}">
 	    	position:relative;
@@ -470,7 +454,7 @@ top:${y27}px;
 left:${x28}px;
 top:${y28}px;
 }
-.img29{
+#img29{
   <c:choose>
 	    	<c:when test="${x29 eq '-1'}">
 	    	position:relative;
@@ -482,7 +466,7 @@ top:${y28}px;
 left:${x29}px;
 top:${y29}px;
 }
-.img30{
+#img30{
   <c:choose>
 	    	<c:when test="${x30 eq '-1'}">
 	    	position:relative;
@@ -494,8 +478,6 @@ top:${y29}px;
 left:${x30}px;
 top:${y30}px;
 }
-
-
 .frame2{
 border-color:#000000 #4785F8;
 border-image:none;
@@ -504,9 +486,7 @@ border-radius: 0 0 0 0;
 -webkit-border-radius:0 0 0 0;
 border-style:solid;
 border-width:15px;
-
 }
-
 .frame3{
 border-color:rgb(62, 255, 157) #4785F8;
 border-image:none;
@@ -521,77 +501,12 @@ border-width:5px;
 <title>by lesson8</title>
 
 <script type='text/javascript'>
-
   
    function testfunc(test) {
-      var a = document.getElementById(test.getAttribute('id')).getAttribute(
-            'id');
+      var a = document.getElementById(test.getAttribute('id')).getAttribute('id');
       var class_by_id = $('#'+a).attr('class');
-      
-      if(a==1){
-    	  document.f.a1.value = class_by_id;
-      }else if(a==2){
-    	  document.f.a2.value = class_by_id;
-      }else if(a==3){
-    	  document.f.a3.value = class_by_id;
-      }else if(a==4){
-    	  document.f.a4.value = class_by_id;
-      }else if(a==5){
-    	  document.f.a5.value = class_by_id;
-      }else if(a==6){
-    	  document.f.a6.value = class_by_id;
-      }else if(a==7){
-    	  document.f.a7.value = class_by_id;
-      }else if(a==8){
-    	  document.f.a8.value = class_by_id;
-      }else if(a==9){
-    	  document.f.a9.value = class_by_id;
-      }else if(a==10){
-    	  document.f.a10.value = class_by_id;
-      }else if(a==11){
-    	  document.f.a11.value = class_by_id;
-      }else if(a==12){
-    	  document.f.a12.value = class_by_id;
-      }else if(a==13){
-    	  document.f.a13.value = class_by_id;
-      }else if(a==14){
-    	  document.f.a14.value = class_by_id;
-      }else if(a==15){
-    	  document.f.a15.value = class_by_id;
-      }else if(a==16){
-    	  document.f.a16.value = class_by_id;
-      }else if(a==17){
-    	  document.f.a17.value = class_by_id;
-      }else if(a==18){
-    	  document.f.a18.value = class_by_id;
-      }else if(a==19){
-    	  document.f.a19.value = class_by_id;
-      }else if(a==20){
-    	  document.f.a20.value = class_by_id;
-      }else if(a==21){
-    	  document.f.a21.value = class_by_id;
-      }else if(a==22){
-    	  document.f.a22.value = class_by_id;
-      }else if(a==23){
-    	  document.f.a23.value = class_by_id;
-      }else if(a==24){
-    	  document.f.a24.value = class_by_id;
-      }else if(a==25){
-    	  document.f.a25.value = class_by_id;
-      }else if(a==26){
-    	  document.f.a26.value = class_by_id;
-      }else if(a==27){
-    	  document.f.a27.value = class_by_id;
-      }else if(a==28){
-    	  document.f.a28.value = class_by_id;
-      }else if(a==29){
-    	  document.f.a29.value = class_by_id;
-      }else if(a==30){
-    	  document.f.a30.value = class_by_id;
-      }
-     
-      
-      
+ 
+ 	  eval("document.f.a"+a.substring(3)+".value = class_by_id;");     
    }
    
    function handleDragStop1(event, ui) {
@@ -605,7 +520,6 @@ border-width:5px;
       document.f.y1.value = offsetYPos;
       
 	   
-
    }
    
    function handleDragStop2(event, ui) {
@@ -613,14 +527,12 @@ border-width:5px;
 	   	//좌표
 	      var offsetXPos = parseInt(ui.offset.left);
 	      var offsetYPos = parseInt(ui.offset.top);
-
 	      //사진크기
 	      
 	      document.f.x2.value = offsetXPos;
 	      document.f.y2.value = offsetYPos;
 	    
 		   
-
 	      
 	   }
    function handleDragStop3(event, ui) {
@@ -628,14 +540,12 @@ border-width:5px;
 	   //좌표
 	      var offsetXPos = parseInt(ui.offset.left);
 	      var offsetYPos = parseInt(ui.offset.top);
-
 	      //사진크기
 	     
 	      document.f.x3.value = offsetXPos;
 	      document.f.y3.value = offsetYPos;
 	    
 		   
-
 	   }
    function handleDragStop4(event, ui) {
 	   
@@ -648,7 +558,6 @@ border-width:5px;
 	      document.f.y4.value = offsetYPos;
 	    
 		   
-
 	   }
    function handleDragStop5(event, ui) {
 	   
@@ -661,7 +570,6 @@ border-width:5px;
 	      document.f.y5.value = offsetYPos;
 	   
 		   
-
 	   }
    function handleDragStop6(event, ui) {
 	   
@@ -673,7 +581,6 @@ border-width:5px;
 	      document.f.x6.value = offsetXPos;
 	      document.f.y6.value = offsetYPos;
 	 
-
 	   }
    function handleDragStop7(event, ui) {
 	   
@@ -685,7 +592,6 @@ border-width:5px;
 	      document.f.x7.value = offsetXPos;
 	      document.f.y7.value = offsetYPos;
 	     
-
 	   }
    function handleDragStop8(event, ui) {
 	   
@@ -697,7 +603,6 @@ border-width:5px;
 	      document.f.x8.value = offsetXPos;
 	      document.f.y8.value = offsetYPos;
 	     
-
 	   }
    function handleDragStop9(event, ui) {
 	   
@@ -710,7 +615,6 @@ border-width:5px;
 	      document.f.y9.value = offsetYPos;
 	 
 		   
-
 	   }
    
    function handleDragStop10(event, ui) {
@@ -724,7 +628,6 @@ border-width:5px;
 	      document.f.y10.value = offsetYPos;
 	    
 		   
-
 	   }
    function handleDragStop11(event, ui) {
 	   
@@ -737,7 +640,6 @@ border-width:5px;
 	      document.f.y11.value = offsetYPos;
 	      
 		   
-
 	   }        
        
    function handleDragStop12(event, ui) {
@@ -751,7 +653,6 @@ border-width:5px;
 	      document.f.y12.value = offsetYPos;
 	   
 		   
-
 	   } 
    function handleDragStop13(event, ui) {
 	   
@@ -764,7 +665,6 @@ border-width:5px;
 	      document.f.y13.value = offsetYPos;
 	
 		   
-
 	   }
    function handleDragStop14(event, ui) {
 	   
@@ -777,7 +677,6 @@ border-width:5px;
 	      document.f.y14.value = offsetYPos;
 	     
 		   
-
 	   }
    function handleDragStop15(event, ui) {
 	   
@@ -790,7 +689,6 @@ border-width:5px;
 	      document.f.y15.value = offsetYPos;
 	      
 		   
-
 	   }
    function handleDragStop16(event, ui) {
 	   
@@ -803,7 +701,6 @@ border-width:5px;
 	      document.f.y16.value = offsetYPos;
 	 
 		   
-
 	   }
    function handleDragStop17(event, ui) {
 	   
@@ -816,7 +713,6 @@ border-width:5px;
 	      document.f.y17.value = offsetYPos;
 	
 		   
-
 	   }
    function handleDragStop18(event, ui) {
 	   
@@ -829,7 +725,6 @@ border-width:5px;
 	      document.f.y18.value = offsetYPos;
 	
 		   
-
 	   }
    function handleDragStop19(event, ui) {
 	   
@@ -841,7 +736,6 @@ border-width:5px;
 	      document.f.x19.value = offsetXPos;
 	      document.f.y19.value = offsetYPos;
 	 
-
 	   }
    function handleDragStop20(event, ui) {
 	   
@@ -853,7 +747,6 @@ border-width:5px;
 	      document.f.x20.value = offsetXPos;
 	      document.f.y20.value = offsetYPos;
 	    
-
 	   }
    function handleDragStop21(event, ui) {
 	   
@@ -866,7 +759,6 @@ border-width:5px;
 	      document.f.y21.value = offsetYPos;
 	      
 		   
-
 	   }
    function handleDragStop22(event, ui) {
 	   
@@ -878,7 +770,6 @@ border-width:5px;
 	      document.f.x22.value = offsetXPos;
 	      document.f.y22.value = offsetYPos;
 	      
-
 	   }
    function handleDragStop23(event, ui) {
 	   
@@ -891,7 +782,6 @@ border-width:5px;
 	      document.f.y23.value = offsetYPos;
 	     
 		   
-
 	   }
    function handleDragStop24(event, ui) {
 	   
@@ -904,7 +794,6 @@ border-width:5px;
 	      document.f.y24.value = offsetYPos;
 	   
 		   
-
 	   }
    function handleDragStop25(event, ui) {
 	   
@@ -916,7 +805,6 @@ border-width:5px;
 	      document.f.x25.value = offsetXPos;
 	      document.f.y25.value = offsetYPos;
 	      
-
 	   }
    function handleDragStop26(event, ui) {
 	   
@@ -929,7 +817,6 @@ border-width:5px;
 	      document.f.y26.value = offsetYPos;
 	     
 		   
-
 	   }
    function handleDragStop27(event, ui) {
 	   
@@ -942,7 +829,6 @@ border-width:5px;
 	      document.f.y27.value = offsetYPos;
 	 
 		   
-
 	   }
    function handleDragStop28(event, ui) {
 	   
@@ -955,7 +841,6 @@ border-width:5px;
 	      document.f.y28.value = offsetYPos;
 	    
 		   
-
 	   }
    function handleDragStop29(event, ui) {
 	   
@@ -968,7 +853,6 @@ border-width:5px;
 	      document.f.y29.value = offsetYPos;
 	      
 		   
-
 	   }
    function handleDragStop30(event, ui) {
 	   
@@ -981,777 +865,560 @@ border-width:5px;
 	      document.f.y30.value = offsetYPos;
 	   
 		   
-
 	   }
    window.onload = function() {
 	   var a = $(this).attr('id');
       var x = null;
    
       //Make element draggable
-      $("#1").draggable({
+      $("#img1").draggable({
          helper : 'original',
-
          stop : handleDragStop1,
          containment: '#droppable',
          drop : function(e, ui) {
             if ($(ui.draggable)[0].id != "") {
-
                x = ui.helper.remove();
                ui.helper.remove();
                x.draggable({
                   helper : 'original',
-
                   stop : handleDragStop1,
                   containment: '#droppable',
-
                   drop : function(event, ui) {
                      $(ui.draggable).remove();
-
                   }
                });
-
             }
          }
-
       });
-      $("#2").draggable({
+      $("#img2").draggable({
           helper : 'original',
-
           stop : handleDragStop2,
           containment: '#droppable',
-
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop2,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#3").draggable({
+      $("#img3").draggable({
           helper : 'original',
           stop : handleDragStop3,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop3,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#4").draggable({
+      $("#img4").draggable({
           helper : 'original',
-
           stop : handleDragStop4,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop4,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#5").draggable({
+      $("#img5").draggable({
           helper : 'original',
-
           stop : handleDragStop5,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop5,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#6").draggable({
+      $("#img6").draggable({
           helper : 'original',
-
           stop : handleDragStop6,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop6,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#7").draggable({
+      $("#img7").draggable({
           helper : 'original',
-
           stop : handleDragStop7,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop7,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#8").draggable({
+      $("#img8").draggable({
           helper : 'original',
-
           stop : handleDragStop8,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop8,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#9").draggable({
+      $("#img9").draggable({
           helper : 'original',
-
           stop : handleDragStop9,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop9,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#10").draggable({
+      $("#img10").draggable({
           helper : 'original',
-
           stop : handleDragStop10,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop10,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#11").draggable({
+      $("#img11").draggable({
           helper : 'original',
-
           stop : handleDragStop11,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop11,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#12").draggable({
+      $("#img12").draggable({
           helper : 'original',
-
           stop : handleDragStop12,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop12,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#13").draggable({
+      $("#img13").draggable({
           helper : 'original',
-
           stop : handleDragStop13,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop13,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#14").draggable({
+      $("#img14").draggable({
           helper : 'original',
-
           stop : handleDragStop14,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop14,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#15").draggable({
+      $("#img15").draggable({
           helper : 'original',
-
           stop : handleDragStop15,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop15,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#16").draggable({
+      $("#img16").draggable({
           helper : 'original',
-
           stop : handleDragStop16,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop16,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#17").draggable({
+      $("#img17").draggable({
           helper : 'original',
-
           stop : handleDragStop17,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop17,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#18").draggable({
+      $("#img18").draggable({
           helper : 'original',
-
           stop : handleDragStop18,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop18,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#19").draggable({
+      $("#img19").draggable({
           helper : 'original',
-
           stop : handleDragStop19,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop19,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#20").draggable({
+      $("#img20").draggable({
           helper : 'original',
-
           stop : handleDragStop20,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop20,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#21").draggable({
+      $("#img21").draggable({
           helper : 'original',
-
           stop : handleDragStop21,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop21,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#22").draggable({
+      $("#img22").draggable({
           helper : 'original',
-
           stop : handleDragStop22,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop22,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#23").draggable({
+      $("#img23").draggable({
           helper : 'original',
-
           stop : handleDragStop23,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop23,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#24").draggable({
+      $("#img24").draggable({
           helper : 'original',
-
           stop : handleDragStop24,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop24,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#25").draggable({
+      $("#img25").draggable({
           helper : 'original',
-
           stop : handleDragStop25,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop25,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#26").draggable({
+      $("#img26").draggable({
           helper : 'original',
-
           stop : handleDragStop26,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop26,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#27").draggable({
+      $("#img27").draggable({
           helper : 'original',
-
           stop : handleDragStop27,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop27,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#28").draggable({
+      $("#img28").draggable({
           helper : 'original',
-
           stop : handleDragStop28,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop28,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#29").draggable({
+      $("#img29").draggable({
           helper : 'original',
-
           stop : handleDragStop29,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop29,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-      $("#30").draggable({
+      $("#img30").draggable({
           helper : 'original',
-
           stop : handleDragStop30,
           containment: '#droppable',
           drop : function(e, ui) {
              if ($(ui.draggable)[0].id != "") {
             	 
-
                 x = ui.helper.remove();
                 ui.helper.remove();
                 x.draggable({
                    helper : 'original',
-
                    stop : handleDragStop30,
-
                    drop : function(event, ui) {
                       $(ui.draggable).remove();
-
                    }
                 });
-
              }
           }
-
        });
-
    }
    $(function() {
 	   
-	    $("#1").draggable({
-	        grid: [20, 1]
-	    });
-	    $("#1").draggable({
+	    $(".ui-draggable").draggable({
 	        grid: [20, 1],
-	        helper:"clone"
-	    });
-	    $("#1").droppable({
+	        helper:"clone",
 	        accept: ".a"
 	    });
 	});
@@ -1862,7 +1529,6 @@ border-width:5px;
   </div>
   <div class="col frame3" id="col1" style="float:left; width: 250px; height:650px; background:yellow;">
 
-
    
    <div id="drag-list" class="drag-list">
     <table>
@@ -1871,17 +1537,16 @@ border-width:5px;
     	<c:when test="${(num.count%3)==1 }">
     	<tr>
     	<td style="width:75px; height:75px;">
-    	<div id="${dto.idx }" class="img${dto.idx}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px;">
+    	<div id="img${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px; text-align:center;">
           <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
           <span id="r">${dto.id }</span>
-
          </div>
          </td>
       	</c:when>
     	
     	<c:when test="${(num.count%3)==2 }">
     	<td style="width:75px;  height:75px;">
-    	<div id="${dto.idx }" class="img${dto.idx}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px;">
+    	<div id="img${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px; text-align:center;">
           <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
           <span id="r">${dto.id }</span>
           </div>
@@ -1889,7 +1554,7 @@ border-width:5px;
     	</c:when>
     	<c:otherwise>
     	<td style="width:75px;  height:75px;">
-    	<div id="${dto.idx }" class="img${dto.idx}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px;">
+    	<div id="img${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px; text-align:center;">
           <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
           <span id="r">${dto.id }</span>
           </div>

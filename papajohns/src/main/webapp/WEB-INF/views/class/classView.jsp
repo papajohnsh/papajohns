@@ -118,6 +118,7 @@
                   </table>
                   
                   <div align="center">
+                  <input type="hidden" name="reidx" value="<%=request.getParameter("idx") %>" >
                   <span><input type="submit" value="참여신청" class="btn btn-sm btn-success btn-flat pull-center"></span>
                   <span><a href="#" class="btn btn-sm btn-info btn-flat pull-center">목록으로</a></span>
                   </div>

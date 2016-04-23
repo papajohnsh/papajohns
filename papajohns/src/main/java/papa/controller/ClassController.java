@@ -117,8 +117,7 @@ public class ClassController {
 	}
 	
 	@RequestMapping("/classAttend.do")
-	public ModelAndView classAttend(HttpSession session,int reidx){
-		
+	public ModelAndView classAttend(HttpSession session,@RequestParam(value="reidx",required=false)String reidx){
 		int idx=(int) session.getAttribute("sidx");
 		String list=classDao.reidxList(idx);
 		
@@ -134,7 +133,7 @@ public class ClassController {
 		String msg=result>0?"참가성공":"참가 실패";
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("msg",msg);
-		mav.setViewName("class/addMsg");
+		mav.setViewName("class/Msg");
 		return mav;
 		
 	
