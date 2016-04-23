@@ -47,13 +47,6 @@
  </div>
 <div style="margin-left: 25%;">
 
-<div id="top" style="margin:0 auto; width:300px;">
-    <div style="float:left">
-<a href="facebooklogin.do"><img src=img/카톡.png style="width:8%;"></a> 
-</div>
-<div style="float:left">본문</div>
-<a href="facebooklogin.do"><img src=img/카톡.png style="width:8%;"></a> 
-
 	<div id="top" style="margin:0 auto; width:300px;">
 	<div style="float:left">
    <%@ include file="member/naverLogin.jsp" %>
