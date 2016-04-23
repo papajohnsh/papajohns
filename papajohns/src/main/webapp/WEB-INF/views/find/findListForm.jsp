@@ -137,13 +137,14 @@
                   </table>
                   </form>
                   </c:if>
-                  
-                     <c:if test="${num==2}">
+                  <c:if test="${num==2}"><br>  <br>
                   <form name="f" action="classRoomNameSearch.do">
-                                            수업명<input type="text" name="subject">
-                  <input type="hidden" name="num" value="1">
-                  <input type="submit" class="btn btn-danger btn-xs" value="검색">
-                  <input type="hidden" name="test">
+                   <div style="float: right;"> 수업명<input type="text" name="subject">
+                   <input type="hidden" name="num" value="1">
+                  <input type="submit" class="btn btn-danger btn-m" value="검색">
+                  <input type="hidden" name="test"></div>         
+                  
+                 <br>  <br>
                   <table class="table">
                   <th>과목:</th>
                   <th>선생님이름:</th>
@@ -160,13 +161,14 @@
                   </table>
                   </form>
                   </c:if>
-                  
-                   <c:if test="${num==3}">
+                 <c:if test="${num==3}"><br>  <br>
                   <form name="f" action="classRoomNameSearch.do">
-                                            수업명<input type="text" name="subject">
-                  <input type="hidden" name="num" value="1">
-                  <input type="submit" class="btn btn-danger btn-xs" value="검색">
-                  <input type="hidden" name="test">
+                   <div style="float: right;"> 수업명<input type="text" name="subject">
+                   <input type="hidden" name="num" value="1">
+                  <input type="submit" class="btn btn-danger btn-m" value="검색">
+                  <input type="hidden" name="test"></div>         
+                  
+                 <br>  <br>
                   <table class="table">
                   <th>과목:</th>
                   <th>선생님이름:</th>
@@ -184,12 +186,14 @@
                   </form>
                   </c:if>
                   
-                    <c:if test="${num==4}">
+                <c:if test="${num==4}"><br>  <br>
                   <form name="f" action="classRoomNameSearch.do">
-                                            수업명<input type="text" name="subject">
-                  <input type="hidden" name="num" value="1">
-                  <input type="submit" class="btn btn-danger btn-xs" value="검색">
-                  <input type="hidden" name="test">
+                   <div style="float: right;"> 수업명<input type="text" name="subject">
+                   <input type="hidden" name="num" value="1">
+                  <input type="submit" class="btn btn-danger btn-m" value="검색">
+                  <input type="hidden" name="test"></div>         
+                  
+                 <br>  <br>
                   <table class="table">
                   <th>과목:</th>
                   <th>선생님이름:</th>
@@ -206,13 +210,14 @@
                   </table>
                   </form>
                   </c:if>
-                  
-                 <c:if test="${num==5}">
+             <c:if test="${num==5}"><br>  <br>
                   <form name="f" action="classRoomNameSearch.do">
-                                            수업명<input type="text" name="subject">
-                  <input type="hidden" name="num" value="1">
-                  <input type="submit" class="btn btn-danger btn-xs" value="검색">
-                  <input type="hidden" name="test">
+                   <div style="float: right;"> 수업명<input type="text" name="subject">
+                   <input type="hidden" name="num" value="1">
+                  <input type="submit" class="btn btn-danger btn-m" value="검색">
+                  <input type="hidden" name="test"></div>         
+                  
+                 <br>  <br>
                   <table class="table">
                   <th>과목:</th>
                   <th>선생님이름:</th>
@@ -231,12 +236,14 @@
                   </c:if>
                
                   
-                  <c:if test="${num==6}">
+                 <c:if test="${num==6}"><br>  <br>
                   <form name="f" action="classRoomNameSearch.do">
-                                            수업명<input type="text" name="subject">
-                  <input type="hidden" name="num" value="1">
-                  <input type="submit" class="btn btn-danger btn-xs" value="검색">
-                  <input type="hidden" name="test">
+                   <div style="float: right;"> 수업명<input type="text" name="subject">
+                   <input type="hidden" name="num" value="1">
+                  <input type="submit" class="btn btn-danger btn-m" value="검색">
+                  <input type="hidden" name="test"></div>         
+                  
+                 <br>  <br>
                   <table class="table">
                   <th>과목:</th>
                   <th>선생님이름:</th>
