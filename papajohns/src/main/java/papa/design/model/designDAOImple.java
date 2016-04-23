@@ -49,4 +49,10 @@ public class designDAOImple implements designDAO {
 			return list;
 		}
 
+	@Override
+	public String teacher(int idx){
+		String teacher=sqlMap.selectOne("teacher", idx);
+		return teacher;
+		
+	}
 }

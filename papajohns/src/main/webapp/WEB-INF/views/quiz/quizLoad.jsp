@@ -22,10 +22,11 @@ function gogo(){
 	 $('#quiz_answer').val(answer);
 	 fm.submit(); 
 }
-	
-	$('.page').on('click',function(){
+
+	$(':input[name=page]').on('click',function(){
 
 		var idx=$(this).attr('id');
+		window.alert(idx);
 		var id=$('#id').val();
 			
 			params='idx='+idx+'&id='+id;
@@ -70,7 +71,7 @@ function gogo(){
 </div>
 <!-- body -->
 <div class="modal-body">
-<div>
+<div align="center">
 	<table style="width: 500px;height: 300px; margin:0;auto;" >
 	
 	   <c:if test="${empty result }">
@@ -82,13 +83,13 @@ function gogo(){
 				<td>${dto.subject}</td>
 				<td>${dto.start_date }&nbsp;&nbsp;${dto.start_time }</td>
 				<td style="vertical-align:middle; text-align: center;">
-	 			<input style="width:40px;height: 40px" name="radio" value="${dto.idx }" id="${dto.idx }" type="radio" >
+	 			<%-- <input style="width:40px;height: 40px" name="radio" value="${dto.idx }" id="${dto.idx }" type="radio" > --%>
 	   			</td>
 	   			<td>
-	   				<form action="quizTest.do">
-	   				<input type="button" value="시험보기" id="${dto.idx }" class="page">
+
+	   				<input type="button" value="시험보기" id="${dto.idx }" class="btn btn-success pull-right" name="page">
 	   				<input type="hidden" value="${sid }" id="id">
-	   				</form>
+					<input type="hidden" value="${dto.idx }" class="page_idx">
 	   			</td>
 			</tr>
 			

@@ -286,7 +286,8 @@ public class PageController {
 		   mav.addObject("y28",y28);
 		   mav.addObject("y29",y29);
 		   mav.addObject("y30",y30);
-		   
+		   classDTO lessonInfo=classDao.joinClass(idx);
+		   mav.addObject("lessonName", lessonInfo.getSubject());
 		   String list=designDao.reidxList(idx);
 			if(list==null){
 				list="0";

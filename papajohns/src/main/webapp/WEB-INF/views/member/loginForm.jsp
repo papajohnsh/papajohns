@@ -99,7 +99,7 @@ var date = now.getDate();
 <body class="hold-transition skin-blue sidebar-mini">
  <%@include file="../header.jsp" %>
  
-<div class="container" style="width: 500px;margin-top:100px; ">
+<div class="container" style="width: 500px;margin-top:80px; ">
 
   <h2>ClassRoom</h2>
   <br>  <br>
@@ -115,17 +115,18 @@ var date = now.getDate();
     </div>
     <div class="checkbox">
       <label><input type="checkbox" name="saveid" value="on" ${cookie.saveid.value==null?"":"checked"}> Remember me</label>
+    <div align="right">
+ 	<span><a href="idFindForm.do">아이디 찾기</a></span> |
+ 	<span><a href="pwdFindForm.do">비밀번호 찾기</a></span>
+ </div>
     </div><br><br>
    <div style="margin-left:180px;"><input type="submit" class="btn btn-success pull-center" value="login">
     <button type="button" class="btn btn-success pull-center" data-toggle="modal" data-target="#myModal"><font color="white">회원가입</font></button></div>  
   </form>
   <br>
- <div align="right">
- 	<span><a href="idFindForm.do">아이디 찾기</a></span> |
- 	<span><a href="pwdFindForm.do">비밀번호 찾기</a></span>
- </div>
+
 </div>
-<div style="margin-top:80px;">
+<div style="margin-top:30px;">
 <div align="center" style="margin-top:50px;">
   <%@ include file="naverLogin.jsp" %>
   </div>

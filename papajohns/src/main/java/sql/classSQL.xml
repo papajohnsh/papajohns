@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="classSQL">
 <insert id="classAdd" parameterType="papa.class_.model.classDTO"  useGeneratedKeys="true" keyProperty="idx"  keyColumn="idx">
-insert into class_info(name,subject,start_time,end_time,institut,start_date,end_date,write_date,explanation,reidx,day) 
-values(#{name},#{subject},#{start_time},#{end_time},#{institut},#{start_date},#{end_date},now(),#{explanation},#{reidx},#{day})
+insert into class_info(name,subject,start_time,end_time,institut,start_date,end_date,write_date,explanation,reidx,id,day) 
+values(#{name},#{subject},#{start_time},#{end_time},#{institut},#{start_date},#{end_date},now(),#{explanation},#{reidx},#{id},#{day})
         <selectKey keyProperty="idx" resultType="int" order="AFTER">
             SELECT LAST_INSERT_ID();
         </selectKey>
@@ -35,7 +35,7 @@ select * from class_info where idx=#{idx}
 update member set reidx=#{list} where idx=#{idx}
 </update>
 <select id="classJoinList" parameterType="int" resultType="papa.class_.model.classDTO">
-select * from class_info where reidx=#{idx} order by start_time asc
+select * from class_info where reidx=#{idx}
 </select>
 <select id="designJoin" parameterType="String" resultType="papa.member.model.MemberDTO">
 select * from member where reidx LIKE CONCAT('%',#{idx},'%')

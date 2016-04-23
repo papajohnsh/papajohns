@@ -18,4 +18,9 @@ select * from member where reidx LIKE CONCAT('%',#{idx},'%')
 <select id="reidxList2" parameterType="int" resultType="String">
 select reidx from member where idx=#{idx}
 </select>
+<select id="teacher" parameterType="int" resultType="String">
+Select member.id 
+From member INNER JOIN class_info 
+ON member.idx = class_info.reidx where class_info.idx=#{idx};
+</select>
   </mapper>
