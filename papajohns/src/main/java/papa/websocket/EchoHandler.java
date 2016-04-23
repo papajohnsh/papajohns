@@ -48,37 +48,17 @@ public class EchoHandler extends TextWebSocketHandler {
 	@Override
 	protected void handleTextMessage(
 			WebSocketSession session, TextMessage message) throws Exception {
-		//log(session.getId() + "로부터 메시지 수신: " + message.getPayload());
-		//message.
-		//선생한테 보내기
-
-		
-		if(!(message.getPayload().indexOf("loginOn")==-1)){
-			for(int i=0;i<papa.size();i++){
-				if(papa.get(i).getUser().equals(papa.get(i).getTeacher())){
-					papa.get(i).getSession().sendMessage(message);
-					log(papa.get(i).getUser() + "에 메시지 발송: " + message.getPayload());
+			
+			if(!(message.getPayload().indexOf("loginOn")==-1)){
+				for(int i=0;i<papa.size();i++){
+					if(papa.get(i).getUser().equals(papa.get(i).getTeacher())){
+						papa.get(i).getSession().sendMessage(message);
+						log(papa.get(i).getUser() + "에 메시지 발송: " + message.getPayload());
+					}
 				}
 			}
-		}
 		
-		//로그인 체크 요청
-		//요청하는 형식 loginCheck:UserID
-		//전체에게 재 전달 방식 loginOn:UserID
-		if(!(message.getPayload().indexOf("loginCheck")==-1)){
 			
-			int index=-1;
-			for(int i=0;i<papa.size();i++){
-				if(papa.get(i).getSession().getId().equals(session.getId()));
-				index=i;
-			}
-			
-			for(int i=0;i<papa.size();i++){
-				if(papa.get(index).getIdx().equals(papa.get(i).getIdx())){
-					log(session.getId() + "에 메시지 발송: " + message.getPayload());
-					papa.get(i).getSession().sendMessage(message);	
-				}
-			}
 		}
 		
 		
@@ -102,7 +82,6 @@ public class EchoHandler extends TextWebSocketHandler {
 			System.out.println(e.getMessage()); //sleep 메소드가 발생하는 InterruptedException 
 		}
 		*/
-	}
 	
 
 	@Override

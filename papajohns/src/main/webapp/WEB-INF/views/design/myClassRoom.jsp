@@ -204,7 +204,7 @@ top:${y30}px;
 }
 </style>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" onload="connect();">
 
 <%@ include file="../header.jsp" %>
 
@@ -379,9 +379,8 @@ top:${y30}px;
 	function onOpen(evt) {
 		wsocket.send("loginOn:${sid}");
 		if("${sid}"=="${teacher}"){
-			wsocket.send("loginCheck");
+			wsocket.send("loginCheck:${param.idx}");
 		}
-		//window.alert('연결되었습니다.');
 	}
 	
 	function onMessage(evt) {
@@ -390,9 +389,6 @@ top:${y30}px;
 			var onId = data.substring(8);
 			console.log(onId);
 			loginOn(onId);
-		}
-		else if(data=="loginCheck"){
-			wsocket.send("loginOn:${sid}");
 		}
 	}
 	
@@ -414,6 +410,16 @@ top:${y30}px;
 		
 		
 	}
+	
+
+	function delay(gap){ /* gap is in millisecs */ 
+	  var then,now; 
+	  then=new Date().getTime(); 
+	  now=then; 
+	  while((now-then)<gap){ 
+	    now=new Date().getTime();  // 현재시간을 읽어 함수를 불러들인 시간과의 차를 이용하여 처리 
+	  } 
+	} 
 </script>
 	<section>
 	<article>
