@@ -258,6 +258,7 @@ top:${y30}px;
                 <%-- <li><a data-toggle="modal" href="quizTestForm.do" data-target="#myModal2"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
                 <li><a data-toggle="modal" href="quizList.do?idx=${param.idx }" data-target="#myModal3"><i class="fa fa-circle-o"></i> 문제 수정하기</a></li>
                 <li><a data-toggle="modal" href="quizResult.do?idx=${param.idx }" data-target="#myModal4"><i class="fa fa-circle-o"></i>쪽지시험결과</a></li> --%>
+                <li><a data-toggle="modal" href="questionForm.do" data-target="#myModal4"><i class="fa fa-circle-o"></i>질문하기</a></li>
                 <li><a data-toggle="modal" href="quizTestLoad.do?idx=${param.idx }" data-target="#myModal5" data-backdrop="static"><i class="fa fa-circle-o"></i>쪽지시험보기</a></li>
                 <li><a href="showMessage.do"><i class="fa fa-circle-o"></i> 메세지 보기</a></li>
                 <li><a href="classBbs.do"><i class="fa fa-circle-o"></i> 수업게시판</a></li>
@@ -325,9 +326,10 @@ top:${y30}px;
   </div>
 </div>
 
-<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-  <div class="modal-dialog">
+<div class="modal fade bs-example-modal-sm" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
+      ...
     </div>
   </div>
 </div>
