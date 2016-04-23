@@ -31,7 +31,6 @@
 		var d=now.getDate();
 		scheduler.init('scheduler_here',now,"month");
 		
-
 		
 		scheduler.load("resource/data/${sid}/data.json","json");
 	}
@@ -214,7 +213,6 @@
                    </div>
       <!-- Small boxes (Stat box) -->
       <div class="row" style="margin-left: 200px;">
-
             <div class="col-lg-3 col-xs-6" style="width:300px;height: 140;">
               <!-- small box -->
               <div class="small-box bg-aqua">
@@ -410,7 +408,7 @@
                   <i class="ion ion-pie-graph"></i>
                 </div>
 
-                <a href="myClassRoom.do?idx=${dto.idx }" class="small-box-footer">${dto.name } <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="classShow.do?idx=${dto.idx }" class="small-box-footer">${dto.name } <i class="fa fa-arrow-circle-right"></i></a>
                <div class="icon">
                   <i class="ion ion-pie-graph"></i>
                 </div>
