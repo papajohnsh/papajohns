@@ -72,8 +72,8 @@
       background: url('google_icon.png') transparent 5px 100% no-repeat;
       display: inline-block;
       vertical-align: middle;
-      width: 300px;
-      height: 300px;
+      width: 48px;
+      height: 48px;
     }
     /* span.buttonText {
       display: inline-block;

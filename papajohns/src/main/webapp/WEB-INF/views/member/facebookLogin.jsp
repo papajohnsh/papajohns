@@ -8,11 +8,7 @@
 </head>
 
 <body>
-<form name="FBlogin" action="facebookLogin.do" method="post">
-<input type="hidden" id="fbname" name="name">
-<input type="hidden" id="fbid" name="id">
-<input type="hidden" name="interlock" value="f">
-</form>
+
 
 <script>
 function statusChangeCallback(response) {
@@ -62,6 +58,11 @@ function statusChangeCallback(response) {
 <script>
 
 </script> 
+<form name="FBlogin" action="facebookLogin.do" method="post">
+<input type="hidden" id="fbname" name="name">
+<input type="hidden" id="fbid" name="id">
+<input type="hidden" name="interlock" value="f">
+</form>
 <!-- <script>
 var oneClick = true; //중복호출 방지용 상태변수
 function statusChangeCallback(response) {
