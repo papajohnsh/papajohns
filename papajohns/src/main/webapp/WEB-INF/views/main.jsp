@@ -36,11 +36,11 @@
       <label for="pwd" style="margin-top:4%;"><font size="4em">Password:</font></label>
       <input type="password" class="form-control" name="pwd" style="width:23%; height:6%;" id="pwd" placeholder="Enter password">
     </div>
-   <div ><input type="submit" class="btn btn-danger btn-m" value="로그인"style="width: 23%; height:6%; margin-top:4% ; ">
+   <div ><input type="submit" class="btn btn-danger btn-m" value="로그인"style="width: 23%; height:6%; margin-top:80px ; ">
    </div>
   </form>  
  
-     <div style="margin-top:28%;">
+     <div style="margin-top:150px;">
     <label for="id"> &nbsp;<font size="3em"> <a href="loginForm.do" style="color: white;">회원가입</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="idFindForm.do"  style="color: white;"><b>아이디 찾기</b></a></font>|
     <font size="3em"><a href="pwdFindForm.do"  style="color: white;"><b>비밀번호 찾기</b></a></font></label>
  </div>
