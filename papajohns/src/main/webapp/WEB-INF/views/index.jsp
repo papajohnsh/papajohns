@@ -410,7 +410,7 @@
                   <i class="ion ion-pie-graph"></i>
                 </div>
 
-                <a href="myClassRoom.do?idx=${dto.idx }" class="small-box-footer">${dto.name } <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="classShow.do?idx=${dto.idx }" class="small-box-footer">${dto.name } <i class="fa fa-arrow-circle-right"></i></a>
                <div class="icon">
                   <i class="ion ion-pie-graph"></i>
                 </div>

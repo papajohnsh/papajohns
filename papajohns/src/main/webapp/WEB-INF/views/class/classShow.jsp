@@ -1,178 +1,204 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.net.InetAddress" %>
+<%
+// 요거이 그겁니다. 서버 ip
+InetAddress inet= InetAddress.getLocalHost();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<%@ include file="../header.jsp" %>
+
+<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ Tell the browser to be responsive to screen width
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    Bootstrap 3.3.5 -->
 
 <script type="text/javascript" src="js/httpRequest.js"></script>
 <script>
-$(function(){
-    $("#studentList").on('click', function(){
-        $('#myModal').modal({
-                      remote : 'studentList.do'
-                });
-    })
-    
-        $("#classQuiz").on('click', function(){
-        $('#myModal2').modal({
-                      remote : 'classQuiz.do'
-                });
-    })   
-})
+
 </script>
 <style>
+.frame2{
+border-color:#000000 #4785F8;
+border-image:none;
+border-radius: 0 0 0 0;
+-moz-border-radius:0 0 0 0;
+-webkit-border-radius:0 0 0 0;
+border-style:solid;
+border-width:15px;
+
+}
+
+.frame3{
+border-color:rgb(62, 255, 157) #4785F8;
+border-image:none;
+border-radius: 50px 0 50px 0;
+-moz-border-radius:50px 0 50px 0;
+-webkit-border-radius:50px 0 50px 0;
+border-style:solid;
+border-width:5px;
+}
+.col {
+   float: center;
+   padding: 5px 5px 5px 5px;
+   margin: 5px 5px 5px 5px;
+}
+
 
 #img1{
-position: fixed; 
+ 
 left:${x1}px;
 top:${y1}px;
 }
 #img2{
-position: fixed; 
+ 
 left:${x2}px;
 top:${y2}px;
 }
 #img3{
-position: fixed; 
+ 
 left:${x3}px;
 top:${y3}px;
 }
 #img4{
-position: fixed; 
+ 
 left:${x4}px;
 top:${y4}px;
 }
 #img5{
-position: fixed; 
+ 
 left:${x5}px;
 top:${y5}px;
 }
 #img6{
-position: fixed; 
+ 
 left:${x6}px;
 top:${y6}px;
 }
 #img7{
-position: fixed; 
+ 
 left:${x7}px;
 top:${y7}px;
 }
 #img8{
-position: fixed; 
+ 
 left:${x8}px;
 top:${y8}px;
 }
 #img9{
-position: fixed; 
+ 
 left:${x9}px;
 top:${y9}px;
 }
 #img10{
-position: fixed; 
+ 
 left:${x10}px;
 top:${y10}px;
 }
 #img11{
-position: fixed; 
+ 
 left:${x11}px;
 top:${y11}px;
 }
 #img12{
-position: fixed; 
+ 
 left:${x12}px;
 top:${y12}px;
 }
 #img13{
-position: fixed; 
+ 
 left:${x13}px;
 top:${y13}px;
 }
 #img14{
-position: fixed; 
+ 
 left:${x14}px;
 top:${y14}px;
 }
 #img15{
-position: fixed; 
+ 
 left:${x15}px;
 top:${y15}px;
 }
 #img16{
-position: fixed; 
+ 
 left:${x16}px;
 top:${y16}px;
 }
 #img17{
-position: fixed; 
+ 
 left:${x17}px;
 top:${y17}px;
 }
 #img18{
-position: fixed; 
+ 
 left:${x18}px;
 top:${y18}px;
 }
 #img19{
-position: fixed; 
+ 
 left:${x19}px;
 top:${y19}px;
 }
 #img20{
-position: fixed; 
+ 
 left:${x20}px;
 top:${y20}px;
 }
 #img21{
-position: fixed; 
+ 
 left:${x21}px;
 top:${y21}px;
 }
 #img22{
-position: fixed; 
+ 
 left:${x22}px;
 top:${y22}px;
 }
 #img23{
-position: fixed; 
+ 
 left:${x23}px;
 top:${y23}px;
 }
 #img24{
-position: fixed; 
+ 
 left:${x24}px;
 top:${y24}px;
 }
 #img25{
-position: fixed; 
+ 
 left:${x25}px;
 top:${y25}px;
 }
 #img26{
-position: fixed; 
+ 
 left:${x26}px;
 top:${y26}px;
 }
 #img27{
-position: fixed; 
+ 
 left:${x27}px;
 top:${y27}px;
 }
 #img28{
-position: fixed; 
+ 
 left:${x28}px;
 top:${y28}px;
 }
 #img29{
-position: fixed; 
+ 
 left:${x29}px;
 top:${y29}px;
 }
 #img30{
-position: fixed; 
+ 
 left:${x30}px;
 top:${y30}px;
 }
@@ -180,14 +206,14 @@ top:${y30}px;
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
-
+<%@ include file="../header.jsp" %>
 
 <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- Sidebar user panel -->
-       <div class="user-panel">
+         <div class="user-panel">
 
 				<div class="pull-left image" style="height: 100px; width: 80px;">
 
@@ -236,8 +262,7 @@ top:${y30}px;
                 <li><a href="showMessage.do"><i class="fa fa-circle-o"></i> 메세지 보기</a></li>
                 <li><a href="classBbs.do"><i class="fa fa-circle-o"></i> 수업게시판</a></li>
                 <li><a href="saveClass.do"><i class="fa fa-circle-o"></i> 수업내용 저장</a></li>
-                <li><a data-toggle="modal" href="fileUpload.do" data-target="#myModal6"><i class="fa fa-circle-o"></i>파일업로드</a></li>
-                
+                <li><a data-toggle="modal" href="fileUpload.do" data-target="#myModal6"><i class="fa fa-circle-o"></i>파일업로드</a></li>      
               </ul>
             </li>
             <li>
@@ -257,25 +282,34 @@ top:${y30}px;
         </section>
         <!-- /.sidebar -->
       </aside>
-      
-      <c:forEach var="dto" items="${list }">
-<img src="${dto.id }.jpg" id="img${dto.idx }" width="50px" height="50px">
-</c:forEach>
- 
+<div class="content-wrapper" style="background: white; min-height: 800px;">
+ <div class="col frame2" id="droppable" style="width: 1050px; height: 700px; background:rgb(185, 205, 214); padding: 5px 5px 5px 5px;" >
+  <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left; padding:5px 5px 5px 5px; background:#E6A323;">
+  <c:forEach var="dto" items="${list }">
+				<div id="img${dto.idx }" style="position: absolute; text-align: center;">
+				<img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
+          		<div id="r">${dto.id }</div>
+          		<div id="loginCheck_${dto.id }">
+          		<span class="fa fa-circle text-danger"><font color="white">&nbsp;&nbsp;OffLine</font></span>
+				</div>
+				</div>
+ </c:forEach>
+  </div>
+			
+ </div>
+</div>
 
 <%--         <iframe style="float: right;" src="http://192.33.33.26:8081?student=${sname }&classRoom=자바" width="550" height="550">
  		</iframe> --%>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
-        <!-- remote ajax call이 되는영역 -->
     </div>
   </div>
 </div>
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
-        <!-- remote ajax call이 되는영역 -->
     </div>
   </div>
 </div>
@@ -283,7 +317,6 @@ top:${y30}px;
 <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
-        <!-- remote ajax call이 되는영역 -->
     </div>
   </div>
 </div>
@@ -291,7 +324,6 @@ top:${y30}px;
 <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
-        <!-- remote ajax call이 되는영역 -->
     </div>
   </div>
 </div>
@@ -306,10 +338,133 @@ top:${y30}px;
 <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
-        <!-- remote ajax call이 되는영역 -->
     </div>
   </div>
 </div>
+<div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+<%
+	
+	String idx = request.getParameter("idx");
+%>
+	$(document).ready(function() {
+		$('#sendBtn').click(function() { connect()});
+		$('#wsBtn1').click(function() { sendMessage("red"); })
+		$('#wsBtn2').click(function() { sendMessage("blue"); })
+		$('#wsBtn3').click(function() { sendMessage("yellow"); })
+		$('#dbSend').click(function() { dbSend($("message").val());})
+	});
+	
+	var wsocket;
+	
+	function connect() {
+		var url1="ws://<%=inet.getHostAddress()%>:<%=request.getServerPort()%>/papajohns/echo-ws?idx=${idx}&teacher=${teacher}&user=${sid}";
+		var url="ws://localhost:<%=request.getServerPort()%>/papajohns/echo-ws?idx=${idx}&teacher=${teacher}&user=${sid}";
+		console.log(url1);
+		wsocket = new WebSocket(url);
+		wsocket.onopen = onOpen;
+		wsocket.onmessage = onMessage;
+		wsocket.onclose = onClose;
+	}
+	
+	function onOpen(evt) {
+		wsocket.send("loginOn:${sid}");
+		//window.alert('연결되었습니다.');
+	}
+	
+	function onMessage(evt) {
+		var data = evt.data;
+		if(!(data.indexOf("loginOn")==-1)){
+			var onId = data.substring(8);
+			console.log(onId);
+			loginOn(onId);
+		}
+		/*
+		else if(data=="loginCheck"){
+			wsocket.send("loginOn:${sid}");
+		}
+		*/
+		//tab.style.backgroundColor = data;
+	}
+	
+	function loginOn(onId){
+		document.getElementById("loginCheck_"+onId).innerHTML='<span class="fa fa-circle text-success"><font color="white">&nbsp;&nbsp;OnLine</font></span>';
+	}
+	
+	
+	function onClose(evt) {
+		wsocket.close();
+		alert("연결 끊김");
+	}
+	
+	function sendMessage(color){
+		//window.alert('확인을 누르면 '+color+' 메세지가 전달됩니다.');
+		wsocket.send(color);
+	}
+	
+	function dbSend(message){
+		
+		
+	}
+</script>
+	<section>
+	<article>
+	<table style="margin:0px auto; background-color:red;" id="tab" width="200" border="1" cellspacing="0" cellpadding="0">
+	<tr>
+	<td style="color:black">테스트입니다.</td>
+	</tr>
+	<tr>
+	<td>
+	<input type="button" id="wsBtn1" value="빨강">
+	<input type="button" id="wsBtn2" value="파랑">
+	<input type="button" id="wsBtn3" value="노랑">
+	
+	
+	</td>
+	</tr>
+	<tr>
+	<td>
+
+    <input type="text" id="message">
+    <input type="button" id="sendBtn" value="연결" onclick="sendBtn()">
+    <input type="button" id="dbSend" value="DB저장">
+	</td>
+	</tr>
+	</table>
+	</article>
+	</section>
+
+    <script src="css/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    jQuery UI 1.11.4
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    Resolve conflict in jQuery UI tooltip with Bootstrap tooltip
+    <script>
+      $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    Bootstrap 3.3.5
+    <script src="css/bootstrap/js/bootstrap.min.js"></script>
+    Morris.js charts
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="css/plugins/morris/morris.min.js"></script>
+    Sparkline
+    <script src="css/plugins/sparkline/jquery.sparkline.min.js"></script>
+    jvectormap
+    <script src="css/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="css/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    jQuery Knob Chart
+    <script src="css/plugins/knob/jquery.knob.js"></script>
+    daterangepicker
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+    <script src="css/plugins/daterangepicker/daterangepicker.js"></script>
+    datepicker
+    <script src="css/plugins/datepicker/bootstrap-datepicker.js"></script>
+    Bootstrap WYSIHTML5 -->
  
 
 </body>
