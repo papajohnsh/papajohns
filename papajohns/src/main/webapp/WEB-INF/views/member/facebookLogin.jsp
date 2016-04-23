@@ -58,10 +58,10 @@ function statusChangeCallback(response) {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-<img src="facebook_icon.png" onclick="checkLoginState()" />
+<img src="facebook_icon.png" onclick="checkLoginState()" width="48" height="48"/>
 <script>
 
-</script>
+</script> 
 <!-- <script>
 var oneClick = true; //중복호출 방지용 상태변수
 function statusChangeCallback(response) {
@@ -125,7 +125,6 @@ function fblogout(){
   <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
   </fb:login-button>
  -->
-<br>
 
 </body>
 </html>
