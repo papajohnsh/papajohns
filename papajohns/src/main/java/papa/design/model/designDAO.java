@@ -11,5 +11,6 @@ public interface designDAO {
 	public String send(int idx);
 	public List<MemberDTO> designJoin(String idx);
 	public String reidxList(int idx);
+	public String teacher(int idx);
 
 }
