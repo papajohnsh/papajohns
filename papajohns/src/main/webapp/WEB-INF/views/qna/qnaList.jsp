@@ -47,7 +47,7 @@
        <div class="row">
        	<div class="col-xs-2"></div>
          <div class="col-xs-8">
-           <div class="box" style="border: 1px darkblue solid; border-width: 8px;">
+           <div class="box">
              <div class="box-header" align="center">
                <h3 class="box-title"><span class="glyphicons glyphicons-question-sign">질문게시판</span></h3>
                <div class="box-tools">

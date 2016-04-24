@@ -41,14 +41,13 @@
    </aside>
 
    <!-- Content Wrapper. Contains page content -->
-   <div class="content-wrapper" style="background-color: #ffffff">
+   <div class="content-wrapper" style="background-color: #ffffff;">
 
      <!-- Content Header (Page header) -->
        <div class="row">
          <div class="col-xs-2"></div>
          <div class="col-xs-8">
-         <div class="box" style="border: 1px gold solid; border-width: 8px;">
-             <div class="box-header" align="center">             
+             <div class="box-header" align="center">
                <h3 class="box-title"><span class="glyphicons glyphicons-question-sign">FAQ</span></h3>
                <div class="box-tools">
                  <div class="input-group" style="width: 150px;">

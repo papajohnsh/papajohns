@@ -30,12 +30,13 @@
          </li>
          <li>
           <a href="noticeList.do">
-             <i class="fa fa-circle-o text-green"></i><span>공지사항</span>
+             <i class="fa fa-circle-o text-red"></i><span>공지사항</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
        </ul> 
         <ul class="sidebar-menu"></ul>
+     </section>
 	
      <!-- /.sidebar -->
    </aside>
@@ -47,7 +48,7 @@
        <div class="row">
        <div class="col-xs-2"></div>
          <div class="col-xs-8">
-           <div class="box" style="border:  1px darkgreen solid; border-width: 8px">
+           <div class="box">
              <div class="box-header" align="center">
                <h3 class="box-title"><span class="glyphicons glyphicons-notes-2">공지사항</span></h3>
                <div class="box-tools">
@@ -82,7 +83,7 @@
                        <td>${dto.idx}</td>
                        <td><a href="noticeContent.do?idx=${dto.idx}">${dto.subject}</a></td>
                        <td>${dto.writer}</td>
-                       <td><span class="badge bg-green">${dto.readnum}</span></td>
+                       <td><span class="badge bg-red">${dto.readnum}</span></td>
                      </tr>
                      </c:forEach>
                    </tbody>
@@ -108,6 +109,7 @@
            <div class="col-xs-2"></div>
          </div>
        </div>
+     </section><!-- /.content -->
 
 </div>
      </div><!-- /.content-wrapper -->
