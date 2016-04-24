@@ -102,36 +102,29 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>1.</td>
-                          <td><a href="noticeShow.do">쪽지시험 관련 공지</a></td>
-                          <td>송중기</td>
-                          <td><span class="badge bg-red">50</span></td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td><a href="#">수학 과제 제출 요망</a></td>
-                          <td>송혜교</td>
-                          <td><span class="badge bg-yellow">80</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td><a href="#">수업시간표 변경 관련 사항</a></td>
-                          <td>이진욱</td>
-                          <td><span class="badge bg-blue">20</span></td>
-                        </tr>
-                        <tr>
-                          <td>4.</td>
-                          <td><a href="#">휴강일 공지</a></td>
-                          <td>유해진</td>
-                          <td><span class="badge bg-blue">20</span></td>
-                        </tr>
-                      </tbody>
-                    </table>
+                     	<c:set var="noticeList" value="${list6}"></c:set>
+                   	<c:if test="${empty noticeList}">
+                   		<tr>
+                   			<td colspan="4" align="center">
+                   			 	등록된 게시글이 없습니다.
+                   			</td>
+                   		</tr>
+                   	</c:if>
+
+                   	<c:forEach var="dto" items="${noticeList}">
+                     <tr>
+                       <td>${dto.idx}</td>
+                       <td><a href="noticeContent.do?idx=${dto.idx}">${dto.subject}</a></td>
+                       <td>${dto.writer}</td>
+                       <td><span class="badge bg-red">${dto.readnum}</span></td>
+                     </tr>
+                     </c:forEach>
+                   </tbody>
+               </table>
+              
                      <div class="box-footer clearfix" align="center">
              		<ul class="pagination pagination-sm no-margin pull-center">
-                    	<li><a href="#">&laquo;</a></li>
-                    	<li><a href="#">&raquo;</a></li>
+                    	
                   	</ul>
                   
                 </div><!-- /.box-footer -->
@@ -160,35 +153,30 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <td>1.</td>
-                          <td><a href="noticeShow.do">쪽지시험 관련 공지</a></td>
-                          <td>송중기</td>
-                          <td><span class="badge bg-red">50</span></td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td><a href="#">수학 과제 제출 요망</a></td>
-                          <td>송혜교</td>
-                          <td><span class="badge bg-yellow">80</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td><a href="#">수업시간표 변경 관련 사항</a></td>
-                          <td>이진욱</td>
-                          <td><span class="badge bg-blue">20</span></td>
-                        </tr>
-                        <tr>
-                          <td>4.</td>
-                          <td><a href="#">휴강일 공지</a></td>
-                          <td>유해진</td>
-                          <td><span class="badge bg-blue">20</span></td>
-                        </tr>
-                      </tbody>
+                       <c:set var="freebbsList" value="${list7}"></c:set>
+                   	<c:if test="${empty freebbsList}">
+                   		<tr>
+                   			<td colspan="4" align="center">
+                   			 	등록된 게시글이 없습니다.
+                   			</td>
+                   		</tr>
+                   	</c:if>
+
+                   	<c:forEach var="dto" items="${freebbsList}">
+                     <tr>
+                       <td>${dto.idx}</td>
+                       <td><a href="bbsContent.do?idx=${dto.idx}">${dto.subject}</a></td>
+                       <td>${dto.writer}</td>
+                       <td><span class="badge bg-red">${dto.readnum}</span></td>
+                     </tr>
+                     </c:forEach>
+                   </tbody>
+               </table>
+               <div align="center">${pageStr2}</div><!-- 페이징 영역 -->
                     </table>
                      <div class="box-footer clearfix" align="center">
              		<ul class="pagination pagination-sm no-margin pull-center">
-                    	<li><a href="#">&laquo;</a></li>
-                    	<li><a href="#">&raquo;</a></li>
+                    	
                   	</ul>
                   
                 </div><!-- /.box-footer -->

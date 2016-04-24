@@ -64,7 +64,7 @@
                 <div class="box-body">
                   <table id="example2" class="table table-bordered">
                   <tr>
-                		<td>번호</td>
+                		<td style="width: 50px;">번호</td>
                 		<td>${dto.idx}</td>
                 		<td>작성자</td>
                 		<td>${dto.writer}</td>
@@ -75,8 +75,8 @@
                 		<td>조회수</td>
                 		<td><span class="badge bg-red">${dto.readnum}</span></td>
                 	</tr>
-                	<tr>
-						<td align="center" colspan="4">
+                	<tr style="height: 163px;">
+						<td colspan="4">
 						${dto.content }
 						</td>
 					</tr>					

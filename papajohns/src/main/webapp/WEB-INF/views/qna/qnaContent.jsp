@@ -6,13 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
 <%@include file="../header.jsp" %>
 <!-- Left side column. contains the logo and sidebar -->
-  	<aside class="main-sidebar">
+	<aside class="main-sidebar">
 
 	<%@ include file="../side.jsp" %>
 
@@ -21,14 +23,8 @@
        <ul class="sidebar-menu">
          <li class="header">Menu</li>
          <li>
-          <a href="faqList.do">
-             <i class="fa fa-circle-o text-red"></i> <span>FAQ</span>
-             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-           </a>
-         </li>
-         <li>
-           <a href="qnaList.do">
-            <i class="fa fa-circle-o text-aqua"></i><span>Q&A</span>
+          <a href="bbsListForm.do">
+             <i class="fa fa-circle-o text-red"></i> <span>자유게시판</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -62,10 +58,10 @@
                 <div class="box-header with-border">
                   <h3 class="box-title">본문내용보기</h3>
                 </div><!-- /.box-header -->
-                <div class="box-body">
+                <div class="box-body" >
                   <table id="example2" class="table table-bordered">
                   <tr>
-                		<td>번호</td>
+                		<td style="width: 50px;">번호</td>
                 		<td>${dto.idx}</td>
                 		<td>작성자</td>
                 		<td>${dto.writer}</td>
@@ -76,18 +72,52 @@
                 		<td>조회수</td>
                 		<td><span class="badge bg-red">${dto.readnum}</span></td>
                 	</tr>
-                	<tr>
-						<td align="center" colspan="4">
+                	<tr style="height: 163px;">
+						<td colspan="4">
 						${dto.content }
 						</td>
 					</tr>
                   </table>
-                  <div align="center">
-		            <span><a href="qnaReWriteForm.do?idx=${dto.idx }&subject=${dto.subject}" class="btn btn-sm btn-danger btn-flat pull-center"> 댓글작성</a></span>
-		            <span><a href="qnaList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a></span>
-        		</div>
-                </div><!-- /.box-body -->
+                 
+		          
+        		
+             
+                       <c:set var="bbsReList" value="${reList}"></c:set>
+          
+                  <table class="table table-striped">
+                 
+                      <c:if test="${empty reList}">
+                       <tr>
+                  <td>
+                     등록된 댓글이 없습니다.
+                     </td>
+                  </tr>
+                  </c:if>
+                  
+                  <c:forEach var="dto" items="${reList}">
+                 <tr>
+                  <td>
+                    <img src=""
+						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
+						class="img-circle" alt="user image" class="online" width="30px;" height="30px;">
+						${dto.writer}/ ${dto.write_date}  <br>
+						${dto.content}
+						</td>
+					
+                   
+                 
+                  </c:forEach>
+                  <c:set var="dto" value="${list}"></c:set>
+                 <tr>
+                  <td align="right">
+                    <a href="qnaReWriteForm.do?idx=${dto.idx }&subject=${dto.subject}" class="btn btn-sm btn-danger btn-flat pull-center"> 댓글작성</a>
+		            <a href="qnaList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a>
+                  </td>
+                  </tr>
+                  </table>
+                     </div><!-- /.box-body -->
               </div><!-- /. box -->
+             
             </div><!-- /.col -->
           </div><!-- /.row -->
         </section><!-- /.content -->
@@ -95,36 +125,10 @@
      </c:choose>
      
      <!-- Chat box -->
-              <div class="box box-success">
-                <div class="box-header">
-                  <i class="fa fa-comments-o"></i>
-                  <h3 class="box-title">Chat</h3>
-                </div>
-                <div class="box-body chat" id="chat-box">
-                  <!-- chat item -->
-                  <c:set var="qnaReList" value="${reList}"></c:set>
-                  <c:if test="${empty qnaReList}">
-                  	등록된 댓글이 없습니다.
-                  </c:if>
-                  <c:forEach var="dto" items="${qnaReList}">
-                  <div class="item">
-                    <img src="img/송중기.jpg" alt="user image" class="online">
-                    <p class="message">
-                      <a href="#" class="name">
-                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i>${dto.write_date}</small>
-                        	${dto.writer}
-                      </a>
-                      		${dto.content}
-                    </p>
-                    
-                  </div><!-- /.item -->
-                  </c:forEach>
-                  <!-- chat item -->
-                </div><!-- /.chat -->
-              </div><!-- /.box (chat box) -->
+            
      
       </div><!-- /.content-wrapper -->
-      <%@ include file="../footer.jsp" %>
+      
     <%@ include file="../controllSide.jsp" %>
 	 
 </body>

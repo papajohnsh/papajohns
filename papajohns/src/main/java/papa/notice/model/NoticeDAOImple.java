@@ -44,4 +44,9 @@ public class NoticeDAOImple implements NoticeDAO {
 		List<NoticeDTO> list=sqlMap.selectList("noticeFind", map);
 		return list;
 	}
+	@Override
+	public List<NoticeDTO> noticeAllList() {
+		List<NoticeDTO> list=sqlMap.selectList("noticeAllList");
+		return list;
+	}
 }

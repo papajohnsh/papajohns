@@ -97,7 +97,7 @@
                   <c:forEach var="dto" items="${bbsReList}">
                  <tr>
                   <td>
-                    <img src="resource/data/${sid }/profile.jpg"
+                    <img src=""
 						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
 						class="img-circle" alt="user image" class="online" width="30px;" height="30px;">
 						${dto.writer}/ ${dto.write_date}  <br>
