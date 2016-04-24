@@ -26,7 +26,6 @@ function gogo(){
 	$(':input[name=page]').on('click',function(){
 
 		var idx=$(this).attr('id');
-		window.alert(idx);
 		var id=$('#id').val();
 			
 			params='idx='+idx+'&id='+id;

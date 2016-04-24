@@ -504,6 +504,10 @@ public class MemberController {
 		return mav;
 	
 	}
+	@RequestMapping("/joinForm.do")
+	public String joinForm(){
+		return "member/joinForm";
+	}
 
 				
 				
