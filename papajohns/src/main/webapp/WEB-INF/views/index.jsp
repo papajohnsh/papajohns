@@ -23,7 +23,7 @@
 		scheduler.config.api_date="%Y-%m-%d %H:%i";
 		scheduler.config.xml_date="%Y-%m-%d %H:%i";
 		scheduler.config.prevent_cache = true;
-		scheduler.xy.margin_top=30;
+		scheduler.xy.margin_top= 30;
 		
 		var now=new Date();
 		var y=now.getFullYear();
@@ -360,7 +360,7 @@
               </div><!-- /.box-header -->
               
          <br> <br> <br> 
-         <div style="width: 35%;  margin-top:-53px; float: right; margin-right:10%;z-index: auto;">
+         <div style="width: 35%; margin-top:-3.2%; float: right; margin-right:10%;z-index: auto;">
          <div class="box">
          
                 <div class="box-header with-border" align="center" style="margin-top: 10px;">
@@ -368,12 +368,12 @@
                <!-- /.box-header -->
                    
 
-                 
+                 </div>
         <c:if test="${empty list4 }">
-       	<h2>등록된 강의가 없습니다</h2> 
+        <div ali> 	<h2>등록된 강의가 없습니다</h2> </div> 
           	            <div class="col-lg-3 col-xs-6"    >
               <!-- small box -->
-              <div class="small-box bg-white" style=" width:100%; height:50%;  ">
+              <div class="small-box bg-white" style=" width:80%; height:50%;  ">
  		
                 <div class="inner" style="padding-bottom: 20%; ">
                    <a href="makeClass.do?idx=${dto.idx }"  style="height:30px;">  <img src="img/더하기.png" style=" width:70%; height:60%; "></a>
@@ -387,7 +387,7 @@
           
           </div>
           </c:if>
-      </div>
+      
                <c:forEach var="dto" items="${list4 }"  >
 
       <!-- Small boxes (Stat box) -->
