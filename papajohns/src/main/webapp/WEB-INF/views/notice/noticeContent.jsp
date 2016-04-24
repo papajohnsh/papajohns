@@ -38,8 +38,9 @@
    </aside>
    
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
-      
+      <div class="content-wrapper" style="background-color: #ffffff">
+       <div class="col-md-2"></div>
+            <div class="col-md-8">
         <!-- Main content -->
         <c:set var="dto" value="${list}"></c:set>
 		   <c:choose>
@@ -58,21 +59,21 @@
             
             <div class="col-md-12">
               <div class="box box-primary">
-                <div class="box-header with-border">
-                  <h3 class="box-title">공지사항 보기</h3>
+                <div class="box-header with-border" align="center">
+                  <h3 class="box-title"><span class="glyphicons glyphicons-notes-2">공지사항 보기</span></h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table id="example2" class="table table-bordered">
                   <tr>
-                		<td>번호</td>
+                		<td><span class="glyphicons glyphicons-list-numbered">번호</span></td>
                 		<td>${dto.idx}</td>
-                		<td>작성자</td>
+                		<td><span class="glyphicons glyphicons-user">작성자</span></td>
                 		<td>${dto.writer}</td>
                 	</tr>
                 	<tr>
-                		<td>제목</td>
+                		<td><span class="glyphicons glyphicons-list">제목</span></td>
                 		<td>${dto.subject}</td>
-                		<td>조회수</td>
+                		<td><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></td>
                 		<td><span class="badge bg-red">${dto.readnum}</span></td>
                 	</tr>
                 	<tr>
@@ -86,11 +87,13 @@
         		</div>
                 </div><!-- /.box-body -->
               </div><!-- /. box -->
+              <div class="col-md-2"></div>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </section><!-- /.content -->
         </c:otherwise>
      </c:choose>
+     </div>
       </div><!-- /.content-wrapper -->
       <%@ include file="../footer.jsp" %>
     <%@ include file="../controllSide.jsp" %>

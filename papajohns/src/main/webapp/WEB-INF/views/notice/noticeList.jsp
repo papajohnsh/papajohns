@@ -42,24 +42,18 @@
    </aside>
 
    <!-- Content Wrapper. Contains page content -->
-   <div class="content-wrapper">
+   <div class="content-wrapper" style="background-color: #ffffff">
 
      <!-- Content Header (Page header) -->
        <div class="row">
-         <div class="col-xs-12">
+       <div class="col-xs-2"></div>
+         <div class="col-xs-8">
            <div class="box">
              <div class="box-header" align="center">
-               <h3 class="box-title">공지사항</h3>
+               <h3 class="box-title"><span class="glyphicons glyphicons-notes-2">공지사항</span></h3>
                <div class="box-tools">
                  <div class="input-group" style="width: 150px;">
-                 <form name="search" action="noticeFind.do" method="post">
-					<select name="fkey">
-                 		<option value="writer">작성자</option>
-                 		<option value="subject">제목</option>     		
-                 	</select>
-                 	<input type="text" name="fvalue" required="required" class="form-control input-sm pull-right" placeholder="Search">
-      				<input type="submit" class="btn btn-sm btn-default" value="검색">
-					</form>
+                 
                  </div>
                </div>
 
@@ -68,13 +62,13 @@
                <table class="table table-hover">
                 <thead>
                      <tr>
-                       <th>번호</th>
-                       <th>제목</th>
-                       <th>작성자</th>
-                       <th>조회수</th>
+                       <th><span class="glyphicons glyphicons-list-numbered">번호</span></th>
+                       <th><span class="glyphicons glyphicons-list">제목</span></th>
+                       <th><span class="glyphicons glyphicons-user">작성자</span></th>
+                       <th><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></th>
                      </tr>
                    </thead>
-                 <tbody>
+                 <tbody align="center">
                    	<c:set var="noticeList" value="${list}"></c:set>
                    	<c:if test="${empty noticeList}">
                    		<tr>
@@ -96,13 +90,23 @@
                </table>
                <div align="center">${pageStr}</div><!-- 페이징 영역 -->
 				<br>
-				
+				<div align="center">
+					<form name="search" action="noticeFind.do" method="post">
+					<select name="fkey">
+                 		<option value="writer">작성자</option>
+                 		<option value="subject">제목</option>     		
+                 	</select>
+                 	<input type="text" name="fvalue" required="required" width="30%" placeholder="Search">
+      				<input type="submit" class="btn btn-sm btn-success" value="검색">
+					</form>
+				</div>
                <div class="box-footer clearfix" align="center">
 				
                <a href="noticeWriteForm.do" class="btn btn-sm btn-info btn-flat pull-right">글쓰기</a>
           
              </div><!-- /.box-body -->
            </div><!-- /.box -->
+           <div class="col-xs-2"></div>
          </div>
        </div>
      </section><!-- /.content -->

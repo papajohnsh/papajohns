@@ -26,7 +26,7 @@ InetAddress inet= InetAddress.getLocalHost();
 </script>
 <style>
 .frame2{
-border-color:#000000 #4785F8;
+border-color:rgb(71, 133, 248) #4785F8;
 border-image:none;
 border-radius: 0 0 0 0;
 -moz-border-radius:0 0 0 0;
@@ -37,7 +37,7 @@ border-width:15px;
 }
 
 .frame3{
-border-color:rgb(62, 255, 157) #4785F8;
+border-color:rgb(71, 133, 248) #4785F8;
 border-image:none;
 border-radius: 50px 0 50px 0;
 -moz-border-radius:50px 0 50px 0;
@@ -285,7 +285,7 @@ top:${y30}px;
       </aside>
 <div class="content-wrapper" style="background: white; min-height: 800px;">
  <div class="col frame2" id="droppable" style="width: 1050px; height: 700px; background:rgb(185, 205, 214); padding: 5px 5px 5px 5px;" >
-  <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left; padding:5px 5px 5px 5px; background:#E6A323;">
+  <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left; padding:5px 5px 5px 5px; background:#ecf0f5;">
   <c:forEach var="dto" items="${list }">
 				<div id="img${dto.idx }" style="position: absolute; text-align: center;">
 				<img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>

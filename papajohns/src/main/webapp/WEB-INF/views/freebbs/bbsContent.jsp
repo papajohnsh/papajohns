@@ -30,12 +30,11 @@
          </li>
        </ul>
         <ul class="sidebar-menu"></ul>
-     </section>
      <!-- /.sidebar -->
    </aside>
    
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
+      <div class="content-wrapper" style="background: #ffffff">
       
         <!-- Main content -->
         <c:set var="dto" value="${list}"></c:set>
@@ -52,24 +51,24 @@
         
         <section class="content">
           <div class="row">
-            
-            <div class="col-md-12">
-              <div class="box box-primary">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <div class="box box-primary" align="center">
                 <div class="box-header with-border">
-                  <h3 class="box-title">본문내용보기</h3>
+                  <h3 class="box-title"><span class="glyphicons glyphicons-table">본문내용보기</span></h3>
                 </div><!-- /.box-header -->
                 <div class="box-body" >
                   <table id="example2" class="table table-bordered">
                   <tr>
-                		<td style="width: 50px;">번호</td>
+                		<td><span class="glyphicons glyphicons-list-numbered">번호</span></td>
                 		<td>${dto.idx}</td>
-                		<td>작성자</td>
+                		<td><span class="glyphicons glyphicons-user">작성자</span></td>
                 		<td>${dto.writer}</td>
                 	</tr>
                 	<tr>
-                		<td>제목</td>
+                		<td><span class="glyphicons glyphicons-list">제목</span></td>
                 		<td>${dto.subject}</td>
-                		<td>조회수</td>
+                		<td><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></td>
                 		<td><span class="badge bg-red">${dto.readnum}</span></td>
                 	</tr>
                 	<tr style="height: 163px;">
@@ -78,9 +77,7 @@
 						</td>
 					</tr>
                   </table>
-                 
-		          
-        		
+
              
                        <c:set var="bbsReList" value="${reList}"></c:set>
           
@@ -103,13 +100,11 @@
 						${dto.writer}/ ${dto.write_date}  <br>
 						${dto.content}
 						</td>
-					
-                   
-                 
+
                   </c:forEach>
                   <c:set var="dto" value="${list}"></c:set>
                  <tr>
-                  <td align="right">
+                  <td align="center">
                     <a href="bbsReWriteAdd.do?idx=${dto.idx }&subject=${dto.subject}" class="btn btn-sm btn-danger btn-flat pull-center"> 댓글작성</a>
 		            <a href="bbsListForm.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a>
                   </td>
@@ -117,7 +112,7 @@
                   </table>
                      </div><!-- /.box-body -->
               </div><!-- /. box -->
-             
+             <div class="col-md-2"></div>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </section><!-- /.content -->
@@ -125,8 +120,7 @@
      </c:choose>
      
      <!-- Chat box -->
-            
-     
+
       </div><!-- /.content-wrapper -->
       
     <%@ include file="../controllSide.jsp" %>
