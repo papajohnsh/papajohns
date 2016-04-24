@@ -34,7 +34,7 @@ h3{
          </li>
          <li>
           <a href="noticeList.do">
-             <i class="fa fa-circle-o text-red"></i><span>공지사항</span>
+             <i class="fa fa-circle-o text-green"></i><span>공지사항</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -52,7 +52,7 @@ h3{
        <div class="row">
        <div class="col-xs-2"></div>
          <div class="col-xs-8">
-           <div class="box">
+           <div class="box" style="border: 1px darkred solid; border-width: 8px;">
              <div class="box-header" align="center">
                <h3 class="box-title"><span class="glyphicons glyphicons-blackboard">자유게시판</span></h3>
                <div class="box-tools">
