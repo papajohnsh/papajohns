@@ -8,6 +8,7 @@
 <script src="js/plan/dhtmlxscheduler_serialize.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="css/plan/dhtmlxscheduler.css" type="text/css" title="no title" charset="utf-8">
 <title>Insert title here</title>
+
 </head>
 <style type="text/css" media="screen">
 		html, body{
@@ -80,128 +81,127 @@
    <!-- Content Wrapper. Contains page content -->
    
 
-    <br>    <!-- Main content -->
-     <div>
-              <div class="container" style="width: 35%;margin-left:18%; z-index: auto;  margin-top:1%; ">
-                <div class="box-header with-border" align="center">
-                  <h3 class="box-title">공지사항</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <div class="table-responsive">
-                    <table class="table no-margin">
-                      <thead>
-                        <tr>
-                          <th>번호</th>
-                          <th>제목</th>
-                          <th>작성자</th>
-                          <th>조회수</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1.</td>
-                          <td><a href="noticeShow.do">쪽지시험 관련 공지</a></td>
-                          <td>송중기</td>
-                          <td><span class="badge bg-red">50</span></td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td><a href="#">수학 과제 제출 요망</a></td>
-                          <td>송혜교</td>
-                          <td><span class="badge bg-yellow">80</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td><a href="#">수업시간표 변경 관련 사항</a></td>
-                          <td>이진욱</td>
-                          <td><span class="badge bg-blue">20</span></td>
-                        </tr>
-                        <tr>
-                          <td>4.</td>
-                          <td><a href="#">휴강일 공지</a></td>
-                          <td>유해진</td>
-                          <td><span class="badge bg-blue">20</span></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                     <div class="box-footer clearfix" align="center">
-             		<ul class="pagination pagination-sm no-margin pull-center">
-                    	<li><a href="#">&laquo;</a></li>
-                    	<li><a href="#">&raquo;</a></li>
-                  	</ul>
-                  
-                </div><!-- /.box-footer -->
-                    </div><!-- container -->
-                  </div><!-- /.table-responsive -->
-                 </div><!-- /.box --> 
+    <br>    <<!-- Content Wrapper. Contains page content -->
+   <div class="content-wrapper" style="background-color: #ffffff">
+	<div class="col-xs-2"></div>
+     <!-- Content Header (Page header) -->
+       <div class="row">
+         <div class="col-xs-4">
+           <div class="box">
+             <div class="box-header" align="center">
+               <h3 class="box-title"><span class="glyphicons glyphicons-notes-2">공지사항</span></h3>
+               <div class="box-tools">
+                 <div class="input-group" style="width: 150px;">
                  
-                   <div class="container" style="width: 35%;margin-left:60%;  margin-top: -315px; ">
-                <div class="box-header with-border" align="center">
-                  <h3 class="box-title">자유게시판</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <div class="table-responsive">
-                    <table class="table no-margin">
-                      <thead>
-                        <tr>
-                          <th>번호</th>
-                          <th>제목</th>
-                          <th>작성자</th>
-                          <th>조회수</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1.</td>
-                          <td><a href="noticeShow.do">쪽지시험 관련 공지</a></td>
-                          <td>송중기</td>
-                          <td><span class="badge bg-red">50</span></td>
-                        </tr>
-                        <tr>
-                          <td>2.</td>
-                          <td><a href="#">수학 과제 제출 요망</a></td>
-                          <td>송혜교</td>
-                          <td><span class="badge bg-yellow">80</span></td>
-                        </tr>
-                        <tr>
-                          <td>3.</td>
-                          <td><a href="#">수업시간표 변경 관련 사항</a></td>
-                          <td>이진욱</td>
-                          <td><span class="badge bg-blue">20</span></td>
-                        </tr>
-                        <tr>
-                          <td>4.</td>
-                          <td><a href="#">휴강일 공지</a></td>
-                          <td>유해진</td>
-                          <td><span class="badge bg-blue">20</span></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                     <div class="box-footer clearfix" align="center">
-             		<ul class="pagination pagination-sm no-margin pull-center">
-                    	<li><a href="#">&laquo;</a></li>
-                    	<li><a href="#">&raquo;</a></li>
-                  	</ul>
-                  
-                </div><!-- /.box-footer -->
-                    </div><!-- container -->
-                  </div><!-- /.table-responsive -->
-                 </div><!-- /.box --> 
                  </div>
-                 
-             
+               </div>
 
+             </div><!-- /.box-header -->
+             <div class="box-body table-responsive no-padding">
+               <table class="table table-hover">
+                <thead>
+                     <tr>
+                       <th><span class="glyphicons glyphicons-list-numbered">번호</span></th>
+                       <th><span class="glyphicons glyphicons-list">제목</span></th>
+                       <th><span class="glyphicons glyphicons-user">작성자</span></th>
+                       <th><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></th>
+                     </tr>
+                   </thead>
+                 <tbody align="center">
+                   	<c:set var="noticeList" value="${list}"></c:set>
+                   	<c:if test="${empty noticeList}">
+                   		<tr>
+                   			<td colspan="4" align="center">
+                   			 	등록된 게시글이 없습니다.
+                   			</td>
+                   		</tr>
+                   	</c:if>
 
+                   	<c:forEach var="dto" items="${noticeList}">
+                     <tr>
+                       <td>${dto.idx}</td>
+                       <td><a href="noticeContent.do?idx=${dto.idx}">${dto.subject}</a></td>
+                       <td>${dto.writer}</td>
+                       <td><span class="badge bg-red">${dto.readnum}</span></td>
+                     </tr>
+                     </c:forEach>
+                   </tbody>
+               </table>
+               <div align="center">${pageStr}</div><!-- 페이징 영역 -->
+				<br>
+				<div align="center">
+					<form name="search" action="noticeFind.do" method="post">
+					<select name="fkey">
+                 		<option value="writer">작성자</option>
+                 		<option value="subject">제목</option>     		
+                 	</select>
+                 	<input type="text" name="fvalue" required="required" width="30%" placeholder="Search">
+      				<input type="submit" class="btn btn-sm btn-success" value="검색">
+					</form>
+				</div>
+          
+             </div><!-- /.box-body -->
+           </div><!-- /.box -->
+       </div>
+     <!-- Content Header (Page header) -->
+         <div class="col-xs-4">
+           <div class="box">
+             <div class="box-header" align="center">
+               <h3 class="box-title"><span class="glyphicons glyphicons-blackboard">자유게시판</span></h3>
+               <div class="box-tools">
+                 <div class="input-group" style="width: 150px;">
                  
-             
+                 </div>
+               </div>
+
+             </div><!-- /.box-header -->
+             <div class="box-body table-responsive no-padding">
+               <table class="table table-hover">
+                <thead>
+                     <tr>
+                       <th><span class="glyphicons glyphicons-list-numbered">번호</span></th>
+                       <th><span class="glyphicons glyphicons-list">제목</span></th>
+                       <th><span class="glyphicons glyphicons-user">작성자</span></th>
+                       <th><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></th>
+                     </tr>
+                   </thead>
+                 <tbody align="center">
+                   	<c:set var="freebbsList" value="${list}"></c:set>
+                   	<c:if test="${empty freebbsList}">
+                   		<tr>
+                   			<td colspan="4" align="center">
+                   			 	등록된 게시글이 없습니다.
+                   			</td>
+                   		</tr>
+                   	</c:if>
+
+                   	<c:forEach var="dto" items="${freebbsList}">
+                     <tr>
+                       <td>${dto.idx}</td>
+                       <td><a href="bbsContent.do?idx=${dto.idx}">${dto.subject}</a></td>
+                       <td>${dto.writer}</td>
+                       <td><span class="badge bg-red">${dto.readnum}</span></td>
+                     </tr>
+                     </c:forEach>
+                   </tbody>
+               </table>
+               <div align="center">${pageStr}</div><!-- 페이징 영역 -->
+				<br>
+				<div align="center">
+					<form name="search" action="bbsFind.do" method="post">
+						<select name="fkey">
+	                 		<option value="writer">작성자</option>
+	                 		<option value="subject">제목</option>     		
+	                 	</select>
+	                 	<input type="text" name="fvalue" required="required" width="30%" placeholder="Search">
+	                 	<input type="submit" class="btn btn-sm btn-danger" value="검색">
+					</form>
+				</div>
+             </div><!-- /.box-body -->
+           </div><!-- /.box -->
+		<div class="col-xs-2"></div>
+       </div>
+      </div> 
 
               <%-- <div class="box">
 >>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
@@ -421,12 +421,9 @@
           
           </div>
    </div>
-
+</div><!-- /.content-wrapper -->
     <aside class="main-sidebar">
       <%@ include file="side.jsp" %>
-    
-            
- 
- 
+
   </body>
 </html>
