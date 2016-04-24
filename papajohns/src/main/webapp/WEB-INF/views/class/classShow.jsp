@@ -334,10 +334,9 @@ top:${y30}px;
   </div>
 </div>
 
-<div class="modal fade bs-example-modal-lg" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
     <div class="modal-content">
-      
     </div>
   </div>
 </div>

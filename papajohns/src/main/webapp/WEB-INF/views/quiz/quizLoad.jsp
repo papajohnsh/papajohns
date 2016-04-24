@@ -34,9 +34,16 @@ function gogo(){
    function showResult() {
       if (XHR.readyState == 4) {
          if (XHR.status == 200) {
-        	
+			if(XHR.responseText==0){
+        		window.alert('이미 시험이 종료되었습니다.');
+         }else if(XHR.responseText==1){
+        	 window.alert('아직 시험시간이 이릅니다.');
+         }else if(XHR.responseText==2){
+        	 window.alert('이미 참여하였습니다.');
+         }else{
             document.getElementById('content').innerHTML=XHR.responseText;
             realtime();
+         }
          }
       }
    } 
@@ -72,7 +79,11 @@ function gogo(){
 <div class="modal-body">
 <div align="center">
 	<table style="width: 500px;height: 300px; margin:0;auto;" >
-	
+		<tr>
+			<th>시험명</th>
+			<th>시험날짜</th>
+			<th></th>
+		</tr>
 	   <c:if test="${empty result }">
 			등록된 시험이 없습니다.
 		</c:if>

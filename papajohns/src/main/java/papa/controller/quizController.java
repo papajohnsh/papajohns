@@ -217,19 +217,19 @@ public ModelAndView QuizTestList(@RequestParam(value="idx") int idx, @RequestPar
 		System.out.println(beginDate.getTime());
 		System.out.println(endDate.getTime());
 		ModelAndView mav=new ModelAndView();
-		String msg="아직 시험시간이 이릅니다.";
+		String msg="1";
 		mav.addObject("msg",msg);
 		mav.setViewName("quiz/quizUpdateMsg");
 		return mav;
 	}else if(beginDate.getTime()>endDate.getTime()+((long)1000*60*60)){
 		ModelAndView mav=new ModelAndView();
-		String msg="이미 시험이 종료되었습니다.";
+		String msg="0";
 		mav.addObject("msg",msg);
 		mav.setViewName("quiz/quizUpdateMsg");
 		return mav;
 	}else if(quizJoin != null){
 		ModelAndView mav=new ModelAndView();
-		String msg="이미 참여하였습니다.";
+		String msg="2";
 		mav.addObject("msg",msg);
 		mav.setViewName("quiz/quizUpdateMsg");
 		return mav;

@@ -39,7 +39,7 @@
   
   </form>
 <div>
-	<input type="text" id="helftime"><br>
+	<input type="text" id="helftime" readonly="readonly" style="border: none;font-size: 15pt;size: 50;float: right;"><br>
 	<c:forEach var="dto2" items="${result2 }" >
 		${dto2.idx}.&nbsp;&nbsp;&nbsp; ${dto2.question }<br>
 		<input type="radio" name="${dto2.idx }" value="1">①&nbsp;&nbsp;&nbsp; ${dto2.example1 }<br>
@@ -57,7 +57,7 @@
 	<input type="hidden" id="start_date" name="start_date" value="${dto2.start_date }">
 	<input type="hidden" id="start_time" name="start_time" value="${dto2.start_time }">
 	<input type="hidden" id="endtime" value="${endtime }">
-	<input type="button" id="exam" value="시험 보기" onclick="gogo()">
+	<input type="button" id="exam" class="btn btn-success pull-center" value="답안 제출" onclick="gogo()">
 	</form>
 </div> 
 </body>
