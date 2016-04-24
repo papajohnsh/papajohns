@@ -26,7 +26,7 @@ InetAddress inet= InetAddress.getLocalHost();
 </script>
 <style>
 .frame2{
-border-color:#000000 #4785F8;
+border-color:rgb(71, 133, 248) #4785F8;
 border-image:none;
 border-radius: 0 0 0 0;
 -moz-border-radius:0 0 0 0;
@@ -37,7 +37,7 @@ border-width:15px;
 }
 
 .frame3{
-border-color:rgb(62, 255, 157) #4785F8;
+border-color:rgb(71, 133, 248) #4785F8;
 border-image:none;
 border-radius: 50px 0 50px 0;
 -moz-border-radius:50px 0 50px 0;
@@ -258,6 +258,7 @@ top:${y30}px;
                 <%-- <li><a data-toggle="modal" href="quizTestForm.do" data-target="#myModal2"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
                 <li><a data-toggle="modal" href="quizList.do?idx=${param.idx }" data-target="#myModal3"><i class="fa fa-circle-o"></i> 문제 수정하기</a></li>
                 <li><a data-toggle="modal" href="quizResult.do?idx=${param.idx }" data-target="#myModal4"><i class="fa fa-circle-o"></i>쪽지시험결과</a></li> --%>
+                <li><a data-toggle="modal" href="questionForm.do" data-target="#myModal4"><i class="fa fa-circle-o"></i>질문하기</a></li>
                 <li><a data-toggle="modal" href="quizTestLoad.do?idx=${param.idx }" data-target="#myModal5" data-backdrop="static"><i class="fa fa-circle-o"></i>쪽지시험보기</a></li>
                 <li><a href="showMessage.do"><i class="fa fa-circle-o"></i> 메세지 보기</a></li>
                 <li><a href="classBbs.do"><i class="fa fa-circle-o"></i> 수업게시판</a></li>
@@ -284,7 +285,7 @@ top:${y30}px;
       </aside>
 <div class="content-wrapper" style="background: white; min-height: 800px;">
  <div class="col frame2" id="droppable" style="width: 1050px; height: 700px; background:rgb(185, 205, 214); padding: 5px 5px 5px 5px;" >
-  <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left; padding:5px 5px 5px 5px; background:#E6A323;">
+  <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left; padding:5px 5px 5px 5px; background:#ecf0f5;">
   <c:forEach var="dto" items="${list }">
 				<div id="img${dto.idx }" style="position: absolute; text-align: center;">
 				<img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
@@ -325,17 +326,17 @@ top:${y30}px;
   </div>
 </div>
 
-<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-  <div class="modal-dialog">
+<div class="modal fade bs-example-modal-sm" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
+      ...
     </div>
   </div>
 </div>
 
-<div class="modal fade bs-example-modal-lg" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
     <div class="modal-content">
-      
     </div>
   </div>
 </div>

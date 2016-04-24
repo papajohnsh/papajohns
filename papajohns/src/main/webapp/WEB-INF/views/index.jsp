@@ -8,6 +8,7 @@
 <script src="js/plan/dhtmlxscheduler_serialize.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="css/plan/dhtmlxscheduler.css" type="text/css" title="no title" charset="utf-8">
 <title>Insert title here</title>
+
 </head>
 <style type="text/css" media="screen">
 		html, body{
@@ -80,6 +81,7 @@
    <!-- Content Wrapper. Contains page content -->
    
 
+
     <br>    <!-- Main content -->
      <div>
               <div class="container" style="width: 35%;margin-left:18%; z-index: auto;  margin-top:1%; ">
@@ -131,7 +133,10 @@
                     </div><!-- container -->
                   </div><!-- /.table-responsive -->
                  </div><!-- /.box --> 
+
+   
                  
+
                    <div class="container" style="width: 35%;margin-left:60%;  margin-top: -315px; ">
                 <div class="box-header with-border" align="center">
                   <h3 class="box-title">자유게시판</h3>
@@ -183,13 +188,8 @@
                     </div><!-- container -->
                   </div><!-- /.table-responsive -->
                  </div><!-- /.box --> 
-                 </div>
-                 
-             
 
 
-                 
-             
 
               <%-- <div class="box">
 >>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
@@ -348,7 +348,7 @@
               </div><!-- /.box-header -->
               
          <br> <br> <br> 
-         <div style="width: 35%; margin-top:-3.2%; float: right; margin-right:10%;z-index: auto;">
+         <div style="width: 35%;  margin-top:-53px; float: right; margin-right:10%;z-index: auto;">
          <div class="box">
          
                 <div class="box-header with-border" align="center" style="margin-top: 10px;">
@@ -356,12 +356,12 @@
                <!-- /.box-header -->
                    
 
-                 </div>
+                 
         <c:if test="${empty list4 }">
-        <div ali> 	<h2>등록된 강의가 없습니다</h2> </div> 
+       	<h2>등록된 강의가 없습니다</h2> 
           	            <div class="col-lg-3 col-xs-6"    >
               <!-- small box -->
-              <div class="small-box bg-white" style=" width:80%; height:50%;  ">
+              <div class="small-box bg-white" style=" width:100%; height:50%;  ">
  		
                 <div class="inner" style="padding-bottom: 20%; ">
                    <a href="makeClass.do?idx=${dto.idx }"  style="height:30px;">  <img src="img/더하기.png" style=" width:70%; height:60%; "></a>
@@ -375,7 +375,7 @@
           
           </div>
           </c:if>
-      
+      </div>
                <c:forEach var="dto" items="${list4 }"  >
 
       <!-- Small boxes (Stat box) -->
@@ -409,12 +409,9 @@
           
           </div>
    </div>
-
+</div><!-- /.content-wrapper -->
     <aside class="main-sidebar">
       <%@ include file="side.jsp" %>
-    
-            
- 
- 
+
   </body>
 </html>

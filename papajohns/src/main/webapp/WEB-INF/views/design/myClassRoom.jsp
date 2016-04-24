@@ -305,8 +305,7 @@ top:${y30}px;
  </div>
 </div>
 
-      <iframe src="http://192.168.35.209:8081?student=${sname }&classRoom=${lessonName}" width="550" height="550">
- 		</iframe> 
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">

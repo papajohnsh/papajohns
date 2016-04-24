@@ -99,47 +99,78 @@ var date = now.getDate();
 <body class="hold-transition skin-blue sidebar-mini">
  <%@include file="../header.jsp" %>
  
-<div class="container" style="width: 500px;margin-top:80px; ">
-
+<div class="container" style="width: 250px;margin-top:80px;  ">
+<div style="border: ">
   <h2>ClassRoom</h2>
-  <br>  <br>
+  <br> 	
   <form role="form" name="login" action="login.do">
     <div class="form-group">
-      <label for="id"><font size="4em">ID:</font></label>
-      <input type="text" class="form-control" name="id" id="id" value="${cookie.saveid.value==null?'':cookie.saveid.value}" placeholder="Enter id">
+      <!-- <label for="id"><font size="4em">ID:</font></label> -->
+      <input type="text" class="form-control" name="id" id="id" value="${cookie.saveid.value==null?'':cookie.saveid.value}" placeholder="Enter id" style="height:48px">
     </div>
-    <br>
+ <!--    <br> -->
     <div class="form-group">
-      <label for="pwd"><font size="4em">Password:</font></label>
-      <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter password">
+      <!-- <label for="pwd"><font size="4em">Password:</font></label> -->
+      <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter password" style="height:48px">
     </div>
     <div class="checkbox">
-      <label><input type="checkbox" name="saveid" value="on" ${cookie.saveid.value==null?"":"checked"}> Remember me</label>
-    <div align="right">
+      <label><input type="checkbox" name="saveid" value="on" ${cookie.saveid.value==null?"":"checked"}> 아이디 기억하기</label>
+<!--     <div align="right">
  	<span><a href="idFindForm.do">아이디 찾기</a></span> |
  	<span><a href="pwdFindForm.do">비밀번호 찾기</a></span>
- </div>
-    </div><br><br>
-   <div style="margin-left:180px;"><input type="submit" class="btn btn-success pull-center" value="login">
-    <button type="button" class="btn btn-success pull-center" data-toggle="modal" data-target="#myModal"><font color="white">회원가입</font></button></div>  
+ </div> -->
+    </div><!-- <br><br> -->
+<!--    <div style="margin-left:180px;">
+    <input type="submit" class="btn btn-success pull-center" value="login" style="width: 175px">
+    <button type="button" class="btn btn-success pull-center" data-toggle="modal" data-target="#myModal" ><font color="white">회원가입</font></button>
+   </div>   -->
+   <div>
+	<div id="top" style="margin:0 auto; width:222px;">
+	<div style="float:right;" style="width: 111p;height:48px">
+    <input type="submit" class="btn btn-success pull-center" value="login"style="width: 111px;height:48px;">
+   </div>
+   	<div style="float:left" style="width: 111px;height:48px;">
+    <button type="button" class="btn btn-success pull-center" data-toggle="modal" data-target="#myModal" style="width: 111px;height:48px;"><font color="white" >회원가입</font></button>
+   </div>
+   </div>
+   </div>
   </form>
   <br>
 
-</div>
+<!-- <div style="margin-left: 25%;"> -->
+
+   
+
 <div style="margin-top:30px;">
 <div align="center" style="margin-top:50px;">
-  <%@ include file="naverLogin.jsp" %>
+  <%@ include file="naverLogin2.jsp" %>
   </div>
   <img alt="" src="distance.png">
 <div align="center" style="margin-top:10px;">
- <%@ include file="facebookLogin.jsp" %>
+ <%@ include file="facebookLogin2.jsp" %>
  </div><img alt="" src="distance.png">
 <div align="center" style="margin-top:10px;">
- <%@ include file="kakaLogin.jsp" %>
+ <%@ include file="kakaLogin2.jsp" %>
  </div><img alt="" src="distance.png">
  <div align="center" style="margin-top:10px;">
- <%@ include file="googleLogin.jsp" %>
+ <%@ include file="googleLogin2.jsp" %>
  </div>
+ 
+    <div align="center" style="margin-top:10px;">
+ 	<span><a href="idFindForm.do">아이디 찾기</a></span> |
+ 	<span><a href="pwdFindForm.do">비밀번호 찾기</a></span>
+ </div>
+ 
+ 
+ 
+ </div>
+ 
+ 
+ 
+ </div>
+ 
+ 
+ 
  </div>
 <br>
 

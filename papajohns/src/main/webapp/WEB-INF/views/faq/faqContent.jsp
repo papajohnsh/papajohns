@@ -21,13 +21,13 @@
          <li class="header">Menu</li>
          <li>
           <a href="faqList.do">
-             <i class="fa fa-circle-o text-red"></i> <span>FAQ</span>
+             <i class="fa fa-circle-o text-yellow"></i><span>FAQ</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
          <li>
            <a href="qnaList.do">
-            <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span>
+            <i class="fa fa-circle-o text-aqua"></i><span>Q&A</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -38,7 +38,7 @@
    </aside>
    
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
+      <div class="content-wrapper" style="background-color: #ffffff">
       
         <!-- Main content -->
         <c:set var="dto" value="${list}"></c:set>
@@ -55,25 +55,27 @@
         
         <section class="content">
           <div class="row">
-            
-            <div class="col-md-12">
+             <div class="col-md-2"></div>
+            <div class="col-md-8">
               <div class="box box-primary">
-                <div class="box-header with-border">
-                  <h3 class="box-title">본문내용보기</h3>
+                <div class="box-header with-border" align="center">
+                  <h3 class="box-title"><span class="glyphicons glyphicons-table">본문내용보기</span></h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table id="example2" class="table table-bordered">
                   <tr>
-                		<td style="width: 50px;">번호</td>
+
+                		<td><span class="glyphicons glyphicons-list-numbered">번호</span></td>
+
                 		<td>${dto.idx}</td>
-                		<td>작성자</td>
+                		<td><span class="glyphicons glyphicons-user">작성자</span></td>
                 		<td>${dto.writer}</td>
                 	</tr>
                 	<tr>
-                		<td>제목</td>
+                		<td><span class="glyphicons glyphicons-list">제목</span></td>
                 		<td>${dto.subject}</td>
-                		<td>조회수</td>
-                		<td><span class="badge bg-red">${dto.readnum}</span></td>
+                		<td><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></td>
+                		<td><span class="badge bg-yellow">${dto.readnum}</span></td>
                 	</tr>
                 	<tr style="height: 163px;">
 						<td colspan="4">
@@ -86,6 +88,7 @@
         		</div>
                 </div><!-- /.box-body -->
               </div><!-- /. box -->
+               <div class="col-md-2"></div>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </section><!-- /.content -->

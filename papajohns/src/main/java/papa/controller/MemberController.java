@@ -139,11 +139,8 @@ public class MemberController {
 		String result=memberDao.getInterLock(id);
 		System.out.println("result"+result);
 		
-		if(result==null){
-			msg="인증메일을 확인해주세요";
-			url="loginForm.do";
-		}else if(getId==null){
-			msg="아이디를 확인해주세요.";
+		if(result==null || getId==null){
+			msg="아이디 또는 인증메일을 확인해주세요";
 			url="loginForm.do";
 		}else if(getId.equals(id)){//아이디가 맞으면
 			String getPw=memberDao.loginOkPw(id);
@@ -506,6 +503,10 @@ public class MemberController {
 		System.out.println("/nickUpdate.do완료");
 		return mav;
 	
+	}
+	@RequestMapping("/joinForm.do")
+	public String joinForm(){
+		return "member/joinForm";
 	}
 
 				

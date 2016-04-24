@@ -23,8 +23,16 @@
        <ul class="sidebar-menu">
          <li class="header">Menu</li>
          <li>
-          <a href="bbsListForm.do">
-             <i class="fa fa-circle-o text-red"></i> <span>자유게시판</span>
+
+          <a href="faqList.do">
+             <i class="fa fa-circle-o text-yellow"></i><span>FAQ</span>
+             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+           </a>
+         </li>
+         <li>
+           <a href="qnaList.do">
+            <i class="fa fa-circle-o text-aqua"></i><span>Q&A</span>
+
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -35,7 +43,7 @@
    </aside>
    
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
+      <div class="content-wrapper" style="background-color: #ffffff">
       
         <!-- Main content -->
         <c:set var="dto" value="${list}"></c:set>
@@ -52,25 +60,27 @@
         
         <section class="content">
           <div class="row">
-            
-            <div class="col-md-12">
+           <div class="col-md-2"></div>
+            <div class="col-md-8">
               <div class="box box-primary">
-                <div class="box-header with-border">
-                  <h3 class="box-title">본문내용보기</h3>
+                <div class="box-header with-border" align="center">
+                  <h3 class="box-title"><span class="glyphicons glyphicons-table">본문내용보기</span></h3>
                 </div><!-- /.box-header -->
                 <div class="box-body" >
                   <table id="example2" class="table table-bordered">
                   <tr>
-                		<td style="width: 50px;">번호</td>
+
+                		<td><span class="glyphicons glyphicons-list-numbered">번호</span></td>
+
                 		<td>${dto.idx}</td>
-                		<td>작성자</td>
+                		<td><span class="glyphicons glyphicons-user">작성자</span></td>
                 		<td>${dto.writer}</td>
                 	</tr>
                 	<tr>
-                		<td>제목</td>
+                		<td><span class="glyphicons glyphicons-list">제목</span></td>
                 		<td>${dto.subject}</td>
-                		<td>조회수</td>
-                		<td><span class="badge bg-red">${dto.readnum}</span></td>
+                		<td><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></td>
+                		<td><span class="badge bg-blue">${dto.readnum}</span></td>
                 	</tr>
                 	<tr style="height: 163px;">
 						<td colspan="4">
@@ -78,15 +88,13 @@
 						</td>
 					</tr>
                   </table>
-                 
-		          
-        		
-             
-                       <c:set var="bbsReList" value="${reList}"></c:set>
+
+                  
+                   <c:set var="bbsReList" value="${reList}"></c:set>
           
                   <table class="table table-striped">
                  
-                      <c:if test="${empty reList}">
+                      <c:if test="${empty bbsReList}">
                        <tr>
                   <td>
                      등록된 댓글이 없습니다.
@@ -94,28 +102,27 @@
                   </tr>
                   </c:if>
                   
-                  <c:forEach var="dto" items="${reList}">
+                  <c:forEach var="dto" items="${qnaReList}">
                  <tr>
                   <td>
-                    <img src=""
+                    <img src="resource/data/${sid }/profile.jpg"
 						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
 						class="img-circle" alt="user image" class="online" width="30px;" height="30px;">
 						${dto.writer}/ ${dto.write_date}  <br>
 						${dto.content}
 						</td>
-					
-                   
-                 
+
                   </c:forEach>
                   <c:set var="dto" value="${list}"></c:set>
                  <tr>
-                  <td align="right">
-                    <a href="qnaReWriteForm.do?idx=${dto.idx }&subject=${dto.subject}" class="btn btn-sm btn-danger btn-flat pull-center"> 댓글작성</a>
-		            <a href="qnaList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a>
+                  <td align="center">
+                   <span><a href="qnaReWriteForm.do?idx=${dto.idx }&subject=${dto.subject}" class="btn btn-sm btn-danger btn-flat pull-center"> 댓글작성</a></span>
+		            <span><a href="qnaList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a></span>
                   </td>
                   </tr>
                   </table>
-                     </div><!-- /.box-body -->
+                </div><!-- /.box-body -->
+
               </div><!-- /. box -->
              
             </div><!-- /.col -->
@@ -124,9 +131,9 @@
         </c:otherwise>
      </c:choose>
      
-     <!-- Chat box -->
-            
-     
+
+      <!-- Chat box -->
+
       </div><!-- /.content-wrapper -->
       
     <%@ include file="../controllSide.jsp" %>

@@ -78,7 +78,7 @@
 	<input type="hidden" name="quiz_num" id="quiz_num">
 	</div>
 		<br>
-<div style="margin-left:100px;"><br><input id="exam"  class="btn btn-success pull-center" type="button" value="시험 등록하기"></div>	<br><br>
+<div style="margin-left:250px;"><br><input id="exam"  class="btn btn-success pull-center" type="button" value="시험 등록하기"></div>	<br><br>
 </form>
    
 
