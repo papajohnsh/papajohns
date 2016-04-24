@@ -12,5 +12,6 @@ public interface NoticeDAO {
 	
 	public List<NoticeDTO> noticeFind(Map<String, String> map);
 	public int getTotalCnt();
+	public List<NoticeDTO> noticeAllList();
 	
 }

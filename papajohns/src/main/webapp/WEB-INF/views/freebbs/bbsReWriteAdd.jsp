@@ -66,6 +66,7 @@ function submitContents(elClickedObj) {
         				<td><input type="text" name="subject" value="Re:)${param.subject}" placeholder="subject"></td>
         			</tr>
  				</table>
+
                 <div class="box-body pad" style="width: auto; height:400px; margin-left:20px;">
                   <fieldset>
                     <textarea name="content" id="ir1" rows="15" cols="200" style="width: auto;"></textarea>
@@ -83,6 +84,7 @@ function submitContents(elClickedObj) {
                   </fieldset>
 				</div>
 				</div>
+
 				</form>
 				 <div class="col-xs-2"></div>
 				  <br>

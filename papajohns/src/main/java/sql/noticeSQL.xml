@@ -32,4 +32,7 @@
  			</otherwise>
  		</choose>
  	</select>
+ 	<select id="noticeAllList" resultType="papa.notice.model.NoticeDTO">
+ 	select * from notice
+ 	</select>
  </mapper>

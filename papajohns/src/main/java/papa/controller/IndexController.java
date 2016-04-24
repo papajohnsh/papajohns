@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import papa.class_.model.classDAO;
 import papa.class_.model.classDTO;
+import papa.freebbs.model.FreeBbsDAO;
+import papa.freebbs.model.FreeBbsDTO;
 import papa.notice.model.NoticeDAO;
 import papa.notice.model.NoticeDTO;
 
@@ -24,7 +26,19 @@ public class IndexController {
 	private NoticeDAO noticeDao;
 	@Autowired
 	private classDAO classDao;
+	@Autowired
+	private FreeBbsDAO freebbsDao;
 	
+		public FreeBbsDAO getFreebbsDao() {
+		return freebbsDao;
+	}
+
+
+	public void setFreebbsDao(FreeBbsDAO freebbsDao) {
+		this.freebbsDao = freebbsDao;
+	}
+
+
 		public classDAO getClassDao() {
 		return classDao;
 	}
@@ -68,6 +82,42 @@ public class IndexController {
 			
 			mav.addObject("list",list);
 			}
+			List<NoticeDTO> list6=noticeDao.noticeAllList();
+			
+			mav.addObject("list6", list6);
+			
+			
+			
+			
+			int totalCnt2=freebbsDao.getTotalCnt();//총게시물 수 가져오기
+			//System.out.println("1: "+totalCnt);  
+			totalCnt2=totalCnt2==0?1:totalCnt2;      //전체 게시물 수
+			//System.out.println("2: "+totalCnt);
+		      int listSize2=5;                     //페이지에 출력할 게시물 수
+		      int pageSize2=5;                     //페이지 출력 수
+		   
+		      String cp_s2=req.getParameter("cp");
+		      if(cp_s2==null||cp_s2.equals("")){
+		         cp_s2="1";
+		      }
+		      int cp2=Integer.parseInt(cp_s2);
+		      
+		      String pageStr2=papa.page.PageMaker.goPage("index.do", totalCnt2, listSize2, pageSize2, cp2);
+		      	      
+		      int startNum2=(cp2-1)*listSize2;
+		     int endNum2=cp2*listSize2;
+		      
+		      Map map2=new HashMap();
+		      map2.put("startNum", startNum2);
+		      map2.put("endNum", endNum2);
+		      
+		      List<FreeBbsDTO> list7=freebbsDao.freeBbsList(map2);
+		      
+		      mav.addObject("list7", list7);
+		      mav.addObject("pageStr2", pageStr2);
+			
+			
+			
 			mav.setViewName("index");
 			return mav;
 		

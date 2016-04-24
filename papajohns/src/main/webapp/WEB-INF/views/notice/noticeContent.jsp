@@ -27,7 +27,7 @@
          </li>
          <li>
           <a href="noticeList.do">
-             <i class="fa fa-circle-o text-red"></i><span>공지사항</span>
+             <i class="fa fa-circle-o text-green"></i><span>공지사항</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -55,26 +55,28 @@
 		   <c:otherwise>  
         
         <section class="content">
-          <div class="row">
-            
+          <div class="row" style="padding: 2%;">    
             <div class="col-md-12">
               <div class="box box-primary">
                 <div class="box-header with-border" align="center">
-                  <h3 class="box-title"><span class="glyphicons glyphicons-notes-2">공지사항 보기</span></h3>
+                 <div class="jumbotron" style="background-image: url('img/7.jpg');">
+			    	<h1 style="color: white;">ClassRoom</h1>
+                  <h3 class="box-title" style="color: white;"><span class="glyphicons glyphicons-notes-2">공지사항 보기</span></h3>
+                  </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table id="example2" class="table table-bordered">
                   <tr>
-                		<td><span class="glyphicons glyphicons-list-numbered">번호</span></td>
-                		<td>${dto.idx}</td>
-                		<td><span class="glyphicons glyphicons-user">작성자</span></td>
-                		<td>${dto.writer}</td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-list-numbered">번호</span></td>
+                		<td style="text-align: center;">${dto.idx}</td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-user">작성자</span></td>
+                		<td style="text-align: center;">${dto.writer}</td>
                 	</tr>
                 	<tr>
-                		<td><span class="glyphicons glyphicons-list">제목</span></td>
-                		<td>${dto.subject}</td>
-                		<td><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></td>
-                		<td><span class="badge bg-red">${dto.readnum}</span></td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-list">제목</span></td>
+                		<td style="text-align: center;">${dto.subject}</td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></td>
+                		<td style="text-align: center;"><span class="badge bg-green">${dto.readnum}</span></td>
                 	</tr>
                 	<tr>
 						<td align="center" colspan="4">

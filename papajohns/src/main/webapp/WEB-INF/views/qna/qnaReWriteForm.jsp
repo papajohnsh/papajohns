@@ -32,6 +32,7 @@ function submitContents(elClickedObj) {
           <ul class="sidebar-menu">
             <li class="header">Menu</li>
              <li>
+
               <a href="faqList.do">
                 <i class="fa fa-circle-o text-yellow"></i><span>FAQ</span>
                 <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
@@ -43,6 +44,7 @@ function submitContents(elClickedObj) {
 	             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
 	           </a>
             </li>
+
           </ul>
            <ul class="sidebar-menu"></ul>
         </section>
@@ -56,7 +58,9 @@ function submitContents(elClickedObj) {
 		<form name="qnaReWrite" action="qnaReWrite.do" method="post">
 		<div class="box">
                 <div class="box-header" align="center">
+
                   <h3 class="box-title"><span class="glyphicons glyphicons-edit">질문게시판 댓글쓰기</span></h3>
+
                 </div><!-- /.box-header -->
                  <table class="table table-bordered">
                  
@@ -72,6 +76,7 @@ function submitContents(elClickedObj) {
         				<td><input type="text" name="subject" value="Re:)${param.subject}" placeholder="subject"></td>
         			</tr>
  				</table>
+
                 <div class="box-body pad" style="width: auto; height:400px; margin-left:20px;">
                   <fieldset>
                     <textarea name="content" id="ir1" rows="15" cols="200" style="width: auto;"></textarea>
@@ -89,6 +94,7 @@ function submitContents(elClickedObj) {
                   </fieldset>
 				</div>
 				</div>
+
 				</form>
 				 <div class="col-xs-2"></div>
 				  <br>

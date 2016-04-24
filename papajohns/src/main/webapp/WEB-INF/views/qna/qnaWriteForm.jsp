@@ -72,8 +72,11 @@ function submitContents(elClickedObj) {
         				<td><input type="text" name="subject" placeholder="subject"></td>
         			</tr>
  				</table>
+
                 <div class="box-body pad" style="width: auto; height:400px; margin-left:20px;">
+
                   <fieldset>
+
                     <textarea name="content" id="ir1" rows="15" cols="200" style="width: auto;"></textarea>
 					<script type="text/javascript">
 					var oEditors = [];
@@ -86,8 +89,11 @@ function submitContents(elClickedObj) {
 				</script>
 				<!-- writeAdd button -->
 				<input type="submit" class="btn btn-primary pull-right" value="글올리기" onclick="submitContents();">
+
                   </fieldset>
+
 				</div>
+
 				  <br>
                   <!-- 파일올리기 영역 -->
 					<div align="center">
