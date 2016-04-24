@@ -186,9 +186,9 @@ public ModelAndView quizTestAnswer(quizAnswerDTO dto){
 //쪽지시험 보기
 @RequestMapping("/quizTestList.do")
 public ModelAndView QuizTestList(@RequestParam(value="idx") int idx, @RequestParam(value="id") String id) throws ParseException{
-	
+	System.out.println("idx값"+idx);
+	System.out.println("id값"+id);
 	quizTestDTO result=quizTestDao.quizTestList2(idx);
-	
 	int nYear;
     int nMonth;
     int nDay;
