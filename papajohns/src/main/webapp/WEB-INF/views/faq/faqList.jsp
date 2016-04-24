@@ -41,30 +41,37 @@
    </aside>
 
    <!-- Content Wrapper. Contains page content -->
-   <div class="content-wrapper" style="background-color: #ffffff">
+   <div class="content-wrapper" style="background-color: #ffffff;">
 
      <!-- Content Header (Page header) -->
-       <div class="row">
+       <div class="row" style="padding: 2%;">
          <div class="col-xs-2"></div>
          <div class="col-xs-8">
-         <div class="box" style="border: 1px gold solid; border-width: 8px;">
-             <div class="box-header" align="center">             
-               <h3 class="box-title"><span class="glyphicons glyphicons-question-sign">FAQ</span></h3>
-               <div class="box-tools">
-                 <div class="input-group" style="width: 150px;">
-                 
-                 </div>
-               </div>
-
+         <div class="box">
+             <div class="box-header" align="center">
+             <div class="jumbotron" style="background-image: url('img/5.png');">
+			    <h1 style="color: white;">ClassRoom</h1>             
+               <h3 class="box-title" style="color: white;"><span class="glyphicons glyphicons-question-sign">FAQ</span></h3>
+			</div>
+			<div align="right">
+					 <form name="search" action="faqFind.do" method="post">
+					<select name="fkey">
+                 		<option value="writer">작성자</option>
+                 		<option value="subject">제목</option>     		
+                 	</select>
+                 	<input type="text" name="fvalue" required="required" placeholder="Search">
+      				<input type="submit" class="btn btn-sm btn-warning" value="검색">
+					</form>
+				</div>
              </div><!-- /.box-header -->
              <div class="box-body table-responsive no-padding">
                <table class="table table-hover">
                 <thead align="center">
                      <tr>
-                       <th><span class="glyphicons glyphicons-list-numbered">번호</span></th>
-                       <th><span class="glyphicons glyphicons-list">제목</span></th>
-                       <th><span class="glyphicons glyphicons-user">작성자</span></th>
-                       <th><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></th>
+                       <th style="text-align: center;"><span class="glyphicons glyphicons-list-numbered">번호</span></th>
+                       <th style="text-align: center;"><span class="glyphicons glyphicons-list">제목</span></th>
+                       <th style="text-align: center;"><span class="glyphicons glyphicons-user">작성자</span></th>
+                       <th style="text-align: center;"><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></th>
                      </tr>
                    </thead>
 
@@ -95,17 +102,8 @@
                </table>
                <div align="center">${pageStr}</div><!-- 페이징 영역 -->
 				<br>
-				<div align="center">
-					 <form name="search" action="faqFind.do" method="post">
-					<select name="fkey">
-                 		<option value="writer">작성자</option>
-                 		<option value="subject">제목</option>     		
-                 	</select>
-                 	<input type="text" name="fvalue" required="required" placeholder="Search">
-      				<input type="submit" class="btn btn-sm btn-warning" value="검색">
-					</form>
-				</div>
-               <div class="box-footer clearfix" align="center">
+				
+               <div class="box-footer clearfix" align="center" style="padding-bottom: 15%;">
 
                <a href="faqWriteForm.do" class="btn btn-sm btn-info btn-flat pull-right">글쓰기</a>
 

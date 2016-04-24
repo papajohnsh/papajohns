@@ -26,7 +26,7 @@
          	</li>
         	 <li>
 	          <a href="noticeList.do">
-	             <i class="fa fa-circle-o text-red"></i><span>공지사항</span>
+	             <i class="fa fa-circle-o text-green"></i><span>공지사항</span>
 	             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
 	           </a>
          	</li>
@@ -40,26 +40,24 @@
       <div class="content-wrapper" style="background-color: #ffffff">
 
         <!-- Content Header (Page header) -->
-          <div class="row">
+          <div class="row" style="padding: 2%;">
              <div class="col-xs-2"></div>
          	<div class="col-xs-8">
               <div class="box">
                 <div class="box-header" align="center">
-                  <h3 class="box-title"><span class="glyphicons glyphicons-search">검색 결과</span></h3>
-                  <div class="box-tools">
-                    <div class="input-group" style="width: 150px;">      
-                    </div>
+                <div class="jumbotron" style="background-image: url('img/7.jpg');">
+			    	<h1 style="color: white;">ClassRoom</h1>
+                  <h3 class="box-title" style="color: white;"><span class="glyphicons glyphicons-search">검색 결과</span></h3>
                   </div>
-
                 </div><!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                    <thead>
                         <tr>
-                          <th><span class="glyphicons glyphicons-list-numbered">번호</span></th>
-                          <th><span class="glyphicons glyphicons-list">제목</span></th>
-                          <th><span class="glyphicons glyphicons-user">작성자</span></th>
-                          <th><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></th>
+                          <th style="text-align: center;"><span class="glyphicons glyphicons-list-numbered">번호</span></th>
+                          <th style="text-align: center;"><span class="glyphicons glyphicons-list">제목</span></th>
+                          <th style="text-align: center;"><span class="glyphicons glyphicons-user">작성자</span></th>
+                          <th style="text-align: center;"><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></th>
                         </tr>
                       </thead>
 
@@ -78,7 +76,7 @@
                         		<td>${dto.idx}</td>
                         		<td>${dto.subject}</td>
                         		<td>${dto.writer}</td>
-                        		<td><span class="badge bg-red">${dto.readnum}</span></td>
+                        		<td><span class="badge bg-green">${dto.readnum}</span></td>
                         	</tr>
                         	</c:forEach>
                         </c:otherwise>

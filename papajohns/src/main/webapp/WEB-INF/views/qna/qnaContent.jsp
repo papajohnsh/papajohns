@@ -6,15 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
 <%@include file="../header.jsp" %>
 <!-- Left side column. contains the logo and sidebar -->
-	<aside class="main-sidebar">
+  	<aside class="main-sidebar">
 
 	<%@ include file="../side.jsp" %>
 
@@ -23,7 +21,6 @@
        <ul class="sidebar-menu">
          <li class="header">Menu</li>
          <li>
-
           <a href="faqList.do">
              <i class="fa fa-circle-o text-yellow"></i><span>FAQ</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
@@ -32,7 +29,6 @@
          <li>
            <a href="qnaList.do">
             <i class="fa fa-circle-o text-aqua"></i><span>Q&A</span>
-
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -59,36 +55,36 @@
 		   <c:otherwise>  
         
         <section class="content">
-          <div class="row">
+          <div class="row" style="padding: 2%;">
            <div class="col-md-2"></div>
             <div class="col-md-8">
               <div class="box box-primary">
                 <div class="box-header with-border" align="center">
-                  <h3 class="box-title"><span class="glyphicons glyphicons-table">본문내용보기</span></h3>
+                 <div class="jumbotron" style="background-image: url('img/7.jpg');">
+			    	<h1 style="color: white;">ClassRoom</h1>
+                  <h3 class="box-title" style="color: white;"><span class="glyphicons glyphicons-table">본문내용보기</span></h3>
+                  </div>
                 </div><!-- /.box-header -->
-                <div class="box-body" >
+                <div class="box-body">
                   <table id="example2" class="table table-bordered">
                   <tr>
-
-                		<td><span class="glyphicons glyphicons-list-numbered">번호</span></td>
-
-                		<td>${dto.idx}</td>
-                		<td><span class="glyphicons glyphicons-user">작성자</span></td>
-                		<td>${dto.writer}</td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-list-numbered">번호</span></td>
+                		<td style="text-align: center;">${dto.idx}</td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-user">작성자</span></td>
+                		<td style="text-align: center;">${dto.writer}</td>
                 	</tr>
                 	<tr>
-                		<td><span class="glyphicons glyphicons-list">제목</span></td>
-                		<td>${dto.subject}</td>
-                		<td><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></td>
-                		<td><span class="badge bg-blue">${dto.readnum}</span></td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-list">제목</span></td>
+                		<td style="text-align: center;">${dto.subject}</td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></td>
+                		<td style="text-align: center;"><span class="badge bg-blue">${dto.readnum}</span></td>
                 	</tr>
-                	<tr style="height: 163px;">
-						<td colspan="4">
+                	<tr>
+						<td align="center" colspan="4">
 						${dto.content }
 						</td>
 					</tr>
                   </table>
-
                   
                    <c:set var="bbsReList" value="${reList}"></c:set>
           
@@ -122,20 +118,16 @@
                   </tr>
                   </table>
                 </div><!-- /.box-body -->
-
               </div><!-- /. box -->
-             
             </div><!-- /.col -->
           </div><!-- /.row -->
         </section><!-- /.content -->
         </c:otherwise>
      </c:choose>
      
-
       <!-- Chat box -->
-
       </div><!-- /.content-wrapper -->
-      
+      <%@ include file="../footer.jsp" %>
     <%@ include file="../controllSide.jsp" %>
 	 
 </body>

@@ -24,7 +24,7 @@
          <li class="header">Menu</li>
          <li>
           <a href="bbsListForm.do">
-             <i class="fa fa-circle-o text-red"></i> <span>자유게시판</span>
+             <i class="fa fa-circle-o text-red"></i><span>자유게시판</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -50,35 +50,37 @@
 		   <c:otherwise>  
         
         <section class="content">
-          <div class="row">
+          <div class="row" style="padding: 2%;">
             <div class="col-md-2"></div>
             <div class="col-md-8">
               <div class="box box-primary" align="center">
                 <div class="box-header with-border">
-                  <h3 class="box-title"><span class="glyphicons glyphicons-table">본문내용보기</span></h3>
+                <div class="jumbotron" style="background-image: url('img/9.png');">
+			    <h1 style="color: white;">ClassRoom</h1>
+                  <h3 class="box-title" style="color: white;"><span class="glyphicons glyphicons-table">본문내용보기</span></h3>
+                  </div>
                 </div><!-- /.box-header -->
                 <div class="box-body" >
                   <table id="example2" class="table table-bordered">
                   <tr>
-                		<td><span class="glyphicons glyphicons-list-numbered">번호</span></td>
-                		<td>${dto.idx}</td>
-                		<td><span class="glyphicons glyphicons-user">작성자</span></td>
-                		<td>${dto.writer}</td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-list-numbered">번호</span></td>
+                		<td style="text-align: center;">${dto.idx}</td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-user">작성자</span></td>
+                		<td style="text-align: center;">${dto.writer}</td>
                 	</tr>
                 	<tr>
-                		<td><span class="glyphicons glyphicons-list">제목</span></td>
-                		<td>${dto.subject}</td>
-                		<td><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></td>
-                		<td><span class="badge bg-red">${dto.readnum}</span></td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-list">제목</span></td>
+                		<td style="text-align: center;">${dto.subject}</td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></td>
+                		<td style="text-align: center;"><span class="badge bg-red">${dto.readnum}</span></td>
                 	</tr>
                 	<tr style="height: 163px;">
-						<td colspan="4">
+						<td colspan="4" style="text-align: center;">
 						${dto.content }
 						</td>
 					</tr>
                   </table>
 
-             
                        <c:set var="bbsReList" value="${reList}"></c:set>
           
                   <table class="table table-striped">
@@ -94,7 +96,7 @@
                   <c:forEach var="dto" items="${bbsReList}">
                  <tr>
                   <td>
-                    <img src=""
+                    <img src="resource/data/${sid }/profile.jpg"
 						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
 						class="img-circle" alt="user image" class="online" width="30px;" height="30px;">
 						${dto.writer}/ ${dto.write_date}  <br>
