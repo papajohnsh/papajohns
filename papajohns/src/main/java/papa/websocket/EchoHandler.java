@@ -40,7 +40,7 @@ public class EchoHandler extends TextWebSocketHandler {
 	@Override
 	public void afterConnectionClosed(
 			WebSocketSession session, CloseStatus status) throws Exception {
-		log(session.getId() + " 연결 종료됨");
+		log(session.getId()+" "+ status.getReason() + " 연결 종료됨");
 		papa.remove(session.getId());
 		//users.remove(session.getId());
 	}
