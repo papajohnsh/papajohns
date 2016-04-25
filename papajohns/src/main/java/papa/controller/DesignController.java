@@ -530,6 +530,7 @@ public class DesignController {
 				}
 	}
 		String teacher=designDao.teacher(idx);
+		System.out.println(teacher);
 		mav.addObject("teacher", teacher);
 		mav.setViewName("design/myClassRoom");
 		return mav;
