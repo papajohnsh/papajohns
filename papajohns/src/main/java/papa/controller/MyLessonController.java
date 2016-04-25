@@ -57,6 +57,25 @@ public class MyLessonController {
 		return mav;
 		
 	}
+	@RequestMapping("/stuendtSchedule.do")
+	public ModelAndView studentSchedule(HttpSession session){
+		int idx_i=(int)session.getAttribute("sidx");
+		String idx_s=classDao.reidxList(idx_i);
+		System.out.println("강의실목록:"+idx_s);
+		String idx=idx_s.substring(2);
+		System.out.println("분리idx"+idx);
+		List<classDTO> list=new ArrayList<classDTO>();
+		String[] reidx=idx.split(",");
+		for(int i=0;i<reidx.length;i++ ){
+		classDTO result= classDao.schedule(reidx[i]);
+		list.add(result);
+		}
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("class/studentSchedule");
+		return mav;
+		
+	}
 	@RequestMapping("/classQuiz.do")
 	public String classQuiz(){
 		return "class/classQuiz";

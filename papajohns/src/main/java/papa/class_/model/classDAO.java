@@ -20,5 +20,6 @@ public interface classDAO {
 	public String reidxList(int idx);
 	public classDTO joinClass(int idx);
 	public int classDesignAdd(designDTO dto);
+	public classDTO schedule(String idx);
 
 }

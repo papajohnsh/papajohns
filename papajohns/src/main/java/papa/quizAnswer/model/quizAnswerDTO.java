@@ -7,6 +7,7 @@ public class quizAnswerDTO {
 	private int class_idx;
 	private int paper_idx;
 	private String ox;
+	private int percent;
 	private int answer_num;
 	private Date end_date;
 	private String quiz_answer;
@@ -14,7 +15,7 @@ public class quizAnswerDTO {
 		super();
 	}
 	public quizAnswerDTO(int idx, String subject, String member_id, int class_idx, int paper_idx, String ox,
-			int answer_num, Date end_date, String quiz_answer) {
+			int percent, int answer_num, Date end_date, String quiz_answer) {
 		super();
 		this.idx = idx;
 		this.subject = subject;
@@ -22,6 +23,7 @@ public class quizAnswerDTO {
 		this.class_idx = class_idx;
 		this.paper_idx = paper_idx;
 		this.ox = ox;
+		this.percent = percent;
 		this.answer_num = answer_num;
 		this.end_date = end_date;
 		this.quiz_answer = quiz_answer;
@@ -61,6 +63,12 @@ public class quizAnswerDTO {
 	}
 	public void setOx(String ox) {
 		this.ox = ox;
+	}
+	public int getPercent() {
+		return percent;
+	}
+	public void setPercent(int percent) {
+		this.percent = percent;
 	}
 	public int getAnswer_num() {
 		return answer_num;
