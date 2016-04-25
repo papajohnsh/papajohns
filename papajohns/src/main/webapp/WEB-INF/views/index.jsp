@@ -7,6 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="js/plan/dhtmlxscheduler_serialize.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="css/plan/dhtmlxscheduler.css" type="text/css" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 
 </head>
@@ -177,8 +180,15 @@
                      </c:forEach>
                    </tbody>
                </table>
-               <div align="center">${pageStr2}</div><!-- 페이징 영역 -->
-                    </table>
+              <div class="container">
+ 
+              
+  <ul class="pager">
+    <li>${pageStr2}</li>
+   
+  </ul>
+</div>
+                  
                      <div class="box-footer clearfix" align="center">
              		<ul class="pagination pagination-sm no-margin pull-center">
                     	
