@@ -179,15 +179,20 @@
                      </tr>
                      </c:forEach>
                    </tbody>
-               </table>
-              <div class="container">
+                   <tr>
+                   <td colspan="4" align="center">
+                         <div class="container">
  
               
-  <ul class="pager">
-    <li>${pageStr2}</li>
+        <ul class="pager">
+        <li>${pageStr2}</li>
    
-  </ul>
-</div>
+         </ul>
+         </div>
+                   </td>
+                   </tr>
+               </table>
+        
                   
                      <div class="box-footer clearfix" align="center">
              		<ul class="pagination pagination-sm no-margin pull-center">
