@@ -43,8 +43,8 @@
 		where idx=#{idx}
  	</update>
  	<insert id="quizAnswer" parameterType="papa.quizAnswer.model.quizAnswerDTO">
- 		insert into quiz_answer(subject, class_idx,member_id, paper_idx, ox, answer_num, quiz_answer) 
- 		values(#{subject},#{class_idx},#{member_id},#{paper_idx},#{ox},#{answer_num},#{quiz_answer})
+ 		insert into quiz_answer(subject, class_idx,member_id, paper_idx, ox, answer_num, quiz_answer,percent) 
+ 		values(#{subject},#{class_idx},#{member_id},#{paper_idx},#{ox},#{answer_num},#{quiz_answer},#{percent})
  	</insert>
  	<select id="quizResult" resultType="papa.quizAnswer.model.quizAnswerDTO">
  		select * from quiz_answer where class_idx=#{idx} and paper_idx=#{paper_idx}
