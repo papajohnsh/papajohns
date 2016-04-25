@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.deser.std.DateDeserializers.CalendarDeserializer;
 
+import papa.member.model.MemberDAO;
 import papa.member.model.MemberDTO;
 import papa.quiz.model.quizDAO;
 import papa.quiz.model.quizDTO;
@@ -47,6 +48,16 @@ private quizAnswerDAO quizAnswerDao;
 
 public quizAnswerDAO getQuizAnswerDao() {
 	return quizAnswerDao;
+}
+@Autowired
+private MemberDAO memberDao;
+
+public MemberDAO getMemberDao() {
+	return memberDao;
+}
+
+public void setMemberDao(MemberDAO memberDao) {
+	this.memberDao = memberDao;
 }
 
 public void setQuizAnswerDao(quizAnswerDAO quizAnswerDao) {
@@ -160,19 +171,23 @@ public ModelAndView quizTestAnswer(quizAnswerDTO dto){
 	String[] answer=result.getAnswer().split("::");
 	String[] user=dto.getQuiz_answer().split("::");
 	String ox=null;
-	int quiz_num=0;
+	double quiz_num=0;
 	for(int i=0;i<answer.length;i++){
 		if(answer[i].equals(user[i])){
 			quiz_num=quiz_num+1;
 			ox=ox+"O";
 		}else{
 			ox=ox+"X";
-		}
+		}	
 	}
+	double percent=(quiz_num/answer.length)*100;
+	int pcent=(int)percent;
 	ox=ox.substring(4);
 	System.out.println("맞은개수:"+quiz_num);
 	System.out.println("맞은현황:"+ox);
-	quizAnswerDTO dto2=new quizAnswerDTO(0, dto.getSubject(),dto.getMember_id(), dto.getClass_idx(), dto.getPaper_idx(), ox, quiz_num, null, dto.getQuiz_answer());
+	System.out.println("정답률"+percent);
+	MemberDTO mName= memberDao.getUserInfo(dto.getMember_id());
+	quizAnswerDTO dto2=new quizAnswerDTO(0, dto.getSubject(),mName.getNickname(), dto.getClass_idx(), dto.getPaper_idx(), ox, pcent, (int)quiz_num, null, dto.getQuiz_answer());
 	int update_result=quizAnswerDao.quizAnswer(dto2);
 	String msg=update_result>0?"시험완료":"실패";
 
