@@ -140,8 +140,11 @@
    
                  
 
-                   <div class="container" style="width: 35%;margin-left:60%;  margin-top: -315px; ">
+                   <div class="container" style="width: 35%;margin-left:60%; z-index: auto; margin-top:-12%; ">
+   	  <!--         <div class="container" style="width: 35%;margin-left:18%; z-index: auto;  margin-top:1%; "> -->
+                   
                 <div class="box-header with-border" align="center">
+                
                   <h3 class="box-title">자유게시판</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
