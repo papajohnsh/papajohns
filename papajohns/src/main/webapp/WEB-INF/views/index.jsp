@@ -140,7 +140,7 @@
    
                  
 
-                   <div class="container" style="width: 35%;margin-left:60%; z-index: auto; margin-top:-12%; ">
+                   <div class="container" style="width: 30%;margin-left:60%; z-index: auto; margin-top:-12.4%; ">
    	  <!--         <div class="container" style="width: 35%;margin-left:18%; z-index: auto;  margin-top:1%; "> -->
                    
                 <div class="box-header with-border" align="center">
@@ -152,7 +152,7 @@
                   </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <div class="table-responsive">
+                  <div class="table-responsive" >
                     <table class="table no-margin">
                       <thead>
                         <tr>
@@ -184,10 +184,10 @@
                    </tbody>
                    <tr>
                    <td colspan="4" align="center">
-                         <div class="container">
+                         <div class="container"  style="width: 45%">
  
               
-        <ul class="pager">
+        <ul class="pager" >
         <li>${pageStr2}</li>
    
          </ul>
