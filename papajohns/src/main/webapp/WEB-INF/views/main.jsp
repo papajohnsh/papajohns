@@ -52,7 +52,7 @@
  </div>
 <div style="margin-left: 25%;">
 
-	<div id="top" style="margin:0 auto; width:300px;">
+	<div id="top1" style="margin:auto; width:300px;">
 	<div style="float:left">
    <%@ include file="member/naverLogin.jsp" %>
    </div>

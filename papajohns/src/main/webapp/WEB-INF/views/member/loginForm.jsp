@@ -127,10 +127,11 @@ var date = now.getDate();
    <div>
 	<div id="top" style="margin:0 auto; width:222px;">
 	<div style="float:right;" style="width: 111p;height:48px">
-    <input type="submit" class="btn btn-success pull-center" value="login"style="width: 111px;height:48px;">
+	    <button type="button" class="btn btn-success pull-center" data-toggle="modal" data-target="#myModal" style="width: 111px;height:48px;"><font color="white" >회원가입</font></button>
    </div>
    	<div style="float:left" style="width: 111px;height:48px;">
-    <button type="button" class="btn btn-success pull-center" data-toggle="modal" data-target="#myModal" style="width: 111px;height:48px;"><font color="white" >회원가입</font></button>
+      <input type="submit" class="btn btn-success pull-center" value="login"style="width: 111px;height:48px;">
+  
    </div>
    </div>
    </div>
