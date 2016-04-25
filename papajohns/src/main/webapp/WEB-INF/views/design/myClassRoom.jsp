@@ -22,7 +22,21 @@ InetAddress inet= InetAddress.getLocalHost();
 
 <script type="text/javascript" src="js/httpRequest.js"></script>
 <script>
+function question(){//id중복체크
+	
+	var question=jQuery("#questForm").serialize();
+	//window.alert(question);
+	sendRequest('quest.do', question, showResult, 'POST');	
+}
 
+function showResult(){//응답함수
+	if(XHR.readyState==4){
+		if(XHR.status==200){
+			var msg=XHR.responseText;
+			wsocket.send("Question:${sid}_|"+msg);
+		}
+	}
+}
 </script>
 <style>
 .frame2{
@@ -287,7 +301,9 @@ top:${y30}px;
  <div class="col frame2" id="droppable" style="width: 1050px; height: 700px; background:rgb(185, 205, 214); padding: 5px 5px 5px 5px;" >
   <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left; padding:5px 5px 5px 5px; background:#E6A323;">
   <c:forEach var="dto" items="${list }">
+				
 				<div id="img${dto.idx }" style="position: absolute; text-align: center;">
+				<div id="questionImg_${dto.id }"></div>
 				<img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
           		<div id="r">${dto.id }</div>
           		<div id="loginCheck_${dto.id }">
@@ -357,11 +373,8 @@ top:${y30}px;
 </div>
 
 <div class="container">
-
-  
-  
   <!-- Modal -->
-<form role="form">
+<form role="form" name="questForm" id="questForm">
   <div class="modal fade" id="myModalQuest" role="dialog">
     <div class="modal-dialog">
 
@@ -375,14 +388,54 @@ top:${y30}px;
 						<div class="modal-body">
 							<div class="form-group">
 								<label for="comment"></label>
-								<textarea class="form-control" rows="5" id="comment" id="focusedInput" ></textarea>
+								<textarea class="form-control focusedInput" rows="5" name="content" ></textarea>
 							</div>
 
 						</div>
 						<div class="modal-footer">
 
+							<input type="hidden" name="writer" value="${sid }">
+							<input type="hidden" name="getter" value="${teacher }">
 							<!-- <input type="submit" class="btn btn-default" value="login">-->
-							<button type="submit" class="btn btn-success">질문보내기</button>
+							<button type="button" class="btn btn-success" id="quest">질문보내기</button>
+							<button type="button" class="btn btn-success" data-dismiss="modal">닫기</button>
+
+						</div>
+					</div>
+				</div>
+</div>
+        </form>
+</div>
+
+<div class="container">
+  <!-- Modal -->
+<form role="form" name="answerForm" id="answerForm">
+  <div class="modal fade" id="myModalAnswer" role="dialog">
+    <div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">답변보내기</h4>
+						</div>
+						
+						<div class="modal-body">
+						 <div class="form-group">
+		    				 <label for="id" id="questionContent"></label>
+					   	</div>
+							<div class="form-group">
+								<label for="comment"></label>
+								<textarea class="form-control focusedInput" rows="5" name="content" ></textarea>
+							</div>
+
+						</div>
+						<div class="modal-footer">
+
+							<input type="hidden" name="writer" value="${sid }">
+							<input type="hidden" name="getter" value="${teacher }">
+							<!-- <input type="submit" class="btn btn-default" value="login">-->
+							<button type="button" class="btn btn-success" id="quest">답변보내기</button>
 							<button type="button" class="btn btn-success" data-dismiss="modal">닫기</button>
 
 						</div>
@@ -392,6 +445,9 @@ top:${y30}px;
         </form>
 </div>
 <script type="text/javascript">
+
+
+
 <%
 	
 	String idx = request.getParameter("idx");
@@ -402,6 +458,7 @@ top:${y30}px;
 		$('#wsBtn2').click(function() { sendMessage("blue"); })
 		$('#wsBtn3').click(function() { sendMessage("yellow"); })
 		$('#dbSend').click(function() { dbSend($("message").val());})
+		$('#quest').click(function() { question();})
 	});
 	
 	var wsocket;
@@ -425,10 +482,20 @@ top:${y30}px;
 	
 	function onMessage(evt) {
 		var data = evt.data;
+		//console.log(data);
 		if(!(data.indexOf("loginOn")==-1)){
 			var onId = data.substring(8);
 			console.log(onId);
 			loginOn(onId);
+		}else if(!(data.indexOf("Question")==-1)){
+			var idContent = data.substring(9);
+			var id=idContent.substring(0,idContent.indexOf("_|"));
+			var content=data.substring(data.indexOf("_|")+4);
+			
+			
+			console.log(id);
+			console.log(content);
+			questionMark(id, content);
 		}
 	}
 	
@@ -436,20 +503,27 @@ top:${y30}px;
 		document.getElementById("loginCheck_"+onId).innerHTML='<span class="fa fa-circle text-success"><font color="white">&nbsp;&nbsp;OnLine</font></span>';
 	}
 	
+	function questionMark(id, content){
+		document.getElementById("questionImg_"+id).innerHTML=
+			' <a data-toggle="modal" data-target="#myModalAnswer" ><img src="img/question_icon.png" style="position: absolute; left:15px; top:-15px; width="30" height="45" class="questionImg"></a>';
+		document.getElementById("questionContent").innerHTML="질문: "+content;	
+	}
+	
 	
 	function onClose(evt) {
 		wsocket.close();
-		cosole.log("연결 끊김");
+		console.log("연결 끊김");
+	}
+	
+	function onClose2(evt) {
+		wsocket.close();
+		console.log("연결 끊김");
 	}
 	
 	function sendMessage(color){
 		wsocket.send(color);
 	}
 	
-	function dbSend(message){
-		
-		
-	}
 	
 
 	function delay(gap){ /* gap is in millisecs */ 
@@ -461,32 +535,7 @@ top:${y30}px;
 	  } 
 	} 
 </script>
-	<section>
-	<article>
-	<table style="margin:0px auto; background-color:red;" id="tab" width="200" border="1" cellspacing="0" cellpadding="0">
-	<tr>
-	<td style="color:black">테스트입니다.</td>
-	</tr>
-	<tr>
-	<td>
-	<input type="button" id="wsBtn1" value="빨강">
-	<input type="button" id="wsBtn2" value="파랑">
-	<input type="button" id="wsBtn3" value="노랑">
 	
-	
-	</td>
-	</tr>
-	<tr>
-	<td>
-
-    <input type="text" id="message">
-    <input type="button" id="sendBtn" value="연결" onclick="sendBtn()">
-    <input type="button" id="dbSend" value="DB저장">
-	</td>
-	</tr>
-	</table>
-	</article>
-	</section>
 
     <script src="css/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     jQuery UI 1.11.4

@@ -61,6 +61,11 @@
 			<ref bean="sqlSessionTemplate"/>		
 		</constructor-arg>
 	</bean>
+	<bean id="questionDao" class="papa.question.model.QuestionDAOImple" >
+			<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>		
+		</constructor-arg>
+	</bean>
 	<bean id="memberDao" class="papa.member.model.MemberDAOImple">
 		<constructor-arg>
 			<ref bean="sqlSessionTemplate"/>
