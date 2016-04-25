@@ -74,7 +74,7 @@
 
 </head>
 <body onload="init();">
-	<div style='height:20px; padding:5px 10px;'>
+	<div style='height:20px; padding:0 10px;'>
 		
 		<form name="json" method="post" action="planSave.do">
 			<input type="hidden" name="json">

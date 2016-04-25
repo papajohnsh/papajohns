@@ -59,10 +59,9 @@
             <div class="col-md-8">
               <div class="box box-primary">
                 <div class="box-header with-border" align="center">
-                 <div class="jumbotron" style="background-image: url('img/5.png');">
-			    	<h1 style="color: white;">ClassRoom</h1>
-                  <h3 class="box-title" style="color: white;"><span class="glyphicons glyphicons-table">본문내용보기</span></h3>
-                  </div>
+
+                  <h3 class="box-title"><span class="glyphicons glyphicons-table">본문내용보기</span></h3>
+
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table id="example2" class="table table-bordered">
@@ -79,13 +78,13 @@
                 		<td style="text-align: center;"><span class="badge bg-yellow">${dto.readnum}</span></td>
                 	</tr>
                 	<tr>
-						<td align="center" colspan="4">
+						<td colspan="4">
 						${dto.content }
 						</td>
 					</tr>					
                   </table>
-                  <div align="center">
-		            <a href="faqList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a>
+                  <div align="right" style="padding: 10%;">
+		            <a href="faqList.do" class="btn btn-sm btn-warning btn-flat pull-right">목록으로</a>
         		</div>
                 </div><!-- /.box-body -->
               </div><!-- /. box -->

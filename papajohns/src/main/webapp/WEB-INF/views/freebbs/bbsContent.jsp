@@ -55,10 +55,9 @@
             <div class="col-md-8">
               <div class="box box-primary" align="center">
                 <div class="box-header with-border">
-                <div class="jumbotron" style="background-image: url('img/9.png');">
-			    <h1 style="color: white;">ClassRoom</h1>
-                  <h3 class="box-title" style="color: white;"><span class="glyphicons glyphicons-table">본문내용보기</span></h3>
-                  </div>
+
+                  <h3 class="box-title"><span class="glyphicons glyphicons-table">본문내용보기</span></h3>
+ 
                 </div><!-- /.box-header -->
                 <div class="box-body" >
                   <table id="example2" class="table table-bordered">
@@ -75,7 +74,7 @@
                 		<td style="text-align: center;"><span class="badge bg-red">${dto.readnum}</span></td>
                 	</tr>
                 	<tr style="height: 163px;">
-						<td colspan="4" style="text-align: center;">
+						<td colspan="4">
 						${dto.content }
 						</td>
 					</tr>
@@ -87,10 +86,10 @@
                  
                       <c:if test="${empty bbsReList}">
                        <tr>
-                  <td>
-                     등록된 댓글이 없습니다.
-                     </td>
-                  </tr>
+                  		<td>
+                   		  등록된 댓글이 없습니다.
+                     	</td>
+                  	</tr>
                   </c:if>
                   
                   <c:forEach var="dto" items="${bbsReList}">
