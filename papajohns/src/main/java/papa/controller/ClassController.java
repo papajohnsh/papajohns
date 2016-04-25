@@ -78,13 +78,13 @@ public class ClassController {
 	@RequestMapping("/classRoomNameSearch.do")
 	public ModelAndView classRoomNameSearch(@RequestParam(value="subject",required=false)String subject,@RequestParam("num")String num,
 			@RequestParam(value="institut",required=false)String institut,@RequestParam(value="name",required=false)String name,
-			@RequestParam(value="class_date",required=false)String class_date,@RequestParam(value="class_time",required=false)String class_time){
+			@RequestParam(value="start_date",required=false)String start_date,@RequestParam(value="start_time",required=false)String start_time){
 		
 		List<String> list=classDao.classRoomNameSearch(subject);
 		List<String> list2=classDao.institutSearch(institut);
 		List<String> list3=classDao.nameSearch(name);
-		List<String> list4=classDao.class_dateSearch(class_date);
-		List<String> list5=classDao.class_timeSearch(class_time);
+		List<String> list4=classDao.class_dateSearch(start_date);
+		List<String> list5=classDao.class_timeSearch(start_time);
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list",list);
 		mav.addObject("list2",list2);

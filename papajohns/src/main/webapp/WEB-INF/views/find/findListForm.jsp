@@ -118,7 +118,7 @@
                    <div style="float: right;"> 수업명<input type="text" name="subject">
                    <input type="hidden" name="num" value="1">
                   <input type="submit" class="btn btn-danger btn-m" value="검색">
-                  <input type="hidden" name="test"></div>         
+                 </div>         
                   
                  <br>  <br>
                   <table class="table">
@@ -139,10 +139,10 @@
                   </c:if>
                   <c:if test="${num==2}"><br>  <br>
                   <form name="f" action="classRoomNameSearch.do">
-                   <div style="float: right;"> 수업명<input type="text" name="subject">
-                   <input type="hidden" name="num" value="1">
+                   <div style="float: right;"> 소속기관<input type="text" name="institut">
+                   <input type="hidden" name="num" value="2">
                   <input type="submit" class="btn btn-danger btn-m" value="검색">
-                  <input type="hidden" name="test"></div>         
+                 </div>         
                   
                  <br>  <br>
                   <table class="table">
@@ -161,35 +161,12 @@
                   </table>
                   </form>
                   </c:if>
-                 <c:if test="${num==3}"><br>  <br>
-                  <form name="f" action="classRoomNameSearch.do">
-                   <div style="float: right;"> 수업명<input type="text" name="subject">
-                   <input type="hidden" name="num" value="1">
-                  <input type="submit" class="btn btn-danger btn-m" value="검색">
-                  <input type="hidden" name="test"></div>         
-                  
-                 <br>  <br>
-                  <table class="table">
-                  <th>과목:</th>
-                  <th>선생님이름:</th>
-                  <th>수업기관명</th>
-                  <th>수업 날짜</th>
-                  <c:forEach var="dto" items="${list }">
-                  <tr>
-                  <td><a href="classView.do?idx=${dto.idx }">${dto.subject }</a></td>
-                  <td>${dto.name }</td>
-                  <td>${dto.institut }</td>
-                  <td>${dto.end_date }</td>
-                  </tr>
-                  </c:forEach>
-                  </table>
-                  </form>
-                  </c:if>
+               
                   
                 <c:if test="${num==4}"><br>  <br>
                   <form name="f" action="classRoomNameSearch.do">
-                   <div style="float: right;"> 수업명<input type="text" name="subject">
-                   <input type="hidden" name="num" value="1">
+                   <div style="float: right;"> 선생님이름<input type="text" name="name">
+                   <input type="hidden" name="num" value="4">
                   <input type="submit" class="btn btn-danger btn-m" value="검색">
                   <input type="hidden" name="test"></div>         
                   
@@ -212,10 +189,10 @@
                   </c:if>
              <c:if test="${num==5}"><br>  <br>
                   <form name="f" action="classRoomNameSearch.do">
-                   <div style="float: right;"> 수업명<input type="text" name="subject">
-                   <input type="hidden" name="num" value="1">
+                   <div style="float: right;"> 시작날짜<input type="text" name="start_date">
+                   <input type="hidden" name="num" value="5">
                   <input type="submit" class="btn btn-danger btn-m" value="검색">
-                  <input type="hidden" name="test"></div>         
+                  </div>         
                   
                  <br>  <br>
                   <table class="table">
@@ -238,10 +215,10 @@
                   
                  <c:if test="${num==6}"><br>  <br>
                   <form name="f" action="classRoomNameSearch.do">
-                   <div style="float: right;"> 수업명<input type="text" name="subject">
-                   <input type="hidden" name="num" value="1">
+                   <div style="float: right;"> 시작시간<input type="text" name="start_time">
+                   <input type="hidden" name="num" value="6">
                   <input type="submit" class="btn btn-danger btn-m" value="검색">
-                  <input type="hidden" name="test"></div>         
+                  </div>         
                   
                  <br>  <br>
                   <table class="table">
