@@ -136,10 +136,9 @@ var date = now.getDate();
 
     <label for="id"> &nbsp;<font size="3em"><a href="loginForm.do?login=join" style="color: white;">회원 가입</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="idFindForm.do"  style="color: white;"><b>아이디 찾기</b></a></font>|
     <font size="3em"><a href="pwdFindForm.do"  style="color: white;"><b>비밀번호 찾기</b></a></font></label>
- </div>
-<div style="margin-left: 25%;">
+ <div >
 
-	<div id="top1" style="margin:auto; width:300px;">
+	<div  style="width:300px;">
 	<div style="float:left">
    <%@ include file="member/naverLogin.jsp" %>
    </div>
@@ -154,6 +153,8 @@ var date = now.getDate();
    </div>
  </div>
 </div>
+ </div>
+
 </div> 
 <div class="container">
   <!-- Modal -->

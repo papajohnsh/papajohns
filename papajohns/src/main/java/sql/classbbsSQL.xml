@@ -8,8 +8,12 @@
 		class_bbs(writer,subject,content,write_date,readnum,ref,lev,sunbun)
 		values(#{writer},#{subject},#{content},now(),0,0,0,0)
 	</insert>
+	<select id="classTotal" resultType="int">
+ 		select count(*) from class_bbs
+ 	</select>
+	
 	<select id="classList" resultType="papa.classbbs.model.ClassBbsDTO">
-		select * from class_bbs
+		select * from class_bbs order by idx desc limit #{startNum}, #{endNum}
 	</select>
 	<select id="classContent" parameterType="int"
 		resultType="papa.classbbs.model.ClassBbsDTO">
@@ -19,14 +23,17 @@
 		update class_bbs set readnum=readnum+1 where idx=#{idx}
 	</update>
 
-	<select id="classFindName" parameterType="String"
-		resultType="papa.classbbs.model.ClassBbsDTO">
-		select * from class_bbs where writer LIKE CONCAT('%',#{writer},'%')
-	</select>
-	<select id="classFindSubject" parameterType="String"
-		resultType="papa.classbbs.model.ClassBbsDTO">
-		select * from class_bbs where subject LIKE CONCAT('%',#{subject},'%')
-	</select>
+	<select id="classBbsFind" parameterType="Map" resultType="papa.classbbs.model.ClassBbsDTO">
+ 		select * from class_bbs where
+ 		<choose>
+ 			<when test="fkey=='writer'">
+ 				writer LIKE CONCAT('%',#{fvalue},'%')
+ 			</when>
+ 			<otherwise>
+ 				subject LIKE CONCAT('%',#{fvalue},'%')
+ 			</otherwise>
+ 		</choose>
+ 	</select>
 
 	<select id="classRef" resultType="int">
 		select max(ref) from class_bbs

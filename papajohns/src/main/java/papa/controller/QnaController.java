@@ -80,21 +80,44 @@ public class QnaController {
 	}
 	
 	@RequestMapping("/qnaContent.do")//본문내용보기
-	public ModelAndView qnaContent(@RequestParam(value="idx",required=false) int idx){
+	public ModelAndView qnaContent(@RequestParam(value="idx",required=false) int idx,@RequestParam("nickname") String nickname){
 		
 		int count=qnaDao.qnaNum(idx);//조회수 증가
 
 		QnaDTO list=qnaDao.qnaContent(idx);//본문내용리스트
 		List<QnaReDTO> reList=qnaDao.qnaReList(idx);//댓글리스트
-	
-		ModelAndView mav=new ModelAndView();
-		mav.addObject("list", list);
-		mav.addObject("reList", reList);
-		mav.addObject("count", count);
-		mav.setViewName("qna/qnaContent");
-		return mav;
+		String msg="";
+		String url="";
+		
+		if(!list.getWriter().equals(nickname)){
+			
+			ModelAndView mav=new ModelAndView();
+			msg="잠금";
+			url="qna/qnaList";
+			mav.addObject("msg", msg);
+			mav.addObject("url", url);
+			mav.setViewName("qna/qnaMsg");
+			return mav;
+			
+		}else{
+			
+			ModelAndView mav=new ModelAndView();
+			mav.addObject("list", list);
+			mav.addObject("reList", reList);
+			mav.addObject("count", count);
+			mav.setViewName("qna/qnaContent");
+			return mav;
+			
+			/*ModelAndView mav=new ModelAndView();
+			mav.addObject("list", list);
+			mav.addObject("reList", reList);
+			mav.addObject("count", count);
+			mav.setViewName("qna/qnaContent");
+			return mav;*/
+		}
+		
 	}
-	
+
 	@RequestMapping("/qnaReWriteForm.do")//댓글쓰기 폼
 	public ModelAndView qnaReWriteForm(@RequestParam(value="idx",required=false) int re_idx){
 		

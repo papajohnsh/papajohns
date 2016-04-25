@@ -35,7 +35,7 @@ h3{
          </li>
          <li>
           <a href="noticeList.do">
-             <i class="fa fa-circle-o text-red"></i><span>공지사항</span>
+             <i class="fa fa-circle-o text-green"></i><span>공지사항</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -91,7 +91,10 @@ h3{
                      </c:forEach>
                    </tbody>
                </table>
-               <div align="center">${pageStr}</div><!-- 페이징 영역 -->
+               <div class="box-footer clearfix" align="center"><!-- 페이징 영역 -->
+             		<ul class="pagination pagination-sm no-margin pull-center">
+                    	<li>${pageStr}</li>
+                  	</ul>
 				<br>
                <div class="box-footer clearfix" align="center">
 				

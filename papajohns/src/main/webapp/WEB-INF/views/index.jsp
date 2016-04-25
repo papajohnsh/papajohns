@@ -140,8 +140,11 @@
    
                  
 
-                   <div class="container" style="width: 35%;margin-left:60%;  margin-top: -315px; ">
+                   <div class="container" style="width: 30%;margin-left:60%; z-index: auto; margin-top:-12.4%; ">
+   	  <!--         <div class="container" style="width: 35%;margin-left:18%; z-index: auto;  margin-top:1%; "> -->
+                   
                 <div class="box-header with-border" align="center">
+                
                   <h3 class="box-title">자유게시판</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -149,7 +152,7 @@
                   </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <div class="table-responsive">
+                  <div class="table-responsive" >
                     <table class="table no-margin">
                       <thead>
                         <tr>
@@ -181,10 +184,10 @@
                    </tbody>
                    <tr>
                    <td colspan="4" align="center">
-                         <div class="container">
+                         <div class="container"  style="width: 45%">
  
               
-        <ul class="pager">
+        <ul class="pager" >
         <li>${pageStr2}</li>
    
          </ul>

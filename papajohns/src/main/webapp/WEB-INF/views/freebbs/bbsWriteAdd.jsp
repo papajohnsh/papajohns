@@ -84,7 +84,7 @@ function submitContents(elClickedObj) {
 					});
 				</script>
 				<!-- writeAdd button -->
-				<input type="submit" class="btn btn-primary pull-right" value="글올리기" onclick="submitContents();">
+				<input type="submit" class="btn btn-danger pull-right" value="글올리기" onclick="submitContents();">
                   </fieldset>
 				</div>
 				  <br>

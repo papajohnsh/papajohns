@@ -6,13 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
 <%@include file="../header.jsp" %>
 <!-- Left side column. contains the logo and sidebar -->
-  	<aside class="main-sidebar">
+	<aside class="main-sidebar">
 
 	<%@ include file="../side.jsp" %>
 
@@ -20,119 +22,133 @@
 
        <ul class="sidebar-menu">
          <li class="header">Menu</li>
-         <li>
-          <a href="faqList.do">
-             <i class="fa fa-circle-o text-red"></i> <span>FAQ</span>
-             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-           </a>
-         </li>
-         <li>
-           <a href="qnaList.do">
-            <i class="fa fa-circle-o text-aqua"></i><span>Q & A</span>
-             <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-           </a>
-         </li>
+        <li>
+              <a href="classRoomForm.do">
+                <i class="fa fa-home"></i> <span>내강의실</span>
+                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+              </a>
+            </li>
+            <li>
+              <a href="classForm.do">
+                <i class="fa fa-files-o"></i><span>내수업</span>
+                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+               </a>
+            </li>
+            <li>
+              <a href="makeClass.do">
+                <i class="fa fa-book"></i><span>수업 만들기</span>
+                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+              </a>
+            </li>
+            <li>
+              <a href="classDesign.do?idx=${sidx }">
+                <i class="fa fa-edit"></i><span>강의실 디자인</span>
+                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+              </a>
+            </li>
+             <li>
+              <a href="classBbsList.do">
+                <i class="fa fa-edit"></i><span>수업게시판</span>
+                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
+              </a>
+            </li>
        </ul>
         <ul class="sidebar-menu"></ul>
-     </section>
      <!-- /.sidebar -->
    </aside>
-
-  <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
-
-<!-- Main content -->
-   <c:set var="dto" value="${list}"></c:set>
-   <c:choose>
-   <c:when test="${empty dto}">
-
-    <tr>
-     <td colspan="5" align="center">
-      	잘못된 접근입니다.
-     </td>
-    </tr>
-   </c:when>
-   <c:otherwise>  
-
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            <strong>본문내용 보기</strong>
-          </h1>
-        </section>
-
+   
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" style="background: #ffffff">
+      
         <!-- Main content -->
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="box">
-                <div class="box-header">
-                  <h4 class="box-title"></h4>
+        <c:set var="dto" value="${list}"></c:set>
+		   <c:choose>
+		   <c:when test="${empty dto}">
+		
+		    <tr>
+		     <td colspan="5" align="center">
+		      	잘못된 접근입니다.
+		     </td>
+		    </tr>
+		   </c:when>
+		   <c:otherwise>  
+        
+        <section class="content">
+          <div class="row" style="padding: 2%;">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <div class="box box-primary" align="center">
+                <div class="box-header with-border">
+
+                  <h3 class="box-title"><span class="glyphicons glyphicons-table">본문내용보기</span></h3>
+ 
                 </div><!-- /.box-header -->
-                <div class="box-body">
+                <div class="box-body" >
                   <table id="example2" class="table table-bordered">
                   <tr>
-                		<td>번호</td>
-                		<td>${dto.idx}</td>
-                		<td>작성자</td>
-                		<td>${dto.writer}</td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-list-numbered">번호</span></td>
+                		<td style="text-align: center;">${dto.idx}</td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-user">작성자</span></td>
+                		<td style="text-align: center;">${dto.writer}</td>
                 	</tr>
                 	<tr>
-                		<td>제목</td>
-                		<td>${dto.subject}</td>
-                		<td>조회수</td>
-                		<td><span class="badge bg-red">${dto.readnum}</span></td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-list">제목</span></td>
+                		<td style="text-align: center;">${dto.subject}</td>
+                		<td style="text-align: center;"><span class="glyphicons glyphicons-mouse-middle-click">조회수</span></td>
+                		<td style="text-align: center;"><span class="badge bg-blue">${dto.readnum}</span></td>
                 	</tr>
-					<tr>
-						<td align="center" colspan="4">
+                	<tr style="height: 163px;">
+						<td colspan="4">
 						${dto.content }
 						</td>
 					</tr>
                   </table>
-                  <div align="center">
-                  <span><a href="classBbsReWriteForm.do?idx=${dto.idx }&subject\" class="btn btn-sm btn-danger btn-flat pull-center"> 답변글쓰기</a></span>
-                  <span><a href="classBbsList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a></span>
-                  </div>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-              </div>
-              </div>
-              </c:otherwise>
-           </c:choose>
-           
-            <!-- Chat box -->
-              <div class="box box-success">
-                <div class="box-header">
-                  <i class="fa fa-comments-o"></i>
-                  <h3 class="box-title">Chat</h3>
-                </div>
-                <div class="box-body chat" id="chat-box">
-                  <!-- chat item -->
-                  <c:set var="classReList" value="${reList}"></c:set>
-                  <c:if test="${empty classReList}">
-                  	등록된 댓글이 없습니다.
+
+                       <c:set var="bbsReList" value="${reList}"></c:set>
+          
+                  <table class="table table-striped">
+                 
+                      <c:if test="${empty bbsReList}">
+                       <tr>
+                  		<td>
+                   		  등록된 댓글이 없습니다.
+                     	</td>
+                  	</tr>
                   </c:if>
-                  <c:forEach var="dto" items="${classReList}">
-                  <div class="item">
-                    <img src="img/송중기.jpg" alt="user image" class="online">
-                    <p class="message">
-                      <a href="#" class="name">
-                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i>${dto.write_date}</small>
-                        	${dto.writer}
-                      </a>
-                      		${dto.content}
-                    </p>
-                    
-                  </div><!-- /.item -->
+                  
+                  <c:forEach var="dto" items="${bbsReList}">
+                 <tr>
+                  <td>
+                    <img src="resource/data/${sid }/profile.jpg"
+						onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
+						class="img-circle" alt="user image" class="online" width="30px;" height="30px;">
+						${dto.writer}/ ${dto.write_date}  <br>
+						${dto.content}
+						</td>
+
                   </c:forEach>
-                  <!-- chat item -->
-                </div><!-- /.chat -->
-              </div><!-- /.box (chat box) -->
-             </div>
+                  <c:set var="dto" value="${list}"></c:set>
+                 <tr>
+                  <td align="center">
+                    <a href="classBbsReWriteForm.do?idx=${dto.idx }&subject=${dto.subject}" class="btn btn-sm btn-danger btn-flat pull-center"> 댓글작성</a>
+		            <a href="classBbsList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a>
+                  </td>
+                  </tr>
+                  </table>
+                     </div><!-- /.box-body -->
+              </div><!-- /. box -->
+             <div class="col-md-2"></div>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+        </c:otherwise>
+     </c:choose>
+     
+     <!-- Chat box -->
 
-            <%@ include file="../footer.jsp" %>
-    		<%@ include file="../controllSide.jsp" %>
-        
-             
-
+      </div><!-- /.content-wrapper -->
+      
+    <%@ include file="../controllSide.jsp" %>
+	 
 </body>
 </html>

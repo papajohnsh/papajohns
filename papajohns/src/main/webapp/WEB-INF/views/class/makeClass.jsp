@@ -65,7 +65,13 @@
       
       <!-- Main content -->
             
-              <div class="container">
+ <!-- Content Wrapper. Contains page content -->
+   <div class="content-wrapper" style="background-color: #ffffff;">
+
+     <!-- Content Header (Page header) -->
+       <div class="row">
+       <div class="col-xs-2"></div>
+         <div class="col-xs-8">
               
                 <div class="box-header with-border" align="center">
                   <h3 class="box-title">새 강의</h3>
@@ -84,10 +90,10 @@
                     <!--   <td><input type="text" name="class_time" class="selector form-control"></td> -->
                     </tr>
                     <tr>
-                      <th>수업기간명</th>
-                      <td><input type="text" name="institut" class="form-control"></td>
+                      <th>수업기관명</th>
+                      <td><input type="text" name="institut" style="width: 200px;""></td>
                       <th>강사명</th>
-                      <td><input type="text" name="name" class="form-control" value="${sname }">
+                      <td><input type="text" name="name" value="${sname }" style="width: 200px;">
                       <input type="hidden" name="reidx" value="${sidx }">
                       </td>
                     </tr>
@@ -95,20 +101,22 @@
                     <tr>
                       <th>강의스케줄</th>
                       <td>
-                      <input type="text" name="start_date" id="start_date" class="form-control floating-label" placeholder="시작 날짜">
-                      <input type="text" name="end_date"  id="end_date" class="form-control floating-label" placeholder="종료 날짜">
+                      <input type="text" name="start_date" id="start_date" placeholder="시작 날짜" style="width: 150px;">
+                      <input type="text" name="end_date"  id="end_date" placeholder="종료 날짜"style="float:right; width: 150px;">
                       </td>
+                      </tr>
+                      <tr>
                        <th>강의시간</th>
 	                   	<td>
-	                   	<input type="text" name="start_time" id="start_time" class="form-control floating-label" placeholder="시작 시간">
-	                   	<input type="text" name="end_time" id="end_time" class="form-control floating-label" placeholder="종료 날짜">
+	                   	<input type="text" name="start_time" id="start_time" placeholder="시작 시간" style="width: 150px;">
+	                   	<input type="text" name="end_time" id="end_time" placeholder="종료 날짜" style="width:150px; float: right;">
 	                   	</td>
                       <!-- <td><input type="text" name="class_date" class="form-control"></td> -->
 					</tr>
 					<tr>
 					<th>날짜</th>
 		
-           <td>
+           <td colspan="4">
  
 
 
@@ -173,6 +181,9 @@
                   </form>
                   </div>
                 </div><!-- /.box -->
+                 <div class="col-xs-2"></div>
+                 </div>   
+         </div><!-- content wrapper -->
                 	<script type="text/javascript">
 		$(document).ready(function()
 		{
