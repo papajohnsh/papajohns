@@ -82,13 +82,16 @@
       
       <!-- general form elements disabled -->
              <<!-- Content Wrapper. Contains page content -->
-   			<div class="content-wrapper">
+   			<div class="content-wrapper" style="background-color: #ffffff; padding: 5%;">
+   			 <div class="col-xs-2"></div>
+         	<div class="col-xs-8">
               <div class="box box-warning">
                 <div class="box-header with-border">
                   <h3 class="box-title">회원탈퇴</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <form role="form" name="memberOut" action="memberOut.do">
+                  <input type="hidden" name="idx" value="${sidx}">
                     <!-- text input -->
                     <div class="form-group">
                       <label>이름</label>
@@ -98,9 +101,11 @@
                       <label>비밀번호</label>
                       <input type="password" name="pwd" class="form-control" value="">
                     </div>
-                    <input type="submit" class="btn btn-default pull-right" value="회원탈퇴">
+                    <input type="submit" class="btn btn-warning pull-right" value="회원탈퇴">
       			</form>
       		</div>
+      	</div>
+      	<div class="col-xs-2"></div>
       	</div>
 	</div><!-- container -->
 	         

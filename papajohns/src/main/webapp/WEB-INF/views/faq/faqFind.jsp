@@ -40,15 +40,14 @@
       <div class="content-wrapper" style="background: #ffffff">
 
         <!-- Content Header (Page header) -->
-          <div class="row" style="padding: 2%;">
+          <div class="row" style="padding: 5%;">
             <div class="col-xs-2"></div>
          	<div class="col-xs-8">
               <div class="box">
                 <div class="box-header" align="center">
-                 <div class="jumbotron" style="background-image: url('img/5.png');">
-			    	<h1 style="color: white;">ClassRoom</h1>
-                  <h3 class="box-title" style="color: white;"><span class="glyphicons glyphicons-search">검색 결과</span></h3>
-                  </div>
+
+                  <h3 class="box-title"><span class="glyphicons glyphicons-search">검색 결과</span></h3>
+
                   <div class="box-tools">
                     <div class="input-group" style="width: 150px;">      
                     </div>

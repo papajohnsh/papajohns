@@ -55,14 +55,13 @@
 		   <c:otherwise>  
         
         <section class="content">
-          <div class="row" style="padding: 2%;">    
+          <div class="row" style="padding: 5%;">    
             <div class="col-md-12">
               <div class="box box-primary">
                 <div class="box-header with-border" align="center">
-                 <div class="jumbotron" style="background-image: url('img/7.jpg');">
-			    	<h1 style="color: white;">ClassRoom</h1>
-                  <h3 class="box-title" style="color: white;"><span class="glyphicons glyphicons-notes-2">공지사항 보기</span></h3>
-                  </div>
+
+                  <h3 class="box-title"><span class="glyphicons glyphicons-notes-2">공지사항 보기</span></h3>
+
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table id="example2" class="table table-bordered">
@@ -79,16 +78,16 @@
                 		<td style="text-align: center;"><span class="badge bg-green">${dto.readnum}</span></td>
                 	</tr>
                 	<tr>
-						<td align="center" colspan="4">
+						<td colspan="4">
 						${dto.content }
 						</td>
 					</tr>
-                  </table>
-                   <div align="center">
-		            <a href="noticeList.do" class="btn btn-sm btn-warning btn-flat pull-center">목록으로</a>
-        		</div>
+                  </table> 
                 </div><!-- /.box-body -->
               </div><!-- /. box -->
+              <div align="right" style="padding: 10%;">
+		            <a href="noticeList.do" class="btn btn-sm btn-primary btn-flat pull-right">목록으로</a>
+        		</div>
               <div class="col-md-2"></div>
             </div><!-- /.col -->
           </div><!-- /.row -->

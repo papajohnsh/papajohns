@@ -56,7 +56,7 @@ function submitContents(elClickedObj) {
 		<div class="col-xs-2"></div>
 			<div class="col-xs-8">
 		<form name="qnaReWrite" action="qnaReWrite.do" method="post">
-		<div class="box">
+		<div class="box" style="padding: 2%;">
                 <div class="box-header" align="center">
 
                   <h3 class="box-title"><span class="glyphicons glyphicons-edit">질문게시판 댓글쓰기</span></h3>

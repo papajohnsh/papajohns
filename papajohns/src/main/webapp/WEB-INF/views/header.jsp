@@ -57,33 +57,31 @@
 				<ul class="nav navbar-nav">
 
 						<!-- Myclass-menu -->
-					<li class="myclass-menu"><a href="classRoomForm.do" data-toggle="tooltip" data-placement="bottom" title="강의실" style="padding-right: 20px;"><span class="glyphicons glyphicons-bell"></span></a>
+					<li class="myclass-menu"><a href="classRoomForm.do"><span>내강의실</span></a>
 					</li>
 
 					<!-- login-menu -->
 					<c:if test="${empty sid }">
-						<li class="login-menu"><a href="loginForm.do" data-toggle="tooltip" data-placement="bottom" title="로그인" style="padding-right: 20px;"><span class="glyphicons glyphicons-log-in"></span></a>
+						<li class="login-menu"><a href="loginForm.do" style="padding-right: 20px;"><span>로그인</span></a>
 						</li>
 					</c:if>
 
 					<c:if test="${!empty sid}">
-						<li class="login-menu"><a href="logout.do" data-toggle="tooltip" data-placement="bottom" title="로그아웃" style="padding-right: 20px;"><span class="glyphicons glyphicons-log-out"></span></a></li>
-						<li class="Myinfo-menu"><a href="myInfoForm.do" data-toggle="tooltip" data-placement="bottom" title="내정보" style="padding-right: 20px;"><span class="glyphicons glyphicons-info-sign"></span></a>
+						<li class="login-menu"><a href="logout.do" style="padding-right: 20px;"><span>로그아웃</span></a></li>
+						<li class="Myinfo-menu"><a href="myInfoForm.do"><span>내정보</span></a>
 						</li>
 					</c:if>
 					
 					<!-- Find-menu -->
-					<li class="Find-menu"><a href="classRoomNameSearchForm.do?num=1" data-toggle="tooltip" data-placement="bottom" title="검색" style="padding-right: 20px;"><span class="glyphicons glyphicons-search"></span></a>
+					<li class="Find-menu"><a href="classRoomNameSearchForm.do?num=1"><span>검색</span></a>
 					</li>
 
 					<!-- bbs-menu -->
-					<li class="bbs-menu"><a href="bbsListForm.do" data-toggle="tooltip" data-placement="bottom" title="게시판" style="padding-right: 20px;"><span class="glyphicons glyphicons-blackboard"></span></a>
+					<li class="bbs-menu"><a href="bbsListForm.do"><span>게시판</span></a>
 					</li>
 					<!-- support-menu -->
-					<li class="support-menu"><a href="faqList.do" data-toggle="tooltip" data-placement="bottom" title="고객지원" style="padding-right: 20px;"><span class="glyphicons glyphicons-family"></span></a>
+					<li class="support-menu"><a href="faqList.do"><span>고객지원</span></a>
 					</li>
-					<!-- Control Sidebar Toggle Button -->
-					<li><a href="#" data-toggle="control-sidebar"><i class="fa fa-gears" style="padding-right: 20px;"></i></a></li>
 				</ul>
 			</div>
 		</nav>
