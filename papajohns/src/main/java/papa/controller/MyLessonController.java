@@ -102,7 +102,9 @@ public class MyLessonController {
 	@RequestMapping("/showMessage.do")
 	public ModelAndView showMessage(HttpSession session){
 		String id=(String)session.getAttribute("sid");
+		System.out.println(id);
 		List<QuestionDTO> list=questionDao.questionView(id);
+		System.out.println(list.get(0).getContent());
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list", list);
 		mav.setViewName("class/Message");
