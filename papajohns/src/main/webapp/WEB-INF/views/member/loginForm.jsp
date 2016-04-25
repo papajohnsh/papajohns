@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,6 +36,13 @@
     <link rel="stylesheet" href="css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 <script type="text/javascript" src="js/httpRequest.js"></script>
 <script>
+
+<c:if test="${param.login eq 'join'}">
+$(document).ready(function () {
+    $('#myModal').modal('show');
+    windows.alert("${param.login}");
+});
+</c:if>
 function show(){//id중복체크
 
 	   var params='id='+document.loginForm.id.value;
@@ -126,10 +134,10 @@ var date = now.getDate();
    </div>   -->
    <div>
 	<div id="top" style="margin:0 auto; width:222px;">
-	<div style="float:right;" style="width: 111p;height:48px">
+	<div style="float:right; width: 111px; height:48px">
 	    <button type="button" class="btn btn-success pull-center" data-toggle="modal" data-target="#myModal" style="width: 111px;height:48px;"><font color="white" >회원가입</font></button>
    </div>
-   	<div style="float:left" style="width: 111px;height:48px;">
+   	<div style="float:left; width: 111px; height:48px;">
       <input type="submit" class="btn btn-success pull-center" value="login"style="width: 111px;height:48px;">
   
    </div>

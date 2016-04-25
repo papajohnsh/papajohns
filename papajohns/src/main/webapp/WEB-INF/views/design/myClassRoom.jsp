@@ -369,7 +369,7 @@ top:${y30}px;
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">뭐가 궁금한가요?</h4>
+							<h4 class="modal-title">어떤게 궁금한가요?</h4>
 						</div>
 
 						<div class="modal-body">
@@ -382,9 +382,8 @@ top:${y30}px;
 						<div class="modal-footer">
 
 							<!-- <input type="submit" class="btn btn-default" value="login">-->
-							<button type="submit" class="btn btn-default">질문보내기</button>
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal">닫기</button>
+							<button type="submit" class="btn btn-success">질문보내기</button>
+							<button type="button" class="btn btn-success" data-dismiss="modal">닫기</button>
 
 						</div>
 					</div>
