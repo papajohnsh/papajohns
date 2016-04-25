@@ -66,5 +66,10 @@ public class FreeBbsDAOImple implements FreeBbsDAO {
 		List<FreeBbsDTO> list3=sqlMap.selectList("freeBbsFind", map);
 		return list3;
 	}
+
+	public int bbsIdx(int idx) {
+		int result=sqlMap.selectOne("bbsIdx", idx);
+		return result;
+	}
 	
 }

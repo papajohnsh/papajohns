@@ -30,7 +30,7 @@
          </li>
          <li>
           <a href="noticeList.do">
-             <i class="fa fa-circle-o text-red"></i><span>공지사항</span>
+             <i class="fa fa-circle-o text-green"></i><span>공지사항</span>
              <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
            </a>
          </li>
@@ -78,12 +78,17 @@
                        <td>${dto.idx}</td>
                        <td><a href="noticeContent.do?idx=${dto.idx}">${dto.subject}</a></td>
                        <td>${dto.writer}</td>
-                       <td><span class="badge bg-red">${dto.readnum}</span></td>
+                       <td><span class="badge bg-green">${dto.readnum}</span></td>
                      </tr>
                      </c:forEach>
                    </tbody>
                </table>
-               <div align="center">${pageStr}</div><!-- 페이징 영역 -->
+               
+				<div class="box-footer clearfix" align="center"><!-- 페이징 영역 -->
+             		<ul class="pagination pagination-sm no-margin pull-center">
+                    	<li>${pageStr}</li>
+                  	</ul>
+               
 				<br>
 				
                <div class="box-footer clearfix" align="center">
@@ -105,7 +110,7 @@
            <div class="col-xs-2"></div>
          </div>
        </div>
-
+</div>
 	</div>
    </div><!-- /.content-wrapper -->
 
