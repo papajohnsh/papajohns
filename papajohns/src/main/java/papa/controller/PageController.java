@@ -318,10 +318,17 @@ public class PageController {
 		ModelAndView mav=new ModelAndView();
 		int idx=(int) session.getAttribute("sidx");
 		String list1=classDao.reidxList(idx);
+		if(list1==null){
+			String msg="참가한 수업이 없습니다";
+			mav.addObject("msg",msg);
+			mav.setViewName("class/Msg");		
+		}
+		if(list1!=null){
 		List<classDTO> list5=new ArrayList<>();
 
 		String list2=list1.substring(2);
-		System.out.println(list2);
+		
+		
 	    String[] list3=list2.split(",");
 	    for(int i=0; i<list3.length;i++){
 	    	int idx2=Integer.parseInt(list3[i]);
@@ -336,6 +343,8 @@ public class PageController {
 		mav.addObject("list",list);
 		
 		mav.setViewName("class/classForm");
+		
+		}
 		return mav;
 	}
 	

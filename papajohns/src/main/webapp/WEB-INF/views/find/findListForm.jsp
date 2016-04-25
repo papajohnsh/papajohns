@@ -43,12 +43,7 @@
                	<span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span> 
               </a>
             </li>
-            <li>
-              <a href="classRoomNameSearchForm.do?num=3">
-                <i class="fa fa-search"></i><span>거리별검색</span>
-                <span class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></span>
-              </a>
-            </li>
+           
             <li>
               <a href="classRoomNameSearchForm.do?num=4">
                 <i class="fa fa-search"></i><span>선생님검색</span>
