@@ -89,7 +89,10 @@
                    	</c:choose>
                    </tbody>
                </table>
-               <div align="center">${pageStr}</div><!-- 페이징 영역 -->
+               <div class="box-footer clearfix" align="center"><!-- 페이징 영역 -->
+             		<ul class="pagination pagination-sm no-margin pull-center">
+                    	<li>${pageStr}</li>
+                  	</ul>
 				<br>
 				<div align="center" style="padding: 10%;">
 					 <form name="search" action="faqFind.do" method="post">
@@ -111,7 +114,7 @@
          </div>
        </div>
      </section><!-- /.content -->
-
+</div>
 </div>
      </div><!-- /.content-wrapper -->
 

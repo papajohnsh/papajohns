@@ -1,6 +1,7 @@
 package papa.classbbs.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
@@ -20,8 +21,8 @@ public class ClassBbsDAOImple implements ClassBbsDAO {
 		return count;
 	}
 	
-	public List<ClassBbsDTO> classList() {//게시판 리스트 보기
-		List<ClassBbsDTO> list=sqlMap.selectList("classList");
+	public List<ClassBbsDTO> classList(Map<String, Integer> map) {//게시판 리스트
+		List<ClassBbsDTO> list=sqlMap.selectList("classList", map);
 		return list;
 	}
 	
@@ -63,5 +64,15 @@ public class ClassBbsDAOImple implements ClassBbsDAO {
 	public ClassBbsDTO classFindSubject(String subject) {//수업 검색(제목)
 		ClassBbsDTO dto=sqlMap.selectOne("classFindSubject", subject);
 		return dto;
+	}
+
+	public List<ClassBbsDTO> classBbsFind(Map<String, String> map) {
+		List<ClassBbsDTO> list=sqlMap.selectList("classBbsFind", map);
+		return list;
+	}
+	
+	public int classTotal() {
+		int count=sqlMap.selectOne("classTotal");
+		return count;
 	}
 }

@@ -80,6 +80,7 @@ public class FreeBbsController {
 	public ModelAndView bbsWrite(FreeBbsDTO dto,@RequestParam("upload") MultipartFile upload,@RequestParam("id") String id, HttpServletRequest request){
 		
 		int result=freebbsDao.bbsWriteAdd(dto);
+		
 		String msg=result>0?"글쓰기 성공":"글쓰기 실패";
 		System.out.println("글쓰기내용"+dto.getContent());
 		ModelAndView mav=new ModelAndView();
@@ -136,13 +137,13 @@ public class FreeBbsController {
 	@RequestMapping(value="/bbsReWrite.do",method=RequestMethod.POST)//게시판 댓글쓰기 등록
 	public ModelAndView bbsReWrite(FreeBbsReDTO dto){
 		
-		int getRef=freebbsDao.getRef();//마지막 순번
+		//int getRef=freebbsDao.getRef();//마지막 순번
 		int count=freebbsDao.bbsReWrite(dto);
 		String msg=count>0?"댓글쓰기성공":"댓글쓰기실패";
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("msg", msg);
-		mav.addObject("getRef", getRef+1);
+		//mav.addObject("getRef", getRef+1);
 		mav.setViewName("freebbs/bbsMsg");
 		return mav;
 		
@@ -157,7 +158,9 @@ public class FreeBbsController {
 		List<FreeBbsReDTO> reList=freebbsDao.freeBbsReList(idx);//댓글리스트
 		System.out.println(reList);
 		
+
 		ModelAndView mav=new ModelAndView();
+
 		mav.addObject("list", list);
 		mav.addObject("reList", reList);
 		mav.addObject("count", count);

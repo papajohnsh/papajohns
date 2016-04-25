@@ -16,6 +16,8 @@ public interface FreeBbsDAO {
 	public List<FreeBbsReDTO> freeBbsReList(int idx);
 	public int bbsReWrite(FreeBbsReDTO dto);
 	public int getIdx(int idx);
-	public int getRef();
+	//public int getRef();
+	
+	public int bbsIdx(int idx); 
 
 }

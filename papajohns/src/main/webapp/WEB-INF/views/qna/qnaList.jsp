@@ -77,14 +77,17 @@
                    	<c:forEach var="dto" items="${qnaList}">
                      <tr>
                        <td>${dto.idx}</td>
-                       <td><a href="qnaContent.do?idx=${dto.idx}">${dto.subject}</a></td>
+                       <td><a href="qnaContent.do?idx=${dto.idx}&nickname=${snickname}">${dto.subject}</a></td>
                        <td>${dto.writer}</td>
                        <td><span class="badge bg-aqua">${dto.readnum}</span></td>
                      </tr>
                      </c:forEach>
                    </tbody>
                </table>
-                <div align="center">${pageStr}</div><!-- 페이징 영역 -->
+                <div class="box-footer clearfix" align="center"><!-- 페이징 영역 -->
+             		<ul class="pagination pagination-sm no-margin pull-center">
+                    	<li>${pageStr}</li>
+                  	</ul>
 				<br>
 				
                <div class="box-footer clearfix" align="center">
@@ -107,7 +110,7 @@
          </div>
        </div>
      </section><!-- /.content -->
-
+</div>
 </div>
      </div><!-- /.content-wrapper -->
 
