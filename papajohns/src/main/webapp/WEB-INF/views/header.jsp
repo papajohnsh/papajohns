@@ -74,6 +74,7 @@
 					
 					<!-- Find-menu -->
 					<li class="Find-menu"><a href="classRoomNameSearchForm.do?num=1" data-toggle="tooltip" data-placement="bottom" title="검색" style="padding-right: 20px;"><span class="glyphicons glyphicons-search"></span></a>
+					<li class="Find-menu"><a href="findListForm.do"><span>Search</span></a>
 					</li>
 
 					<!-- bbs-menu -->
