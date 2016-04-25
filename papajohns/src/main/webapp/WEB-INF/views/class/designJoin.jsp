@@ -1416,10 +1416,212 @@ border-width:5px;
    }
    $(function() {
 	   
-	    $(".ui-draggable").draggable({
+	    $("#img1").draggable({
 	        grid: [20, 1],
-	        helper:"clone",
-	        accept: ".a"
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img2").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img3").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img4").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img5").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img6").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img7").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img8").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img9").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img10").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img11").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img12").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img13").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img14").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img15").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img16").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img17").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img18").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img19").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img20").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img21").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img22").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img23").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img24").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img25").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img26").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img27").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img28").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img29").draggable({
+	        grid: [20, 1],
+	      
+	    });
+	});
+   $(function() {
+	   
+	    $("#img30").draggable({
+	        grid: [20, 1],
+	      
 	    });
 	});
    

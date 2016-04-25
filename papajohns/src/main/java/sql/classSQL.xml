@@ -23,10 +23,10 @@ select * from class_info where institut LIKE CONCAT('%',#{institut},'%')
 select * from class_info where name LIKE CONCAT('%',#{name},'%')
 </select>
 <select id="class_dateSearch" parameterType="String" resultType="papa.class_.model.classDTO">
-select * from class_info where end_date LIKE CONCAT('%',#{end_date},'%')
+select * from class_info where end_date LIKE CONCAT('%',#{start_date},'%')
 </select>
 <select id="class_timeSearch" parameterType="String" resultType="papa.class_.model.classDTO">
-select * from class_info where end_time LIKE CONCAT('%',#{end_time},'%')
+select * from class_info where end_time LIKE CONCAT('%',#{start_time},'%')
 </select>
 <select id="classJoin" parameterType="String" resultType="papa.class_.model.classDTO">
 select * from class_info where idx=#{idx}

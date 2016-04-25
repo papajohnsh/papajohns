@@ -13,6 +13,14 @@
 		<script type="text/javascript" src="js/datepicker/material.min.js"></script>
 		<script type="text/javascript" src="js/datepicker/moment-with-locales.min.js"></script>
 		<script type="text/javascript" src="js/datepicker/bootstrap-material-datetimepicker.js"></script>
+		<style>
+	.btn span.glyphicon {    			
+	opacity: 0;				
+}
+.btn.active span.glyphicon {				
+	opacity: 1;				
+}
+		</style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
@@ -99,16 +107,57 @@
 					</tr>
 					<tr>
 					<th>날짜</th>
-					<td>
-					<input type="checkbox" name="day" value="1">월
-					<input type="checkbox" name="day" value="2">화
-					<input type="checkbox" name="day" value="3">수
-					<input type="checkbox" name="day" value="4">목
-					<input type="checkbox" name="day" value="5">금
-					<input type="checkbox" name="day" value="6">토
-					<input type="checkbox" name="day" value="0">일
-					
-					</td>
+		
+           <td>
+ 
+
+
+	
+		
+		<div class="btn-group" data-toggle="buttons">
+			
+			<label class="btn btn-default">
+				<input type="checkbox" autocomplete="off" name="day" value="1">월
+				<span class="glyphicon glyphicon-ok"></span>
+			</label>
+
+			<label class="btn btn-default">
+				<input type="checkbox" autocomplete="off" name="day" value="2">화
+				<span class="glyphicon glyphicon-ok"></span>
+			</label>
+			
+			<label class="btn btn-default">
+				<input type="checkbox" autocomplete="off" name="day" value="3">수
+				<span class="glyphicon glyphicon-ok"></span>
+			</label>
+			
+			<label class="btn btn-default">
+				<input type="checkbox" autocomplete="off" name="day" value="4">목
+				<span class="glyphicon glyphicon-ok"></span>
+			</label>
+			
+			<label class="btn btn-default">
+				<input type="checkbox" autocomplete="off" name="day" value="5">금
+				<span class="glyphicon glyphicon-ok"></span>
+			</label>
+			
+			<label class="btn btn-default">
+				<input type="checkbox" autocomplete="off" name="day" value="6">토
+				<span class="glyphicon glyphicon-ok"></span>
+			</label>
+			
+			<label class="btn btn-default">
+				<input type="checkbox" autocomplete="off" name="day" value="0">일
+				<span class="glyphicon glyphicon-ok"></span>
+			</label>			
+		
+		</div>
+
+	
+
+
+        </td>
+    
 					</tr>
                     <tr>
                       <td colspan="4">
@@ -116,6 +165,7 @@
                       </td>
                     </tr>
                   </table>
+                  
                   <div align="center">	
                   <span><input type="submit" class="btn btn-default" value="등록하기"></span>
                   <span><a href="classForm.do" class="btn btn-sm btn-info btn-flat pull-center">목록으로</a></span>

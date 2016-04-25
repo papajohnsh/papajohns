@@ -73,8 +73,7 @@
 					</c:if>
 					
 					<!-- Find-menu -->
-					<li class="Find-menu"><a href="classRoomNameSearchForm.do?num=1"><span>검색</span></a>
-					</li>
+					<li class="Find-menu"><a href="classRoomNameSearchForm.do?num=1"><span>검색</span></a></li>
 
 					<!-- bbs-menu -->
 					<li class="bbs-menu"><a href="bbsListForm.do"><span>게시판</span></a>

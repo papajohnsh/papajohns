@@ -255,7 +255,7 @@ top:${y30}px;
               <ul class="treeview-menu">
                 <li><a data-toggle="modal" data-target="#myModal2" href="studentList.do?idx=${param.idx }" ><i class="fa fa-circle-o" ></i> 학생리스트</a></li>
                 <li><a data-toggle="modal" href="lessonSchedule.do" data-target="#myModal7" ><i class="fa fa-circle-o"></i> 강의스케줄</a></li>
-                <li><a data-toggle="modal" href="quizTestForm.do?idx=${param.idx }" data-target="#myModal2" data-backdrop="static"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
+                <li><a data-toggle="modal" href="quizTestForm.do?idx=${param.idx }" data-target="#myModal5" data-backdrop="static"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
                 <li><a data-toggle="modal" href="quizList.do?idx=${param.idx }" data-target="#myModal3"><i class="fa fa-circle-o"></i> 문제 수정하기</a></li>
                 <li><a data-toggle="modal" href="quizResult.do?idx=${param.idx }" data-target="#myModal4"><i class="fa fa-circle-o"></i>쪽지시험결과</a></li>
 <!--                 <li><a data-toggle="modal" href="quizTestLoad.do" data-target="#myModal5" data-backdrop="static"><i class="fa fa-circle-o"></i>쪽지시험보기</a></li> -->
@@ -299,8 +299,8 @@ top:${y30}px;
  </c:forEach>
   </div>
 	  <div>
-	<iframe src="http://192.168.35.209:8081?student=${sname }&classRoom=${lessonName}" width="350" height="650">
- 		</iframe> 
+	<iframe src="http://192.168.50.81:8081?student=${sname }&classRoom=${lessonName}" width="350" height="650">
+ 		</iframe>  
   </div>		
  </div>
 </div>
@@ -333,10 +333,9 @@ top:${y30}px;
   </div>
 </div>
 
-<div class="modal fade bs-example-modal-lg" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
     <div class="modal-content">
-      
     </div>
   </div>
 </div>
@@ -352,6 +351,7 @@ top:${y30}px;
     </div>
   </div>
 </div>
+
 
 <script type="text/javascript">
 <%
@@ -401,7 +401,7 @@ top:${y30}px;
 	
 	function onClose(evt) {
 		wsocket.close();
-		alert("연결 끊김");
+		cosole.log("연결 끊김");
 	}
 	
 	function sendMessage(color){

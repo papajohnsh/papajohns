@@ -95,5 +95,12 @@ public class classDAOImple implements classDAO {
 			return result;
 			
 		}
+		@Override
+		public classDTO schedule(String idx) {
+		System.out.println("진입-------------------");
+		classDTO list=sqlMap.selectOne("classJoin",idx);
+		System.out.println("수업이름"+list.getSubject());
+		return list;
+		}
 
 }
