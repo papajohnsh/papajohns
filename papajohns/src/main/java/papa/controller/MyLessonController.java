@@ -11,14 +11,25 @@ import papa.class_.model.*;
 import javax.servlet.http.HttpSession;
 
 import papa.member.model.*;
+import papa.question.model.QuestionDAO;
+import papa.question.model.QuestionDTO;
 @Controller
 public class MyLessonController {
 	@Autowired
 	private MemberDAO dao;
 	@Autowired
 	private classDAO classDao;
+	@Autowired
+	private QuestionDAO questionDao;
 	
-	
+	public QuestionDAO getQuestionDao() {
+		return questionDao;
+	}
+
+	public void setQuestionDao(QuestionDAO questionDao) {
+		this.questionDao = questionDao;
+	}
+
 	public classDAO getClassDao() {
 		return classDao;
 	}
@@ -87,6 +98,15 @@ public class MyLessonController {
 	@RequestMapping("/question.do")
 	public String question(){
 		return "web/chat-ws";
+	}
+	@RequestMapping("/showMessage.do")
+	public ModelAndView showMessage(HttpSession session){
+		String id=(String)session.getAttribute("sid");
+		List<QuestionDTO> list=questionDao.questionView(id);
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("class/Message");
+		return mav;
 	}
 
 }

@@ -35,13 +35,13 @@ select * from class_info where idx=#{idx}
 update member set reidx=#{list} where idx=#{idx}
 </update>
 <select id="classJoinList" parameterType="int" resultType="papa.class_.model.classDTO">
-select * from class_info where reidx=#{idx}
+select * from class_info where reidx=#{idx} order by start_time asc
 </select>
 <select id="designJoin" parameterType="String" resultType="papa.member.model.MemberDTO">
 select * from member where reidx LIKE CONCAT('%',#{idx},'%')
 </select>
 <select id="reidxList" parameterType="int" resultType="String">
-select reidx from member where idx=#{idx}
+select reidx from member where idx=#{idx} order by start_time asc
 </select>
 <select id="joinClass" parameterType="int" resultType="papa.class_.model.classDTO">
 select * from class_info where idx=#{idx}
