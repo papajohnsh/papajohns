@@ -55,6 +55,11 @@ public class PageController {
 		
 	}
 	
+	@RequestMapping("/testA.do")
+	public String testA(String message){
+		System.out.println(message);
+		return message;
+	}
 	@RequestMapping("/classRoomForm.do")//내강의실Form 이동
 	public ModelAndView classRoomForm(HttpSession session){
 		System.out.println(session.getAttribute("sidx"));

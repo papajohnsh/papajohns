@@ -14,8 +14,9 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 //EchoHandler는 서버단의 webSocketEndPoint 정의
 public class EchoHandler extends TextWebSocketHandler {
-	private Map<String, WebSocketSession> users = new ConcurrentHashMap<>();
+	//private Map<String, WebSocketSession> users = new ConcurrentHashMap<>();
 	private ArrayList<WebSocketDTO> papa = new ArrayList<WebSocketDTO>(); 
+	//private CloseStatus status2;
 	//private String onLogin="";
 	@Override
 	public void afterConnectionEstablished(
@@ -56,8 +57,14 @@ public class EchoHandler extends TextWebSocketHandler {
 						log(papa.get(i).getUser() + "에 메시지 발송: " + message.getPayload());
 					}
 				}
+			}else if(!(message.getPayload().indexOf("Question:")==-1)){
+				for(int i=0;i<papa.size();i++){
+					if(papa.get(i).getUser().equals(papa.get(i).getTeacher())){
+						papa.get(i).getSession().sendMessage(message);
+						log(papa.get(i).getUser() + "에 메시지 발송: " + message.getPayload());
+					}
+				}
 			}
-		
 			
 		}
 		
@@ -88,6 +95,7 @@ public class EchoHandler extends TextWebSocketHandler {
 	public void handleTransportError(
 			WebSocketSession session, Throwable exception) throws Exception {
 		log(session.getId() + " 익셉션 발생: " + exception.getMessage());
+		//afterConnectionClosed(session, status2);
 	}
 
 	private void log(String logmsg) {

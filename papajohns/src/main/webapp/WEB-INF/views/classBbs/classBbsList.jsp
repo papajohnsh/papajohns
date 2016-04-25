@@ -224,7 +224,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="css/dist/js/demo.js"></script>
 </body>
-=======
+<%-- =======
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -386,5 +386,5 @@
     <%@ include file="../controllSide.jsp" %>  
 
 </body>
->>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git
+>>>>>>> branch 'master' of https://github.com/papajohnsh/papajohns.git --%>
 </html>

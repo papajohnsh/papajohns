@@ -100,10 +100,11 @@
 	</tr>
 	<tr>
 	<td>
-
+	<form name="f" action="testA.do">
     <input type="text" id="message">
     <input type="button" id="sendBtn" value="연결" onclick="sendBtn()">
-    <input type="button" id="dbSend" value="DB저장">
+    <input type="submit" id="dbSend" value="DB저장">
+    </form>
 	</td>
 	</tr>
 	</table>
