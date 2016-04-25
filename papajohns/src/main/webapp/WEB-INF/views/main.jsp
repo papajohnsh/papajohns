@@ -138,15 +138,25 @@ var date = now.getDate();
     <font size="3em"><a href="pwdFindForm.do"  style="color: white;"><b>비밀번호 찾기</b></a></font></label>
  <div >
 
+
 	<div  style="width:300px;">
 	<div style="float:left">
    <%@ include file="member/naverLogin.jsp" %>
    </div>
    	<div style="float:left">
+   <img src="distance_main2.png">
+   </div>
+   	<div style="float:left">
  <%@ include file="member/facebookLogin.jsp" %>
    </div>
    	<div style="float:left">
+   <img src="distance_main2.png">
+   </div>
+   	<div style="float:left">
  <%@ include file="member/kakaLogin.jsp" %>
+   </div>
+   	<div style="float:left">
+   <img src="distance_main2.png">
    </div>
    	<div style="float:left">
  <%@ include file="member/googleLogin.jsp" %>
