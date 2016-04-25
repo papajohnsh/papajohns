@@ -49,20 +49,9 @@
          <div class="col-xs-8">
          <div class="box">
              <div class="box-header" align="center">
-             <div class="jumbotron" style="background-image: url('img/5.png');">
-			    <h1 style="color: white;">ClassRoom</h1>             
-               <h3 class="box-title" style="color: white;"><span class="glyphicons glyphicons-question-sign">FAQ</span></h3>
-			</div>
-			<div align="right">
-					 <form name="search" action="faqFind.do" method="post">
-					<select name="fkey">
-                 		<option value="writer">작성자</option>
-                 		<option value="subject">제목</option>     		
-                 	</select>
-                 	<input type="text" name="fvalue" required="required" placeholder="Search">
-      				<input type="submit" class="btn btn-sm btn-warning" value="검색">
-					</form>
-				</div>
+            
+               <h3 class="box-title"><span class="glyphicons glyphicons-question-sign">FAQ</span></h3>
+
              </div><!-- /.box-header -->
              <div class="box-body table-responsive no-padding">
                <table class="table table-hover">
@@ -102,8 +91,17 @@
                </table>
                <div align="center">${pageStr}</div><!-- 페이징 영역 -->
 				<br>
-				
-               <div class="box-footer clearfix" align="center" style="padding-bottom: 15%;">
+				<div align="center" style="padding: 10%;">
+					 <form name="search" action="faqFind.do" method="post">
+					<select name="fkey">
+                 		<option value="writer">작성자</option>
+                 		<option value="subject">제목</option>     		
+                 	</select>
+                 	<input type="text" name="fvalue" required="required" placeholder="Search">
+      				<input type="submit" class="btn btn-sm btn-warning" value="검색">
+					</form>
+				</div>
+               <div class="box-footer clearfix" align="center">
 
                <a href="faqWriteForm.do" class="btn btn-sm btn-info btn-flat pull-right">글쓰기</a>
 

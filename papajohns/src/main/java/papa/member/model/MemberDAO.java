@@ -19,7 +19,7 @@ public interface MemberDAO {
 	public int infoMod(MemberDTO dto);
 	
 	public int memberOut(MemberDTO dto);
-	public String outCheckPw(String name);
+	public String outCheckPw(int idx);
 	public MemberDTO facebookLogin(MemberDTO dto);
 	public int fbJoin(MemberDTO dto);
 	

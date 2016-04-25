@@ -254,11 +254,11 @@ top:${y30}px;
               </a>
               <ul class="treeview-menu">
                 <li><a href="#" id="studentList"><i class="fa fa-circle-o" ></i> 학생리스트</a></li>
-                <li><a href="classPlan.do" ><i class="fa fa-circle-o"></i> 강의스케줄</a></li>
+                <li><a data-toggle="modal" data-target="#myModal2" href="stuendtSchedule.do" ><i class="fa fa-circle-o"></i> 수업스케줄</a></li>
                 <%-- <li><a data-toggle="modal" href="quizTestForm.do" data-target="#myModal2"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
                 <li><a data-toggle="modal" href="quizList.do?idx=${param.idx }" data-target="#myModal3"><i class="fa fa-circle-o"></i> 문제 수정하기</a></li>
                 <li><a data-toggle="modal" href="quizResult.do?idx=${param.idx }" data-target="#myModal4"><i class="fa fa-circle-o"></i>쪽지시험결과</a></li> --%>
-                <li><a data-toggle="modal" href="questionForm.do" data-target="#myModal4"><i class="fa fa-circle-o"></i>질문하기</a></li>
+                <!-- <li><a data-toggle="modal" href="questionForm.do" data-target="#myModal4"><i class="fa fa-circle-o"></i>질문하기</a></li> -->
                 <li><a data-toggle="modal" href="quizTestLoad.do?idx=${param.idx }" data-target="#myModal5" data-backdrop="static"><i class="fa fa-circle-o"></i>쪽지시험보기</a></li>
                 <li><a href="showMessage.do"><i class="fa fa-circle-o"></i> 메세지 보기</a></li>
                 <li><a href="classBbs.do"><i class="fa fa-circle-o"></i> 수업게시판</a></li>
@@ -296,16 +296,53 @@ top:${y30}px;
 				</div>
  </c:forEach>
   </div>
+    <div style="height:60px;">
+    <button type="button" class="btn btn-success pull-center" data-toggle="modal" data-target="#myModalQuest" style="float: center; margin: 5px 5px 5px 5px; width:340px;height:48px;"><font color="white" >질문하기</font></button>
+   </div>
   <div>
-	<iframe src="http://192.168.35.209:8081?student=${sname }&classRoom=${lessonName}" width="350" height="650">
- 		</iframe> 
+ 	<iframe src="http://192.168.50.81:8081?student=${sname }&classRoom=${lessonName}"  style="width:350px; height:550px;">
+	</iframe> 
   </div>
 
 			
  </div>
 </div>
 
+<div class="container">
 
+  
+  
+  <!-- Modal -->
+<form role="form">
+  <div class="modal fade" id="myModalQuest" role="dialog">
+    <div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">어떤게 궁금한가요?</h4>
+						</div>
+
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="comment"></label>
+								<textarea class="form-control" rows="5" id="comment" id="focusedInput" ></textarea>
+							</div>
+
+						</div>
+						<div class="modal-footer">
+
+							<!-- <input type="submit" class="btn btn-default" value="login">-->
+							<button type="submit" class="btn btn-success">질문보내기</button>
+							<button type="button" class="btn btn-success" data-dismiss="modal">닫기</button>
+
+						</div>
+					</div>
+				</div>
+</div>
+        </form>
+</div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">

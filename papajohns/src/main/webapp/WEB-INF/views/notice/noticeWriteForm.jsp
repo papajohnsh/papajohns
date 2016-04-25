@@ -53,7 +53,7 @@ function submitContents(elClickedObj) {
   <!-- Content Wrapper. Contains page content -->
      
        <!-- Content Wrapper. Contains page content -->
-   		<div class="content-wrapper">
+   		<div class="content-wrapper" style="background-color: #ffffff">
    		<div class="col-xs-2"></div>
 			<div class="col-xs-8">
        		<form name="noticeWrite" action="noticeWrite.do" method="post" enctype="multipart/form-data">

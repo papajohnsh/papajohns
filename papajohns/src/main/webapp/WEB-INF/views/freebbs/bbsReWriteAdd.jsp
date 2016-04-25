@@ -48,7 +48,7 @@ function submitContents(elClickedObj) {
 		<div class="col-xs-2"></div>
 			<div class="col-xs-8">
 		<form name="bbsReWrite" action="bbsReWrite.do" method="post">
-		<div class="box">
+		<div class="box" style="padding: 2%;">
                 <div class="box-header" align="center">
                   <h3 class="box-title"><span class="glyphicons glyphicons-edit">자유게시판 댓글쓰기</span></h3>
                 </div><!-- /.box-header -->
@@ -79,8 +79,9 @@ function submitContents(elClickedObj) {
 					    fCreator: "createSEditor2"
 					});
 				</script>
+				<br>
 					<!-- writeAdd button -->
-					<input type="submit" class="btn btn-primary pull-right" value="글올리기" onclick="submitContents();">
+						<input type="submit" class="btn btn-primary pull-right" value="글올리기" onclick="submitContents();">
                   </fieldset>
 				</div>
 				</div>

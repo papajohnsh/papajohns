@@ -49,20 +49,9 @@
          <div class="col-xs-8">
            <div class="box">
              <div class="box-header" align="center">
-              <div class="jumbotron" style="background-image: url('img/7.jpg');">
-			    <h1 style="color: white;">ClassRoom</h1>
-               <h3 class="box-title" style="color: white;"><span class="glyphicons glyphicons-question-sign">질문게시판</span></h3>
-				</div>
-				<div align="right">
-					<form name="search" action="qnaFind.do" method="post">
-					<select name="fkey">
-                 		<option value="writer">작성자</option>
-                 		<option value="subject">제목</option>     		
-                 	</select>
-                 	<input type="text" name="fvalue" required="required" width="30%" placeholder="Search">
-      				<input type="submit" class="btn btn-sm btn-primary" value="검색">
-					</form>
-				</div>
+
+               <h3 class="box-title"><span class="glyphicons glyphicons-question-sign">질문게시판</span></h3>
+
              </div><!-- /.box-header -->
              <div class="box-body table-responsive no-padding">
                <table class="table table-hover">
@@ -98,12 +87,22 @@
                 <div align="center">${pageStr}</div><!-- 페이징 영역 -->
 				<br>
 				
-               <div class="box-footer clearfix" align="center" style="padding-bottom: 15%;">
+               <div class="box-footer clearfix" align="center">
 
                <a href="qnaWriteForm.do" class="btn btn-sm btn-info btn-flat pull-right">글쓰기</a>
 
              </div><!-- /.box-body -->
            </div><!-- /.box -->
+           <div align="center" style="padding: 10%;">
+					<form name="search" action="qnaFind.do" method="post">
+					<select name="fkey">
+                 		<option value="writer">작성자</option>
+                 		<option value="subject">제목</option>     		
+                 	</select>
+                 	<input type="text" name="fvalue" required="required" width="30%" placeholder="Search">
+      				<input type="submit" class="btn btn-sm btn-primary" value="검색">
+					</form>
+				</div>
            <div class="col-xs-2"></div>
          </div>
        </div>

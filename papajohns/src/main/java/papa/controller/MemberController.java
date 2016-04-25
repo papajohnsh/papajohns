@@ -1,5 +1,6 @@
 package papa.controller;
 
+import java.awt.Window;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -7,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.jws.WebParam.Mode;
+import javax.mail.Session;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,7 +53,7 @@ public class MemberController {
 	    	ModelAndView mav=new ModelAndView();
 	    	
 	    		MemberDTO dto=memberDao.getUserInfo(id);
-	            email.setContent("http://localhost:9090/papajohns/loginConfirm.do?id="+id);	            
+	            email.setContent("http://localhost:8080/papajohns/loginConfirm.do?id="+id);	            
 	            email.setReceiver(dto.getEmail());
 	            email.setSubject(dto.getNickname()+"님 인증 메일입니다.");
 	            emailSender.SendEmail(email);
@@ -90,9 +92,9 @@ public class MemberController {
 	    @RequestMapping("/loginConfirm.do")//회원가입 승인 처리
 	    public ModelAndView loginConfirm(MemberDTO dto){
 	      	
-	    	memberDao.loginUpdate(dto);//interlock +1일때 회원가입 승인
+	    	memberDao.loginUpdate(dto);//interlock '1'로 바뀌면 회원가입 승인
 	    	
-	    	String url="index.do";
+	    	String url="loginForm.do";
 	    	
 	    	ModelAndView mav=new ModelAndView();
 	    	mav.addObject("msg", "회원가입 승인완료");
@@ -384,44 +386,47 @@ public class MemberController {
 	
 	
 	@RequestMapping("/memberOutForm.do")//회원탈퇴 폼
-	public String memberOutForm(){
-		return "member/memberOutForm";
-	}
-	
-	@RequestMapping("/memberOut.do")//회원탈퇴하기
-	public ModelAndView memberOut(MemberDTO dto,@RequestParam("name") String name,
-			@RequestParam("pwd") String pwd){
-		
-		String getPwd=memberDao.outCheckPw(name);
-		System.out.println("name="+name);
-		
-		String msg="";
-		String url="";
-		
-		if(getPwd.equals(pwd)){//비밀번호가 같으면
-			
-			int count=memberDao.memberOut(dto);
-			  System.out.println("count:"+count);
+	   public String memberOutForm(){
+	      return "member/memberOutForm";
+	   }
+	   
+	   @RequestMapping("/memberOut.do")//회원탈퇴하기
+	   public ModelAndView memberOut(MemberDTO dto,@RequestParam("name") String name,
+	         @RequestParam("pwd") String pwd,HttpSession session){
+	      
+		   int idx=(int)session.getAttribute("sidx");
+		   
+		   
+	      String getPwd=memberDao.outCheckPw(idx);
+ 
+	      String msg="";
+	      String url="";
+	      
+	      if(getPwd.equals(pwd)){//비밀번호가 같으면
+	         
+	         int count=memberDao.memberOut(dto);
+	           System.out.println("count:"+count);
 
-			if(count>0){//회원정보가 있으면
-				msg="회원탈퇴성공";
-				url="index.do";
-			}else{//회원정보가 없으면
-				msg="회원탈퇴실패";
-				url="memberOutForm.do";
-			}
-			
-		}else{//비밀번호가 다르면
-			msg="회원탈퇴실패";
-			url="memberOutForm.do";	
-		}
-			  	 
-		  ModelAndView mav=new ModelAndView();
-		  mav.addObject("msg", msg);
-		  mav.addObject("url", url);
-		  mav.setViewName("member/myInfoMsg");
-		  return mav;
-	}
+	         if(count>0){//회원정보가 있으면
+	        	session.invalidate();//회원정보삭제
+	            msg="회원탈퇴성공";
+	            url="index.do";
+	         }else{//회원정보가 없으면
+	            msg="회원탈퇴실패";
+	            url="memberOutForm.do";
+	         }
+	         
+	      }else{//비밀번호가 다르면
+	         msg="회원탈퇴실패";
+	         url="memberOutForm.do";   
+	      }
+	               
+	        ModelAndView mav=new ModelAndView();
+	        mav.addObject("msg", msg);
+	        mav.addObject("url", url);
+	        mav.setViewName("member/myInfoMsg");
+	        return mav;
+	   }
 	@RequestMapping("/facebookLogin.do")
 	public ModelAndView facebookLogin(MemberDTO dto, HttpSession session){
 		System.out.println(dto.getId());

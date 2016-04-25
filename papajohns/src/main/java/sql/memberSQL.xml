@@ -48,8 +48,8 @@
 	<delete id="memberOut" parameterType="papa.member.model.MemberDTO">
 		delete from member where pwd=#{pwd}
 	</delete>
-	<select id="outCheckPw" parameterType="String" resultType="String">
-		select pwd from member where name=#{name}
+	<select id="outCheckPw" parameterType="int" resultType="String">
+		select pwd from member where idx=#{idx}
 	</select>
 	<update id="updateSun" parameterType="int">
 		update member set sunbun+1 where ref=#{ref} and sunbun>=#{sunbun}

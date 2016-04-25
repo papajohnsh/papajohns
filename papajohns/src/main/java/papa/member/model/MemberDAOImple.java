@@ -85,8 +85,10 @@ public class MemberDAOImple implements MemberDAO {
 		return count;
 	}
 
-	public String outCheckPw(String name) {
-		String result=sqlMap.selectOne("outCheckPw", name);
+	public String outCheckPw(int idx) {
+		System.out.println("1");
+		String result=sqlMap.selectOne("outCheckPw", idx);
+		System.out.println("result:"+result);
 		return result;
 	}
 
@@ -117,8 +119,7 @@ public class MemberDAOImple implements MemberDAO {
 		sqlMap.update("loginUpdate", dto);
 		
 	}
-	
-	
+
 	public String getInterLock(String id) {
 		String result=sqlMap.selectOne("getInterLock", id);
 		return result;
