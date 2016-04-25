@@ -21,12 +21,27 @@ InetAddress inet= InetAddress.getLocalHost();
     Bootstrap 3.3.5 -->
 
 <script type="text/javascript" src="js/httpRequest.js"></script>
+<script type="text/javascript" src="js/sockjs-0.3.min.js"></script>
 <script>
+function question(){//id중복체크
+	
+	var question=jQuery("#questForm").serialize();
+	//window.alert(question);
+	sendRequest('quest.do', question, showResult, 'POST');	
+}
 
+function showResult(){//응답함수
+	if(XHR.readyState==4){
+		if(XHR.status==200){
+			var msg=XHR.responseText;
+			wsocket.send("Question:${sid}_|"+msg);
+		}
+	}
+}
 </script>
 <style>
 .frame2{
-border-color:rgb(71, 133, 248) #4785F8;
+border-color:#000000 #4785F8;
 border-image:none;
 border-radius: 0 0 0 0;
 -moz-border-radius:0 0 0 0;
@@ -37,7 +52,7 @@ border-width:15px;
 }
 
 .frame3{
-border-color:rgb(71, 133, 248) #4785F8;
+border-color:rgb(62, 255, 157) #4785F8;
 border-image:none;
 border-radius: 50px 0 50px 0;
 -moz-border-radius:50px 0 50px 0;
@@ -204,7 +219,7 @@ top:${y30}px;
 }
 </style>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" onload="start();">
 
 <%@ include file="../header.jsp" %>
 
@@ -285,65 +300,34 @@ top:${y30}px;
       </aside>
 <div class="content-wrapper" style="background: white; min-height: 800px;">
  <div class="col frame2" id="droppable" style="width: 1050px; height: 700px; background:rgb(185, 205, 214); padding: 5px 5px 5px 5px;" >
-  <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left; padding:5px 5px 5px 5px; background:#ecf0f5;">
+  <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left; padding:5px 5px 5px 5px; background:#E6A323;">
   <c:forEach var="dto" items="${list }">
+				
 				<div id="img${dto.idx }" style="position: absolute; text-align: center;">
+				<div id="questionImg_${dto.id }"></div>
 				<img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
-          		<div id="r">${dto.id }</div>
+          		<div id="r">${dto.name }</div>
           		<div id="loginCheck_${dto.id }">
+          		<c:if test="${teacher == sid }">
           		<span class="fa fa-circle text-danger"><font color="white">&nbsp;&nbsp;OffLine</font></span>
+          		</c:if>
 				</div>
 				</div>
  </c:forEach>
   </div>
-    <div style="height:60px;">
+   <div style="height:60px;">
     <button type="button" class="btn btn-success pull-center" data-toggle="modal" data-target="#myModalQuest" style="float: center; margin: 5px 5px 5px 5px; width:340px;height:48px;"><font color="white" >질문하기</font></button>
    </div>
-  <div>
- 	<iframe src="http://192.168.50.81:8081?student=${sname }&classRoom=${lessonName}"  style="width:350px; height:550px;">
-	</iframe> 
-  </div>
-
-			
+	  <div>
+	<iframe src="" width="350" height="550">
+	<!-- http://192.168.50.81:8081?student=${sname }&classRoom=${lessonName} -->
+ 		</iframe>  
+  </div>		
  </div>
 </div>
 
-<div class="container">
 
-  
-  
-  <!-- Modal -->
-<form role="form">
-  <div class="modal fade" id="myModalQuest" role="dialog">
-    <div class="modal-dialog">
-
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">어떤게 궁금한가요?</h4>
-						</div>
-
-						<div class="modal-body">
-							<div class="form-group">
-								<label for="comment"></label>
-								<textarea class="form-control" rows="5" id="comment" id="focusedInput" ></textarea>
-							</div>
-
-						</div>
-						<div class="modal-footer">
-
-							<!-- <input type="submit" class="btn btn-default" value="login">-->
-							<button type="submit" class="btn btn-success">질문보내기</button>
-							<button type="button" class="btn btn-success" data-dismiss="modal">닫기</button>
-
-						</div>
-					</div>
-				</div>
-</div>
-        </form>
-</div>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
     </div>
@@ -390,7 +374,86 @@ top:${y30}px;
   </div>
 </div>
 
+
+<div class="container">
+  <!-- Modal -->
+<form role="form" name="questForm" id="questForm">
+  <div class="modal fade" id="myModalQuest" role="dialog">
+    <div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">어떤게 궁금한가요?</h4>
+						</div>
+
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="comment"></label>
+								<textarea class="form-control focusedInput" rows="5" name="content" ></textarea>
+							</div>
+
+						</div>
+						<div class="modal-footer">
+
+							<input type="hidden" name="writer" value="${sid }">
+							<input type="hidden" name="getter" value="${teacher }">
+							<!-- <input type="submit" class="btn btn-default" value="login">-->
+							<button type="button" class="btn btn-success" id="quest">질문보내기</button>
+							<button type="button" class="btn btn-success" data-dismiss="modal">닫기</button>
+
+						</div>
+					</div>
+				</div>
+</div>
+        </form>
+</div>
+
+<div class="container">
+  <!-- Modal -->
+<form role="form" name="answerForm" id="answerForm">
+  <div class="modal fade" id="myModalAnswer" role="dialog">
+    <div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">답변보내기</h4>
+						</div>
+						
+						<div class="modal-body">
+						 <div class="form-group">
+		    				 <label for="id" id="questionContent"></label>
+					   	</div>
+							<div class="form-group">
+								<label for="comment"></label>
+								<textarea class="form-control focusedInput" rows="5" name="content" ></textarea>
+							</div>
+
+						</div>
+						<div class="modal-footer">
+
+							<input type="hidden" name="writer" value="${sid }">
+							<input type="hidden" name="getter" value="${teacher }">
+							<!-- <input type="submit" class="btn btn-default" value="login">-->
+							<button type="button" class="btn btn-success" id="quest">답변보내기</button>
+							<button type="button" class="btn btn-success" data-dismiss="modal">닫기</button>
+
+						</div>
+					</div>
+				</div>
+</div>
+        </form>
+</div>
+
 <script type="text/javascript">
+
+
+
+
+
 <%
 	
 	String idx = request.getParameter("idx");
@@ -401,86 +464,87 @@ top:${y30}px;
 		$('#wsBtn2').click(function() { sendMessage("blue"); })
 		$('#wsBtn3').click(function() { sendMessage("yellow"); })
 		$('#dbSend').click(function() { dbSend($("message").val());})
+		$('#quest').click(function() { 
+			question();
+		})
 	});
 	
 	var wsocket;
-	
+	function start(){
+		connect();
+		}
 	function connect() {
-		var url1="ws://<%=inet.getHostAddress()%>:<%=request.getServerPort()%>/papajohns/echo-ws?idx=${idx}&teacher=${teacher}&user=${sid}";
-		var url="ws://localhost:<%=request.getServerPort()%>/papajohns/echo-ws?idx=${idx}&teacher=${teacher}&user=${sid}";
-		console.log(url1);
-		wsocket = new WebSocket(url);
+		var url="http://localhost:<%=request.getServerPort()%>/papajohns/echo.sockjs";
+		wsocket = new SockJS(url);
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;
 		wsocket.onclose = onClose;
 	}
 	
 	function onOpen(evt) {
+		wsocket.send("first/${idx}/${teacher}/${sid}");
 		wsocket.send("loginOn:${sid}");
-		//window.alert('연결되었습니다.');
+		if("${sid}"=="${teacher}"){
+			wsocket.send("loginCheck:${param.idx}");
+		}
 	}
 	
 	function onMessage(evt) {
 		var data = evt.data;
+		//console.log(data);
 		if(!(data.indexOf("loginOn")==-1)){
 			var onId = data.substring(8);
 			console.log(onId);
 			loginOn(onId);
+		}else if(!(data.indexOf("Question")==-1)){
+			var idContent = data.substring(9);
+			var id=idContent.substring(0,idContent.indexOf("_|"));
+			var content=data.substring(data.indexOf("_|")+4);
+			
+			
+			console.log(id);
+			console.log(content);
+			questionMark(id, content);
 		}
-		/*
-		else if(data=="loginCheck"){
-			wsocket.send("loginOn:${sid}");
-		}
-		*/
-		//tab.style.backgroundColor = data;
 	}
 	
 	function loginOn(onId){
 		document.getElementById("loginCheck_"+onId).innerHTML='<span class="fa fa-circle text-success"><font color="white">&nbsp;&nbsp;OnLine</font></span>';
 	}
 	
+	function questionMark(id, content){
+		document.getElementById("questionImg_"+id).innerHTML=
+			' <a data-toggle="modal" data-target="#myModalAnswer" ><img src="img/question_icon.png"  style="position: absolute; left:15px; top:-15px; width="30" height="45" class="questionImg"></a>';
+		document.getElementById("questionContent").innerHTML="질문: "+content;	
+	}
+	
 	
 	function onClose(evt) {
 		wsocket.close();
-		alert("연결 끊김");
+		console.log("연결 끊김");
+	}
+	
+	function onClose2(evt) {
+		wsocket.close();
+		console.log("연결 끊김");
 	}
 	
 	function sendMessage(color){
-		//window.alert('확인을 누르면 '+color+' 메세지가 전달됩니다.');
 		wsocket.send(color);
 	}
 	
-	function dbSend(message){
-		
-		
-	}
-</script>
-	<section>
-	<article>
-	<table style="margin:0px auto; background-color:red;" id="tab" width="200" border="1" cellspacing="0" cellpadding="0">
-	<tr>
-	<td style="color:black">테스트입니다.</td>
-	</tr>
-	<tr>
-	<td>
-	<input type="button" id="wsBtn1" value="빨강">
-	<input type="button" id="wsBtn2" value="파랑">
-	<input type="button" id="wsBtn3" value="노랑">
 	
-	
-	</td>
-	</tr>
-	<tr>
-	<td>
 
-    <input type="text" id="message">
-    <input type="button" id="sendBtn" value="연결" onclick="sendBtn()">
-    <input type="button" id="dbSend" value="DB저장">
-	</td>
-	</tr>
-	</table>
-	</article>
-	</section>
+	function delay(gap){ /* gap is in millisecs */ 
+	  var then,now; 
+	  then=new Date().getTime(); 
+	  now=then; 
+	  while((now-then)<gap){ 
+	    now=new Date().getTime();  // 현재시간을 읽어 함수를 불러들인 시간과의 차를 이용하여 처리 
+	  } 
+	} 
+</script>
+	
 
     <script src="css/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     jQuery UI 1.11.4

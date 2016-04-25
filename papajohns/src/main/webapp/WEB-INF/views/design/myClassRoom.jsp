@@ -21,10 +21,11 @@ InetAddress inet= InetAddress.getLocalHost();
     Bootstrap 3.3.5 -->
 
 <script type="text/javascript" src="js/httpRequest.js"></script>
+<script type="text/javascript" src="js/sockjs-0.3.min.js"></script>
 <script>
 function question(){//id중복체크
 	
-	var question=jQuery("#questForm").serialize();
+	var question=jQuery("#answerForm").serialize();
 	//window.alert(question);
 	sendRequest('quest.do', question, showResult, 'POST');	
 }
@@ -33,12 +34,30 @@ function showResult(){//응답함수
 	if(XHR.readyState==4){
 		if(XHR.status==200){
 			var msg=XHR.responseText;
-			wsocket.send("Question:${sid}_|"+msg);
+			wsocket.send("answer:${sid}_|"+msg);
 		}
 	}
 }
 </script>
 <style>
+@keyframes loading {
+    0% {
+        transform: rotate(-30deg)	scale(1,1);
+    }
+    50% {
+        transform: rotate(30deg) scale(1.3,1.3);
+    }
+    100%{
+        transform: rotate(-30deg) scale(1,1);
+    }
+}
+
+.rot{
+	animation-name: loading;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
 .frame2{
 border-color:#000000 #4785F8;
 border-image:none;
@@ -218,7 +237,7 @@ top:${y30}px;
 }
 </style>
 </head>
-<body class="hold-transition skin-blue sidebar-mini" onload="connect();">
+<body class="hold-transition skin-blue sidebar-mini" onload="start();">
 
 <%@ include file="../header.jsp" %>
 
@@ -303,9 +322,9 @@ top:${y30}px;
   <c:forEach var="dto" items="${list }">
 				
 				<div id="img${dto.idx }" style="position: absolute; text-align: center;">
-				<div id="questionImg_${dto.id }"></div>
+				<div id="questionImg_${dto.id }" class="rot"></div>
 				<img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
-          		<div id="r">${dto.id }</div>
+          		<div id="r">${dto.name }</div>
           		<div id="loginCheck_${dto.id }">
           		<c:if test="${teacher == sid }">
           		<span class="fa fa-circle text-danger"><font color="white">&nbsp;&nbsp;OffLine</font></span>
@@ -315,7 +334,8 @@ top:${y30}px;
  </c:forEach>
   </div>
 	  <div>
-	<iframe src="http://192.168.50.81:8081?student=${sname }&classRoom=${lessonName}" width="350" height="650">
+	<iframe src="" width="350" height="650">
+	<!-- http://192.168.50.81:8081?student=${sname }&classRoom=${lessonName} -->
  		</iframe>  
   </div>		
  </div>
@@ -368,48 +388,12 @@ top:${y30}px;
   </div>
 </div>
 
-<<<<<<< HEAD
-<div class="container">
-  <!-- Modal -->
-<form role="form" name="questForm" id="questForm">
-  <div class="modal fade" id="myModalQuest" role="dialog">
-    <div class="modal-dialog">
-
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">어떤게 궁금한가요?</h4>
-						</div>
-
-						<div class="modal-body">
-							<div class="form-group">
-								<label for="comment"></label>
-								<textarea class="form-control focusedInput" rows="5" name="content" ></textarea>
-							</div>
-
-						</div>
-						<div class="modal-footer">
-
-							<input type="hidden" name="writer" value="${sid }">
-							<input type="hidden" name="getter" value="${teacher }">
-							<!-- <input type="submit" class="btn btn-default" value="login">-->
-							<button type="button" class="btn btn-success" id="quest">질문보내기</button>
-							<button type="button" class="btn btn-success" data-dismiss="modal">닫기</button>
-
-						</div>
-					</div>
-				</div>
-</div>
-        </form>
-</div>
 
 <div class="container">
   <!-- Modal -->
 <form role="form" name="answerForm" id="answerForm">
   <div class="modal fade" id="myModalAnswer" role="dialog">
     <div class="modal-dialog">
-
 					<!-- Modal content-->
 					<div class="modal-content">
 						<div class="modal-header">
@@ -419,7 +403,7 @@ top:${y30}px;
 						
 						<div class="modal-body">
 						 <div class="form-group">
-		    				 <label for="id" id="questionContent"></label>
+		    				 <label for="id" id="questionContent" style="font-size: 15px;"></label>
 					   	</div>
 							<div class="form-group">
 								<label for="comment"></label>
@@ -429,8 +413,8 @@ top:${y30}px;
 						</div>
 						<div class="modal-footer">
 
-							<input type="hidden" name="writer" value="${sid }">
-							<input type="hidden" name="getter" value="${teacher }">
+							<input type="hidden" name="getter" value="">
+							<input type="hidden" name="writer" value="${teacher }">
 							<!-- <input type="submit" class="btn btn-default" value="login">-->
 							<button type="button" class="btn btn-success" id="quest">답변보내기</button>
 							<button type="button" class="btn btn-success" data-dismiss="modal">닫기</button>
@@ -460,18 +444,19 @@ top:${y30}px;
 	});
 	
 	var wsocket;
-	
+	function start(){
+	connect();
+	}
 	function connect() {
-		var url1="ws://<%=inet.getHostAddress()%>:<%=request.getServerPort()%>/papajohns/echo-ws?idx=${idx}&teacher=${teacher}&user=${sid}";
-		var url="ws://localhost:<%=request.getServerPort()%>/papajohns/echo-ws?idx=${idx}&teacher=${teacher}&user=${sid}";
-		console.log(url1);
-		wsocket = new WebSocket(url);
+		var url="http://localhost:<%=request.getServerPort()%>/papajohns/echo.sockjs";
+		wsocket = new SockJS(url);
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;
 		wsocket.onclose = onClose;
 	}
 	
 	function onOpen(evt) {
+		wsocket.send("first/${idx}/${teacher}/${sid}");
 		wsocket.send("loginOn:${sid}");
 		if("${sid}"=="${teacher}"){
 			wsocket.send("loginCheck:${param.idx}");
@@ -503,8 +488,9 @@ top:${y30}px;
 	
 	function questionMark(id, content){
 		document.getElementById("questionImg_"+id).innerHTML=
-			' <a data-toggle="modal" data-target="#myModalAnswer" ><img src="img/question_icon.png" style="position: absolute; left:15px; top:-15px; width="30" height="45" class="questionImg"></a>';
-		document.getElementById("questionContent").innerHTML="질문: "+content;	
+			' <a href="javascript" data-toggle="modal" data-target="#myModalAnswer" ><img src="img/question_icon.png"  style="position: absolute; left:15px; top:-15px; width="30" height="45" class="questionImg"></a>';
+		document.getElementById("questionContent").innerHTML="질문: "+content;
+		document.answerForm.getter.value=id;
 	}
 	
 	

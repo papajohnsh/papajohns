@@ -22,14 +22,13 @@ public class EchoHandler extends TextWebSocketHandler {
 	public void afterConnectionEstablished(
 			WebSocketSession session) throws Exception {
 		log(session.getId() + " 연결 됨");
-		
+		/*
 		String idx=getParameter("idx", session);
 		String user=getParameter("user", session);
 		String teacher=getParameter("teacher", session);
 		String socketId=session.getId();
+		*/
 		
-		WebSocketDTO dto = new WebSocketDTO(idx,user,teacher,session);
-		papa.add(dto);
 		
 		//onLogin="";
 		//onLogin=onLogin(session);
@@ -64,9 +63,15 @@ public class EchoHandler extends TextWebSocketHandler {
 						log(papa.get(i).getUser() + "에 메시지 발송: " + message.getPayload());
 					}
 				}
+			}else if(!(message.getPayload().indexOf("first/")==-1)){
+				String temp[]=message.getPayload().split("/");
+				String idx=temp[1];
+				String user=temp[3];
+				String teacher=temp[2];
+				WebSocketDTO dto = new WebSocketDTO(idx,user,teacher,session);
+				papa.add(dto);
 			}
-			
-		}
+	}
 		
 		
 		

@@ -298,7 +298,8 @@ public class PageController {
 				list="0";
 			}
 		String[] list2=list.split(",");
-		
+		String teacher=designDao.teacher(idx);
+		mav.addObject("teacher", teacher);
 		for(int i=0; i<list2.length;i++){
 			String to = list2[i];
 				if(list2[i].equals(to)){
