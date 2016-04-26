@@ -71,7 +71,10 @@
 		update member set interlock="1" where id=#{id}
 	</update>
 	<select id="getInterLock" parameterType="String" resultType="String">
-		select interlock from member where id=#{id};
+		select interlock from member where id=#{id}
+	</select>
+	<select id="allMember" resultType="papa.member.model.MemberDTO">
+		select * from member
 	</select>
   </mapper>
 

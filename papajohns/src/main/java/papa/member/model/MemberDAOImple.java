@@ -124,5 +124,10 @@ public class MemberDAOImple implements MemberDAO {
 		String result=sqlMap.selectOne("getInterLock", id);
 		return result;
 	}
+	@Override
+	public List<MemberDTO> allMember() {
+		List<MemberDTO> list=sqlMap.selectList("allMember");
+		return list;
+	}
 
 }

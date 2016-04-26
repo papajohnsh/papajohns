@@ -84,9 +84,11 @@ function gogo(){
 			<th>시험날짜</th>
 			<th></th>
 		</tr>
+		<tr><td>
 	   <c:if test="${empty result }">
 			등록된 시험이 없습니다.
 		</c:if>
+		</td></tr>
 							
 		<c:forEach var="dto" items="${result }">
 			<tr style="background-color:">
