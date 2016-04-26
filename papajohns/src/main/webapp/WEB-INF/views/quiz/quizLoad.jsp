@@ -80,23 +80,22 @@ function gogo(){
 <div align="center">
 	<table style="width: 500px;height: 300px; margin:0;auto;" >
 		<tr>
-			<th>시험명</th>
-			<th>시험날짜</th>
+			<th style="font-size: 15pt">시험명</th>
+			<th style="font-size: 15pt">시험날짜</th>
 			<th></th>
 		</tr>
-		<tr><td>
+		
 	   <c:if test="${empty result }">
+	   <tr><td colspan="3">
 			등록된 시험이 없습니다.
+	</td></tr>
 		</c:if>
-		</td></tr>
+		
 							
 		<c:forEach var="dto" items="${result }">
-			<tr style="background-color:">
+			<tr>
 				<td>${dto.subject}</td>
 				<td>${dto.start_date }&nbsp;&nbsp;${dto.start_time }</td>
-				<td style="vertical-align:middle; text-align: center;">
-	 			<%-- <input style="width:40px;height: 40px" name="radio" value="${dto.idx }" id="${dto.idx }" type="radio" > --%>
-	   			</td>
 	   			<td>
 
 	   				<input type="button" value="시험보기" id="${dto.idx }" class="btn btn-success pull-right" name="page">

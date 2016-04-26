@@ -47,7 +47,7 @@ $(function() {
 						</tr>
 					   </c:if>
 					   <tr>
-							<td style="width: 25%">${use.member_id }</td>
+							<td style="width: 25%">${use.name }</td>
 							<td style="width: 25%">${use.ox }</td>
 							<td style="width: 25%">${use.answer_num }</td>
 							<td style="width: 25%">${use.percent }%</td>

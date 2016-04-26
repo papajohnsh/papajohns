@@ -187,7 +187,7 @@ public ModelAndView quizTestAnswer(quizAnswerDTO dto){
 	System.out.println("맞은현황:"+ox);
 	System.out.println("정답률"+percent);
 	MemberDTO mName= memberDao.getUserInfo(dto.getMember_id());
-	quizAnswerDTO dto2=new quizAnswerDTO(0, dto.getSubject(),mName.getNickname(), dto.getClass_idx(), dto.getPaper_idx(), ox, pcent, (int)quiz_num, null, dto.getQuiz_answer());
+	quizAnswerDTO dto2=new quizAnswerDTO(0, dto.getSubject(),dto.getMember_id(),mName.getNickname(), dto.getClass_idx(), dto.getPaper_idx(), ox, pcent, (int)quiz_num, null, dto.getQuiz_answer());
 	int update_result=quizAnswerDao.quizAnswer(dto2);
 	String msg=update_result>0?"시험완료":"실패";
 

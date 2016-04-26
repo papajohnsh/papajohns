@@ -4,6 +4,7 @@ public class quizAnswerDTO {
 	private int idx;
 	private String subject;
 	private String member_id;
+	private String name;
 	private int class_idx;
 	private int paper_idx;
 	private String ox;
@@ -14,12 +15,13 @@ public class quizAnswerDTO {
 	public quizAnswerDTO() {
 		super();
 	}
-	public quizAnswerDTO(int idx, String subject, String member_id, int class_idx, int paper_idx, String ox,
-			int percent, int answer_num, Date end_date, String quiz_answer) {
+	public quizAnswerDTO(int idx, String subject, String member_id, String name, int class_idx, int paper_idx,
+			String ox, int percent, int answer_num, Date end_date, String quiz_answer) {
 		super();
 		this.idx = idx;
 		this.subject = subject;
 		this.member_id = member_id;
+		this.name = name;
 		this.class_idx = class_idx;
 		this.paper_idx = paper_idx;
 		this.ox = ox;
@@ -45,6 +47,12 @@ public class quizAnswerDTO {
 	}
 	public void setMember_id(String member_id) {
 		this.member_id = member_id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public int getClass_idx() {
 		return class_idx;
