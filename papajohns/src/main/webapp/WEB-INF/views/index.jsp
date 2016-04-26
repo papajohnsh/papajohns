@@ -366,7 +366,7 @@
               </div><!-- /.box-header -->
               
          <br> <br> <br> 
-         <div style="width: 35%;  margin-top:-53px; float: right; margin-right:10%;z-index: auto;">
+         <div style="width: 35%;  margin-top:-60px; float: right; margin-right:10%;z-index: auto;">
          <div class="box">
          
                 <div class="box-header with-border" align="center" style="margin-top: 10px;">
