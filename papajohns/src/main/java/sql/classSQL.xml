@@ -35,7 +35,7 @@ select * from class_info where idx=#{idx}
 update member set reidx=#{list} where idx=#{idx}
 </update>
 <select id="classJoinList" parameterType="int" resultType="papa.class_.model.classDTO">
-select * from class_info where reidx=#{idx} order by start_time asc 
+select * from class_info where reidx=#{idx}
 </select>
 <select id="designJoin" parameterType="String" resultType="papa.member.model.MemberDTO">
 select * from member where reidx LIKE CONCAT('%',#{idx},'%')

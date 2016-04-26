@@ -116,7 +116,7 @@
                  </div>         
                   
                  <br>  <br>
-                  <table class="table">
+                  <table class="table" style="margin-left: 100px;">
                   <th>과목:</th>
                   <th>선생님이름:</th>
                   <th>수업기관명</th>
@@ -140,7 +140,7 @@
                  </div>         
                   
                  <br>  <br>
-                  <table class="table">
+                  <table class="table" style="margin-left: 100px;">
                   <th>과목:</th>
                   <th>선생님이름:</th>
                   <th>수업기관명</th>
@@ -166,7 +166,7 @@
                   <input type="hidden" name="test"></div>         
                   
                  <br>  <br>
-                  <table class="table">
+                  <table class="table" style="margin-left: 100px;">
                   <th>과목:</th>
                   <th>선생님이름:</th>
                   <th>수업기관명</th>
@@ -190,7 +190,7 @@
                   </div>         
                   
                  <br>  <br>
-                  <table class="table">
+                  <table class="table" style="margin-left: 100px;">
                   <th>과목:</th>
                   <th>선생님이름:</th>
                   <th>수업기관명</th>
@@ -216,7 +216,7 @@
                   </div>         
                   
                  <br>  <br>
-                  <table class="table">
+                  <table class="table" style="margin-left: 100px;">
                   <th>과목:</th>
                   <th>선생님이름:</th>
                   <th>수업기관명</th>
