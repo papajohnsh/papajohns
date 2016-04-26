@@ -270,6 +270,7 @@ top:${y30}px;
               <ul class="treeview-menu">
                 <li><a href="#" id="studentList"><i class="fa fa-circle-o" ></i> 학생리스트</a></li>
                 <li><a data-toggle="modal" data-target="#myModal2" href="stuendtSchedule.do" ><i class="fa fa-circle-o"></i> 수업스케줄</a></li>
+                               <li><a href="#" onClick="javascript:window.open('myPlan.do','popup','scrollbars=no, resizable=no,channelmode=no, toolbar=no, width=900px,height=800px')"> 클릭 </a></li>
                 <%-- <li><a data-toggle="modal" href="quizTestForm.do" data-target="#myModal2"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
                 <li><a data-toggle="modal" href="quizList.do?idx=${param.idx }" data-target="#myModal3"><i class="fa fa-circle-o"></i> 문제 수정하기</a></li>
                 <li><a data-toggle="modal" href="quizResult.do?idx=${param.idx }" data-target="#myModal4"><i class="fa fa-circle-o"></i>쪽지시험결과</a></li> --%>
