@@ -454,7 +454,7 @@ top:${y30}px;
 	connect();
 	}
 	function connect() {
-		var url="http://localhost:<%=request.getServerPort()%>/papajohns/echo.sockjs";
+		var url="http://192.168.50.143:<%=request.getServerPort()%>/papajohns/echo.sockjs";
 		wsocket = new SockJS(url);
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;
