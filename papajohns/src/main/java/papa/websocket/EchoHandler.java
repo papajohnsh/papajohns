@@ -48,7 +48,6 @@ public class EchoHandler extends TextWebSocketHandler {
 	@Override
 	protected void handleTextMessage(
 			WebSocketSession session, TextMessage message) throws Exception {
-			
 			if(!(message.getPayload().indexOf("loginOn")==-1)){
 				for(int i=0;i<papa.size();i++){
 					if(papa.get(i).getUser().equals(papa.get(i).getTeacher())){
@@ -70,6 +69,17 @@ public class EchoHandler extends TextWebSocketHandler {
 				String teacher=temp[2];
 				WebSocketDTO dto = new WebSocketDTO(idx,user,teacher,session);
 				papa.add(dto);
+			}else if(!(message.getPayload().indexOf("Answer:")==-1)){
+				System.out.println(message.getPayload());
+				int indexStart=message.getPayload().indexOf(":")+1;
+				int indexEnd=message.getPayload().indexOf("_|");
+				String id=message.getPayload().substring(indexStart,indexEnd);
+				for(int i=0;i<papa.size();i++){
+					if(papa.get(i).getUser().equals(id)){
+						papa.get(i).getSession().sendMessage(message);
+						log(papa.get(i).getUser() + "에 메시지 발송: " + message.getPayload());
+					}
+				}
 			}
 	}
 		

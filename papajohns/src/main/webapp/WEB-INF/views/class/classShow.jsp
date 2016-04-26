@@ -22,6 +22,10 @@ InetAddress inet= InetAddress.getLocalHost();
 
 <script type="text/javascript" src="js/httpRequest.js"></script>
 <script type="text/javascript" src="js/sockjs-0.3.min.js"></script>
+<link rel="stylesheet" href="msgbox/messagebox.css">
+<script type="text/javascript" src="msgbox/messagebox.js"></script>
+<script type="text/javascript" src="msgbox/messagebox.min.js"></script>
+
 <script>
 function question(){//id중복체크
 	
@@ -300,7 +304,7 @@ top:${y30}px;
         </section>
         <!-- /.sidebar -->
       </aside>
-<div class="content-wrapper" style="background: white; min-height: 800px;">
+<div class="content-wrapper" style="background: white; min-height: 700px;">
  <div class="col frame2" id="droppable" style="width: 1050px; height: 700px; background:rgb(185, 205, 214); padding: 5px 5px 5px 5px;" >
   <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left; padding:5px 5px 5px 5px; background:#E6A323;">
   <c:forEach var="dto" items="${list }">
@@ -329,7 +333,7 @@ top:${y30}px;
 </div>
 
 
-div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
     </div>
@@ -506,6 +510,15 @@ div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby=
 			console.log(id);
 			console.log(content);
 			questionMark(id, content);
+		}else if(!(data.indexOf("Answer")==-1)){
+			var idContent = data.substring(7);
+			var id=idContent.substring(0,idContent.indexOf("_|"));
+			var content=data.substring(data.indexOf("_|")+4);
+			
+			
+			console.log(id);
+			console.log(content);
+			answer(content);
 		}
 	}
 	
@@ -519,6 +532,10 @@ div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby=
 		document.getElementById("questionContent").innerHTML="질문: "+content;	
 	}
 	
+	function answer(content){
+		window.alert(content);
+		
+	}
 	
 	function onClose(evt) {
 		wsocket.close();
@@ -548,30 +565,20 @@ div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby=
 	
 
     <script src="css/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    jQuery UI 1.11.4
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    Resolve conflict in jQuery UI tooltip with Bootstrap tooltip
     <script>
       $.widget.bridge('uibutton', $.ui.button);
     </script>
-    Bootstrap 3.3.5
     <script src="css/bootstrap/js/bootstrap.min.js"></script>
-    Morris.js charts
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="css/plugins/morris/morris.min.js"></script>
-    Sparkline
     <script src="css/plugins/sparkline/jquery.sparkline.min.js"></script>
-    jvectormap
     <script src="css/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="css/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    jQuery Knob Chart
     <script src="css/plugins/knob/jquery.knob.js"></script>
-    daterangepicker
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
     <script src="css/plugins/daterangepicker/daterangepicker.js"></script>
-    datepicker
     <script src="css/plugins/datepicker/bootstrap-datepicker.js"></script>
-    Bootstrap WYSIHTML5 -->
  
 
 </body>

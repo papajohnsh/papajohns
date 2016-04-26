@@ -20,24 +20,12 @@ InetAddress inet= InetAddress.getLocalHost();
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     Bootstrap 3.3.5 -->
 
+
 <script type="text/javascript" src="js/httpRequest.js"></script>
 <script type="text/javascript" src="js/sockjs-0.3.min.js"></script>
-<script>
-function question(){//id중복체크
-	
-	var question=jQuery("#answerForm").serialize();
-	//window.alert(question);
-	sendRequest('quest.do', question, showResult, 'POST');	
-}
 
-function showResult(){//응답함수
-	if(XHR.readyState==4){
-		if(XHR.status==200){
-			var msg=XHR.responseText;
-			wsocket.send("answer:${sid}_|"+msg);
-		}
-	}
-}
+<script>
+
 </script>
 <style>
 @keyframes loading {
@@ -316,7 +304,7 @@ top:${y30}px;
         </section>
         <!-- /.sidebar -->
       </aside>
-<div class="content-wrapper" style="background: white; min-height: 800px;">
+<div class="content-wrapper" style="background: white; min-height: 700px;">
  <div class="col frame2" id="droppable" style="width: 1050px; height: 700px; background:rgb(185, 205, 214); padding: 5px 5px 5px 5px;" >
   <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left; padding:5px 5px 5px 5px; background:#E6A323;">
   <c:forEach var="dto" items="${list }">
@@ -514,7 +502,25 @@ top:${y30}px;
 		wsocket.send(color);
 	}
 	
-	
+	function question(){//id중복체크
+		
+		var question=jQuery("#answerForm").serialize();
+		window.alert(question);
+		sendRequest('quest.do', question, showResult, 'POST');	
+	}
+
+	function showResult(){//응답함수
+		if(XHR.readyState==4){
+			if(XHR.status==200){
+				var msg=XHR.responseText;
+				
+				var getter=document.answerForm.getter.value;
+				window.alert(getter);
+				wsocket.send("Answer:"+getter+"_|"+msg);
+				window.alert(getter);
+			}
+		}
+	}
 
 	function delay(gap){ /* gap is in millisecs */ 
 	  var then,now; 
@@ -528,30 +534,20 @@ top:${y30}px;
 	
 
     <script src="css/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    jQuery UI 1.11.4
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    Resolve conflict in jQuery UI tooltip with Bootstrap tooltip
     <script>
       $.widget.bridge('uibutton', $.ui.button);
     </script>
-    Bootstrap 3.3.5
     <script src="css/bootstrap/js/bootstrap.min.js"></script>
-    Morris.js charts
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="css/plugins/morris/morris.min.js"></script>
-    Sparkline
     <script src="css/plugins/sparkline/jquery.sparkline.min.js"></script>
-    jvectormap
     <script src="css/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="css/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    jQuery Knob Chart
     <script src="css/plugins/knob/jquery.knob.js"></script>
-    daterangepicker
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
     <script src="css/plugins/daterangepicker/daterangepicker.js"></script>
-    datepicker
     <script src="css/plugins/datepicker/bootstrap-datepicker.js"></script>
-    Bootstrap WYSIHTML5 -->
  
 
 </body>
