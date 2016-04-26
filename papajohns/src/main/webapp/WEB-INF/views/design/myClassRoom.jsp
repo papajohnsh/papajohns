@@ -505,7 +505,6 @@ top:${y30}px;
 	function question(){//id중복체크
 		
 		var question=jQuery("#answerForm").serialize();
-		window.alert(question);
 		sendRequest('quest.do', question, showResult, 'POST');	
 	}
 
@@ -515,9 +514,7 @@ top:${y30}px;
 				var msg=XHR.responseText;
 				
 				var getter=document.answerForm.getter.value;
-				window.alert(getter);
 				wsocket.send("Answer:"+getter+"_|"+msg);
-				window.alert(getter);
 			}
 		}
 	}

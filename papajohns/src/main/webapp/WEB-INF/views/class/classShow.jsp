@@ -444,7 +444,7 @@ top:${y30}px;
 							<input type="hidden" name="getter" value="${teacher }">
 							<!-- <input type="submit" class="btn btn-default" value="login">-->
 							<button type="button" class="btn btn-success" id="quest">답변보내기</button>
-							<button type="button" class="btn btn-success" data-dismiss="modal">닫기</button>
+							<button type="button" class="btn btn-success" id="closeModal" data-dismiss="modal">닫기</button>
 
 						</div>
 					</div>
@@ -471,6 +471,8 @@ top:${y30}px;
 		$('#dbSend').click(function() { dbSend($("message").val());})
 		$('#quest').click(function() { 
 			question();
+			//$('#myModalQuest').modal('hide');
+			//$('#myModalQuest').modal('close');
 		})
 	});
 	
