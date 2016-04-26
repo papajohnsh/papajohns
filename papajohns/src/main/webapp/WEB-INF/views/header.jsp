@@ -74,7 +74,10 @@
 					
 					<!-- Find-menu -->
 					<li class="Find-menu"><a href="classRoomNameSearchForm.do?num=1"><span>검색</span></a></li>
-
+					
+					<li class="Find-menu">
+					<a href="#" onClick="javascript:window.open('myPlan.do','popup','scrollbars=no, resizable=no,channelmode=no, toolbar=no, width=900px,height=800px')"><span>스케줄러</span> </a>
+					</li>
 					<!-- bbs-menu -->
 					<li class="bbs-menu"><a href="bbsListForm.do"><span>게시판</span></a>
 					</li>

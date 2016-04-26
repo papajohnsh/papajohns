@@ -116,6 +116,7 @@ h3{
            <div class="col-xs-2"></div>   
          </div>
        </div>
+       </div>
      </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 

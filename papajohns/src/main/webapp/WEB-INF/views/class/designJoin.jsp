@@ -1741,7 +1741,7 @@ border-width:5px;
     	<td style="width:75px; height:75px;">
     	<div id="img${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px; text-align:center;">
           <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
-          <span id="r">${dto.id }</span>
+          <span id="r">${dto.name }</span>
          </div>
          </td>
       	</c:when>
@@ -1750,7 +1750,7 @@ border-width:5px;
     	<td style="width:75px;  height:75px;">
     	<div id="img${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px; text-align:center;">
           <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
-          <span id="r">${dto.id }</span>
+          <span id="r">${dto.name }</span>
           </div>
           </td>
     	</c:when>
@@ -1758,7 +1758,7 @@ border-width:5px;
     	<td style="width:75px;  height:75px;">
     	<div id="img${dto.idx }" class="${dto.id}" onclick='testfunc(this)' style="float:left; margin:5px 5px 5px 5px; text-align:center;">
           <img src="resource/data/${dto.id }/profile.jpg" onerror="this.src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'" width="60px" height="60px" class="drag2 img-circle" id="myImg" class="drag2"><br>
-          <span id="r">${dto.id }</span>
+          <span id="r">${dto.name }</span>
           </div>
           </td>
          </tr>

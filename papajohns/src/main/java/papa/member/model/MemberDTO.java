@@ -75,10 +75,10 @@ public void setPhonenumber(String phonenumber) {
 	this.phonenumber = phonenumber;
 }
 public String getEmail() {
-	return email;
+	return email.replace(",", "");
 }
 public void setEmail(String email) {
-	this.email = email;
+	this.email = email.replace(",", "");
 }
 public Date getJoindate() {
 	return joindate;

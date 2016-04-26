@@ -322,7 +322,7 @@ top:${y30}px;
  </c:forEach>
   </div>
 	  <div>
-	<iframe src="" width="350" height="650">
+	<iframe src="http://192.168.50.81:8081?student=${sname }&classRoom=${lessonName}" width="350" height="650">
 	<!-- http://192.168.50.81:8081?student=${sname }&classRoom=${lessonName} -->
  		</iframe>  
   </div>		
@@ -442,7 +442,7 @@ top:${y30}px;
 	connect();
 	}
 	function connect() {
-		var url="http://192.168.50.143:<%=request.getServerPort()%>/papajohns/echo.sockjs";
+		var url="http://192.168.50.81:<%=request.getServerPort()%>/papajohns/echo.sockjs";
 		wsocket = new SockJS(url);
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;

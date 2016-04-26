@@ -273,7 +273,7 @@ top:${y30}px;
               </a>
               <ul class="treeview-menu">
                 <li><a data-toggle="modal" data-target="#myModal3" href="studentList.do?idx=${param.idx }"><i class="fa fa-circle-o" ></i> 학생리스트</a></li>
-                <li><a href="#" onClick="javascript:window.open('myPlan.do','popup','scrollbars=no, resizable=no,channelmode=no, toolbar=no, width=900px,height=800px')"> 클릭 </a></li>
+                <li></li>
                 <li><a data-toggle="modal" data-target="#myModal2" href="myPlan.do" ><i class="fa fa-circle-o"></i> 수업스케줄</a></li>
                 <li><a data-toggle="modal" data-target="#myModal2" href="myPlan.do" ><i class="fa fa-circle-o"></i> 수업스케줄</a></li>
                 <%-- <li><a data-toggle="modal" href="quizTestForm.do" data-target="#myModal2"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
@@ -325,7 +325,7 @@ top:${y30}px;
     <button type="button" class="btn btn-success pull-center" data-toggle="modal" data-target="#myModalQuest" style="float: center; margin: 5px 5px 5px 5px; width:340px;height:48px;"><font color="white" >질문하기</font></button>
    </div>
 	  <div>
-	<iframe src="" width="350" height="550">
+	<iframe src="http://192.168.50.81:8081?student=${sname }&classRoom=${lessonName}" width="350" height="550">
 	<!-- http://192.168.50.81:8081?student=${sname }&classRoom=${lessonName} -->
  		</iframe>  
   </div>		
@@ -481,7 +481,7 @@ top:${y30}px;
 		connect();
 		}
 	function connect() {
-		var url="http://192.168.50.143:<%=request.getServerPort()%>/papajohns/echo.sockjs";
+		var url="http://192.168.50.81:<%=request.getServerPort()%>/papajohns/echo.sockjs";
 		wsocket = new SockJS(url);
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;

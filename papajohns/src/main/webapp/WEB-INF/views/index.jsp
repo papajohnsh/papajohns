@@ -140,7 +140,7 @@
    
                  
 
-                   <div class="container" style="width: 30%;margin-left:60%; z-index: auto; margin-top:-12.4%; ">
+                   <div class="container" style="width: 30%;margin-left:60%; z-index: auto; margin-top:-20%; ">
    	  <!--         <div class="container" style="width: 35%;margin-left:18%; z-index: auto;  margin-top:1%; "> -->
                    
                 <div class="box-header with-border" align="center">
