@@ -9,4 +9,8 @@
   	<insert id="question" parameterType="String">
   		insert into question(writer, getter, content, write_date, status) values(#{writer},#{getter},#{content}, now(), 0)
   	</insert>
+  	
+  	<select id="questionView" resultType="papa.question.model.QuestionDTO" parameterType="String">
+  	 	select * from question where getter=#{id};
+  	</select>
   </mapper>
