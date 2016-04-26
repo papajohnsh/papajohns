@@ -30,5 +30,7 @@ public interface MemberDAO {
 	public void loginUpdate(MemberDTO dto);
 	//public String memberId(MemberDTO dto);
 	public String getInterLock(String id);
+	
+	public List<MemberDTO> allMember();
 
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.*;
 import papa.class_.model.*;
@@ -47,14 +48,25 @@ public class MyLessonController {
 	}
 	
 	@RequestMapping("/studentList.do")//학생리스트
-	public ModelAndView studentList(){
+	public ModelAndView studentList(@RequestParam(value="idx") int idx){
+		System.out.println("현재 반 idx 번호:"+idx);
 		
-		List<MemberDTO> result= dao.studentList();
-			for(int i=0; i<result.size();i++){	
-				System.out.println(result.get(i).getId());
+		List<MemberDTO> list=dao.allMember();
+		List<MemberDTO> list2=new ArrayList<>();
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).getReidx()!=null){
+				String reidx_s=list.get(i).getReidx().substring(2);
+				String reidx[]=reidx_s.split(",");
+				for(int j=0; j<reidx.length;j++){
+					if(Integer.parseInt(reidx[j])==idx){
+						list2.add(list.get(i));
+					}
+				}
 			}
+		}
+
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("result",result);
+		mav.addObject("result",list2);
 		mav.setViewName("class/studentList");
 		return mav;
 	}
