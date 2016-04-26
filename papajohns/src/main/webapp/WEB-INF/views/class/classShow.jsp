@@ -268,7 +268,7 @@ top:${y30}px;
                 <i class="fa fa-files-o"></i> <span>내수업</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#" id="studentList"><i class="fa fa-circle-o" ></i> 학생리스트</a></li>
+                <li><a data-toggle="modal" data-target="#myModal3" href="studentList.do?idx=${param.idx }"><i class="fa fa-circle-o" ></i> 학생리스트</a></li>
                 <li><a href="#" onClick="javascript:window.open('myPlan.do','popup','scrollbars=no, resizable=no,channelmode=no, toolbar=no, width=900px,height=800px')"> 클릭 </a></li>
                 <li><a data-toggle="modal" data-target="#myModal2" href="myPlan.do" ><i class="fa fa-circle-o"></i> 수업스케줄</a></li>
                 <li><a data-toggle="modal" data-target="#myModal2" href="myPlan.do" ><i class="fa fa-circle-o"></i> 수업스케줄</a></li>
@@ -277,7 +277,7 @@ top:${y30}px;
                 <li><a data-toggle="modal" href="quizResult.do?idx=${param.idx }" data-target="#myModal4"><i class="fa fa-circle-o"></i>쪽지시험결과</a></li> --%>
                 <!-- <li><a data-toggle="modal" href="questionForm.do" data-target="#myModal4"><i class="fa fa-circle-o"></i>질문하기</a></li> -->
                 <li><a data-toggle="modal" href="quizTestLoad.do?idx=${param.idx }" data-target="#myModal5" data-backdrop="static"><i class="fa fa-circle-o"></i>쪽지시험보기</a></li>
-                <li><a href="showMessage.do"><i class="fa fa-circle-o"></i> 메세지 보기</a></li>
+                <li><a data-toggle="modal" data-target="#myModal4" href="showMessage.do"><i class="fa fa-circle-o"></i> 메세지 보기</a></li>
                 <li><a href="classBbs.do"><i class="fa fa-circle-o"></i> 수업게시판</a></li>
                 <li><a href="saveClass.do"><i class="fa fa-circle-o"></i> 수업내용 저장</a></li>
                 <li><a data-toggle="modal" href="fileUpload.do" data-target="#myModal6"><i class="fa fa-circle-o"></i>파일업로드</a></li>      
@@ -349,10 +349,9 @@ div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby=
   </div>
 </div>
 
-<div class="modal fade bs-example-modal-sm" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
     <div class="modal-content">
-      ...
     </div>
   </div>
 </div>
