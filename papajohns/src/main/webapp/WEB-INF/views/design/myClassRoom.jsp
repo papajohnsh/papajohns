@@ -277,7 +277,7 @@ top:${y30}px;
                 <li><a data-toggle="modal" data-target="#myModal2" href="studentList.do?idx=${param.idx }" ><i class="fa fa-circle-o" ></i> 학생리스트</a></li>
                 <li><a data-toggle="modal" href="lessonSchedule.do" data-target="#myModal7" ><i class="fa fa-circle-o"></i> 강의스케줄</a></li>
                 <li><a data-toggle="modal" href="quizTestForm.do?idx=${param.idx }" data-target="#myModal5" data-backdrop="static"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
-                <li><a data-toggle="modal" href="quizList.do?idx=${param.idx }" data-target="#myModal3"><i class="fa fa-circle-o"></i> 문제 수정하기</a></li>
+                <li><a data-toggle="modal" href="quizList.do?idx=${param.idx }" data-target="#myModal3"><i class="fa fa-circle-o"></i> 시험출제하기</a></li>
                 <li><a data-toggle="modal" href="quizResult.do?idx=${param.idx }" data-target="#myModal4"><i class="fa fa-circle-o"></i>쪽지시험결과</a></li>
 <!--                 <li><a data-toggle="modal" href="quizTestLoad.do" data-target="#myModal5" data-backdrop="static"><i class="fa fa-circle-o"></i>쪽지시험보기</a></li> -->
                 <li><a data-toggle="modal" data-target="#myModal8" href="showMessage.do"><i class="fa fa-circle-o"></i> 메세지 보기</a></li>
