@@ -269,7 +269,9 @@ top:${y30}px;
               </a>
               <ul class="treeview-menu">
                 <li><a href="#" id="studentList"><i class="fa fa-circle-o" ></i> 학생리스트</a></li>
-                <li><a data-toggle="modal" data-target="#myModal2" href="stuendtSchedule.do" ><i class="fa fa-circle-o"></i> 수업스케줄</a></li>
+                <li><a href="#" onClick="javascript:window.open('myPlan.do','popup','scrollbars=no, resizable=no,channelmode=no, toolbar=no, width=900px,height=800px')"> 클릭 </a></li>
+                <li><a data-toggle="modal" data-target="#myModal2" href="myPlan.do" ><i class="fa fa-circle-o"></i> 수업스케줄</a></li>
+                <li><a data-toggle="modal" data-target="#myModal2" href="myPlan.do" ><i class="fa fa-circle-o"></i> 수업스케줄</a></li>
                 <%-- <li><a data-toggle="modal" href="quizTestForm.do" data-target="#myModal2"><i class="fa fa-circle-o"></i> 문제 만들기</a></li>
                 <li><a data-toggle="modal" href="quizList.do?idx=${param.idx }" data-target="#myModal3"><i class="fa fa-circle-o"></i> 문제 수정하기</a></li>
                 <li><a data-toggle="modal" href="quizResult.do?idx=${param.idx }" data-target="#myModal4"><i class="fa fa-circle-o"></i>쪽지시험결과</a></li> --%>
@@ -474,7 +476,7 @@ div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby=
 		connect();
 		}
 	function connect() {
-		var url="http://localhost:<%=request.getServerPort()%>/papajohns/echo.sockjs";
+		var url="http://192.168.50.143:<%=request.getServerPort()%>/papajohns/echo.sockjs";
 		wsocket = new SockJS(url);
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;

@@ -53,7 +53,7 @@ public class MemberController {
 	    	ModelAndView mav=new ModelAndView();
 	    	
 	    		MemberDTO dto=memberDao.getUserInfo(id);
-	            email.setContent("http://localhost:8080/papajohns/loginConfirm.do?id="+id);	            
+	            email.setContent("http://192.168.50.81:9090/papajohns/loginConfirm.do?id="+id);	            
 	            email.setReceiver(dto.getEmail());
 	            email.setSubject(dto.getNickname()+"님 인증 메일입니다.");
 	            emailSender.SendEmail(email);

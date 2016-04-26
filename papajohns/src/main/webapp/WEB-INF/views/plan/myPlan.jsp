@@ -9,6 +9,9 @@
 <script src="js/plan/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/plan/dhtmlxscheduler_serialize.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="css/plan/dhtmlxscheduler.css" type="text/css" title="no title" charset="utf-8">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <style type="text/css" media="screen">
 		html, body{
 		margin:0px;
@@ -76,10 +79,8 @@
 <body onload="init();">
 	<div style='height:20px; padding:0 10px;'>
 		
-		<form name="json" method="post" action="planSave.do">
-			<input type="hidden" name="json">
-			<input type="button" value="Save" onclick="save()" style="right:200px;"><br>
-		</form>
+		
+		
 	</div>
 	<input type="button" name="download" value="Download" onclick="download()" style="right:500px;">
 			<input type="button" name="show" value="Show" onclick="show()" style="right:400px;">
@@ -90,8 +91,15 @@
 		<div class="dhx_cal_navline">
 			<div class="dhx_cal_prev_button">&nbsp;</div>
 			<div class="dhx_cal_next_button">&nbsp;</div>
-			<div class="dhx_cal_today_button"></div>
+	        <div class="dhx_cal_today_button"></div>
+			<div class="container">
+			<form name="json" method="post" action="planSave.do">
+			<input type="button" value="저장하기" style="position:absolute;left: 205px; height: 35px; width: 80px;"  onclick="save()" class="btn btn-default">
+			<input type="hidden" name="json">
+			</form>
+			</div>
 			<div class="dhx_cal_date"></div>
+			<div><input type="button" value="임시" style="position:relative; right:205px;"></div>
 			<div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
 			<div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
 			<div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>
