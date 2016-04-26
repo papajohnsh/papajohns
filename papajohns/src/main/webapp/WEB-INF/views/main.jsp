@@ -123,7 +123,7 @@ var date = now.getDate();
       <label for="id"><font size="4em">ID:</font></label>
       <input type="text" class="form-control" name="id" style="width: 23%; height:6%;" id="id" value="${cookie.saveid.value==null?'':cookie.saveid.value}" placeholder="Enter id">
     </div>
-    <br><br>
+    <br>
     <div class="form-group">
       <label for="pwd" style="margin-top:4%;"><font size="4em">Password:</font></label>
       <input type="password" class="form-control" name="pwd" style="width:23%; height:6%;" id="pwd" placeholder="Enter password">

@@ -8,6 +8,9 @@ $(function() {
 
 
  });
+ $('#header').on('click',function(){
+	 window.alert('눌렀다 하하');
+ });
 </script>
 
 <div class="modal-header">
@@ -38,7 +41,7 @@ $(function() {
            <td style="width:300px; "> 
            <div class="panel panel-default" style="width:400px;">
                
-               <div class="panel-heading"  data-acc-link="${dto.idx }" align="center">${dto.content }</div>
+               <div class="panel-heading" id="${dto.idx }" data-acc-link="${dto.idx }" align="center">${dto.content }</div>
                
                <div class="panel-body" data-acc-content="${dto.idx }">
                ${dto.content }
