@@ -20,6 +20,18 @@
 .btn.active span.glyphicon {				
 	opacity: 1;				
 }
+
+.form-group{
+	margin-bottom: 0px;
+}
+
+th, td{
+	text-align: center;
+}
+tr{
+	margin-bottom: 5px;
+}
+
 		</style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -80,7 +92,7 @@
                 
                 <div class="box-body">
                  <form name="f" role="form" action="makeClassAdd.do" >
-                  <table>
+                  <table style="border-collapse:separate; border-spacing: 5px;">
                    <tr>
                       <th>강의명</th>
                       <td colspan="3">
@@ -91,25 +103,25 @@
                     </tr>
                     <tr>
                       <th>수업기관명</th>
-                      <td><input type="text" name="institut" style="width: 200px;""></td>
+                      <td><input type="text"  class="form-control" name="institut" style="width:300px;"></td>
                       <th>강사명</th>
-                      <td><input type="text" name="name" value="${sname }" style="width: 200px;">
+                      <td style="text-align: right; float:right;"><input type="text"  class="form-control" name="name" value="${sname }" style="float:right;width:300px;">
                       <input type="hidden" name="reidx" value="${sidx }">
                       </td>
                     </tr>
                    
                     <tr>
                       <th>강의스케줄</th>
-                      <td>
-                      <input type="text" name="start_date" id="start_date" placeholder="시작 날짜" style="width: 150px;">
-                      <input type="text" name="end_date"  id="end_date" placeholder="종료 날짜"style="float:right; width: 150px;">
+                      <td colspan="3">
+                      <input type="text"  class="form-control" name="start_date" id="start_date" placeholder="시작 날짜" style="float:left;width:300px;">
+                      <input type="text"  class="form-control" name="end_date"  id="end_date" placeholder="종료 날짜"style="float:right;width:300px;">
                       </td>
                       </tr>
                       <tr>
                        <th>강의시간</th>
-	                   	<td>
-	                   	<input type="text" name="start_time" id="start_time" placeholder="시작 시간" style="width: 150px;">
-	                   	<input type="text" name="end_time" id="end_time" placeholder="종료 날짜" style="width:150px; float: right;">
+	                   	<td colspan="3">
+	                   	<input type="text"  class="form-control" name="start_time" id="start_time" placeholder="시작 시간" style="float:left;width:300px;">
+	                   	<input type="text"  class="form-control" name="end_time" id="end_time" placeholder="종료 시간" style="float:right; width:300px;">
 	                   	</td>
                       <!-- <td><input type="text" name="class_date" class="form-control"></td> -->
 					</tr>
@@ -122,7 +134,7 @@
 
 	
 		
-		<div class="btn-group" data-toggle="buttons">
+		<div class="btn-group" data-toggle="buttons" style="width:100%">
 			
 			<label class="btn btn-default">
 				<input type="checkbox" autocomplete="off" name="day" value="1">월
