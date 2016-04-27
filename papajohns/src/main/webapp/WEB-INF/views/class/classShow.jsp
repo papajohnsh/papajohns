@@ -306,7 +306,7 @@ top:${y30}px;
       </aside>
 <div class="content-wrapper" style="background: white; min-height: 700px;">
  <div class="col frame2" id="droppable" style="width: 1050px; height: 700px; background:rgb(185, 205, 214); padding: 5px 5px 5px 5px;" >
-  <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left; padding:5px 5px 5px 5px; background:#E6A323;">
+  <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left; padding:5px 5px 5px 5px; background-image: url('img/lesson.png');background-size:100%;">
   <c:forEach var="dto" items="${list }">
 				
 				<div id="img${dto.idx }" style="position: absolute; text-align: center;">

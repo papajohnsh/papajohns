@@ -82,12 +82,12 @@
 		
 		
 	</div>
-	 
+	<!-- 
 	<input type="button" name="download" value="Download" onclick="download()" style="right:500px;">
 			<input type="button" name="show" value="Show" onclick="show()" style="right:400px;">
 			<input type="button" name="log" value="log" onclick="log()" style="right:300px;">
 	<br>
-	 
+	  -->
 	<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100%;'>
 		<div class="dhx_cal_navline">
 			<div class="dhx_cal_prev_button">&nbsp;</div>

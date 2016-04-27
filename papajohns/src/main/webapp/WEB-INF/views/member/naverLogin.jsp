@@ -34,7 +34,7 @@
 
 	//client_id 와 redirect_uri 등록
 
-	var naver_id_login = new naver_id_login("QmCBaI9fFaz4PMnMt0ez", "http://127.0.0.1:8080/papajohns/loginForm.do");
+	var naver_id_login = new naver_id_login("QmCBaI9fFaz4PMnMt0ez", "http://192.168.50.81:9090/papajohns/loginForm.do");
 
 
 	/* 사용 가능한버튼 Option
@@ -56,7 +56,7 @@
 	
 	//로그인 popup 형태로 설정
 
-	//naver_id_login.setPopup();
+	naver_id_login.setPopup();
 
 	naver_id_login.init_naver_id_login();
 

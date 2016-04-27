@@ -1727,9 +1727,9 @@ border-width:5px;
 	
 <div class="content-wrapper" style="background: white; min-height: 800px;">
  <div class="col frame2" id="droppable" style="width: 1050px; background:rgb(185, 205, 214);">
-  <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left;background-image: url('img/lesson.png');background-size:100%;"">
+  <div class="col frame3" id="droppable" style="width:650px; height:650px; float:left;background-image: url('img/lesson.png');background-size:100%;">
   </div>
-  <div class="col frame3" id="col1" style="float:left; width: 250px; height:650px; background:yellow;">
+  <div class="col frame3" id="col1" style="float:left; width: 250px; height:650px; background-image: url('img/less.png');background-size:100%; ">
 
    
    <div id="drag-list" class="drag-list">
