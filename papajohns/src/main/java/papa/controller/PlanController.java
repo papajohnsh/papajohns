@@ -65,6 +65,8 @@ public class PlanController {
 		String account=(String)session.getAttribute("sid");
 		String path=request.getSession().getServletContext().getRealPath("/resource/data/"+account);
 		try {
+			File temp = new File(path);
+			temp.mkdir();
 			File file = new File(path+"/data.json");
 			Writer outFile = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "utf-8"));
 			//FileOutputStream(file.getPath(), "UTF-8");
@@ -78,7 +80,7 @@ public class PlanController {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("msg","저장이 완료되었습니다.");
-		mav.setViewName("plan/myInfoPlan");
+		mav.setViewName("plan/msg");
 		return mav;
 	}
 	/*
